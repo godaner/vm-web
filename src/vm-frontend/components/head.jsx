@@ -99,7 +99,7 @@ var Head = React.createClass({
             //if have not user login , it will not open ws
 
             if (!isEmpty(userId)) {
-                var wsUrl = WS_URL_PREFIX + "/ws/user/status/" + userId;
+                var wsUrl = vm_config.ws_url_prefix + "/ws/user/status/" + userId;
                 var wsObj = new WebSocket(wsUrl);
 
                 this.updateStateWs({
@@ -276,7 +276,8 @@ var Head = React.createClass({
             var onlineUserBasicInfoLocation = {
                 pathname: this.state.onlineUserBasicInfoUrl
             };
-            var headImgUrl = this.state.user.imgUrl + "?width=50";
+            //imgUrl
+            var headImgUrl =  vm_config.http_url_prefix + this.state.user.imgUrl + "?width=50";
             return (
                 <span>
                     <li>

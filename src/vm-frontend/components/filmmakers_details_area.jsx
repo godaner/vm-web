@@ -101,10 +101,12 @@ var FilmmakersDetailsArea = React.createClass({
                     pathname: '/filmmaker/' + filmmaker.id,
                     state: {fromDashboard: true}
                 }
+                //imgUrl
+                var imgUrl = vm_config.http_url_prefix + filmmaker.imgUrl;
                 res.push(
                     <li key={filmmaker.id} title={filmmaker.name}>
                         <Link title={filmmaker.name} to={location}>
-                            <img title={filmmaker.name} src={filmmaker.imgUrl}/>
+                            <img title={filmmaker.name} src={imgUrl}/>
                             <div title={filmmaker.name}>{filmmaker.name}</div>
                         </Link>
 

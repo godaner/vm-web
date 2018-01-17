@@ -111,7 +111,7 @@ var ajax = {
         // c("request data is : ");
         // c(args);
         $.ajax({
-            url: args.url,
+            url: vm_config.http_url_prefix + args.url,
             //配合@requestBody
             data: args.data,
             async: args.async,

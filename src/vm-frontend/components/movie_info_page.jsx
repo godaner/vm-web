@@ -274,7 +274,8 @@ var MovieInfoPage = React.createClass({
 
         //format releaseTime
         var releaseTime = timeFormatter.formatDate(this.state.movie.releaseTime);
-
+        //imgUrl
+        var imgUrl = vm_config.http_url_prefix + this.state.movie.imgUrl;
         return (
             <div id="movie_info_content">
                 <div id="basic_info">
@@ -283,7 +284,7 @@ var MovieInfoPage = React.createClass({
                     <div className="clearfix" id="movie_info_displayer">
 
                         <div id="movie_img">
-                            <img src={MOVIE_LOADING_IMG} data-original={this.state.movie.imgUrl}/>
+                            <img src={MOVIE_LOADING_IMG} data-original={imgUrl}/>
                         </div>
                         <div id="movie_text">
                             <ul id="text_ul">

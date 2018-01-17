@@ -10,16 +10,16 @@ var MoviesDisplayer = React.createClass({
     getInitialState: function () {
         return {
             loadingMoviesTip: "正在加载电影列表",
-            noMoviesTip:"无相关电影"
+            noMoviesTip: "无相关电影"
         };
     },
-    noMoviesTip:function(){
-        this.showMsg(this.state.noMoviesTip,false);
+    noMoviesTip: function () {
+        this.showMsg(this.state.noMoviesTip, false);
     },
-    loadingMoviesTip:function(){
-        this.showMsg(this.state.loadingMoviesTip,true);
+    loadingMoviesTip: function () {
+        this.showMsg(this.state.loadingMoviesTip, true);
     },
-    hideMovieTip:function(){
+    hideMovieTip: function () {
         this.refs.innerMessager.hide();
     },
     showMsg(msg, loop){
@@ -32,7 +32,7 @@ var MoviesDisplayer = React.createClass({
         var movies = this.props.movies;
 
         //for first load
-        if(isEmptyList(movies)){
+        if (isEmptyList(movies)) {
             movies = [];
         }
         var movieItems = movies.map(function (item) {
@@ -43,14 +43,14 @@ var MoviesDisplayer = React.createClass({
                 state: {fromDashboard: true}
             }
 
-            // history.push(location);
-            // history.replace(location)
+            //imgUrl
+            var imgUrl = vm_config.http_url_prefix + item.imgUrl;
             return <li className="movie_item animated flipInX" key={item.id}>
                 <div className="movie_img_div">
 
 
                     <Link to={location} className="aLink">
-                        <img src={MOVIE_LOADING_IMG} data-original={item.imgUrl}/>
+                        <img src={MOVIE_LOADING_IMG} data-original={imgUrl}/>
                     </Link>
                 </div>
                 <div className="movie_info_div">
