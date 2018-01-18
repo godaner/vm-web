@@ -97,6 +97,9 @@ var RegistDialog = React.createClass({
                 //hide regist dialog
                 this.closeRegistDialog();
 
+                //keep token
+                localStorage.setItem(KEY_OF_ACCESS_TOKEN,result.data.user.token);
+
                 //show msg dialog
                 window.VmFrontendEventsDispatcher.showMsgDialog(this.state.registSuccess);
 

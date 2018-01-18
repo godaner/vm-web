@@ -18,6 +18,9 @@ window.VmFrontendEventsDispatcher = {
     },
     onUpdateHeadImgSuccess: function (newUser) {
         this.event.emit('onUpdateHeadImgSuccess', newUser);
+    },
+    protectPage: function () {
+        this.event.emit('protectPage');
     }
 };
 window.EventsDispatcher = window.VmFrontendEventsDispatcher;

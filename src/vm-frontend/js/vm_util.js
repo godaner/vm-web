@@ -5,19 +5,12 @@ function fail(code) {
 function success(code) {
     return code > 0;
 }
+function offline(code){
+    return code == HTTP_RESPONSE_CODE_USER_IS_OFFLINE;
+}
 
 
-//保护用户页面
-// function protectUserPageWhenUserIsOffline(react_this) {
-//     for (var i = 0; i < vm_config.protectedUserPageLists.length; i++) {
-//         var protectedPage = vm_config.protectedUserPageLists[i];
-//         if (react_this.props.location.pathname.match(protectedPage)) {
-//             react_this.props.history.replace("/");
-//             break;
-//         }
-//     }
-//
-// }
+
 
 
 //开始懒加载，依赖jquery.lazyload.js
@@ -33,6 +26,7 @@ function lazyLoad() {
  */
 var ajax = {
     ajaxError: "访问服务器失败,请稍后重试",
+    offline:"您已离线",
     startResponse(args, result){
         window.EventsDispatcher.closeLoading();
         if (!isUndefined(args)) {
@@ -51,6 +45,14 @@ var ajax = {
     requestServerSuccess: function (args, result) {
         if (isUndefined(result)) {
             return;
+        }
+        if(offline(result.code)){//离线
+            window.VmFrontendEventsDispatcher.showMsgDialog(this.offline, function () {
+
+            });
+            //保护用户页面
+            window.VmFrontendEventsDispatcher.protectPage();
+            return ;
         }
         if (fail(result.code) && !isUndefined(args.onResponseFailure)) {
             args.onResponseFailure(result);
@@ -114,10 +116,10 @@ var ajax = {
         var accessToken = localStorage.getItem(KEY_OF_ACCESS_TOKEN);
 
         //set token header
+        var headers = {};
+        headers[KEY_OF_ACCESS_TOKEN] = accessToken;
         $.ajaxSetup({
-            headers: {
-                KEY_OF_ACCESS_TOKEN: accessToken
-            }
+            headers: headers
         });
         $.ajax({
             url: vm_config.http_url_prefix + args.url,

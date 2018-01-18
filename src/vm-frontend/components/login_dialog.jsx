@@ -96,7 +96,7 @@ var LoginDialog = React.createClass({
                 }.bind(this),
                 onResponseSuccess: function (result) {
 
-                    c(result);
+                    // c(result);
                     //keep token
                     localStorage.setItem(KEY_OF_ACCESS_TOKEN,result.data.user.token);
 

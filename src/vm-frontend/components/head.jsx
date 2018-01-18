@@ -3,6 +3,9 @@ import {BrowserRouter, HashRouter, Link, Route, Switch, withRouter} from "react-
 import LoginDialog from "./login_dialog";
 import RegistDialog from "./regist_dialog";
 import "../scss/head.scss";
+/**
+ * 用户信息展示,界面跳转，保护用户界面的职责
+ */
 var Head = React.createClass({
 
     getInitialState: function () {
@@ -32,6 +35,17 @@ var Head = React.createClass({
     registEvents: function () {
         window.event.on('onUpdateHeadImgSuccess', (newUser) => {
             this.updateStateUser(newUser);
+        });
+        //保护页面的职责
+        window.event.on('protectPage', () => {
+            for (var i = 0; i < vm_config.protectedUserPageLists.length; i++) {
+                var protectedPage = vm_config.protectedUserPageLists[i];
+                if (this.props.location.pathname.match(protectedPage)) {
+                    this.props.history.replace("/");
+                    break;
+                }
+            }
+
         });
     },
     showLoginDialog: function () {
@@ -277,7 +291,7 @@ var Head = React.createClass({
                 pathname: this.state.onlineUserBasicInfoUrl
             };
             //imgUrl
-            var headImgUrl =  vm_config.http_url_prefix + this.state.user.imgUrl + "?width=50";
+            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "?width=50";
             return (
                 <span>
                     <li>
