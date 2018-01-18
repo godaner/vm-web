@@ -95,6 +95,11 @@ var LoginDialog = React.createClass({
                     window.VmFrontendEventsDispatcher.closeLoading();
                 }.bind(this),
                 onResponseSuccess: function (result) {
+
+                    c(result);
+                    //keep token
+                    localStorage.setItem(KEY_OF_ACCESS_TOKEN,result.data.user.token);
+
                     //login success,hide login dialog
                     this.closeLoginDialog();
 

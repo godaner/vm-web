@@ -108,8 +108,17 @@ var ajax = {
         if (!isUndefined(args.loadingMsg)) {
             window.EventsDispatcher.showLoading(args.loadingMsg);
         }
-        // c("request data is : ");
-        // c(args);
+
+
+        //get token
+        var accessToken = localStorage.getItem(KEY_OF_ACCESS_TOKEN);
+
+        //set token header
+        $.ajaxSetup({
+            headers: {
+                KEY_OF_ACCESS_TOKEN: accessToken
+            }
+        });
         $.ajax({
             url: vm_config.http_url_prefix + args.url,
             //配合@requestBody
