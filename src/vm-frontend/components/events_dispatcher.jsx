@@ -16,11 +16,14 @@ window.VmFrontendEventsDispatcher = {
     closeLoading: function () {
         this.event.emit('closeLoading');
     },
-    onUpdateHeadImgSuccess: function (newUser) {
-        this.event.emit('onUpdateHeadImgSuccess', newUser);
+    updateHeadComponentUser: function (newUser) {
+        this.event.emit('updateHeadComponentUser', newUser);
     },
     protectPage: function () {
         this.event.emit('protectPage');
+    },
+    getAndCheckOnlineUser: function (callfun) {
+        this.event.emit('getAndCheckOnlineUser', callfun);
     }
 };
 window.EventsDispatcher = window.VmFrontendEventsDispatcher;

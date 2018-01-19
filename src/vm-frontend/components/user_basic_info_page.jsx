@@ -17,8 +17,11 @@ var UserBasicInfoPage = React.createClass({
         };
     },
     componentDidMount(){
-        this.getUserBasicInfo();
-
+        window.VmFrontendEventsDispatcher.getAndCheckOnlineUser({
+            onGetOnlineUser:function (u) {
+                this.updateStateUser(u);
+            }.bind(this)
+        });
     },
     updateStateUser: function (user) {
         if (isEmpty(user)) {
@@ -27,36 +30,6 @@ var UserBasicInfoPage = React.createClass({
         var state = this.state;
         state.user = user;
         this.setState(state);
-    },
-    getUserBasicInfo: function (callfun) {
-        // c(this.props);
-        const url = "/user/online";
-        ajax.get({
-            url: url,
-            onBeforeRequest: function () {
-
-            }.bind(this),
-            onResponseStart: function () {
-
-            }.bind(this),
-            onResponseSuccess: function (result) {
-                var u = result.data.user;
-                //update user in state
-                this.updateStateUser(u);
-
-            }.bind(this),
-            onResponseFailure: function (result) {
-                window.VmFrontendEventsDispatcher.showMsgDialog(this.state.getInfoFailure);
-            }.bind(this),
-            onResponseEnd: function () {
-                //callfun
-                if (callfun != undefined) {
-                    callfun()
-                }
-            }.bind(this, callfun)
-        });
-
-
     },
     handleBirthdayChange(date) {
         // c("handleBirthdayChange");

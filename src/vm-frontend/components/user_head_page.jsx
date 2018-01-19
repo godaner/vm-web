@@ -22,44 +22,11 @@ var UserHeadPage = React.createClass({
         };
     },
     componentDidMount(){
-        this.getOnlineUser();
-    },
-
-    updateStateUser: function (user) {
-        if (isEmpty(user)) {
-            user = {};
-        }
-        var state = this.state;
-        state.user = user;
-        this.setState(state);
-    },
-    getOnlineUser(callfun){
-        // c(this.props);
-        const url = "/user/online";
-        ajax.get({
-            url: url,
-            onBeforeRequest: function () {
-
-            }.bind(this),
-            onResponseStart: function () {
-
-            }.bind(this),
-            onResponseSuccess: function (result) {
-                var u = result.data.user;
-                //update user in state
-                this.updateStateUser(u);
+        window.VmFrontendEventsDispatcher.getAndCheckOnlineUser({
+            onGetOnlineUser: function (u) {
                 this.previewHeadImg(u.imgUrl + "?width=" + this.state.userHeadRequestWidth + "&t=" + Date.now());
 
-            }.bind(this),
-            onResponseFailure: function (result) {
-                window.VmFrontendEventsDispatcher.showMsgDialog(this.state.getInfoFailure);
-            }.bind(this),
-            onResponseEnd: function () {
-                //callfun
-                if (callfun != undefined) {
-                    callfun()
-                }
-            }.bind(this, callfun)
+            }.bind(this)
         });
     },
     getUserHeadUploader(){
@@ -69,7 +36,7 @@ var UserHeadPage = React.createClass({
         this.getUserHeadUploader().previewImg(imgUrl);
     },
     onUpdateImgSuccess(result){
-        window.EventsDispatcher.onUpdateHeadImgSuccess(result.data.user);
+        window.EventsDispatcher.updateHeadComponentUser(result.data.user);
     },
     render: function () {
         return (

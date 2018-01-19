@@ -1,5 +1,5 @@
 import React from "react"; //引入react组件
-import {BrowserRouter, HashRouter, Link, Route, Switch, withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import LoginDialog from "./login_dialog";
 import RegistDialog from "./regist_dialog";
 import "../scss/head.scss";
@@ -33,9 +33,44 @@ var Head = React.createClass({
 
     },
     registEvents: function () {
-        window.event.on('onUpdateHeadImgSuccess', (newUser) => {
+        //更新头像
+        window.event.on('updateHeadComponentUser', (newUser) => {
             this.updateStateUser(newUser);
         });
+        //获取且监测用户是否有在线的职责
+        window.event.on('getAndCheckOnlineUser', (args) => {
+
+            const url = "/user/online";
+            ajax.get({
+                url: url,
+                onBeforeRequest: function () {
+                }.bind(this),
+                onResponseStart: function () {
+                }.bind(this),
+                onResponseSuccess: function (result) {
+                    //用户不在线
+                    var u = result.data.user;
+                    if (!isUndefined(u) && !isUndefined(callfun)) {
+                        window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
+                        if (!isUndefined(args)) {
+
+                            //callfun
+                            if (!isUndefined(args.onGetOnlineUser)) {
+                                args.onGetOnlineUser(u);
+                            }
+                        }
+                    }
+                }.bind(this),
+                onResponseFailure: function (result) {
+                }.bind(this),
+                onResponseEnd: function () {
+                }.bind(this),
+                onRequestError: function () {
+                }.bind(this)
+            })
+
+        });
+
         //保护页面的职责
         window.event.on('protectPage', () => {
             for (var i = 0; i < vm_config.protectedUserPageLists.length; i++) {

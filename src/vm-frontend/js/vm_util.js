@@ -47,10 +47,11 @@ var ajax = {
             return;
         }
         if(offline(result.code)){//离线
+            //show some tip
             window.VmFrontendEventsDispatcher.showMsgDialog(this.offline, function () {
 
             });
-            //保护用户页面
+            //protect user page
             window.VmFrontendEventsDispatcher.protectPage();
             return ;
         }
