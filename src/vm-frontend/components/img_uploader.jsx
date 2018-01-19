@@ -11,7 +11,7 @@ var ImgUpload = React.createClass({
         //     fileMaxsize: 1024 * 1024 * 2,//1M
         //     saveImgUrl:"/online/img",//服务器接受x,y,w,h,fileId等参数,返回newImgUrl
         //     uploadTempImgUrl:"/online/img/temp",//服务器接受imgFile,返回tempImgUrl和fileId
-        //      defaultDisplayImg:"/img/1?width=11&t=1321321"
+        //      server_url_prefix:""
         // };
         var config = this.props.config;
         return {
@@ -29,7 +29,7 @@ var ImgUpload = React.createClass({
         };
     },
     componentDidMount(){
-        this.previewImg(this.state.config.defaultDisplayImg);
+        // this.previewImg(this.state.config.defaultDisplayImg);
     },
     validateImgFileOnSubmit(){
         //服务器未接收到相关的图片缓存
@@ -155,7 +155,8 @@ var ImgUpload = React.createClass({
             $imgPreview.cropper(options);
             this.updateStateImgPreview($imgPreview);
         }
-        this.state.$imgPreview.cropper("replace", imgUrl);
+        c(this.state.config.server_url_prefix + imgUrl);
+        this.state.$imgPreview.cropper("replace", this.state.config.server_url_prefix + imgUrl);
 
     },
     uploadTempImg(callfun){

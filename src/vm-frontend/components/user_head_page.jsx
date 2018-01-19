@@ -1,5 +1,4 @@
 import React from "react"; //引入react组件
-import {BrowserRouter, HashRouter, Link, Route, Switch} from "react-router-dom";
 import "../scss/user_head_page.scss";
 import ImgUploader from "./img_uploader";
 
@@ -10,8 +9,9 @@ var UserHeadPage = React.createClass({
         var config = {
             fileTypes: ["jpg", "png"],
             fileMaxsize: 1024 * 1024 * 2,//2M
-            saveImgUrl:"/user/img",
-            uploadTempImgUrl:"/user/img/temp"
+            saveImgUrl: "/user/img",
+            uploadTempImgUrl: "/user/img/temp",
+            server_url_prefix: vm_config.http_url_prefix
         };
         return {
             config: config,
