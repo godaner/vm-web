@@ -22,8 +22,11 @@ window.VmFrontendEventsDispatcher = {
     protectPage: function () {
         this.event.emit('protectPage');
     },
-    getAndCheckOnlineUser: function (callfun) {
-        this.event.emit('getAndCheckOnlineUser', callfun);
+    getOnlineUser: function (callfun) {
+        this.event.emit('getOnlineUser', callfun);
+    },
+    feelerOnlineUser: function (callfun) {
+        this.event.emit('feelerOnlineUser', callfun);
     }
 };
 window.EventsDispatcher = window.VmFrontendEventsDispatcher;

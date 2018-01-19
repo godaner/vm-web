@@ -17,7 +17,7 @@ var UserBasicInfoPage = React.createClass({
         };
     },
     componentDidMount(){
-        window.VmFrontendEventsDispatcher.getAndCheckOnlineUser({
+        window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser:function (u) {
                 this.updateStateUser(u);
             }.bind(this)

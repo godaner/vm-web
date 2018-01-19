@@ -29,16 +29,65 @@ var Head = React.createClass({
     componentDidMount: function () {
         this.registEvents();
         //刷新页面后获取在线用户，并且建立新的ws连接，如果用户不在线，那么保护页面
-        this.getOnlineUser();
+        // this.getOnlineUser();
+        window.VmFrontendEventsDispatcher.feelerOnlineUser({
+            onFeelerOnlineUser: function (isOnline, u) {
+
+                //update user in state
+                window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
+
+                if (!isUndefined(u)) {
+                    //when user is online,open websocket
+                    this.wsOpen(u.id, function () {
+                        this.wsLogin();
+                    }.bind(this));
+                } else {
+                    window.VmFrontendEventsDispatcher.protectPage();
+                }
+            }.bind(this)
+        });
 
     },
     registEvents: function () {
-        //更新头像
+        //注册更新头像事件
         window.event.on('updateHeadComponentUser', (newUser) => {
             this.updateStateUser(newUser);
         });
-        //获取且监测用户是否有在线的职责
-        window.event.on('getAndCheckOnlineUser', (args) => {
+
+        //检测用户是否有在线
+        window.event.on('feelerOnlineUser', (args) => {
+            const url = "/user/feelerOnlineUser";
+            ajax.get({
+                url: url,
+                onBeforeRequest: function () {
+                }.bind(this),
+                onResponseStart: function () {
+                }.bind(this),
+                onResponseSuccess: function (result) {
+                    //用户不在线
+                    var isOnline = result.data.online;
+                    var u = result.data.user;
+                    if (!isOnline) {
+                        window.VmFrontendEventsDispatcher.protectPage();
+                    }
+                    if (!isUndefined(args)) {
+                        //callfun
+                        if (!isUndefined(args.onFeelerOnlineUser)) {
+                            args.onFeelerOnlineUser(isOnline, u);
+                        }
+                    }
+                }.bind(this),
+                onResponseFailure: function (result) {
+                }.bind(this),
+                onResponseEnd: function () {
+                }.bind(this),
+                onRequestError: function () {
+                }.bind(this)
+            })
+
+        });
+        //获取用户是否有在线
+        window.event.on('getOnlineUser', (args) => {
 
             const url = "/user/online";
             ajax.get({
@@ -50,14 +99,14 @@ var Head = React.createClass({
                 onResponseSuccess: function (result) {
                     //用户不在线
                     var u = result.data.user;
-                    if (!isUndefined(u) && !isUndefined(callfun)) {
-                        window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
-                        if (!isUndefined(args)) {
+                    //update head component user
+                    window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
+                    //callfun
+                    if (!isUndefined(args)) {
 
-                            //callfun
-                            if (!isUndefined(args.onGetOnlineUser)) {
-                                args.onGetOnlineUser(u);
-                            }
+                        //callfun
+                        if (!isUndefined(args.onGetOnlineUser)) {
+                            args.onGetOnlineUser(u);
                         }
                     }
                 }.bind(this),
@@ -73,13 +122,17 @@ var Head = React.createClass({
 
         //保护页面的职责
         window.event.on('protectPage', () => {
+            c("protectPage");
             for (var i = 0; i < vm_config.protectedUserPageLists.length; i++) {
                 var protectedPage = vm_config.protectedUserPageLists[i];
+                c(this.props.location.pathname);
                 if (this.props.location.pathname.match(protectedPage)) {
                     this.props.history.replace("/");
                     break;
                 }
             }
+            //update head user
+            window.VmFrontendEventsDispatcher.updateHeadComponentUser(undefined);
 
         });
     },
@@ -191,7 +244,7 @@ var Head = React.createClass({
         var message = JSON.parse(msg);
         //account login in other area
         if (message.result == WS_USER_STATUS_RESULT_CODE_LOGIN_OTHER_AREA) {
-            this.protectPageWhenUserOffline();
+            window.VmFrontendEventsDispatcher.protectPage();
             // c("WS_USER_STATUS_RESULT_CODE_LOGIN_OTHER_AREA");
             this.httpLogout(this.state.accountLoginOtherArea, function () {
                 this.wsClose();
@@ -201,7 +254,7 @@ var Head = React.createClass({
         }
         //session timeout
         if (message.result == WS_USER_STATUS_RESULT_CODE_SESSION_TIMEOUT) {
-            this.protectPageWhenUserOffline();
+            window.VmFrontendEventsDispatcher.protectPage();
             // c("WS_USER_STATUS_RESULT_CODE_SESSION_TIMEOUT");
             this.httpLogout(this.state.sessionTimeOut, function () {
                 this.wsClose();
@@ -228,19 +281,8 @@ var Head = React.createClass({
 
         this.httpLogout(msg, function () {
             this.wsLogout();
-            this.protectPageWhenUserOffline();
+            window.VmFrontendEventsDispatcher.protectPage();
         }.bind(this));
-    },
-    protectPageWhenUserOffline: function () {
-        // protectUserPageWhenUserIsOffline(this);
-        var protectedUserPageLists = this.state.protectedUserPageLists;
-        for (var i = 0; i < protectedUserPageLists.length; i++) {
-            var protectedPage = protectedUserPageLists[i];
-            if (this.props.location.pathname.match(protectedPage)) {
-                this.props.history.replace("/");
-                break;
-            }
-        }
     },
 
     httpLogout: function (msg, callfun) {
@@ -283,41 +325,6 @@ var Head = React.createClass({
         });
 
 
-    },
-    getOnlineUser: function () {
-
-        const url = "/user/online";
-
-        ajax.get({
-            url: url,
-            onBeforeRequest: function () {
-
-            }.bind(this),
-            onResponseStart: function () {
-            }.bind(this),
-            onResponseSuccess: function (result) {
-
-
-                //update user in state
-                this.updateStateUser(result.data.user);
-
-                if (!isEmpty(result.data.user)) {
-                    //when user is online,open websocket
-                    this.wsOpen(result.data.user.id, function () {
-                        this.wsLogin();
-                    }.bind(this));
-                } else {
-                    this.protectPageWhenUserOffline();
-                }
-
-            }.bind(this),
-            onResponseFailure: function (result) {
-
-            }.bind(this),
-            onResponseEnd: function () {
-
-            }.bind(this)
-        });
     },
     render: function () {
         //在线

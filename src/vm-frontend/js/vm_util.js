@@ -53,6 +53,7 @@ var ajax = {
             });
             //protect user page
             window.VmFrontendEventsDispatcher.protectPage();
+
             return ;
         }
         if (fail(result.code) && !isUndefined(args.onResponseFailure)) {

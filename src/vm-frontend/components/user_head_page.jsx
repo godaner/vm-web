@@ -22,7 +22,7 @@ var UserHeadPage = React.createClass({
         };
     },
     componentDidMount(){
-        window.VmFrontendEventsDispatcher.getAndCheckOnlineUser({
+        window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser: function (u) {
                 this.previewHeadImg(u.imgUrl + "?width=" + this.state.userHeadRequestWidth + "&t=" + Date.now());
 

@@ -19,7 +19,7 @@ var UserPage = React.createClass({
         },
         render: function () {
             //是否为非法进入,即用户未登录的情况下进入
-            window.VmFrontendEventsDispatcher.getAndCheckOnlineUser();
+            window.VmFrontendEventsDispatcher.feelerOnlineUser();
 
             return (
                 <div id="user_info" className="defaultPanel">
