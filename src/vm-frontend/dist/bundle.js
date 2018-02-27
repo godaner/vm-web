@@ -8523,7 +8523,7 @@ var Head = _react2.default.createClass({
             protectedUserPageLists: ["/user/[0-9/_-a-zA-Z]*"],
             user: {}, //默认为空对象
             pollOnlineUserStatusTimer: undefined,
-            pollOnlineUserStatusTimerInterval: 1000,
+            pollOnlineUserStatusTimerInterval: 10000,
             isFirstVisitPage: true //用于辅助轮询
         };
     },
