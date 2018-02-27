@@ -8516,21 +8516,27 @@ var Head = _react2.default.createClass({
             logouting: "正在注销...",
             logoutSuccess: "注销成功",
             logoutFailure: "注销失败",
-            accountLoginOtherArea: "账户在其他地方登录",
-            sessionTimeOut: "登录超时",
+            tipOfOffLine: "您已离线",
             onlineUserBasicInfoUrl: "/user/online/basicInfo",
 
             //用户未登录时受保护的页面，用于用户注销后或者被动离线后调用
             protectedUserPageLists: ["/user/[0-9/_-a-zA-Z]*"],
             user: {}, //默认为空对象
             pollOnlineUserStatusTimer: undefined,
-            pollOnlineUserStatusTimerInterval: 1000
+            pollOnlineUserStatusTimerInterval: 1000,
+            isFirstVisitPage: true //用于辅助轮询
         };
     },
     componentDidMount: function componentDidMount() {
         this.registEvents();
         //刷新页面后轮询获取在线用户，如果用户不在线，那么保护页面
         this.startPollOnlineUserStatus();
+        //set is first visit page flag
+    },
+    setIsFirstVisitPage: function setIsFirstVisitPage(bol) {
+        var state = this.state;
+        state.isFirstVisitPage = bol;
+        this.setState(state);
     },
     stopPollOnlineUserStatus: function stopPollOnlineUserStatus() {
         if (!isUndefined(this.state.pollOnlineUserStatusTimer)) {
@@ -8549,13 +8555,19 @@ var Head = _react2.default.createClass({
                     //update user in state
                     window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
 
-                    if (isUndefined(u)) {
-                        //when user is online,open websocket
-                        window.VmFrontendEventsDispatcher.protectPage();
-
+                    if (!isOnline) {
                         //clear timer
                         this.stopPollOnlineUserStatus();
+                        //when user is online,open websocket
+                        window.VmFrontendEventsDispatcher.protectPage();
+                        //tip user
+                        if (!this.state.isFirstVisitPage) {
+                            window.VmFrontendEventsDispatcher.showMsgDialog(this.state.tipOfOffLine);
+                        }
+                    } else {
+                        this.closeLoginDialog(); //!!!防止用户登陆后再次点开登录框!!!
                     }
+                    this.setIsFirstVisitPage(false);
                 }.bind(this)
             });
         }.bind(this), this.state.pollOnlineUserStatusTimerInterval);
