@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/components/head.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/components/head.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js" afterPath="$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +31,20 @@
       <file leaf-file-name="head.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/head.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="152" column="6" lean-forward="true" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
+            <state relative-caret-position="4077">
+              <caret line="172" column="34" lean-forward="false" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
+              <folding>
+                <element signature="e#39#89#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vm_constant.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,16 +87,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="351">
               <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="movies_player.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/movies_player.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -139,6 +144,11 @@
       <find>getT</find>
       <find>defaultPa</find>
       <find>time</find>
+      <find>wsOpen</find>
+      <find>handleWsMessage</find>
+      <find>logout(</find>
+      <find>this.wsOpen</find>
+      <find>logout</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/movie_info_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/view/index.html" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/login_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/regist_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/package.json" />
@@ -169,9 +178,10 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/components/user_basic_info_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/events_dispatcher.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/components/head.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/static_server.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/js/vm_config.js" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/components/head.jsx" />
       </list>
     </option>
   </component>
@@ -738,12 +748,12 @@
       <workItem from="1518079861373" duration="1259000" />
       <workItem from="1519639269016" duration="619000" />
       <workItem from="1519716966358" duration="622000" />
-      <workItem from="1519718524227" duration="1324000" />
+      <workItem from="1519718524227" duration="3408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30706000" />
+    <option name="totallyTimeSpent" value="32790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1051,13 +1061,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/js/util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1203,11 +1206,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/head.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="152" column="6" lean-forward="true" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
-          <folding />
+        <state relative-caret-position="4077">
+          <caret line="172" column="34" lean-forward="false" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
+          <folding>
+            <element signature="e#39#89#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

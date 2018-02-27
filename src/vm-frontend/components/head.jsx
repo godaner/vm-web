@@ -20,33 +20,50 @@ var Head = React.createClass({
             //用户未登录时受保护的页面，用于用户注销后或者被动离线后调用
             protectedUserPageLists: ["/user/[0-9/_-a-zA-Z]*"],
             user: {},//默认为空对象
-            ws: {
-                url: undefined,
-                obj: undefined//websocket对象
-            }
+            pollOnlineUserStatusTimer: undefined,
+            pollOnlineUserStatusTimerInterval:1000
         };
     },
     componentDidMount: function () {
         this.registEvents();
-        //刷新页面后获取在线用户，并且建立新的ws连接，如果用户不在线，那么保护页面
-        // this.getOnlineUser();
-        window.VmFrontendEventsDispatcher.feelerOnlineUser({
-            onFeelerOnlineUser: function (isOnline, u) {
+        //刷新页面后轮询获取在线用户，如果用户不在线，那么保护页面
+        this.startPollOnlineUserStatus();
+    },
+    stopPollOnlineUserStatus:function () {
+        if(!isUndefined(this.state.pollOnlineUserStatusTimer)){
+            clearInterval(this.state.pollOnlineUserStatusTimer);
+            this.setPollOnlineUserStatusTimer(undefined);
+        }
+    },
+    startPollOnlineUserStatus:function () {
+        if(!isUndefined(this.state.pollOnlineUserStatusTimer)){
+            return ;
+        }
+        var pollOnlineUserStatusTimer = setInterval(function () {
+            window.VmFrontendEventsDispatcher.feelerOnlineUser({
+                onFeelerOnlineUser: function (isOnline, u) {
 
-                //update user in state
-                window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
+                    //update user in state
+                    window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
 
-                if (!isUndefined(u)) {
-                    //when user is online,open websocket
-                    this.wsOpen(u.id, function () {
-                        this.wsLogin();
-                    }.bind(this));
-                } else {
-                    window.VmFrontendEventsDispatcher.protectPage();
-                }
-            }.bind(this)
-        });
+                    if (isUndefined(u)) {
+                        //when user is online,open websocket
+                        window.VmFrontendEventsDispatcher.protectPage();
 
+                        //clear timer
+                        this.stopPollOnlineUserStatus();
+                    }
+                }.bind(this)
+            });
+        }.bind(this),this.state.pollOnlineUserStatusTimerInterval);
+        //set poll timer
+        this.setPollOnlineUserStatusTimer(pollOnlineUserStatusTimer);
+
+    },
+    setPollOnlineUserStatusTimer:function (pollOnlineUserStatusTimer) {
+        var state = this.state;
+        state.pollOnlineUserStatusTimer = pollOnlineUserStatusTimer;
+        this.setState(state);
     },
     registEvents: function () {
         //注册更新头像事件
@@ -145,11 +162,7 @@ var Head = React.createClass({
     onLoginSuccess: function (user) {
         //update and show user info
         this.updateStateUser(user);
-        //open ws
-        this.wsOpen(user.id, function () {
-            //ajax ws
-            this.wsLogin();
-        }.bind(this));
+        this.startPollOnlineUserStatus();
     },
     showRegistDialog: function () {
         this.refs.regist_dialog.showRegistDialog();
@@ -159,11 +172,7 @@ var Head = React.createClass({
     },
     onRegistSuccess: function (user) {
         this.updateStateUser(user);
-        //open ws
-        this.wsOpen(user.id, function () {
-            //ajax ws
-            this.wsLogin();
-        }.bind(this));
+        this.startPollOnlineUserStatus();
     },
     updateStateUser(user){
         //when login success reset user
@@ -176,120 +185,8 @@ var Head = React.createClass({
         }
         this.setState(state);
     },
-    updateStateWs: function (ws) {
-        var state = this.state;
-        if (isEmpty(ws)) {
-            state.ws = {};
-        } else {
-            state.ws = ws;
-        }
-        this.setState(state);
-    },
-    wsClose: function () {
-        if (undefined != this.state.ws.obj) {
-            this.state.ws.obj.close();
-            this.updateStateWs({
-                obj: undefined,
-                url: undefined
-            });
-        }
-    },
-    wsOpen: function (userId, onOpenSuccess) {
 
-        //if ws is closed , init ws
-        if (undefined == this.state.ws.obj) {
-            //if have not user login , it will not open ws
-
-            if (!isEmpty(userId)) {
-                var wsUrl = vm_config.ws_url_prefix + "/ws/user/status/" + userId;
-                var wsObj = new WebSocket(wsUrl);
-
-                this.updateStateWs({
-                    obj: wsObj,
-                    url: wsUrl
-                });
-
-                this.state.ws.obj.onopen = function () {
-                    if (!isEmpty(onOpenSuccess)) {
-                        onOpenSuccess();
-                    }
-                }.bind(this, onOpenSuccess);
-                // onmessage
-                this.state.ws.obj.onmessage = function (e) {
-                    this.handleWsMessage(e.data);
-                }.bind(this);
-
-            }
-        }
-
-    },
-    wsSend: function (sendCallfun) {
-        //open ws
-        this.wsOpen(this.state.user.id, function () {
-        });
-        //send msg
-        if (!isEmpty(this.state.ws.obj)) {
-            if (this.state.ws.obj.readyState == 0) {//CONNECTING
-                this.state.ws.obj.onopen = function () {
-                    sendCallfun(this.state.ws.obj);
-                }.bind(this, sendCallfun);
-            } else if (this.state.ws.obj.readyState == 1) {//OPEN
-                sendCallfun(this.state.ws.obj);
-            }
-        }
-
-
-    },
-    handleWsMessage: function (msg) {
-        var message = JSON.parse(msg);
-        //account login in other area
-        if (message.result == WS_USER_STATUS_RESULT_CODE_LOGIN_OTHER_AREA) {
-            window.VmFrontendEventsDispatcher.protectPage();
-            // c("WS_USER_STATUS_RESULT_CODE_LOGIN_OTHER_AREA");
-            this.httpLogout(this.state.accountLoginOtherArea, function () {
-                this.wsClose();
-            }.bind(this));
-
-
-        }
-        //session timeout
-        if (message.result == WS_USER_STATUS_RESULT_CODE_SESSION_TIMEOUT) {
-            window.VmFrontendEventsDispatcher.protectPage();
-            // c("WS_USER_STATUS_RESULT_CODE_SESSION_TIMEOUT");
-            this.httpLogout(this.state.sessionTimeOut, function () {
-                this.wsClose();
-            }.bind(this));
-        }
-    },
-    wsLogout: function () {
-        //ajax ws
-        ajax.put({
-            url: "/user/ws/ctrl/logout/" + this.state.user.id,
-            onResponseSuccess: function () {
-                this.wsClose();
-            }.bind(this)
-        });
-    },
-    wsLogin: function () {
-        //ajax ws
-        ajax.put({
-            url: "/user/ws/ctrl/login/" + this.state.user.id
-
-        });
-    },
-    logout(msg){
-
-        this.httpLogout(msg, function () {
-            this.wsLogout();
-            window.VmFrontendEventsDispatcher.protectPage();
-        }.bind(this));
-    },
-
-    httpLogout: function (msg, callfun) {
-        //default msg
-        if (isEmpty(msg)) {
-            msg = this.state.logoutSuccess;
-        }
+    logout: function () {
         //show loading dialog
         window.VmFrontendEventsDispatcher.showLoading(this.state.logouting);
 
@@ -305,16 +202,17 @@ var Head = React.createClass({
                 window.VmFrontendEventsDispatcher.closeLoading();
             }.bind(this),
             onResponseSuccess: function (result) {
-                //callfun
-                if (!isEmpty(callfun)) {
-                    callfun();
-                }
 
-                window.VmFrontendEventsDispatcher.showMsgDialog(msg);
+                window.VmFrontendEventsDispatcher.showMsgDialog(this.state.logoutSuccess);
 
                 //update user in state
                 this.updateStateUser({});
 
+                //protect page
+                window.VmFrontendEventsDispatcher.protectPage();
+
+                //clear poll timer
+                this.stopPollOnlineUserStatus();
 
             }.bind(this),
             onResponseFailure: function (result) {
