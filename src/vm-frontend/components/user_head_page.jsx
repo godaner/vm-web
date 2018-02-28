@@ -10,7 +10,7 @@ var UserHeadPage = React.createClass({
             fileTypes: ["jpg", "png"],
             fileMaxsize: 1024 * 1024 * 2,//2M
             saveImgUrl: "/user/img",
-            uploadTempImgUrl: "/user/img/temp",
+            uploadTempImgUrl: "/src/img",
             server_url_prefix: vm_config.http_url_prefix
         };
         return {

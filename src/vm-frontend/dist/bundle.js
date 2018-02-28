@@ -10256,7 +10256,7 @@ var UserHeadPage = _react2.default.createClass({
             fileTypes: ["jpg", "png"],
             fileMaxsize: 1024 * 1024 * 2, //2M
             saveImgUrl: "/user/img",
-            uploadTempImgUrl: "/user/img/temp",
+            uploadTempImgUrl: "/src/img",
             server_url_prefix: vm_config.http_url_prefix
         };
         return {
@@ -10560,7 +10560,7 @@ var ImgUpload = _react2.default.createClass({
             }.bind(this),
             onResponseSuccess: function (result) {
                 //更新服务器暂存图片访问地址
-                this.previewImg(timestamp(result.data.tempImgUrl));
+                this.previewImg(timestamp(result.data.imgUrl));
                 //更新服务器暂存图片名
                 this.updateTempFileId(result.data.fileId);
 

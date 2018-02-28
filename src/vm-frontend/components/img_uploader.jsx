@@ -199,7 +199,7 @@ var ImgUpload = React.createClass({
             }.bind(this),
             onResponseSuccess: function (result) {
                 //更新服务器暂存图片访问地址
-                this.previewImg(timestamp(result.data.tempImgUrl));
+                this.previewImg(timestamp(result.data.imgUrl));
                 //更新服务器暂存图片名
                 this.updateTempFileId(result.data.fileId);
 
