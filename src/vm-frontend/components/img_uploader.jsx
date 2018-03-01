@@ -181,7 +181,7 @@ var ImgUpload = React.createClass({
         window.EventsDispatcher.showLoading(this.state.uploadTempImgTip);
 
         var formData = new FormData();
-        formData.append("img", imgFile);
+        formData.append("file", imgFile);
         // var userId = this.state.user.id;
         const url = this.state.config.uploadTempImgUrl;
         ajax.post({
