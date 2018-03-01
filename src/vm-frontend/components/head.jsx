@@ -45,33 +45,38 @@ var Head = React.createClass({
         if(!isUndefined(this.state.pollOnlineUserStatusTimer)){
             return ;
         }
+
+        this.pollOnlineUserStatus();
         var pollOnlineUserStatusTimer = setInterval(function () {
-            window.VmFrontendEventsDispatcher.feelerOnlineUser({
-                onFeelerOnlineUser: function (isOnline, u) {
-
-                    //update user in state
-                    window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
-
-                    if (!isOnline) {
-                        //clear timer
-                        this.stopPollOnlineUserStatus();
-                        //when user is online,open websocket
-                        window.VmFrontendEventsDispatcher.protectPage();
-                        //tip user
-                        if(!this.state.isFirstVisitPage){
-                            window.VmFrontendEventsDispatcher.showMsgDialog(this.state.tipOfOffLine);
-                        }
-
-                    }else{
-                        this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
-                    }
-                    this.setIsFirstVisitPage(false);
-                }.bind(this)
-            });
+            this.pollOnlineUserStatus();
         }.bind(this),this.state.pollOnlineUserStatusTimerInterval);
         //set poll timer
         this.setPollOnlineUserStatusTimer(pollOnlineUserStatusTimer);
 
+    },
+    pollOnlineUserStatus:function () {
+        window.VmFrontendEventsDispatcher.feelerOnlineUser({
+            onFeelerOnlineUser: function (isOnline, u) {
+
+                //update user in state
+                window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
+
+                if (!isOnline) {
+                    //clear timer
+                    this.stopPollOnlineUserStatus();
+                    //when user is online,open websocket
+                    window.VmFrontendEventsDispatcher.protectPage();
+                    //tip user
+                    if(!this.state.isFirstVisitPage){
+                        window.VmFrontendEventsDispatcher.showMsgDialog(this.state.tipOfOffLine);
+                    }
+
+                }else{
+                    this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
+                }
+                this.setIsFirstVisitPage(false);
+            }.bind(this)
+        });
     },
     setPollOnlineUserStatusTimer:function (pollOnlineUserStatusTimer) {
         var state = this.state;
@@ -244,7 +249,7 @@ var Head = React.createClass({
                 pathname: this.state.onlineUserBasicInfoUrl
             };
             //imgUrl
-            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "?width=50";
+            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "&width=50";
             return (
                 <span>
                     <li>
