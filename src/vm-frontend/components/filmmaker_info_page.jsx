@@ -190,6 +190,7 @@ var FilmmakerInfoPage = React.createClass({
     },
     render: function () {
         var birthday = timeFormatter.formatDate(this.state.filmmaker.birthday);
+        c(this.state.filmmaker.imgUrl);
         return (
             <div id="movie_info_content">
                 <div id="basic_info">
@@ -198,7 +199,7 @@ var FilmmakerInfoPage = React.createClass({
                     <div className="clearfix" id="movie_info_displayer">
 
                         <div id="filmmaker_img">
-                            <img src={FILMMAKER_LOADING_IMG} data-original={this.state.filmmaker.imgUrl}/>
+                            <img src={FILMMAKER_LOADING_IMG} data-original={vm_config.http_url_prefix+this.state.filmmaker.imgUrl}/>
                         </div>
                         <div id="filmmaker_text">
                             <ul id="text_ul">

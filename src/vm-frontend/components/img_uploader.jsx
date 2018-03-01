@@ -155,7 +155,7 @@ var ImgUpload = React.createClass({
             $imgPreview.cropper(options);
             this.updateStateImgPreview($imgPreview);
         }
-        c(this.state.config.server_url_prefix + imgUrl);
+        // c(this.state.config.server_url_prefix + imgUrl);
         this.state.$imgPreview.cropper("replace", this.state.config.server_url_prefix + imgUrl);
 
     },

@@ -6580,6 +6580,7 @@ var FilmmakerInfoPage = _react2.default.createClass({
 
     render: function render() {
         var birthday = timeFormatter.formatDate(this.state.filmmaker.birthday);
+        c(this.state.filmmaker.imgUrl);
         return _react2.default.createElement(
             'div',
             { id: 'movie_info_content' },
@@ -6592,7 +6593,7 @@ var FilmmakerInfoPage = _react2.default.createClass({
                     _react2.default.createElement(
                         'div',
                         { id: 'filmmaker_img' },
-                        _react2.default.createElement('img', { src: FILMMAKER_LOADING_IMG, 'data-original': this.state.filmmaker.imgUrl })
+                        _react2.default.createElement('img', { src: FILMMAKER_LOADING_IMG, 'data-original': vm_config.http_url_prefix + this.state.filmmaker.imgUrl })
                     ),
                     _react2.default.createElement(
                         'div',
@@ -10526,7 +10527,7 @@ var ImgUpload = _react2.default.createClass({
             $imgPreview.cropper(options);
             this.updateStateImgPreview($imgPreview);
         }
-        c(this.state.config.server_url_prefix + imgUrl);
+        // c(this.state.config.server_url_prefix + imgUrl);
         this.state.$imgPreview.cropper("replace", this.state.config.server_url_prefix + imgUrl);
     },
     uploadTempImg: function uploadTempImg(callfun) {
