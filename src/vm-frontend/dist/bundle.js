@@ -10276,7 +10276,16 @@ var UserHeadPage = _react2.default.createClass({
     componentDidMount: function componentDidMount() {
         window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser: function (u) {
-                this.previewHeadImg(u.imgUrl + "&width=" + this.state.userHeadRequestWidth + "&t=" + Date.now());
+
+                var imgUrl = timestamp(u.imgUrl);
+                imgUrl = addUrlParam({
+                    url: imgUrl,
+                    obj: {
+                        width: this.state.userHeadRequestWidth
+                    }
+                });
+
+                this.previewHeadImg(imgUrl);
             }.bind(this)
         });
     },
@@ -10469,7 +10478,7 @@ var ImgUpload = _react2.default.createClass({
             aspectRatio: 1 / 1,
             viewMode: 2,
             ready: function ready(e) {
-                console.log(e.type);
+                // console.log(e.type);
 
                 var $clone = $(this).clone().removeClass('cropper-hidden');
 
@@ -10527,7 +10536,8 @@ var ImgUpload = _react2.default.createClass({
             $imgPreview.cropper(options);
             this.updateStateImgPreview($imgPreview);
         }
-        // c(this.state.config.server_url_prefix + imgUrl);
+        // a(this.state.config.server_url_prefix + imgUrl);
+
         this.state.$imgPreview.cropper("replace", this.state.config.server_url_prefix + imgUrl);
     },
     uploadTempImg: function uploadTempImg(callfun) {
@@ -10566,7 +10576,7 @@ var ImgUpload = _react2.default.createClass({
             }.bind(this),
             onResponseSuccess: function (result) {
                 //更新服务器暂存图片访问地址
-                this.previewImg(timestamp(result.data.imgUrl));
+                this.previewImg(result.data.imgUrl);
                 //更新服务器暂存图片名
                 this.updateTempFileId(result.data.fileId);
 
@@ -10629,7 +10639,7 @@ var ImgUpload = _react2.default.createClass({
                 this.updateTempFileId(undefined);
 
                 //preview new img
-                this.previewImg(timestamp(result.data.newImgUrl));
+                this.previewImg(result.data.newImgUrl);
 
                 this.clearImgInput();
             }.bind(this),

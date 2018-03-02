@@ -24,7 +24,16 @@ var UserHeadPage = React.createClass({
     componentDidMount(){
         window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser: function (u) {
-                this.previewHeadImg(u.imgUrl + "&width=" + this.state.userHeadRequestWidth + "&t=" + Date.now());
+
+                var imgUrl = timestamp(u.imgUrl);
+                imgUrl = addUrlParam({
+                    url: imgUrl,
+                    obj: {
+                        width: this.state.userHeadRequestWidth
+                    }
+                });
+
+                this.previewHeadImg(imgUrl);
 
             }.bind(this)
         });

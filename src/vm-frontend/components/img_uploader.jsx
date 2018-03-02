@@ -97,7 +97,7 @@ var ImgUpload = React.createClass({
             aspectRatio: 1 / 1,
             viewMode: 2,
             ready: function (e) {
-                console.log(e.type);
+                // console.log(e.type);
 
                 var $clone = $(this).clone().removeClass('cropper-hidden');
 
@@ -155,8 +155,9 @@ var ImgUpload = React.createClass({
             $imgPreview.cropper(options);
             this.updateStateImgPreview($imgPreview);
         }
-        // c(this.state.config.server_url_prefix + imgUrl);
-        this.state.$imgPreview.cropper("replace", this.state.config.server_url_prefix + imgUrl);
+        // a(this.state.config.server_url_prefix + imgUrl);
+
+        this.state.$imgPreview.cropper("replace",  this.state.config.server_url_prefix+imgUrl);
 
     },
     uploadTempImg(callfun){
@@ -199,7 +200,7 @@ var ImgUpload = React.createClass({
             }.bind(this),
             onResponseSuccess: function (result) {
                 //更新服务器暂存图片访问地址
-                this.previewImg(timestamp(result.data.imgUrl));
+                this.previewImg(result.data.imgUrl);
                 //更新服务器暂存图片名
                 this.updateTempFileId(result.data.fileId);
 
@@ -270,7 +271,7 @@ var ImgUpload = React.createClass({
                 this.updateTempFileId(undefined);
 
                 //preview new img
-                this.previewImg(timestamp(result.data.newImgUrl));
+                this.previewImg(result.data.newImgUrl);
 
                 this.clearImgInput();
 
