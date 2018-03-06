@@ -18,6 +18,8 @@ var UserPage = React.createClass({
 
             userTable: {
                 dataSourceUrl: "/user/list",
+                haveSearchUsername:false,
+                usernameDropdownVisible:false,
                 bordered: false,
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
@@ -32,139 +34,30 @@ var UserPage = React.createClass({
                 query: {
                     usernameQuery: ""
                 },
-                columns: [
-                    {
-                        title: 'id',
-                        width: 100,
-                        dataIndex: 'id',
-                        sorter: (a, b) => {
-                        }
-                    },
-                    {
-                        title: '头像',
-                        width: 100,
-                        dataIndex: 'imgUrl',
-                        render: (text) => {
-                            const imgUrl = vm_config.http_url_prefix + text;
-                            return <img style={{width: 50, height: 50}} src={imgUrl}/>
-                        }
-                    },
-                    {
-                        title: '用户名',
-                        width: 100,
-                        dataIndex: 'username',
-                        sorter: (a, b) => {
-                        },
-                        filterDropdown: (
-                            <div className="custom-filter-dropdown">
-                                <Search
-                                    placeholder="搜索用户名"
-                                    onSearch={this.onSearchUsername}
-                                    style={{width: 200}}
-                                />
-                            </div>
-                        ),
-                        filterIcon: <Icon type="search"/>,
-                    },
-
-
-                    {
-                        title: '性别',
-                        width: 100,
-                        dataIndex: 'sex',
-                        render: (text) => {
-                            var res = text;
-                            if (text == 1) {
-                                res = "男";
-                            }
-                            if (text == 2) {
-                                res = "女";
-                            }
-                            if (text == 3) {
-                                res = "未知";
-                            }
-                            return res;
-                        },
-                        sorter: (a, b) => {
-                        }
-
-
-                    },
-                    {
-                        title: '密码', width: 100,
-                        dataIndex: 'password',
-                        sorter: (a, b) => {
-                        }
-                    },
-                    {
-                        title: '简介', width: 200,
-                        dataIndex: 'description',
-                        sorter: (a, b) => {
-                        }
-                    },
-                    {
-                        title: '生日',
-                        width: 100,
-                        dataIndex: 'birthday',
-                        render: (text) => {
-                            return timeFormatter.formatDate(text * 1000);
-                        },
-                        sorter: (a, b) => {
-                        }
-                    },
-                    {
-                        title: '创建时间',
-                        width: 100,
-                        dataIndex: 'create_time',
-                        render: (text) => {
-                            return timeFormatter.formatTime(text * 1000);
-                        },
-                        sorter: (a, b) => {
-                        },
-                        defaultSortOrder: 'descend',
-                    },
-                    {
-                        title: '最后更新时间',
-                        width: 100,
-                        dataIndex: 'update_time',
-                        render: (text) => {
-
-                            return timeFormatter.formatTime(text * 1000);
-                        },
-                        sorter: (a, b) => {
-                            return a.username.length - b.username.length;
-                        }
-                    },
-                    {
-                        title: '状态',
-                        width: 100,
-                        dataIndex: 'status',
-                        render: (text) => {
-                            return text == 1 ? "正常" : text == 2 ? "冻结" : text;
-                        },
-                        sorter: (a, b) => {
-                        }
-                    },
-
-
-                    {
-                        title: '操作',
-                        dataIndex: 'operation',
-                        width: 150,
-                        render: () => {
-                            return <div>
-                                <a onClick={this.editRecord} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
-                                <a onClick={this.deleteRecord} href="javascript:void(0)">删除</a>
-                            </div>
-                        },
-                    },],
+                columns: [],
                 data: []
             }
         };
     },
     onSearchUsername (newUsernameQuery) {
         this.updateUserTableUsernameQuery(newUsernameQuery);
+        if(!isEmptyString(this.state.userTable.query.usernameQuery)){
+            this.updateUserTableHaveSearchUsername(true);
+        }else{
+
+            this.updateUserTableHaveSearchUsername(false);
+        }
         this.loadUserTableData();
+    },
+    updateUserTableHaveSearchUsername(haveSearchUsername){
+        var state = this.state;
+        state.userTable.haveSearchUsername = haveSearchUsername;
+        this.setState(state);
+    },
+    updateUserTableUsernameDropdownVisible(usernameDropdownVisible){
+        var state = this.state;
+        state.userTable.usernameDropdownVisible = usernameDropdownVisible;
+        this.setState(state);
     },
     updateUserTableSelectedRowKeys(selectedRowKeys){
         var state = this.state;
@@ -193,11 +86,148 @@ var UserPage = React.createClass({
     },
     updateUserTableLoading(flag){
         var state = this.state;
-        state.userTable.loading = flag;
+        state.userTable.tableLoading = flag;
+        this.setState(state);
+    },
+    updateUserTableColumns(columns){
+
+        var state = this.state;
+        state.userTable.columns = columns;
         this.setState(state);
     },
     componentDidMount(){
+        this.updateUserTableColumns([
+            {
+                title: 'id',
+                width: 100,
+                dataIndex: 'id',
+                sorter: (a, b) => {
+                }
+            },
+            {
+                title: '头像',
+                width: 100,
+                dataIndex: 'imgUrl',
+                render: (text) => {
+                    const imgUrl = vm_config.http_url_prefix + text;
+                    return <img style={{width: 50, height: 50}} src={imgUrl}/>
+                }
+            },
+            {
+                title: '用户名',
+                width: 100,
+                dataIndex: 'username',
+                render:(text)=>{
 
+                   return text;
+                },
+                sorter: (a, b) => {
+                },
+                filterDropdown: (
+                    <div className="custom-filter-dropdown">
+                        <Search
+                            placeholder="搜索用户名"
+                            onSearch={this.onSearchUsername}
+                            style={{width: 200}}
+                        />
+                    </div>
+                ),
+                filterIcon: <Icon type="search" style={{ color: this.state.userTable.haveSearchUsername ? '#108ee9' : '#aaa' }} />,
+                // filterDropdownVisible: this.state.userTable.usernameDropdownVisible,
+
+            },
+
+
+            {
+                title: '性别',
+                width: 100,
+                dataIndex: 'sex',
+                render: (text) => {
+                    var res = text;
+                    if (text == 1) {
+                        res = "男";
+                    }
+                    if (text == 2) {
+                        res = "女";
+                    }
+                    if (text == 3) {
+                        res = "未知";
+                    }
+                    return res;
+                },
+                sorter: (a, b) => {
+                }
+
+
+            },
+            {
+                title: '密码', width: 100,
+                dataIndex: 'password',
+                sorter: (a, b) => {
+                }
+            },
+            {
+                title: '简介', width: 200,
+                dataIndex: 'description',
+                sorter: (a, b) => {
+                }
+            },
+            {
+                title: '生日',
+                width: 100,
+                dataIndex: 'birthday',
+                render: (text) => {
+                    return timeFormatter.formatDate(text * 1000);
+                },
+                sorter: (a, b) => {
+                }
+            },
+            {
+                title: '创建时间',
+                width: 100,
+                dataIndex: 'create_time',
+                render: (text) => {
+                    return timeFormatter.formatTime(text * 1000);
+                },
+                sorter: (a, b) => {
+                },
+                defaultSortOrder: 'descend',
+            },
+            {
+                title: '最后更新时间',
+                width: 100,
+                dataIndex: 'update_time',
+                render: (text) => {
+
+                    return timeFormatter.formatTime(text * 1000);
+                },
+                sorter: (a, b) => {
+                    return a.username.length - b.username.length;
+                }
+            },
+            {
+                title: '状态',
+                width: 100,
+                dataIndex: 'status',
+                render: (text) => {
+                    return text == 1 ? "正常" : text == 2 ? "冻结" : text;
+                },
+                sorter: (a, b) => {
+                }
+            },
+
+
+            {
+                title: '操作',
+                dataIndex: 'operation',
+                width: 150,
+                render: () => {
+                    return <div>
+                        <a onClick={this.editRecord} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+                        <a onClick={this.deleteRecord} href="javascript:void(0)">删除</a>
+                    </div>
+                },
+            },]);
         this.loadUserTableData();
     },
     handleTableChange(pagination, filters, sorter){

@@ -55,8 +55,8 @@
       <file leaf-file-name="user_page.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/backend/components/user_page.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="156" column="87" lean-forward="false" selection-start-line="156" selection-start-column="87" selection-end-line="156" selection-end-column="87" />
+            <state relative-caret-position="352">
+              <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
               <folding>
                 <element signature="e#193#228#0" expanded="true" />
               </folding>
@@ -138,9 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>startPollOnlineUserStatus</find>
-      <find>uploadTempImgUrl</find>
-      <find>tempImg</find>
       <find>tempImg`</find>
       <find>willUpdatedImgInfo</find>
       <find>deb</find>
@@ -168,6 +165,9 @@
       <find>updateUserTableUsernameQuery</find>
       <find>Search</find>
       <find>c(</find>
+      <find>usernameDropdownVisible</find>
+      <find>ajax</find>
+      <find>ajx</find>
     </findStrings>
     <dirStrings>
       <dir>E:\zk\vm-web</dir>
@@ -868,12 +868,12 @@
       <workItem from="1519716966358" duration="622000" />
       <workItem from="1519718524227" duration="18772000" />
       <workItem from="1519965047783" duration="2600000" />
-      <workItem from="1520298591786" duration="24289000" />
+      <workItem from="1520298591786" duration="26219000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75043000" />
+    <option name="totallyTimeSpent" value="76973000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1375,8 +1375,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/components/user_page.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="156" column="87" lean-forward="false" selection-start-line="156" selection-start-column="87" selection-end-line="156" selection-end-column="87" />
+        <state relative-caret-position="352">
+          <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
           <folding>
             <element signature="e#193#228#0" expanded="true" />
           </folding>
