@@ -9,8 +9,8 @@ import {EventEmitter} from 'events';
 import "antd/dist/antd.css";
 import '../scss/user_page.scss';
 import "./events_dispatcher";
-import { Table, Input, Button } from 'antd';
-
+import {Table, Input, Button} from 'antd';
+const Search = Input.Search;
 var UserPage = React.createClass({
     getInitialState: function () {
         return {
@@ -19,7 +19,7 @@ var UserPage = React.createClass({
 
             userTable: {
                 // usernameFilterDropdownVisible
-                bordered:true,
+                bordered: true,
                 loading: false,
                 page: {
                     start: 0,
@@ -36,15 +36,18 @@ var UserPage = React.createClass({
             }
         };
     },
-    onUsernameSearchInputChange(e){
-        this.updateUserTableUsernameQuery(e.target.value);
-    },
-    onSearchUsername () {
+    // onUsernameSearchInputChange(e){
+    //     var newValue = e.target.value;
+    //     // c(newValue);
+    //     this.updateUserTableUsernameQuery(newValue);
+    // },
+    onSearchUsername (newUsernameQuery) {
+        this.updateUserTableUsernameQuery(newUsernameQuery);
         this.loadUserTableData();
     },
-    updateUserTableUsernameQuery(usernameQuery){
+    updateUserTableUsernameQuery(newUsernameQuery){
         var state = this.state;
-        state.userTable.query.usernameQuery = usernameQuery;
+        state.userTable.query.usernameQuery = newUsernameQuery;
         this.setState(state);
     },
     updateUserTableData(data){
@@ -73,13 +76,15 @@ var UserPage = React.createClass({
         this.setState(state);
     },
     componentDidMount(){
-        this.updateUserTableColumns([{
-            title: 'id',
-            width: 100,
-            dataIndex: 'id',
-            sorter: (a, b) => {
-            }
-        },
+        // c(this.state.userTable.query.usernameQuery);
+        this.updateUserTableColumns([
+            {
+                title: 'id',
+                width: 100,
+                dataIndex: 'id',
+                sorter: (a, b) => {
+                }
+            },
             {
                 title: '头像',
                 width: 100,
@@ -97,15 +102,14 @@ var UserPage = React.createClass({
                 },
                 filterDropdown: (
                     <div className="custom-filter-dropdown">
-                        <Input
+                        <Search
                             placeholder="搜索用户名"
-                            value={this.state.userTable.usernameQuery}
-                            onChange={this.onUsernameSearchInputChange}
-                            onPressEnter={this.onSearchUsername()}
+                            onSearch={this.onSearchUsername}
+                            style={{width: 200}}
                         />
-                        <Button type="primary" onClick={this.onSearchUsername}>搜索</Button>
                     </div>
                 ),
+                filterIcon: <Icon type="search"/>,
             },
 
 
@@ -115,20 +119,19 @@ var UserPage = React.createClass({
                 dataIndex: 'sex',
                 render: (text) => {
                     var res = text;
-                    if(text == 1){
+                    if (text == 1) {
                         res = "男";
                     }
-                    if(text == 2){
+                    if (text == 2) {
                         res = "女";
                     }
-                    if(text == 3){
+                    if (text == 3) {
                         res = "未知";
                     }
                     return res;
                 },
                 sorter: (a, b) => {
                 }
-
 
 
             },
@@ -174,7 +177,7 @@ var UserPage = React.createClass({
                     return timeFormatter.formatTime(text * 1000);
                 },
                 sorter: (a, b) => {
-                    return a.username.length -b.username.length;
+                    return a.username.length - b.username.length;
                 }
             },
             {
@@ -182,7 +185,7 @@ var UserPage = React.createClass({
                 width: 100,
                 dataIndex: 'status',
                 render: (text) => {
-                    return text==1?"正常":text==2?"冻结":text;
+                    return text == 1 ? "正常" : text == 2 ? "冻结" : text;
                 },
                 sorter: (a, b) => {
                 }
@@ -223,10 +226,10 @@ var UserPage = React.createClass({
         const {page, query} = this.state.userTable;
         //filter
         var orderType = page.orderType;
-        if(orderType == "descend"){
+        if (orderType == "descend") {
             orderType = "desc";
         }
-        if(orderType == "ascend"){
+        if (orderType == "ascend") {
             orderType = "asc";
         }
         page.orderType = orderType;
@@ -268,7 +271,7 @@ var UserPage = React.createClass({
     },
     render: function () {
 
-        const {columns, data, page, loading,bordered} = this.state.userTable;
+        const {columns, data, page, loading, bordered} = this.state.userTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -301,7 +304,7 @@ var UserPage = React.createClass({
                        onChange={this.handleTableChange}
                        bordered={bordered}
                        title={() => '用户列表'}
-                       // footer={() => 'Footer'}
+                    // footer={() => 'Footer'}
                        scroll={{x: "100%", y: "100%"}}/>
             </div>
         );
