@@ -14,13 +14,14 @@ const Search = Input.Search;
 var UserPage = React.createClass({
     getInitialState: function () {
         return {
-            userDataUrl: "/user/list",
 
 
             userTable: {
-                // usernameFilterDropdownVisible
-                bordered: true,
-                loading: false,
+                dataSourceUrl: "/user/list",
+                bordered: false,
+                tableLoading: false,
+                batchDeleteBtnLoading: false,
+                selectedRowKeys: [],
                 page: {
                     start: 0,
                     size: 5,
@@ -31,19 +32,144 @@ var UserPage = React.createClass({
                 query: {
                     usernameQuery: ""
                 },
-                columns: [],
+                columns: [
+                    {
+                        title: 'id',
+                        width: 100,
+                        dataIndex: 'id',
+                        sorter: (a, b) => {
+                        }
+                    },
+                    {
+                        title: '头像',
+                        width: 100,
+                        dataIndex: 'imgUrl',
+                        render: (text) => {
+                            const imgUrl = vm_config.http_url_prefix + text;
+                            return <img style={{width: 50, height: 50}} src={imgUrl}/>
+                        }
+                    },
+                    {
+                        title: '用户名',
+                        width: 100,
+                        dataIndex: 'username',
+                        sorter: (a, b) => {
+                        },
+                        filterDropdown: (
+                            <div className="custom-filter-dropdown">
+                                <Search
+                                    placeholder="搜索用户名"
+                                    onSearch={this.onSearchUsername}
+                                    style={{width: 200}}
+                                />
+                            </div>
+                        ),
+                        filterIcon: <Icon type="search"/>,
+                    },
+
+
+                    {
+                        title: '性别',
+                        width: 100,
+                        dataIndex: 'sex',
+                        render: (text) => {
+                            var res = text;
+                            if (text == 1) {
+                                res = "男";
+                            }
+                            if (text == 2) {
+                                res = "女";
+                            }
+                            if (text == 3) {
+                                res = "未知";
+                            }
+                            return res;
+                        },
+                        sorter: (a, b) => {
+                        }
+
+
+                    },
+                    {
+                        title: '密码', width: 100,
+                        dataIndex: 'password',
+                        sorter: (a, b) => {
+                        }
+                    },
+                    {
+                        title: '简介', width: 200,
+                        dataIndex: 'description',
+                        sorter: (a, b) => {
+                        }
+                    },
+                    {
+                        title: '生日',
+                        width: 100,
+                        dataIndex: 'birthday',
+                        render: (text) => {
+                            return timeFormatter.formatDate(text * 1000);
+                        },
+                        sorter: (a, b) => {
+                        }
+                    },
+                    {
+                        title: '创建时间',
+                        width: 100,
+                        dataIndex: 'create_time',
+                        render: (text) => {
+                            return timeFormatter.formatTime(text * 1000);
+                        },
+                        sorter: (a, b) => {
+                        },
+                        defaultSortOrder: 'descend',
+                    },
+                    {
+                        title: '最后更新时间',
+                        width: 100,
+                        dataIndex: 'update_time',
+                        render: (text) => {
+
+                            return timeFormatter.formatTime(text * 1000);
+                        },
+                        sorter: (a, b) => {
+                            return a.username.length - b.username.length;
+                        }
+                    },
+                    {
+                        title: '状态',
+                        width: 100,
+                        dataIndex: 'status',
+                        render: (text) => {
+                            return text == 1 ? "正常" : text == 2 ? "冻结" : text;
+                        },
+                        sorter: (a, b) => {
+                        }
+                    },
+
+
+                    {
+                        title: '操作',
+                        dataIndex: 'operation',
+                        width: 150,
+                        render: () => {
+                            return <div>
+                                <a onClick={this.editRecord} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+                                <a onClick={this.deleteRecord} href="javascript:void(0)">删除</a>
+                            </div>
+                        },
+                    },],
                 data: []
             }
         };
     },
-    // onUsernameSearchInputChange(e){
-    //     var newValue = e.target.value;
-    //     // c(newValue);
-    //     this.updateUserTableUsernameQuery(newValue);
-    // },
     onSearchUsername (newUsernameQuery) {
         this.updateUserTableUsernameQuery(newUsernameQuery);
         this.loadUserTableData();
+    },
+    updateUserTableSelectedRowKeys(selectedRowKeys){
+        var state = this.state;
+        state.userTable.selectedRowKeys = selectedRowKeys;
+        this.setState(state);
     },
     updateUserTableUsernameQuery(newUsernameQuery){
         var state = this.state;
@@ -70,139 +196,7 @@ var UserPage = React.createClass({
         state.userTable.loading = flag;
         this.setState(state);
     },
-    updateUserTableColumns(columns){
-        var state = this.state;
-        state.userTable.columns = columns;
-        this.setState(state);
-    },
     componentDidMount(){
-        // c(this.state.userTable.query.usernameQuery);
-        this.updateUserTableColumns([
-            {
-                title: 'id',
-                width: 100,
-                dataIndex: 'id',
-                sorter: (a, b) => {
-                }
-            },
-            {
-                title: '头像',
-                width: 100,
-                dataIndex: 'imgUrl',
-                render: (text) => {
-                    const imgUrl = vm_config.http_url_prefix + text;
-                    return <img style={{width: 50, height: 50}} src={imgUrl}/>
-                }
-            },
-            {
-                title: '用户名',
-                width: 100,
-                dataIndex: 'username',
-                sorter: (a, b) => {
-                },
-                filterDropdown: (
-                    <div className="custom-filter-dropdown">
-                        <Search
-                            placeholder="搜索用户名"
-                            onSearch={this.onSearchUsername}
-                            style={{width: 200}}
-                        />
-                    </div>
-                ),
-                filterIcon: <Icon type="search"/>,
-            },
-
-
-            {
-                title: '性别',
-                width: 100,
-                dataIndex: 'sex',
-                render: (text) => {
-                    var res = text;
-                    if (text == 1) {
-                        res = "男";
-                    }
-                    if (text == 2) {
-                        res = "女";
-                    }
-                    if (text == 3) {
-                        res = "未知";
-                    }
-                    return res;
-                },
-                sorter: (a, b) => {
-                }
-
-
-            },
-            {
-                title: '密码', width: 100,
-                dataIndex: 'password',
-                sorter: (a, b) => {
-                }
-            },
-            {
-                title: '简介', width: 200,
-                dataIndex: 'description',
-                sorter: (a, b) => {
-                }
-            },
-            {
-                title: '生日',
-                width: 100,
-                dataIndex: 'birthday',
-                render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
-                },
-                sorter: (a, b) => {
-                }
-            },
-            {
-                title: '创建时间',
-                width: 100,
-                dataIndex: 'create_time',
-                render: (text) => {
-                    return timeFormatter.formatTime(text * 1000);
-                },
-                sorter: (a, b) => {
-                },
-                defaultSortOrder: 'descend',
-            },
-            {
-                title: '最后更新时间',
-                width: 100,
-                dataIndex: 'update_time',
-                render: (text) => {
-
-                    return timeFormatter.formatTime(text * 1000);
-                },
-                sorter: (a, b) => {
-                    return a.username.length - b.username.length;
-                }
-            },
-            {
-                title: '状态',
-                width: 100,
-                dataIndex: 'status',
-                render: (text) => {
-                    return text == 1 ? "正常" : text == 2 ? "冻结" : text;
-                },
-                sorter: (a, b) => {
-                }
-            },
-
-
-            {
-                title: '操作',
-                dataIndex: 'operation',
-                width: 150,
-                render: () => {
-                    return <div>
-                        <a href="#">action</a>&nbsp;&nbsp;
-                        <a href="#">action</a>
-                    </div>
-                },
-            },])
 
         this.loadUserTableData();
     },
@@ -236,7 +230,7 @@ var UserPage = React.createClass({
 
         //ajax
         ajax.get({
-            url: this.state.userDataUrl,
+            url: this.state.userTable.dataSourceUrl,
             data: $.extend(page, query),
             onResponseSuccess: function (result) {
                 const data = [];
@@ -269,24 +263,64 @@ var UserPage = React.createClass({
             }.bind(this)
         });
     },
+    editRecord(){
+        c("editRecord");
+
+    },
+    deleteRecord(){
+        c("deleteRecord");
+
+    },
+    batchDeleteRecord(){
+        c("batchDeleteRecord");
+
+    },
+    showAddRecordDialog(){
+        c("showAddRecordDialog");
+    },
     render: function () {
 
-        const {columns, data, page, loading, bordered} = this.state.userTable;
+        const {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, bordered} = this.state.userTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
-                console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+                this.updateUserTableSelectedRowKeys(selectedRowKeys);
+                var selectedRowKeys = this.state.userTable.selectedRowKeys;
+                c(`selectedRowKeys is : ${selectedRowKeys}`, selectedRowKeys);
+
             },
             onSelect: (record, selected, selectedRows) => {
-                console.log(record, selected, selectedRows);
+                // c(record, selected, selectedRows);
             },
             onSelectAll: (selected, selectedRows, changeRows) => {
-                console.log(selected, selectedRows, changeRows);
+                // c(selected, selectedRows, changeRows);
             },
         };
+        const hasSelected = selectedRowKeys.length > 0;
         //set now page's props
         return (
             <div>
+                <div style={{marginBottom: 16}}>
+                    <Button
+                        type="primary"
+                        onClick={this.showAddRecordDialog}
+                    >
+                        添加
+                    </Button>
+                    <Button
+                        style={{marginLeft:8}}
+                        type="danger"
+                        onClick={this.batchDeleteRecord}
+                        disabled={!hasSelected}
+                        loading={batchDeleteBtnLoading}
+                    >
+                        批量删除
+                    </Button>
+
+                    <span style={{marginLeft: 8}}>
+                        {hasSelected ? `选择了 ${selectedRowKeys.length} 个选项` : ''}
+                    </span>
+                </div>
                 <Table columns={columns}
                        rowSelection={rowSelection}
                        dataSource={data}
@@ -300,7 +334,7 @@ var UserPage = React.createClass({
                                defaultCurrent: 1
                            }
                        }
-                       loading={loading}
+                       loading={tableLoading}
                        onChange={this.handleTableChange}
                        bordered={bordered}
                        title={() => '用户列表'}
