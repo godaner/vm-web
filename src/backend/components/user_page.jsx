@@ -9,7 +9,7 @@ import {EventEmitter} from 'events';
 import "antd/dist/antd.css";
 import '../scss/user_page.scss';
 import "./events_dispatcher";
-import {Table} from 'antd';
+import { Table, Input, Button } from 'antd';
 
 var UserPage = React.createClass({
     getInitialState: function () {
@@ -18,56 +18,34 @@ var UserPage = React.createClass({
 
 
             userTable: {
+                // usernameFilterDropdownVisible
+                bordered:true,
                 loading: false,
                 page: {
                     start: 0,
-                    size: 2,
-                    orderBy: "id",
-                    orderType: "desc",
+                    size: 5,
+                    orderBy: "",
+                    orderType: "",
                     total: 0
                 },
                 query: {
-                    keyword: ""
+                    usernameQuery: ""
                 },
-                columns: [
-                    {title: 'id', width: 100, dataIndex: 'id', key: 'id'},
-                    {
-                        title: '头像',
-                        width: 100,
-                        dataIndex: 'imgUrl',
-                        key: 'imgUrl',
-                        render: (text) => {
-                            const imgUrl = vm_config.http_url_prefix + text;
-                            return <img style={{width: 50, height: 50}} src={imgUrl}/>
-                        }
-                    },
-                    {title: '用户名', width: 100, dataIndex: 'username', key: 'username'},
-
-
-                    {title: '性别', width: 100, dataIndex: 'sex', key: 'sex'},
-                    {title: '密码', width: 100, dataIndex: 'password', key: 'password'},
-                    {title: '简介', width: 200, dataIndex: 'description', key: 'description'},
-                    {title: '生日', width: 100, dataIndex: 'birthday', key: 'birthday'},
-                    {title: '创建时间', width: 100, dataIndex: 'createTime', key: 'createTime'},
-                    {title: '最后更新时间', width: 100, dataIndex: 'updateTime', key: 'updateTime'},
-                    {title: '状态', width: 100, dataIndex: 'status', key: 'status'},
-
-
-                    {
-                        title: '操作',
-                        key: 'operation',
-                        width: 150,
-                        render: () => {
-                            return <div>
-                                <a href="#">action</a>&nbsp;&nbsp;
-                                <a href="#">action</a>
-                            </div>
-                        },
-                    }
-                ],
+                columns: [],
                 data: []
             }
         };
+    },
+    onUsernameSearchInputChange(e){
+        this.updateUserTableUsernameQuery(e.target.value);
+    },
+    onSearchUsername () {
+        this.loadUserTableData();
+    },
+    updateUserTableUsernameQuery(usernameQuery){
+        var state = this.state;
+        state.userTable.query.usernameQuery = usernameQuery;
+        this.setState(state);
     },
     updateUserTableData(data){
         var state = this.state;
@@ -89,11 +67,144 @@ var UserPage = React.createClass({
         state.userTable.loading = flag;
         this.setState(state);
     },
+    updateUserTableColumns(columns){
+        var state = this.state;
+        state.userTable.columns = columns;
+        this.setState(state);
+    },
     componentDidMount(){
+        this.updateUserTableColumns([{
+            title: 'id',
+            width: 100,
+            dataIndex: 'id',
+            sorter: (a, b) => {
+            }
+        },
+            {
+                title: '头像',
+                width: 100,
+                dataIndex: 'imgUrl',
+                render: (text) => {
+                    const imgUrl = vm_config.http_url_prefix + text;
+                    return <img style={{width: 50, height: 50}} src={imgUrl}/>
+                }
+            },
+            {
+                title: '用户名',
+                width: 100,
+                dataIndex: 'username',
+                sorter: (a, b) => {
+                },
+                filterDropdown: (
+                    <div className="custom-filter-dropdown">
+                        <Input
+                            placeholder="搜索用户名"
+                            value={this.state.userTable.usernameQuery}
+                            onChange={this.onUsernameSearchInputChange}
+                            onPressEnter={this.onSearchUsername()}
+                        />
+                        <Button type="primary" onClick={this.onSearchUsername}>搜索</Button>
+                    </div>
+                ),
+            },
+
+
+            {
+                title: '性别',
+                width: 100,
+                dataIndex: 'sex',
+                render: (text) => {
+                    var res = text;
+                    if(text == 1){
+                        res = "男";
+                    }
+                    if(text == 2){
+                        res = "女";
+                    }
+                    if(text == 3){
+                        res = "未知";
+                    }
+                    return res;
+                },
+                sorter: (a, b) => {
+                }
+
+
+
+            },
+            {
+                title: '密码', width: 100,
+                dataIndex: 'password',
+                sorter: (a, b) => {
+                }
+            },
+            {
+                title: '简介', width: 200,
+                dataIndex: 'description',
+                sorter: (a, b) => {
+                }
+            },
+            {
+                title: '生日',
+                width: 100,
+                dataIndex: 'birthday',
+                render: (text) => {
+                    return timeFormatter.formatDate(text * 1000);
+                },
+                sorter: (a, b) => {
+                }
+            },
+            {
+                title: '创建时间',
+                width: 100,
+                dataIndex: 'create_time',
+                render: (text) => {
+                    return timeFormatter.formatTime(text * 1000);
+                },
+                sorter: (a, b) => {
+                },
+                defaultSortOrder: 'descend',
+            },
+            {
+                title: '最后更新时间',
+                width: 100,
+                dataIndex: 'update_time',
+                render: (text) => {
+
+                    return timeFormatter.formatTime(text * 1000);
+                },
+                sorter: (a, b) => {
+                    return a.username.length -b.username.length;
+                }
+            },
+            {
+                title: '状态',
+                width: 100,
+                dataIndex: 'status',
+                render: (text) => {
+                    return text==1?"正常":text==2?"冻结":text;
+                },
+                sorter: (a, b) => {
+                }
+            },
+
+
+            {
+                title: '操作',
+                dataIndex: 'operation',
+                width: 150,
+                render: () => {
+                    return <div>
+                        <a href="#">action</a>&nbsp;&nbsp;
+                        <a href="#">action</a>
+                    </div>
+                },
+            },])
+
         this.loadUserTableData();
     },
     handleTableChange(pagination, filters, sorter){
-        const  page = this.state.userTable.page;
+        const page = this.state.userTable.page;
         var size = pagination.pageSize;
         var start = (pagination.current - 1) * size;
         var orderBy = sorter.field;
@@ -110,6 +221,17 @@ var UserPage = React.createClass({
     loadUserTableData(){
         this.updateUserTableLoading(true);
         const {page, query} = this.state.userTable;
+        //filter
+        var orderType = page.orderType;
+        if(orderType == "descend"){
+            orderType = "desc";
+        }
+        if(orderType == "ascend"){
+            orderType = "asc";
+        }
+        page.orderType = orderType;
+
+        //ajax
         ajax.get({
             url: this.state.userDataUrl,
             data: $.extend(page, query),
@@ -118,7 +240,7 @@ var UserPage = React.createClass({
                 $.each(result.data.list, function (i, item) {
 
                     data.push({
-                        key: i,
+                        key: item.id,
                         id: item.id,
                         imgUrl: item.imgUrl,
                         username: item.username,
@@ -126,8 +248,8 @@ var UserPage = React.createClass({
                         password: item.password,
                         description: item.description,
                         birthday: item.birthday,
-                        createTime: item.createTime,
-                        updateTime: item.updateTime,
+                        create_time: item.createTime,
+                        update_time: item.updateTime,
                         status: item.status,
                     });
                 }.bind(this));
@@ -146,7 +268,7 @@ var UserPage = React.createClass({
     },
     render: function () {
 
-        const {columns, data, page, loading} = this.state.userTable;
+        const {columns, data, page, loading,bordered} = this.state.userTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -167,16 +289,19 @@ var UserPage = React.createClass({
                        dataSource={data}
                        pagination={
                            {
-                               total:page.total,
-                               showTotal: (total, range) =>{
-                                   return  `第 ${range[0]}-${range[1]} 条记录 , 共 ${total} 条记录`;
+                               total: page.total,
+                               showTotal: (total, range) => {
+                                   return `第 ${range[0]}-${range[1]} 条记录 , 共 ${total} 条记录`;
                                },
-                               pageSize:page.size,
-                               defaultCurrent:1
+                               pageSize: page.size,
+                               defaultCurrent: 1
                            }
                        }
                        loading={loading}
                        onChange={this.handleTableChange}
+                       bordered={bordered}
+                       title={() => '用户列表'}
+                       // footer={() => 'Footer'}
                        scroll={{x: "100%", y: "100%"}}/>
             </div>
         );

@@ -7,8 +7,6 @@
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/user_page.jsx" afterPath="$PROJECT_DIR$/src/backend/components/user_page.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/backend/dist/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/js/vm_config.js" afterPath="$PROJECT_DIR$/src/backend/js/vm_config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/js/vm_util.js" afterPath="$PROJECT_DIR$/src/backend/js/vm_util.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,11 +69,21 @@
       <file leaf-file-name="user_page.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/backend/components/user_page.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+            <state relative-caret-position="219">
+              <caret line="101" column="69" lean-forward="false" selection-start-line="101" selection-start-column="69" selection-end-line="101" selection-end-column="69" />
               <folding>
                 <element signature="e#193#228#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="date_util.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="66" column="34" lean-forward="false" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,8 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>feelerOnlineUser</find>
-      <find>callfun</find>
       <find>if (!isUndefined(u) &amp;&amp; !isUndefined(callfun)) {</find>
       <find>contain</find>
       <find>getT</find>
@@ -144,6 +150,8 @@
       <find>time</find>
       <find>times</find>
       <find>login-form-forgot</find>
+      <find>defaultSortOrder</find>
+      <find>orderType</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -817,12 +825,12 @@
       <workItem from="1519716966358" duration="622000" />
       <workItem from="1519718524227" duration="18772000" />
       <workItem from="1519965047783" duration="2600000" />
-      <workItem from="1520298591786" duration="15044000" />
+      <workItem from="1520298591786" duration="19737000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65798000" />
+    <option name="totallyTimeSpent" value="70491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -952,13 +960,6 @@
           <folding>
             <element signature="e#39#119#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1317,10 +1318,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="66" column="34" lean-forward="false" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/components/user_page.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+        <state relative-caret-position="219">
+          <caret line="101" column="69" lean-forward="false" selection-start-line="101" selection-start-column="69" selection-end-line="101" selection-end-column="69" />
           <folding>
             <element signature="e#193#228#0" expanded="true" />
           </folding>
