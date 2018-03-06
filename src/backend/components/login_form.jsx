@@ -14,21 +14,49 @@ import '../scss/login_form.scss';
 
 
 var LoginFormWillBeWrap = React.createClass({
+    getInitialState: function () {
+        const beforeClickLoginBtnText = "登录";
+        return {
+            loginBtnLoading: false,
+            nowLoginBtnText:beforeClickLoginBtnText,
+            afterClickLoginBtnText:"登陆中",
+            beforeClickLoginBtnText:beforeClickLoginBtnText
+        };
+    },
+    updateLoginBtnLoading(flag){
+        var state = this.state;
+        state.loginBtnLoading = flag;
+        this.setState(state);
+    },
+    updateNowLoginBtnText(text){
+        var state = this.state;
+        state.nowLoginBtnText = text;
+        this.setState(state);
+    },
     handleSubmit (e){
+        this.updateLoginBtnLoading(true);
+        this.updateNowLoginBtnText(this.state.afterClickLoginBtnText);
+        setInterval(function () {
+            this.updateLoginBtnLoading(false);
+            this.updateNowLoginBtnText(this.state.beforeClickLoginBtnText);
+        }.bind(this),3000);
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
             }
         });
+
+
     },
     render: function () {
         const {getFieldDecorator} = this.props.form;
 
+        const {loginBtnLoading,nowLoginBtnText} = this.state;
         return (
-            <Form onSubmit={this.handleSubmit} className="login-form">
+            <Form onSubmit={this.handleSubmit} id="login-form">
                 <FormItem>
-                    {getFieldDecorator('userName', {
+                    {getFieldDecorator('username', {
                         rules: [{required: true, message: '请输入用户名!'}],
                     })(
                         <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
@@ -43,6 +71,7 @@ var LoginFormWillBeWrap = React.createClass({
                                placeholder="密码"/>
                     )}
                 </FormItem>
+
                 <FormItem>
                     {getFieldDecorator('remember', {
                         valuePropName: 'checked',
@@ -50,11 +79,11 @@ var LoginFormWillBeWrap = React.createClass({
                     })(
                         <Checkbox>Remember me</Checkbox>
                     )}
-                    <a className="login-form-forgot" href="">忘记密码</a>
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        登录
+                    <a id="login-form-forgot" href="">忘记密码</a>
+                    <Button loading={loginBtnLoading} type="primary" htmlType="submit" id="login-form-button">
+                        {nowLoginBtnText}
                     </Button>
-                    Or <a href="">现在注册!</a>
+                    {/*Or <a href="">现在注册!</a>*/}
                 </FormItem>
             </Form>
         );
@@ -62,7 +91,7 @@ var LoginFormWillBeWrap = React.createClass({
 })
 
 //create form
-const LoginForm = Form.create()(<LoginFormWillBeWrap/>);
-
+// const LoginForm = Form.create()(<LoginFormWillBeWrap/>);
+const LoginForm = Form.create()(LoginFormWillBeWrap)
 export default LoginForm;   //将App组件导出
 

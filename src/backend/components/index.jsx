@@ -8,6 +8,7 @@ import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
 import "./events_dispatcher";
 import Head from "./head";
 import LoginDialog from "./login_dialog";
+import Nav from "./nav";
 
 
 import "antd/dist/antd.css";
@@ -15,7 +16,9 @@ import '../scss/index.scss';
 
 var Index = React.createClass({
     getInitialState: function () {
-        return {};
+        return {
+            collapsed:false
+        };
     },
     onCollapse(collapsed){
         // console.log(collapsed);
@@ -23,45 +26,19 @@ var Index = React.createClass({
     },
     render: function () {
         //set now page's props
+        const {collapsed} = this.state;
         return (
             <div id="index">
                 <HashRouter>
                     <Layout style={{minHeight: '100vh'}}>
                         <Sider
                             collapsible
-                            collapsed={this.state.collapsed}
+                            collapsed={collapsed}
                             onCollapse={this.onCollapse}
                         >
+
                             <div className="logo"/>
-                            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                                <SubMenu
-                                    key="userMenu"
-                                    title={<span><Icon type="user"/><span>用户管理</span></span>}
-                                >
-                                    <Menu.Item key="1">信息管理</Menu.Item>
-                                    <Menu.Item key="2">登录记录</Menu.Item>
-                                    {/*<Menu.Item key="5">Alex</Menu.Item>*/}
-                                </SubMenu>
-                                <SubMenu
-                                    key="adminMenu"
-                                    title={<span><Icon type="lock"/><span>管理员管理</span></span>}
-                                >
-                                    <Menu.Item key="3">信息管理</Menu.Item>
-                                    <Menu.Item key="4">登录记录</Menu.Item>
-                                </SubMenu>
-                                <SubMenu
-                                    key="movieMenu"
-                                    title={<span><Icon type="play-circle-o"/><span>电影管理</span></span>}
-                                >
-                                    <Menu.Item key="5">信息管理</Menu.Item>
-                                </SubMenu>
-                                {/*<Menu.Item key="2">*/}
-                                {/*<Icon type="desktop"/>*/}
-                                {/*<span>视频管理</span>*/}
-                                {/*</Menu.Item>*/}
-
-
-                            </Menu>
+                            <Nav/>
                         </Sider>
                         <Layout>
                             <Header style={{background: '#fff'}}>

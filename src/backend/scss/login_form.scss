@@ -1,6 +1,11 @@
 @import "global";
 
-#login_form {
-
+#login-form {
+  //max-width: 300px;
 }
-
+#login-form #login-form-forgot {
+  float: right;
+}
+#login-form #login-form-button {
+  width: 100%;
+}

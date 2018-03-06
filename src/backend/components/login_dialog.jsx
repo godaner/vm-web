@@ -18,8 +18,9 @@ import '../scss/login_dialog.scss';
 var LoginDialog = React.createClass({
     getInitialState: function () {
         return {
-            loading: false,
             visible: false,
+            modelWidth:"350px",
+            modelHeight:"300px",
             onLoginSuccess: undefined,
             onLoginFailure: undefined
         };
@@ -27,12 +28,6 @@ var LoginDialog = React.createClass({
     updateStateVisible(visible){
         var state = this.state;
         state.visible = visible;
-        this.setState(state);
-    },
-
-    updateStateLoading(loading){
-        var state = this.state;
-        state.loading = loading;
         this.setState(state);
     },
     updateStateOnLoginSuccess(onLoginSuccess){
@@ -68,46 +63,34 @@ var LoginDialog = React.createClass({
     showLoginDialog(){
         this.updateStateVisible(true);
     },
-    handleLogin  ()  {
-        this.updateStateLoading(true);
-        setTimeout(() => {
-            this.updateStateLoading(false);
-        }, 3000);
-    },
     handleCancel () {
         this.updateStateVisible(false);
-        this.updateStateLoading(false);
+        c("handleCancel");
     },
-    handleSubmit (e){
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
+    getLoginForm(){
+        return this.refs.login_form;
     },
     render: function () {
 
 
         //get state
-        const {visible, loading} = this.state;
+        const {visible, loading,modelWidth,modelHeight} = this.state;
         return (
             <div id="login_dialog">
                 <Modal
+                    className='extra'
                     visible={visible}
                     title="登录"
                     onCancel={this.handleCancel}
-                    onOk={this.handleLogin}
+                    width={modelWidth}
+                    height={modelHeight}
                     footer={[
-                        <Button key="back" onClick={this.handleCancel}>取消</Button>,
-                        <Button key="submit" type="primary" loading={loading} onClick={this.handleLogin}>
-                            登录
-                        </Button>,
+
                     ]}
                 >
-                    <div>
 
-                        <LoginForm/>
+                    <div>
+                        <LoginForm ref="login_form"/>
                     </div>
                 </Modal>
             </div>
