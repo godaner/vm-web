@@ -4,7 +4,7 @@ import {Layout, Menu, Breadcrumb, Icon, Form, Input, Button, Checkbox} from 'ant
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
-import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
+import {Switch, BrowserRouter, HashRouter, Route,Link} from 'react-router-dom';
 
 
 import "antd/dist/antd.css";
@@ -15,7 +15,7 @@ var Nav = React.createClass({
     getInitialState: function () {
         return {
             selectedKeys:"6",
-            openKeys:"indexMenu",
+            openKeys:"homeMenu",
             menuTheme:"dark"
         };
     },
@@ -29,16 +29,24 @@ var Nav = React.createClass({
                   defaultSelectedKeys={[selectedKeys]}
                   mode="inline">
                 <SubMenu
-                    key="indexMenu"
+                    key="homeMenu"
                     title={<span><Icon type="home"/><span>主页</span></span>}
                 >
-                    <Menu.Item key="6">主页</Menu.Item>
+                    <Menu.Item key="6">
+                        <Link to={{ pathname: '/', query: {} }}>
+                            主页
+                        </Link>
+                    </Menu.Item>
                 </SubMenu>
                 <SubMenu
                     key="userMenu"
                     title={<span><Icon type="user"/><span>用户管理</span></span>}
                 >
-                    <Menu.Item key="1">信息管理</Menu.Item>
+                    <Menu.Item key="1">
+                        <Link to={{ pathname: '/user', query: {} }}>
+                            信息管理
+                        </Link>
+                    </Menu.Item>
                     <Menu.Item key="2">登录记录</Menu.Item>
                     {/*<Menu.Item key="5">Alex</Menu.Item>*/}
                 </SubMenu>

@@ -4,11 +4,12 @@ import {Layout, Menu, Breadcrumb, Icon} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 import HomePage from "./home_page";
-import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
+import {Switch, BrowserRouter, HashRouter, Route,Link} from 'react-router-dom';
 import "./events_dispatcher";
 import Head from "./head";
 import LoginDialog from "./login_dialog";
 import Nav from "./nav";
+import Routes from "./routes";
 
 
 import "antd/dist/antd.css";
@@ -17,16 +18,19 @@ import '../scss/index.scss';
 var Index = React.createClass({
     getInitialState: function () {
         return {
-            collapsed:false
+            collapsed: false
         };
     },
     onCollapse(collapsed){
         // console.log(collapsed);
         this.setState({collapsed});
     },
+
     render: function () {
         //set now page's props
         const {collapsed} = this.state;
+
+
         return (
             <div id="index">
                 <HashRouter>
@@ -46,16 +50,13 @@ var Index = React.createClass({
                                 <Head/>
                             </Header>
                             <Content style={{margin: '0 16px'}}>
-                                <Breadcrumb style={{margin: '16px 0'}}>
-                                    <Breadcrumb.Item>User</Breadcrumb.Item>
-                                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                                </Breadcrumb>
-                                <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                                    <Route exact path='/'
-                                           render={() => (
-                                               <HomePage />
-                                           )}/>
-                                </div>
+                                {/*<Breadcrumb style={{margin: '16px 0'}}*/}
+                                            {/*itemRender={itemRender} routes={routes}>*/}
+                                    {/*<Breadcrumb.Item>User</Breadcrumb.Item>*/}
+                                    {/*<Breadcrumb.Item>Bill</Breadcrumb.Item>*/}
+                                {/*</Breadcrumb>*/}
+                                <Routes/>
+
                             </Content>
                             <Footer style={{textAlign: 'center'}}>
                                 Vm backend ©2016 Created by Zhangke
