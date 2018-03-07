@@ -14,7 +14,7 @@ import {ajax,commons} from "../base/vm_util";
 
 
 import "antd/dist/antd.css";
-import '../../scss/index.scss';
+import '../../scss/index/index.scss';
 
 var Index = React.createClass({
     getInitialState: function () {

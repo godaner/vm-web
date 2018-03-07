@@ -5,7 +5,7 @@ const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 import {EventEmitter} from 'events';
 import "antd/dist/antd.css";
-import '../../scss/home_page.scss';
+import '../../scss/home/home_page.scss';
 import "../base/events_dispatcher";
 import {Switch, BrowserRouter, HashRouter, Route, Link,withRouter} from 'react-router-dom';
 import {ajax,commons} from "../base/vm_util";

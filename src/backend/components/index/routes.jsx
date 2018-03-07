@@ -8,7 +8,7 @@ import {Switch, BrowserRouter, HashRouter, Route, withRouter} from 'react-router
 
 
 import "antd/dist/antd.css";
-import '../../scss/routes.scss';
+import '../../scss/base/routes.scss';
 import "../base/events_dispatcher";
 import UserPage from "../user/user_page";
 import HomePage from "../home/home_page";

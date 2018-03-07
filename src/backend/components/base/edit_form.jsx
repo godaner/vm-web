@@ -6,40 +6,40 @@ const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
 import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
 
-import "../base/events_dispatcher";
+import "./events_dispatcher";
 
 
 import "antd/dist/antd.css";
-import '../../scss/index/login_form.scss';
+import '../../scss/base/edit_form.scss';
 import {ajax,commons} from "../base/vm_util";
 
 
-var LoginFormWillBeWrap = React.createClass({
+var EditFormWillBeWrap = React.createClass({
     getInitialState: function () {
-        const beforeClickLoginBtnText = "登录";
+        const beforeClickBtnText = "提交";
         return {
-            loginBtnLoading: false,
-            nowLoginBtnText:beforeClickLoginBtnText,
-            afterClickLoginBtnText:"登陆中",
-            beforeClickLoginBtnText:beforeClickLoginBtnText
+            btnLoading: false,
+            nowBtnText:beforeClickBtnText,
+            afterClickBtnText:"提交中",
+            beforeClickBtnText:beforeClickBtnText
         };
     },
-    updateLoginBtnLoading(flag){
+    updateBtnLoading(flag){
         var state = this.state;
         state.btnLoading = flag;
         this.setState(state);
     },
-    updateNowLoginBtnText(text){
+    updateNowBtnText(text){
         var state = this.state;
         state.nowBtnText = text;
         this.setState(state);
     },
     handleSubmit (e){
-        this.updateLoginBtnLoading(true);
-        this.updateNowLoginBtnText(this.state.afterClickBtnText);
+        this.updateBtnLoading(true);
+        this.updateNowBtnText(this.state.afterClickBtnText);
         setInterval(function () {
-            this.updateLoginBtnLoading(false);
-            this.updateNowLoginBtnText(this.state.beforeClickBtnText);
+            this.updateBtnLoading(false);
+            this.updateNowBtnText(this.state.beforeClickBtnText);
         }.bind(this),3000);
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -53,9 +53,9 @@ var LoginFormWillBeWrap = React.createClass({
     render: function () {
         const {getFieldDecorator} = this.props.form;
 
-        const {loginBtnLoading,nowLoginBtnText} = this.state;
+        const {btnLoading,nowBtnText} = this.state;
         return (
-            <Form onSubmit={this.handleSubmit} id="login-form">
+            <Form onSubmit={this.handleSubmit} id="edit_form">
                 <FormItem>
                     {getFieldDecorator('username', {
                         rules: [{required: true, message: '请输入用户名!'}],
@@ -74,15 +74,8 @@ var LoginFormWillBeWrap = React.createClass({
                 </FormItem>
 
                 <FormItem>
-                    {getFieldDecorator('remember', {
-                        valuePropName: 'checked',
-                        initialValue: true,
-                    })(
-                        <Checkbox>Remember me</Checkbox>
-                    )}
-                    <a id="login-form-forgot" href="">忘记密码</a>
-                    <Button loading={loginBtnLoading} type="primary" htmlType="submit" id="login-form-button">
-                        {nowLoginBtnText}
+                    <Button loading={btnLoading} type="primary" htmlType="submit" id="edit-form-button">
+                        {nowBtnText}
                     </Button>
                     {/*Or <a href="">现在注册!</a>*/}
                 </FormItem>
@@ -93,6 +86,6 @@ var LoginFormWillBeWrap = React.createClass({
 
 //create form
 // const LoginForm = Form.create()(<LoginFormWillBeWrap/>);
-const LoginForm = Form.create()(LoginFormWillBeWrap)
-export default LoginForm;   //将App组件导出
+const EditForm = Form.create()(EditFormWillBeWrap)
+export default EditForm;   //将App组件导出
 

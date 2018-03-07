@@ -5,26 +5,25 @@ const {Header, Content, Footer, Sider} = Layout;
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
 import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
-import LoginForm from "./login_form";
+import EditForm from "./edit_form";
 
-import "../base/events_dispatcher";
+import "./events_dispatcher";
 
 
 import "antd/dist/antd.css";
-import '../../scss/index/login_dialog.scss';
+import '../../scss/base/edit_dialog.scss';
 
 import {ajax,commons} from "../base/vm_util";
 
 
 
-var LoginDialog = React.createClass({
+var UserEditDialog = React.createClass({
     getInitialState: function () {
         return {
             visible: false,
+            loading:false,
             modelWidth:"350px",
-            modelHeight:"300px",
-            onLoginSuccess: undefined,
-            onLoginFailure: undefined
+            modelHeight:"300px"
         };
     },
     updateStateVisible(visible){
@@ -32,45 +31,35 @@ var LoginDialog = React.createClass({
         state.visible = visible;
         this.setState(state);
     },
-    updateStateOnLoginSuccess(onLoginSuccess){
+    updateStateLoading(loading){
         var state = this.state;
-        state.onLoginSuccess = onLoginSuccess;
-        this.setState(state);
-    },
-    updateStateOnLoginFailure(onLoginFailure){
-
-        var state = this.state;
-        state.onLoginFailure = onLoginFailure;
+        state.loading = loading;
         this.setState(state);
     },
     registEvents(){
-        window.event.on('showLoginDialog', (args) => {
 
-            this.showLoginDialog();
-
-            if (!isUndefined(args)) {
-
-                this.updateStateOnLoginSuccess(args.onLoginSuccess);
-
-                this.updateStateOnLoginFailure(args.onLoginFailure);
-            }
-
-        });
     },
     componentDidMount(){
 
         this.registEvents();
 
     },
-    showLoginDialog(){
+    showDialog(){
         this.updateStateVisible(true);
+    },
+    closeDialog(){
+        this.updateStateVisible(false);
     },
     handleCancel () {
         this.updateStateVisible(false);
         c("handleCancel");
     },
-    getLoginForm(){
-        return this.refs.login_form;
+    handleOk () {
+        this.updateStateVisible(false);
+        c("handleOk");
+    },
+    getEditForm(){
+        return this.refs.edit_form;
     },
     render: function () {
 
@@ -78,24 +67,30 @@ var LoginDialog = React.createClass({
         //get state
         const {visible, loading,modelWidth,modelHeight} = this.state;
         return (
-            <div id="login_dialog">
+            <div id="user_edit_dialog">
                 <Modal
                     className='extra'
                     visible={visible}
-                    title="登录"
+                    title="编辑"
                     onCancel={this.handleCancel}
+                    onOk={this.handleOk}
                     width={modelWidth}
                     height={modelHeight}
-                    footer={null}
+                    footer={[
+                        <Button key="back" onClick={this.handleCancel}>取消</Button>,
+                        <Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
+                            确认
+                        </Button>,
+                    ]}
                 >
 
                     <div>
-                        <LoginForm ref="login_form"/>
+                        <EditForm ref="edit_form"/>
                     </div>
                 </Modal>
             </div>
         );
     }
 })
-export default LoginDialog;   //将App组件导出
+export default UserEditDialog;   //将App组件导出
 

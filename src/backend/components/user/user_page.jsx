@@ -7,9 +7,10 @@ import HomePage from "../home/home_page";
 import {Switch, BrowserRouter, HashRouter, Route, withRouter} from 'react-router-dom';
 import {EventEmitter} from 'events';
 import "antd/dist/antd.css";
-import '../../scss/user_page.scss';
+import '../../scss/user/user_page.scss';
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
+import EditDialog from "../base/edit_dialog";
 import {Table, Input, Button} from 'antd';
 const Search = Input.Search;
 var UserPage = React.createClass({
@@ -300,6 +301,7 @@ var UserPage = React.createClass({
     },
     showEditDialog(){
         c("showEditDialog");
+        this.getUserEditDialog().showDialog();
 
     },
     deleteRecord(){
@@ -312,7 +314,15 @@ var UserPage = React.createClass({
     },
     showAddDialog(){
         c("showAddDialog");
+        this.getUserAddDialog().showDialog();
     },
+    getUserAddDialog(){
+        return this.refs.user_add_dialog;
+    },
+    getUserEditDialog(){
+        return this.refs.user_edit_dialog;
+    },
+
     render: function () {
 
         const {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, bordered} = this.state.userTable;
@@ -375,10 +385,47 @@ var UserPage = React.createClass({
                        title={() => '用户列表'}
                     // footer={() => 'Footer'}
                        scroll={{x: "100%", y: "100%"}}/>
+
+                <UserEditDialog ref="user_add_dialog"/>
+                <UserAddDialog ref="user_edit_dialog"/>
             </div>
         );
     }
 });
 
+
+var UserEditDialog = React.createClass({
+    getInitialState(){
+        return {};
+    },
+    showDialog(){
+
+        this.getUserEditDialog().showDialog();
+    },
+    getUserEditDialog(){
+        return this.refs.user_edit_dialog;
+    },
+    render(){
+
+        return <EditDialog ref="user_edit_dialog"/>;
+    }
+});
+var UserAddDialog = React.createClass({
+    getInitialState(){
+        return {};
+    },
+    showDialog(){
+        this.getUserAddDialog().showDialog();
+    }
+    ,
+    getUserAddDialog(){
+        return this.refs.user_add_dialog;
+    },
+
+    render(){
+
+        return <EditDialog ref="user_add_dialog"/>;
+    }
+});
 
 export default withRouter(UserPage);   //将App组件导出

@@ -7,7 +7,7 @@ const SubMenu = Menu.SubMenu;
 import {Switch, BrowserRouter, HashRouter, Route, Link,withRouter} from 'react-router-dom';
 
 import "antd/dist/antd.css";
-import '../../scss/nav.scss';
+import '../../scss/index/nav.scss';
 import "../base/events_dispatcher";
 import {ajax,commons} from "../base/vm_util";
 
