@@ -13,28 +13,18 @@ import "./events_dispatcher";
 import "antd/dist/antd.css";
 import '../../scss/base/edit_dialog.scss';
 
-import {ajax,commons} from "../base/vm_util";
+import {ajax, commons} from "../base/vm_util";
 
 
-
-var UserEditDialog = React.createClass({
+var EditDialog = React.createClass({
     getInitialState: function () {
         return {
-            visible: false,
-            loading:false,
-            modelWidth:"350px",
-            modelHeight:"300px"
+            modelWidth: "350px",
+            modelHeight: "300px",
+            formLoading: false,
+            visible: false
+
         };
-    },
-    updateStateVisible(visible){
-        var state = this.state;
-        state.visible = visible;
-        this.setState(state);
-    },
-    updateStateLoading(loading){
-        var state = this.state;
-        state.loading = loading;
-        this.setState(state);
     },
     registEvents(){
 
@@ -44,28 +34,57 @@ var UserEditDialog = React.createClass({
         this.registEvents();
 
     },
-    showDialog(){
-        this.updateStateVisible(true);
+    handleCancel () {
+
+        this.closeDialog();
+
+        const {handleCancel} = this.props;
+
+        if (!isUndefined(handleCancel)) {
+            handleCancel();
+        }
+    },
+    handleSubmit (values){
+
+        this.formEnterLoading();
+
+        const {handleSubmit} = this.props;
+
+        if (!isUndefined(handleSubmit)) {
+            handleSubmit(values);
+        }
+
+    },
+    formEnterLoading(){//进入handleSubmit后缀自动调用
+        this.updateFormLoading(true);
+    },
+    formLeaveLoading(){//结束handleSubmit后缀需要手动调用
+        this.updateFormLoading(false);
+    },
+    updateFormLoading(loading){
+        var state = this.state;
+        state.formLoading = loading;
+        this.setState(state);
     },
     closeDialog(){
         this.updateStateVisible(false);
     },
-    handleCancel () {
-        this.updateStateVisible(false);
-        c("handleCancel");
+    showDialog(){
+        this.updateStateVisible(true);
     },
-    handleOk () {
-        this.updateStateVisible(false);
-        c("handleOk");
+    updateStateVisible(visible){
+        var state = this.state;
+        state.visible = visible;
+        this.setState(state);
     },
-    getEditForm(){
-        return this.refs.edit_form;
-    },
+
     render: function () {
 
+        //get props
+        const {formItems} = this.props;
 
         //get state
-        const {visible, loading,modelWidth,modelHeight} = this.state;
+        const {modelWidth, modelHeight, formLoading, visible} = this.state;
         return (
             <div id="user_edit_dialog">
                 <Modal
@@ -73,24 +92,20 @@ var UserEditDialog = React.createClass({
                     visible={visible}
                     title="编辑"
                     onCancel={this.handleCancel}
-                    onOk={this.handleOk}
                     width={modelWidth}
                     height={modelHeight}
-                    footer={[
-                        <Button key="back" onClick={this.handleCancel}>取消</Button>,
-                        <Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
-                            确认
-                        </Button>,
-                    ]}
+                    footer={null}
                 >
 
-                    <div>
-                        <EditForm ref="edit_form"/>
-                    </div>
+                    <EditForm
+                        handleSubmit={this.handleSubmit}
+                        formItems={formItems}
+                        loading={formLoading}
+                    />
                 </Modal>
             </div>
         );
     }
 })
-export default UserEditDialog;   //将App组件导出
 
+export default EditDialog;   //将App组件导出

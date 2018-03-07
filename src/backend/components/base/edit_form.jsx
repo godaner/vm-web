@@ -11,51 +11,48 @@ import "./events_dispatcher";
 
 import "antd/dist/antd.css";
 import '../../scss/base/edit_form.scss';
-import {ajax,commons} from "../base/vm_util";
+import {ajax, commons} from "../base/vm_util";
 
 
 var EditFormWillBeWrap = React.createClass({
     getInitialState: function () {
-        const beforeClickBtnText = "提交";
-        return {
-            btnLoading: false,
-            nowBtnText:beforeClickBtnText,
-            afterClickBtnText:"提交中",
-            beforeClickBtnText:beforeClickBtnText
-        };
+        return {};
     },
-    updateBtnLoading(flag){
-        var state = this.state;
-        state.btnLoading = flag;
-        this.setState(state);
+    componentDidMount(){
+
     },
-    updateNowBtnText(text){
-        var state = this.state;
-        state.nowBtnText = text;
-        this.setState(state);
+    handleCancel () {
+
+        const {handleCancel} = this.props;
+
+        if (!isUndefined(handleCancel)) {
+            handleCancel();
+        }
     },
     handleSubmit (e){
-        this.updateBtnLoading(true);
-        this.updateNowBtnText(this.state.afterClickBtnText);
-        setInterval(function () {
-            this.updateBtnLoading(false);
-            this.updateNowBtnText(this.state.beforeClickBtnText);
-        }.bind(this),3000);
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
 
+        const {handleSubmit} = this.props;
+
+        e.preventDefault();
+        this.props.form.validateFields(function (err, values) {
+            if (!err) {
+                if (!isUndefined(handleSubmit)) {
+                    handleSubmit(values);
+                }
+            }
+        }.bind(this));
 
     },
     render: function () {
+        //get props.form
         const {getFieldDecorator} = this.props.form;
 
-        const {btnLoading,nowBtnText} = this.state;
+        //get props
+        const {loading, formItems} = this.props;
+
+
         return (
-            <Form onSubmit={this.handleSubmit} id="edit_form">
+            <Form onSubmit={this.handleSubmit} id="edit_form" ref="edit_form">
                 <FormItem>
                     {getFieldDecorator('username', {
                         rules: [{required: true, message: '请输入用户名!'}],
@@ -74,10 +71,9 @@ var EditFormWillBeWrap = React.createClass({
                 </FormItem>
 
                 <FormItem>
-                    <Button loading={btnLoading} type="primary" htmlType="submit" id="edit-form-button">
-                        {nowBtnText}
+                    <Button loading={loading} type="primary" htmlType="submit" id="edit-form-button">
+                        提交
                     </Button>
-                    {/*Or <a href="">现在注册!</a>*/}
                 </FormItem>
             </Form>
         );

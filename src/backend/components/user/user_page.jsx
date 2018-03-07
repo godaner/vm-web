@@ -386,8 +386,8 @@ var UserPage = React.createClass({
                     // footer={() => 'Footer'}
                        scroll={{x: "100%", y: "100%"}}/>
 
-                <UserEditDialog ref="user_add_dialog"/>
-                <UserAddDialog ref="user_edit_dialog"/>
+                <UserEditDialog ref="user_edit_dialog"/>
+                <UserAddDialog ref="user_add_dialog"/>
             </div>
         );
     }
@@ -421,10 +421,27 @@ var UserAddDialog = React.createClass({
     getUserAddDialog(){
         return this.refs.user_add_dialog;
     },
+    handleSubmit(values){
+        c("handleSubmit");
+        c(values);
+        setTimeout(function () {
+            this.getUserAddDialog().formLeaveLoading();
+            setTimeout(function () {
+                this.getUserAddDialog().closeDialog();
+            }.bind(this), 1000);
+        }.bind(this), 1000);
+    },
+    handleCancel(){
 
+        c("handleCancel");
+    },
     render(){
-
-        return <EditDialog ref="user_add_dialog"/>;
+        var formItems = [];
+        return <EditDialog
+            formItems={formItems}
+            handleSubmit={this.handleSubmit}
+            handleCancel={this.handleCancel}
+            ref="user_add_dialog"/>;
     }
 });
 
