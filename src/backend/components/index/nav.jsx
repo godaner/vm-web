@@ -7,9 +7,9 @@ const SubMenu = Menu.SubMenu;
 import {Switch, BrowserRouter, HashRouter, Route, Link,withRouter} from 'react-router-dom';
 
 import "antd/dist/antd.css";
-import '../scss/nav.scss';
-import "./events_dispatcher";
-import {ajax,commons} from "./vm_util";
+import '../../scss/nav.scss';
+import "../base/events_dispatcher";
+import {ajax,commons} from "../base/vm_util";
 
 var Nav = React.createClass({
     getInitialState: function () {

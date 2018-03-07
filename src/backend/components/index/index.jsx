@@ -3,18 +3,18 @@ import React from 'react';
 import {Layout, Menu, Breadcrumb, Icon} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
-import HomePage from "./home_page";
+import HomePage from "../home/home_page";
 import {Switch, BrowserRouter, HashRouter, Route,Link} from 'react-router-dom';
-import "./events_dispatcher";
+import "../base/events_dispatcher";
 import Head from "./head";
 import LoginDialog from "./login_dialog";
 import Nav from "./nav";
 import Routes from "./routes";
-import {ajax,commons} from "./vm_util";
+import {ajax,commons} from "../base/vm_util";
 
 
 import "antd/dist/antd.css";
-import '../scss/index.scss';
+import '../../scss/index.scss';
 
 var Index = React.createClass({
     getInitialState: function () {
@@ -66,6 +66,7 @@ var Index = React.createClass({
                     </Layout>
 
                 </HashRouter>
+                {/*登录框*/}
                 <LoginDialog ref="login_dialog"/>
             </div>
         );

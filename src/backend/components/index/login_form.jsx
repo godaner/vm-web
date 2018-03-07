@@ -6,12 +6,12 @@ const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
 import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
 
-import "./events_dispatcher";
+import "../base/events_dispatcher";
 
 
 import "antd/dist/antd.css";
-import '../scss/login_form.scss';
-import {ajax,commons} from "./vm_util";
+import '../../scss/login_form.scss';
+import {ajax,commons} from "../base/vm_util";
 
 
 var LoginFormWillBeWrap = React.createClass({

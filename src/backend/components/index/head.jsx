@@ -8,9 +8,9 @@ import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
 
 
 import "antd/dist/antd.css";
-import '../scss/head.scss';
-import "./events_dispatcher";
-import {ajax,commons} from "./vm_util";
+import '../../scss/head.scss';
+import "../base/events_dispatcher";
+import {ajax,commons} from "../base/vm_util";
 
 var Head = React.createClass({
     getInitialState: function () {

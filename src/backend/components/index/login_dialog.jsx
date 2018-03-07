@@ -7,13 +7,13 @@ const SubMenu = Menu.SubMenu;
 import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
 import LoginForm from "./login_form";
 
-import "./events_dispatcher";
+import "../base/events_dispatcher";
 
 
 import "antd/dist/antd.css";
-import '../scss/login_dialog.scss';
+import '../../scss/login_dialog.scss';
 
-import {ajax,commons} from "./vm_util";
+import {ajax,commons} from "../base/vm_util";
 
 
 

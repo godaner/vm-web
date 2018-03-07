@@ -3,13 +3,13 @@ import React from 'react';
 import {Layout, Menu, Breadcrumb, Icon} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
-import HomePage from "./home_page";
-import {Switch, BrowserRouter, HashRouter, Route,withRouter} from 'react-router-dom';
+import HomePage from "../home/home_page";
+import {Switch, BrowserRouter, HashRouter, Route, withRouter} from 'react-router-dom';
 import {EventEmitter} from 'events';
 import "antd/dist/antd.css";
-import '../scss/user_page.scss';
-import "./events_dispatcher";
-import {ajax,commons} from "./vm_util";
+import '../../scss/user_page.scss';
+import "../base/events_dispatcher";
+import {ajax, commons} from "../base/vm_util";
 import {Table, Input, Button} from 'antd';
 const Search = Input.Search;
 var UserPage = React.createClass({
@@ -19,8 +19,9 @@ var UserPage = React.createClass({
 
             userTable: {
                 dataSourceUrl: "/user/list",
-                haveSearchUsername:false,
-                usernameDropdownVisible:false,
+                editable: false,
+                haveSearchUsername: false,
+                usernameDropdownVisible: false,
                 bordered: false,
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
@@ -42,9 +43,9 @@ var UserPage = React.createClass({
     },
     onSearchUsername (newUsernameQuery) {
         this.updateUserTableUsernameQuery(newUsernameQuery);
-        if(!isEmptyString(this.state.userTable.query.usernameQuery)){
+        if (!isEmptyString(this.state.userTable.query.usernameQuery)) {
             this.updateUserTableHaveSearchUsername(true);
-        }else{
+        } else {
 
             this.updateUserTableHaveSearchUsername(false);
         }
@@ -96,6 +97,9 @@ var UserPage = React.createClass({
         state.userTable.columns = columns;
         this.setState(state);
     },
+    onCellChange(){
+
+    },
     componentDidMount(){
         this.updateUserTableColumns([
             {
@@ -118,8 +122,8 @@ var UserPage = React.createClass({
                 title: '用户名',
                 width: 100,
                 dataIndex: 'username',
-                render:(text)=>{
-                    return commons.highLight(text,this.state.userTable.query.usernameQuery);
+                render: (text, record) => {
+                    return commons.highLight(text, this.state.userTable.query.usernameQuery);
                 },
                 sorter: (a, b) => {
                 },
@@ -132,7 +136,8 @@ var UserPage = React.createClass({
                         />
                     </div>
                 ),
-                filterIcon: <Icon type="search" style={{ color: this.state.userTable.haveSearchUsername ? '#108ee9' : '#aaa' }} />,
+                filterIcon: <Icon type="search"
+                                  style={{color: this.state.userTable.haveSearchUsername ? '#108ee9' : '#aaa'}}/>,
                 // filterDropdownVisible: this.state.userTable.usernameDropdownVisible,
 
             },
@@ -223,7 +228,7 @@ var UserPage = React.createClass({
                 width: 150,
                 render: () => {
                     return <div>
-                        <a onClick={this.editRecord} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+                        <a onClick={this.showEditDialog} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
                         <a onClick={this.deleteRecord} href="javascript:void(0)">删除</a>
                     </div>
                 },
@@ -293,8 +298,8 @@ var UserPage = React.createClass({
             }.bind(this)
         });
     },
-    editRecord(){
-        c("editRecord");
+    showEditDialog(){
+        c("showEditDialog");
 
     },
     deleteRecord(){
@@ -305,8 +310,8 @@ var UserPage = React.createClass({
         c("batchDeleteRecord");
 
     },
-    showAddRecordDialog(){
-        c("showAddRecordDialog");
+    showAddDialog(){
+        c("showAddDialog");
     },
     render: function () {
 
@@ -333,12 +338,12 @@ var UserPage = React.createClass({
                 <div style={{marginBottom: 16}}>
                     <Button
                         type="primary"
-                        onClick={this.showAddRecordDialog}
+                        onClick={this.showAddDialog}
                     >
                         添加
                     </Button>
                     <Button
-                        style={{marginLeft:8}}
+                        style={{marginLeft: 8}}
                         type="danger"
                         onClick={this.batchDeleteRecord}
                         disabled={!hasSelected}
@@ -374,5 +379,6 @@ var UserPage = React.createClass({
         );
     }
 });
+
 
 export default withRouter(UserPage);   //将App组件导出
