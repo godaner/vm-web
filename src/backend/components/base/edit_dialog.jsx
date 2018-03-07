@@ -77,11 +77,14 @@ var EditDialog = React.createClass({
         state.visible = visible;
         this.setState(state);
     },
+    componentDidMount(){
+        c(this.editForm);
 
+    },
     render: function () {
 
         //get props
-        const {formItems,title} = this.props;
+        const {formItems, title} = this.props;
 
         //get state
         const {modelWidth, modelHeight, formLoading, visible} = this.state;
@@ -98,6 +101,9 @@ var EditDialog = React.createClass({
                 >
 
                     <EditForm
+                        ref={(form) => {
+                            this.editForm = form;
+                        }}
                         handleSubmit={this.handleSubmit}
                         formItems={formItems}
                         loading={formLoading}

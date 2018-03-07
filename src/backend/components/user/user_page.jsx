@@ -435,22 +435,34 @@ var UserAddDialog = React.createClass({
 
         c("handleCancel");
     },
+    componentDidMount(){
+
+    },
     render(){
+        // var getFieldDecorator = this.getUserAddDialog().getFieldDecorator();
         var formItems = [
-            {
-                input: {
-                    type: "text",
-                    icon: "user",
-                    style:null,
-                    placeholder:"请输入用户名"
-                },
-                fieldDecorator:{
-                    id:"username",
-                    options:{
-                        rules: [{required: true, message: '请输入用户名!'}],
-                    }
-                }
-            }
+        //     (
+        //     <div>
+        //         {getFieldDecorator('username', {
+        //             rules: [{required: true, message: '请输入用户名!'}],
+        //         })(
+        //             <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+        //                    placeholder="用户名"/>
+        //         )}
+        //     </div>
+        // ),
+        //
+        //     (
+        //         <div>
+        //             {getFieldDecorator('password', {
+        //                 rules: [{required: true, message: '请输入密码!'}],
+        //             })(
+        //                 <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
+        //                        placeholder="密码"/>
+        //             )}
+        //         </div>
+        //     )
+
         ];
         return <EditDialog
             title="添加用户"
