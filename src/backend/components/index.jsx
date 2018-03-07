@@ -10,6 +10,7 @@ import Head from "./head";
 import LoginDialog from "./login_dialog";
 import Nav from "./nav";
 import Routes from "./routes";
+import {ajax,commons} from "./vm_util";
 
 
 import "antd/dist/antd.css";

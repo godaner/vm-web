@@ -12,6 +12,7 @@ import '../scss/routes.scss';
 import "./events_dispatcher";
 import HomePage from "./home_page";
 import UserPage from "./user_page";
+import {ajax,commons} from "./vm_util";
 
 var Routes = React.createClass({
     getInitialState: function () {

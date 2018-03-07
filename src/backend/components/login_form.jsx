@@ -11,6 +11,7 @@ import "./events_dispatcher";
 
 import "antd/dist/antd.css";
 import '../scss/login_form.scss';
+import {ajax,commons} from "./vm_util";
 
 
 var LoginFormWillBeWrap = React.createClass({

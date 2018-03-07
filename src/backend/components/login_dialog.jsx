@@ -13,6 +13,8 @@ import "./events_dispatcher";
 import "antd/dist/antd.css";
 import '../scss/login_dialog.scss';
 
+import {ajax,commons} from "./vm_util";
+
 
 
 var LoginDialog = React.createClass({

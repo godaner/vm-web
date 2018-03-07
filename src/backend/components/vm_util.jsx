@@ -1,3 +1,5 @@
+import ReactDOM from 'react-dom';
+import React from 'react';
 function fail(code) {
     return code < 0;
 }
@@ -12,7 +14,7 @@ function success(code) {
  * 非json用url拼接-后台使用@RequestParam
  * @type {{ajaxError: string, requestServerSuccess: ajax.requestServerSuccess, requestServerError: ajax.requestServerError, ajax: ajax.ajax, get: ajax.get, put: ajax.put, post: ajax.post, contentType: {TEXT: string, JSON: string}}}
  */
-var ajax = {
+var ajax ={
     ajaxError: "访问服务器失败,请稍后重试",
 
     requestServerSuccess: function (args, result) {
@@ -120,3 +122,15 @@ var ajax = {
 };
 
 
+var commons = {
+    highLight: function (sourceText, highLightText) {
+        if (isUndefined(highLightText)) {
+            return sourceText;
+        }
+        sourceText = sourceText.replace(highLightText, "");
+        return <span><span style={{color: "red"}}>{highLightText}</span>{sourceText}</span>;
+    }
+};
+
+exports.commons = commons;
+exports.ajax = ajax;

@@ -8,6 +8,7 @@ import "antd/dist/antd.css";
 import '../scss/home_page.scss';
 import "./events_dispatcher";
 import {Switch, BrowserRouter, HashRouter, Route, Link,withRouter} from 'react-router-dom';
+import {ajax,commons} from "./vm_util";
 
 
 var HomePage = React.createClass({

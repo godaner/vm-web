@@ -9,6 +9,7 @@ import {EventEmitter} from 'events';
 import "antd/dist/antd.css";
 import '../scss/user_page.scss';
 import "./events_dispatcher";
+import {ajax,commons} from "./vm_util";
 import {Table, Input, Button} from 'antd';
 const Search = Input.Search;
 var UserPage = React.createClass({
@@ -118,8 +119,7 @@ var UserPage = React.createClass({
                 width: 100,
                 dataIndex: 'username',
                 render:(text)=>{
-
-                   return text;
+                    return commons.highLight(text,this.state.userTable.query.usernameQuery);
                 },
                 sorter: (a, b) => {
                 },
