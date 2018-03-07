@@ -20,11 +20,16 @@ var Nav = React.createClass({
             menuTheme: "dark"
         };
     },
-    componentWillReceiveProps(){
-        setTimeout(function () {
-            var pathname = this.props.location.pathname;
-            this.updateSelectKeys([pathname])
-        }.bind(this),10);
+    componentDidMount(){
+        this.registEvents();
+    },
+    registEvents(){
+        window.event.on('onRouteEnter', (args) => {//当地址栏url变化时，回显nav
+            setTimeout(function () {
+                var pathname = args.pathname;
+                this.updateSelectKeys([pathname]);
+            }.bind(this),1);
+        });
     },
     updateSelectKeys(selectedKeys){
         var state= this.state;
