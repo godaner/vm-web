@@ -4,7 +4,7 @@ import {Layout, Menu, Breadcrumb, Icon} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 import HomePage from "./home_page";
-import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
+import {Switch, BrowserRouter, HashRouter, Route,withRouter} from 'react-router-dom';
 import {EventEmitter} from 'events';
 import "antd/dist/antd.css";
 import '../scss/user_page.scss';
@@ -375,4 +375,4 @@ var UserPage = React.createClass({
     }
 });
 
-export default UserPage;   //将App组件导出
+export default withRouter(UserPage);   //将App组件导出

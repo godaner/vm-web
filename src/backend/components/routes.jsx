@@ -4,7 +4,7 @@ import {Layout, Menu, Breadcrumb, Icon, Form, Input, Button, Checkbox} from 'ant
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
-import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
+import {Switch, BrowserRouter, HashRouter, Route,withRouter} from 'react-router-dom';
 
 
 import "antd/dist/antd.css";
@@ -19,9 +19,7 @@ var Routes = React.createClass({
 
         };
     },
-
     render: function () {
-
         return (
             <div style={{marginTop:35,padding: 24, background: '#fff', minHeight: 360}}>
                 <Route exact path='/'
@@ -37,4 +35,4 @@ var Routes = React.createClass({
     }
 });
 
-export default Routes;   //将App组件导出
+export default withRouter(Routes);   //将App组件导出

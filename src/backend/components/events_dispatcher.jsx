@@ -6,6 +6,9 @@ window.EventsDispatcher = {
     event: window.event,
     showLoginDialog(args) {
         this.event.emit('showLoginDialog', args);
+    },
+    enterRoute: function (args) {
+        this.event.emit('enterRoute', args);
     }
 
 };

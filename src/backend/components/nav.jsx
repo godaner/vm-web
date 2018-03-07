@@ -4,7 +4,7 @@ import {Layout, Menu, Breadcrumb, Icon, Form, Input, Button, Checkbox} from 'ant
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
-import {Switch, BrowserRouter, HashRouter, Route,Link} from 'react-router-dom';
+import {Switch, BrowserRouter, HashRouter, Route, Link,withRouter} from 'react-router-dom';
 
 
 import "antd/dist/antd.css";
@@ -13,27 +13,40 @@ import "./events_dispatcher";
 
 var Nav = React.createClass({
     getInitialState: function () {
+        var pathname = this.props.location.pathname;
         return {
-            selectedKeys:"6",
-            openKeys:"homeMenu",
-            menuTheme:"dark"
+            selectedKeys: [pathname],
+            openKeys: ["homeMenu", "userMenu", "adminMenu", "movieMenu"],
+            menuTheme: "dark"
         };
     },
-
+    componentWillReceiveProps(){
+        setTimeout(function () {
+            var pathname = this.props.location.pathname;
+            this.updateSelectKeys([pathname])
+        }.bind(this),10);
+    },
+    updateSelectKeys(selectedKeys){
+        var state= this.state;
+        state.selectedKeys = selectedKeys;
+        this.setState(state);
+    },
     render: function () {
         //set now page's props
-        const {selectedKeys,openKeys,menuTheme} = this.state;
+        const {selectedKeys, openKeys, menuTheme} = this.state;
         return (
             <Menu theme={menuTheme}
-                  defaultOpenKeys={[openKeys]}
-                  defaultSelectedKeys={[selectedKeys]}
+                  openKeys={openKeys}
+                  selectedKeys={selectedKeys}
                   mode="inline">
                 <SubMenu
                     key="homeMenu"
                     title={<span><Icon type="home"/><span>主页</span></span>}
                 >
-                    <Menu.Item key="6">
-                        <Link to={{ pathname: '/', query: {} }}>
+                    <Menu.Item key="/">
+                        <Link to={{
+                            pathname:'/'
+                        }}>
                             主页
                         </Link>
                     </Menu.Item>
@@ -42,8 +55,10 @@ var Nav = React.createClass({
                     key="userMenu"
                     title={<span><Icon type="user"/><span>用户管理</span></span>}
                 >
-                    <Menu.Item key="1">
-                        <Link to={{ pathname: '/user', query: {} }}>
+                    <Menu.Item key="/user">
+                        <Link to={{
+                            pathname:'/user'
+                        }}>
                             信息管理
                         </Link>
                     </Menu.Item>
@@ -75,4 +90,4 @@ var Nav = React.createClass({
     }
 });
 
-export default Nav;   //将App组件导出
+export default withRouter(Nav);   //将App组件导出
