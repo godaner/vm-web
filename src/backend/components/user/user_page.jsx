@@ -436,8 +436,24 @@ var UserAddDialog = React.createClass({
         c("handleCancel");
     },
     render(){
-        var formItems = [];
+        var formItems = [
+            {
+                input: {
+                    type: "text",
+                    icon: "user",
+                    style:null,
+                    placeholder:"请输入用户名"
+                },
+                fieldDecorator:{
+                    id:"username",
+                    options:{
+                        rules: [{required: true, message: '请输入用户名!'}],
+                    }
+                }
+            }
+        ];
         return <EditDialog
+            title="添加用户"
             formItems={formItems}
             handleSubmit={this.handleSubmit}
             handleCancel={this.handleCancel}

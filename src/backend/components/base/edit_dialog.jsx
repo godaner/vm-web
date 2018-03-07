@@ -81,7 +81,7 @@ var EditDialog = React.createClass({
     render: function () {
 
         //get props
-        const {formItems} = this.props;
+        const {formItems,title} = this.props;
 
         //get state
         const {modelWidth, modelHeight, formLoading, visible} = this.state;
@@ -90,7 +90,7 @@ var EditDialog = React.createClass({
                 <Modal
                     className='extra'
                     visible={visible}
-                    title="编辑"
+                    title={title}
                     onCancel={this.handleCancel}
                     width={modelWidth}
                     height={modelHeight}

@@ -43,32 +43,57 @@ var EditFormWillBeWrap = React.createClass({
         }.bind(this));
 
     },
-    render: function () {
+    generateFormItems(formItems){
         //get props.form
         const {getFieldDecorator} = this.props.form;
+
+        var formItemsRes = formItems.map(function (formItem, i) {
+
+            var field = null;
+            if (formItem.input.type == "text") {
+                field = getFieldDecorator(formItem.fieldDecorator.id,
+                    formItem.fieldDecorator.options,
+                )(
+                    <Input prefix={<Icon type={formItem.input.icon} style={formItem.input.style}/>}
+                           placeholder={formItem.input.placeholder}/>
+                );
+            }
+            return (
+                <FormItem key={i}>
+                    {field}
+                </FormItem>
+            );
+        });
+        return formItemsRes;
+    },
+    render: function () {
 
         //get props
         const {loading, formItems} = this.props;
 
+        var formItemsRes = this.generateFormItems(formItems);
 
         return (
-            <Form onSubmit={this.handleSubmit} id="edit_form" ref="edit_form">
-                <FormItem>
-                    {getFieldDecorator('username', {
-                        rules: [{required: true, message: '请输入用户名!'}],
-                    })(
-                        <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                               placeholder="用户名"/>
-                    )}
-                </FormItem>
-                <FormItem>
-                    {getFieldDecorator('password', {
-                        rules: [{required: true, message: '请输入密码!'}],
-                    })(
-                        <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
-                               placeholder="密码"/>
-                    )}
-                </FormItem>
+            <Form onSubmit={this.handleSubmit} id="edit-form" ref="edit_form">
+                {
+                    formItemsRes
+                }
+                {/*<FormItem>*/}
+                    {/*{getFieldDecorator('username', {*/}
+                        {/*rules: [{required: true, message: '请输入用户名!'}],*/}
+                    {/*})(*/}
+                        {/*<Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}*/}
+                               {/*placeholder="用户名"/>*/}
+                    {/*)}*/}
+                {/*</FormItem>*/}
+                {/*<FormItem>*/}
+                {/*{getFieldDecorator('password', {*/}
+                {/*rules: [{required: true, message: '请输入密码!'}],*/}
+                {/*})(*/}
+                {/*<Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"*/}
+                {/*placeholder="密码"/>*/}
+                {/*)}*/}
+                {/*</FormItem>*/}
 
                 <FormItem>
                     <Button loading={loading} type="primary" htmlType="submit" id="edit-form-button">
