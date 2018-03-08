@@ -27,6 +27,7 @@ var UserPage = React.createClass({
                     tableLoading: false,
                     batchDeleteBtnLoading: false,
                     selectedRowKeys: [],
+                    data: [],//displayData
                     originalData: [],
                     page: {
                         start: 0,
@@ -39,7 +40,6 @@ var UserPage = React.createClass({
                         usernameQuery: ""
                     },
                     columns: [],
-                    data: []
                 }
             }
         },
@@ -271,6 +271,26 @@ var UserPage = React.createClass({
             });
             this.loadUserTableData();
         },
+        filterUserTableData(originalData){
+            const data = [];
+            $.each(originalData, function (i, item) {
+
+                data.push({
+                    key: item.id,
+                    id: item.id,
+                    imgUrl: item.imgUrl,
+                    username: item.username,
+                    sex: item.sex,
+                    password: item.password,
+                    description: item.description,
+                    birthday: item.birthday,
+                    create_time: item.createTime,
+                    update_time: item.updateTime,
+                    status: item.status,
+                });
+            }.bind(this));
+            return data;
+        },
         loadUserTableData()
         {
             this.updateUserTableLoading(true);
@@ -290,28 +310,17 @@ var UserPage = React.createClass({
                 url: this.state.userTable.dataSourceUrl,
                 data: $.extend(page, query),
                 success: function (result) {
-                    //save data
-                    this.updateUserTableOriginalData(result.data.list);
 
+                    var originalData = result.data.list;
                     //handle data
-                    const data = [];
-                    $.each(result.data.list, function (i, item) {
 
-                        data.push({
-                            key: item.id,
-                            id: item.id,
-                            imgUrl: item.imgUrl,
-                            username: item.username,
-                            sex: item.sex,
-                            password: item.password,
-                            description: item.description,
-                            birthday: item.birthday,
-                            create_time: item.createTime,
-                            update_time: item.updateTime,
-                            status: item.status,
-                        });
-                    }.bind(this));
+                    var data = this.filterUserTableData(originalData)
+                    //save data
+
+                    this.updateUserTableOriginalData(originalData);
+
                     this.updateUserTableData(data);
+
                     var page = this.state.userTable.page;
                     this.updateUserTablePage({
                         start: page.start,
@@ -355,6 +364,19 @@ var UserPage = React.createClass({
         getUserEditDialog()
         {
             return this.refs.user_edit_dialog;
+        },
+        onEditSuccess(newRecord){
+            c("newRecord");
+            c(newRecord);
+            var newOriginalData = commons.updateObjByKey(this.state.userTable.originalData, "id", newRecord.id, newRecord);
+
+            c("newOriginalData");
+            c(newOriginalData);
+
+            this.updateUserTableOriginalData(newOriginalData);
+
+            var newData = this.filterUserTableData(newOriginalData);
+            this.updateUserTableData(newData);
         },
         render: function () {
 
@@ -422,7 +444,8 @@ var UserPage = React.createClass({
                            scroll={{x: "100%", y: "100%"}}/>
 
                     <UserEditDialog ref="user_edit_dialog"
-                                    echoData={echoData}/>
+                                    echoData={echoData}
+                                    onEditSuccess={this.onEditSuccess}/>
                     <UserAddDialog ref="user_add_dialog"/>
                 </div>
             );
@@ -457,7 +480,8 @@ var UserEditDialog = React.createClass({
             success: function (result) {
                 message.success(result.msg);
                 this.getUserEditDialog().closeDialog();
-
+                //callback
+                this.props.onEditSuccess(result.data.user);
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);

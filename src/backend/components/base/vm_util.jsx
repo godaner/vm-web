@@ -109,10 +109,22 @@ var ajax = {
 
 
 var commons = {
-    getObjByKey(objArr,key,val){
+    updateObjByKey(objArr,key,keyVal,newObj){
+        var newArr = [];
         for(var i =0;i<objArr.length;i++){
             var obj = objArr[i];
-            if(obj[key] == val){
+            if(obj[key] == keyVal){
+                newArr.push(newObj);
+            }else{
+                newArr.push(obj);
+            }
+        }
+        return newArr;
+    },
+    getObjByKey(objArr,key,keyVal){
+        for(var i =0;i<objArr.length;i++){
+            var obj = objArr[i];
+            if(obj[key] == keyVal){
                 return obj;
             }
         }
