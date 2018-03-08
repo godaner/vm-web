@@ -246,9 +246,9 @@ var UserPage = React.createClass({
                     title: '操作',
                     dataIndex: 'operation',
                     width: 150,
-                    render: (text,record) => {
+                    render: (text, record) => {
                         return <div>
-                            <a onClick={()=>this.showEditDialog(record)} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+                            <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
                             <a onClick={this.deleteRecord} href="javascript:void(0)">删除</a>
                         </div>
                     },
@@ -326,7 +326,8 @@ var UserPage = React.createClass({
         },
         showEditDialog(record)
         {
-            record = commons.getObjByKey(this.state.userTable.originalData,"id",record.id);
+            record = commons.getObjByKey(this.state.userTable.originalData, "id", record.id);
+
             this.updateUserEditDialogEchoData(record)
 
             this.getUserEditDialog().showDialog();
@@ -455,8 +456,7 @@ var UserEditDialog = React.createClass({
             data: values,
             success: function (result) {
                 message.success(result.msg);
-                this.getUserAddDialog().closeDialog();
-
+                this.getUserEditDialog().closeDialog();
 
             }.bind(this),
             failure: function (result) {
@@ -485,13 +485,13 @@ var UserEditDialog = React.createClass({
                 return {};
             }
             if (!isUndefined(echoData.birthday)) {
-                echoData.birthday = moment(1520497952);
+                echoData.birthday = moment(echoData.birthday * 1000);
             }
             if (!isUndefined(echoData.createTime)) {
-                echoData.createTime = "创建时间 : " + timeFormatter.formatDate(echoData.createTime);
+                echoData.createTime = "创建时间 : " + timeFormatter.formatDate(echoData.createTime * 1000);
             }
             if (!isUndefined(echoData.updateTime)) {
-                echoData.updateTime = "最后更新时间 : " + timeFormatter.formatDate(echoData.updateTime);
+                echoData.updateTime = "最后更新时间 : " + timeFormatter.formatDate(echoData.updateTime * 1000);
 
             }
             return echoData;
@@ -593,7 +593,7 @@ var UserEditDialog = React.createClass({
                 },
                 {
                     filed: {
-                        id: "createTime",
+                        id: "ignore_createTime",
                         config: {
                             initialValue: echoData.createTime,
                         }
@@ -603,7 +603,7 @@ var UserEditDialog = React.createClass({
                 },
                 {
                     filed: {
-                        id: "updateTime",
+                        id: "ignore_updateTime",
                         config: {
                             initialValue: echoData.updateTime,
                         }

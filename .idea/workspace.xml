@@ -7,12 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx" afterPath="$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/base/vm_util.jsx" afterPath="$PROJECT_DIR$/src/backend/components/base/vm_util.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" afterPath="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/backend/dist/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/js/date_util.js" afterPath="$PROJECT_DIR$/src/backend/js/date_util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/node_modules/moment/package.json" afterPath="$PROJECT_DIR$/src/backend/node_modules/moment/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/package.json" afterPath="$PROJECT_DIR$/src/backend/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,51 +31,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="edit_form_temple.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1434">
-              <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-              <folding>
-                <element signature="e#259#333#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit_dialog_temple.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1677">
-              <caret line="79" column="21" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
-              <folding>
-                <element signature="e#259#333#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_page.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user_page.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/backend/components/user/user_page.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="328" column="25" lean-forward="true" selection-start-line="328" selection-start-column="25" selection-end-line="328" selection-end-column="25" />
+            <state relative-caret-position="567">
+              <caret line="564" column="21" lean-forward="true" selection-start-line="564" selection-start-column="21" selection-end-line="564" selection-end-column="21" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="723">
-              <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-              <folding>
-                <marker date="1520498921792" expanded="true" signature="0:1244" ph="{&quot;name&quot;: &quot;vm-frontend-page&quot;...}" />
-                <marker date="1520498921792" expanded="true" signature="124:368" ph="{&quot;build&quot;: &quot;webpack&quot;...}" />
-                <marker date="1520498921792" expanded="true" signature="431:1242" ph="{&quot;animate.css&quot;: &quot;^3.5.2&quot;...}" />
               </folding>
             </state>
           </provider>
@@ -88,42 +46,8 @@
       <file leaf-file-name="date_util.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="63" column="34" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vm_util.jsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/backend/components/base/vm_util.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="113" column="28" lean-forward="false" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#117#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="events_dispatcher.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/components/base/events_dispatcher.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#39#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commons.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/components/base/commons.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+            <state relative-caret-position="217">
+              <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -133,7 +57,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>./evente</find>
       <find>./eventes</find>
       <find>'./events</find>
       <find>./events</find>
@@ -163,6 +86,7 @@
       <find>echo</find>
       <find>bir</find>
       <find>mom</find>
+      <find>getUserAddDialog</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -237,10 +161,10 @@
         <option value="$PROJECT_DIR$/src/backend/components/base/commons.jsx" />
         <option value="$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx" />
         <option value="$PROJECT_DIR$/src/backend/js/date_util.js" />
-        <option value="$PROJECT_DIR$/src/backend/package.json" />
         <option value="$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx" />
-        <option value="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" />
         <option value="$PROJECT_DIR$/src/backend/components/base/vm_util.jsx" />
+        <option value="$PROJECT_DIR$/src/backend/package.json" />
+        <option value="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" />
       </list>
     </option>
   </component>
@@ -987,12 +911,12 @@
       <workItem from="1519965047783" duration="2600000" />
       <workItem from="1520298591786" duration="59940000" />
       <workItem from="1520478015059" duration="4025000" />
-      <workItem from="1520485569683" duration="13679000" />
+      <workItem from="1520485569683" duration="15423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128398000" />
+    <option name="totallyTimeSpent" value="130142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1383,7 +1307,7 @@
         <state relative-caret-position="405">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#39#75#0" expanded="true" />
+            <element signature="e#39#75#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1404,30 +1328,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
+    <entry file="file://$PROJECT_DIR$/src/backend/node_modules/moment/moment.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="63" column="34" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="34" />
+        <state relative-caret-position="-1944">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1434">
+          <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+          <folding>
+            <element signature="e#259#333#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/components/base/vm_util.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="113" column="28" lean-forward="false" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#117#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding>
-            <marker date="1520498921792" expanded="true" signature="0:1244" ph="{&quot;name&quot;: &quot;vm-frontend-page&quot;...}" />
-            <marker date="1520498921792" expanded="true" signature="124:368" ph="{&quot;build&quot;: &quot;webpack&quot;...}" />
-            <marker date="1520498921792" expanded="true" signature="431:1242" ph="{&quot;animate.css&quot;: &quot;^3.5.2&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/node_modules/moment/moment.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1944">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1442,32 +1374,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx">
+    <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1434">
-          <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-          <folding>
-            <element signature="e#259#333#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="217">
+          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/components/user/user_page.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="328" column="25" lean-forward="true" selection-start-line="328" selection-start-column="25" selection-end-line="328" selection-end-column="25" />
+        <state relative-caret-position="567">
+          <caret line="564" column="21" lean-forward="true" selection-start-line="564" selection-start-column="21" selection-end-line="564" selection-end-column="21" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/components/base/vm_util.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="113" column="28" lean-forward="false" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#117#0" expanded="true" />
           </folding>
         </state>
       </provider>
