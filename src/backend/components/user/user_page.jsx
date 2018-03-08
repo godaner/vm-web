@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Layout, Menu, Breadcrumb, Icon} from 'antd';
+import {Layout, Menu, Breadcrumb, Icon, Select, DatePicker} from 'antd';
+const Option = Select.Option;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 import HomePage from "../home/home_page";
@@ -13,6 +14,7 @@ import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
 import {Table, Input, Button} from 'antd';
 const Search = Input.Search;
+const TextArea = Input.TextArea;
 var UserPage = React.createClass({
     getInitialState: function () {
         return {
@@ -422,14 +424,19 @@ var UserAddDialog = React.createClass({
         return this.refs.user_add_dialog;
     },
     handleSubmit(values){
-        c("handleSubmit");
+        // setTimeout(function () {
+        //     this.getUserAddDialog().formLeaveLoading();
+        //     setTimeout(function () {
+        //         this.getUserAddDialog().closeDialog();
+        //     }.bind(this), 1000);
+        // }.bind(this), 1000);
+        var filterValues = function (values) {
+            values.birthday = new Date(values.birthday._d).getTime()/1000;
+            return values;
+        }
+
+        values = filterValues(values);
         c(values);
-        setTimeout(function () {
-            this.getUserAddDialog().formLeaveLoading();
-            setTimeout(function () {
-                this.getUserAddDialog().closeDialog();
-            }.bind(this), 1000);
-        }.bind(this), 1000);
     },
     handleCancel(){
 
@@ -446,9 +453,9 @@ var UserAddDialog = React.createClass({
                 filed: {
                     id: "username",
                     config: {
-                        rules: [{required: true, message: '请输入用户名!'}],
+                        rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
                     },
-                    filed: <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                    filed: <Input name="username" prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                   placeholder="用户名"/>
                 }
             }
@@ -457,10 +464,62 @@ var UserAddDialog = React.createClass({
                 filed: {
                     id: "password",
                     config: {
-                        rules: [{required: true, message: '请输入密码!'}],
+                        rules: [{required: true, whitespace: true, message: '请输入密码!'}],
                     },
-                    filed: <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
+                    filed: <Input name="password" prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                   placeholder="密码"/>
+                }
+            },
+            {
+                filed: {
+                    id: "sex",
+                    config: {
+                        rules: [
+                            {required: true, message: '请输入你的性别!'}],
+                        // initialValue: "1"
+                    },
+                    filed: <Select placeholder="请输入你的性别">
+                        <Option value="1">男</Option>
+                        <Option value="2">女</Option>
+                        <Option value="3">未知</Option>
+                    </Select>
+                }
+            },
+            {
+                filed: {
+                    id: "birthday",
+                    config: {
+                        rules: [{type: 'object', required: true, message: '请输入你的生日!'}],
+
+                    },
+                    filed: <DatePicker />
+                }
+            }
+            ,
+            {
+                filed: {
+                    id: "description",
+                    config: {
+                        rules: [
+                            {required: true, message: '请输入简介!'}],
+                        // initialValue: "1"
+                    },
+                    filed: <TextArea placeholder="请输入简介" autosize={{ minRows: 2, maxRows: 6 }} />
+                }
+            }
+            ,
+            {
+                filed: {
+                    id: "status",
+                    config: {
+                        rules: [
+                            {required: true, message: '请输入状态!'}],
+                        // initialValue: "1"
+                    },
+                    filed: <Select placeholder="请输入状态">
+                        <Option value="1">正常</Option>
+                        <Option value="2">冻结</Option>
+                    </Select>
                 }
             }
 
