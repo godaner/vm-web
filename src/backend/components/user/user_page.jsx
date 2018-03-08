@@ -10,7 +10,7 @@ import "antd/dist/antd.css";
 import '../../scss/user/user_page.scss';
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
-import EditDialog from "../base/edit_dialog";
+import EditDialogTemple from "../base/edit_dialog_temple";
 import {Table, Input, Button} from 'antd';
 const Search = Input.Search;
 var UserPage = React.createClass({
@@ -407,7 +407,7 @@ var UserEditDialog = React.createClass({
     },
     render(){
 
-        return <EditDialog ref="user_edit_dialog"/>;
+        return <EditDialogTemple ref="user_edit_dialog"/>;
     }
 });
 var UserAddDialog = React.createClass({
@@ -441,30 +441,31 @@ var UserAddDialog = React.createClass({
     render(){
         // var getFieldDecorator = this.getUserAddDialog().getFieldDecorator();
         var formItems = [
-        //     (
-        //     <div>
-        //         {getFieldDecorator('username', {
-        //             rules: [{required: true, message: '请输入用户名!'}],
-        //         })(
-        //             <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
-        //                    placeholder="用户名"/>
-        //         )}
-        //     </div>
-        // ),
-        //
-        //     (
-        //         <div>
-        //             {getFieldDecorator('password', {
-        //                 rules: [{required: true, message: '请输入密码!'}],
-        //             })(
-        //                 <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
-        //                        placeholder="密码"/>
-        //             )}
-        //         </div>
-        //     )
+            {
+
+                filed: {
+                    id: "username",
+                    config: {
+                        rules: [{required: true, message: '请输入用户名!'}],
+                    },
+                    filed: <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                  placeholder="用户名"/>
+                }
+            }
+            ,
+            {
+                filed: {
+                    id: "password",
+                    config: {
+                        rules: [{required: true, message: '请输入密码!'}],
+                    },
+                    filed: <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
+                                  placeholder="密码"/>
+                }
+            }
 
         ];
-        return <EditDialog
+        return <EditDialogTemple
             title="添加用户"
             formItems={formItems}
             handleSubmit={this.handleSubmit}

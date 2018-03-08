@@ -14,8 +14,11 @@ import '../../scss/base/edit_form.scss';
 import {ajax, commons} from "../base/vm_util";
 
 
-var EditFormWillBeWrap = React.createClass({
+//create form
+// const LoginForm = Form.create()(<LoginFormWillBeWrap/>);
+const EditFormTempleWrapper = React.createClass({
     getInitialState: function () {
+        c("formItems");
         return {};
     },
     componentDidMount(){
@@ -43,36 +46,37 @@ var EditFormWillBeWrap = React.createClass({
         }.bind(this));
 
     },
-    // generateFormItems(formItems){
-    //     //get props.form
-    //
-    //
-    //     const {getFieldDecorator} = this.props.form;
-    //
-    //     var formItemsRes = formItems.map(function (formItem, i) {
-    //
-    //         return (
-    //             <FormItem key={i}>
-    //                 {formItem}
-    //             </FormItem>
-    //         );
-    //     });
-    //     return formItemsRes;
-    // },
-    render: function () {
+    generateFormItems(formItems){
+        //get props.form
+
 
         const {getFieldDecorator} = this.props.form;
+
+        var formItemsRes = formItems.map(function (formItem, i) {
+
+            return (
+                <FormItem key={i}>
+                    {getFieldDecorator(
+                        formItem.filed.id, formItem.filed.config)(
+                        formItem.filed.filed
+                    )}
+                </FormItem>
+            );
+        });
+        return formItemsRes;
+    },
+    render: function () {
 
         //get props
         const {loading, formItems} = this.props;
 
-        // var formItemsRes = this.generateFormItems(formItems);
+        var formItemsRes = this.generateFormItems(formItems);
 
         return (
             <Form onSubmit={this.handleSubmit} id="edit-form" ref="edit_form">
-                {/*{*/}
-                    {/*formItemsRes*/}
-                {/*}*/}
+                {
+                    formItemsRes
+                }
 
                 <FormItem>
                     <Button loading={loading} type="primary" htmlType="submit" id="edit-form-button">
@@ -82,10 +86,7 @@ var EditFormWillBeWrap = React.createClass({
             </Form>
         );
     }
-})
-
-//create form
-// const LoginForm = Form.create()(<LoginFormWillBeWrap/>);
-const EditForm = Form.create()(EditFormWillBeWrap)
-export default EditForm;   //将App组件导出
+});
+const EditFormTemple = Form.create()(EditFormTempleWrapper);
+export default EditFormTemple;   //将App组件导出
 

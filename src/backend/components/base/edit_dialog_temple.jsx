@@ -5,7 +5,7 @@ const {Header, Content, Footer, Sider} = Layout;
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
 import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
-import EditForm from "./edit_form";
+import EditFormTemple from "./edit_form_temple";
 
 import "./events_dispatcher";
 
@@ -16,7 +16,7 @@ import '../../scss/base/edit_dialog.scss';
 import {ajax, commons} from "../base/vm_util";
 
 
-var EditDialog = React.createClass({
+var EditDialogTemple = React.createClass({
     getInitialState: function () {
         return {
             modelWidth: "350px",
@@ -78,9 +78,9 @@ var EditDialog = React.createClass({
         this.setState(state);
     },
     componentDidMount(){
-        c(this.editForm);
 
     },
+
     render: function () {
 
         //get props
@@ -100,10 +100,7 @@ var EditDialog = React.createClass({
                     footer={null}
                 >
 
-                    <EditForm
-                        ref={(form) => {
-                            this.editForm = form;
-                        }}
+                    <EditFormTemple
                         handleSubmit={this.handleSubmit}
                         formItems={formItems}
                         loading={formLoading}
@@ -114,4 +111,4 @@ var EditDialog = React.createClass({
     }
 })
 
-export default EditDialog;   //将App组件导出
+export default EditDialogTemple;   //将App组件导出
