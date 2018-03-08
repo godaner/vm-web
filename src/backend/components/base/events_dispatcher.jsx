@@ -10,6 +10,10 @@ window.EventsDispatcher = {
     },
     onRouteEnter: function (args) {
         this.event.emit('onRouteEnter', args);
+    },
+    showLoadingToast: function (args) {
+        const {msg} = args;
+
     }
 
 };

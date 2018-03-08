@@ -18,19 +18,10 @@ import {ajax, commons} from "../base/vm_util";
 // const LoginForm = Form.create()(<LoginFormWillBeWrap/>);
 const EditFormTempleWrapper = React.createClass({
     getInitialState: function () {
-        c("formItems");
         return {};
     },
     componentDidMount(){
 
-    },
-    handleCancel () {
-
-        const {handleCancel} = this.props;
-
-        if (!isUndefined(handleCancel)) {
-            handleCancel();
-        }
     },
     handleSubmit (e){
 
@@ -48,21 +39,26 @@ const EditFormTempleWrapper = React.createClass({
     },
     generateFormItems(formItems){
         //get props.form
-
-
         const {getFieldDecorator} = this.props.form;
 
         var formItemsRes = formItems.map(function (formItem, i) {
+            const {filed} = formItem;
+            const {config, id, input} = filed;
+
+            if(isUndefined(config.validateFirst)){
+                config.validateFirst = true;
+            }
+
 
             return (
                 <FormItem key={i}>
                     {getFieldDecorator(
-                        formItem.filed.id, formItem.filed.config)(
-                        formItem.filed.filed
+                        id, config)(
+                        input
                     )}
                 </FormItem>
             );
-        });
+        }.bind(this));
         return formItemsRes;
     },
     render: function () {
@@ -87,6 +83,8 @@ const EditFormTempleWrapper = React.createClass({
         );
     }
 });
-const EditFormTemple = Form.create()(EditFormTempleWrapper);
+const EditFormTemple = Form.create({
+
+})(EditFormTempleWrapper);
 export default EditFormTemple;   //将App组件导出
 

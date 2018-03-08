@@ -22,7 +22,7 @@ var EditDialogTemple = React.createClass({
             modelWidth: "350px",
             modelHeight: "300px",
             formLoading: false,
-            visible: false
+            visible: false,
 
         };
     },
@@ -60,6 +60,7 @@ var EditDialogTemple = React.createClass({
     },
     formLeaveLoading(){//结束handleSubmit后缀需要手动调用
         this.updateFormLoading(false);
+
     },
     updateFormLoading(loading){
         var state = this.state;
@@ -68,6 +69,7 @@ var EditDialogTemple = React.createClass({
     },
     closeDialog(){
         this.updateStateVisible(false);
+        this.form.resetFields();//!!!!
     },
     showDialog(){
         this.updateStateVisible(true);
@@ -81,13 +83,16 @@ var EditDialogTemple = React.createClass({
 
     },
 
+    saveFormRef(form){//!!!!
+        this.form = form;
+    },
     render: function () {
 
         //get props
         const {formItems, title} = this.props;
 
         //get state
-        const {modelWidth, modelHeight, formLoading, visible} = this.state;
+        const {modelWidth, modelHeight, formLoading, visible, clearForm} = this.state;
         return (
             <div id="user_edit_dialog">
                 <Modal
@@ -101,6 +106,7 @@ var EditDialogTemple = React.createClass({
                 >
 
                     <EditFormTemple
+                        ref={this.saveFormRef}
                         handleSubmit={this.handleSubmit}
                         formItems={formItems}
                         loading={formLoading}

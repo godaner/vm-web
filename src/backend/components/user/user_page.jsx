@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Layout, Menu, Breadcrumb, Icon, Select, DatePicker} from 'antd';
+import {Layout, Menu, Breadcrumb, Icon, Select, DatePicker, message, notification, Button, Table, Input} from 'antd';
 const Option = Select.Option;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -12,7 +12,6 @@ import '../../scss/user/user_page.scss';
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
-import {Table, Input, Button} from 'antd';
 const Search = Input.Search;
 const TextArea = Input.TextArea;
 var UserPage = React.createClass({
@@ -270,7 +269,7 @@ var UserPage = React.createClass({
         ajax.get({
             url: this.state.userTable.dataSourceUrl,
             data: $.extend(page, query),
-            onResponseSuccess: function (result) {
+            success: function (result) {
                 const data = [];
                 $.each(result.data.list, function (i, item) {
 
@@ -414,7 +413,9 @@ var UserEditDialog = React.createClass({
 });
 var UserAddDialog = React.createClass({
     getInitialState(){
-        return {};
+        return {
+            addUserUrl: "/user/info",
+        };
     },
     showDialog(){
         this.getUserAddDialog().showDialog();
@@ -424,19 +425,32 @@ var UserAddDialog = React.createClass({
         return this.refs.user_add_dialog;
     },
     handleSubmit(values){
-        // setTimeout(function () {
-        //     this.getUserAddDialog().formLeaveLoading();
-        //     setTimeout(function () {
-        //         this.getUserAddDialog().closeDialog();
-        //     }.bind(this), 1000);
-        // }.bind(this), 1000);
+        const hideMessage = message.loading('正在添加用户', 0);
+        const {addUserUrl} = this.state;
         var filterValues = function (values) {
-            values.birthday = new Date(values.birthday._d).getTime()/1000;
+            values.birthday = timeFormatter.long2Int(new Date(values.birthday._d).getTime());
             return values;
         }
-
         values = filterValues(values);
-        c(values);
+        ajax.post({
+            url: addUserUrl,
+            data: values,
+            success: function (result) {
+                message.success(result.msg);
+                this.getUserAddDialog().closeDialog();
+
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            },
+            complete: function () {
+                hideMessage();
+                this.getUserAddDialog().formLeaveLoading();
+            }.bind(this)
+        });
+
     },
     handleCancel(){
 
@@ -455,7 +469,7 @@ var UserAddDialog = React.createClass({
                     config: {
                         rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
                     },
-                    filed: <Input name="username" prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                    input: <Input name="username" prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                   placeholder="用户名"/>
                 }
             }
@@ -466,7 +480,7 @@ var UserAddDialog = React.createClass({
                     config: {
                         rules: [{required: true, whitespace: true, message: '请输入密码!'}],
                     },
-                    filed: <Input name="password" prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                    input: <Input name="password" prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                   placeholder="密码"/>
                 }
             },
@@ -476,9 +490,8 @@ var UserAddDialog = React.createClass({
                     config: {
                         rules: [
                             {required: true, message: '请输入你的性别!'}],
-                        // initialValue: "1"
                     },
-                    filed: <Select placeholder="请输入你的性别">
+                    input: <Select placeholder="请输入你的性别">
                         <Option value="1">男</Option>
                         <Option value="2">女</Option>
                         <Option value="3">未知</Option>
@@ -492,7 +505,7 @@ var UserAddDialog = React.createClass({
                         rules: [{type: 'object', required: true, message: '请输入你的生日!'}],
 
                     },
-                    filed: <DatePicker />
+                    input: <DatePicker />
                 }
             }
             ,
@@ -504,7 +517,7 @@ var UserAddDialog = React.createClass({
                             {required: true, message: '请输入简介!'}],
                         // initialValue: "1"
                     },
-                    filed: <TextArea placeholder="请输入简介" autosize={{ minRows: 2, maxRows: 6 }} />
+                    input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
                 }
             }
             ,
@@ -516,7 +529,7 @@ var UserAddDialog = React.createClass({
                             {required: true, message: '请输入状态!'}],
                         // initialValue: "1"
                     },
-                    filed: <Select placeholder="请输入状态">
+                    input: <Select placeholder="请输入状态">
                         <Option value="1">正常</Option>
                         <Option value="2">冻结</Option>
                     </Select>

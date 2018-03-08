@@ -2,12 +2,18 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/../vm-engine/vm-provider-movie/src/main/java/com/vm/movie/service/inf/VmMoviesService.java" description="import com.vm.base.util.PageBean;&#10;import com.vm.mo..." line="3" />
+    <bookmark url="file://$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx" line="85" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx" afterPath="$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx" afterPath="$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/base/events_dispatcher.jsx" afterPath="$PROJECT_DIR$/src/backend/components/base/events_dispatcher.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/base/vm_util.jsx" afterPath="$PROJECT_DIR$/src/backend/components/base/vm_util.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" afterPath="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/backend/dist/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backend/js/date_util.js" afterPath="$PROJECT_DIR$/src/backend/js/date_util.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +38,8 @@
       <file leaf-file-name="edit_form_temple.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="84" column="27" lean-forward="false" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
+            <state relative-caret-position="192">
+              <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
               <folding>
                 <element signature="e#259#333#0" expanded="true" />
               </folding>
@@ -41,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit_dialog_temple.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="edit_dialog_temple.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="42" />
+            <state relative-caret-position="570">
+              <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
                 <element signature="e#259#333#0" expanded="true" />
               </folding>
@@ -53,15 +59,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_page.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_page.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/backend/components/user/user_page.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            <state relative-caret-position="462">
+              <caret line="477" column="24" lean-forward="true" selection-start-line="477" selection-start-column="24" selection-end-line="477" selection-end-column="24" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
-                <element signature="e#243#284#0" expanded="true" />
+                <element signature="e#288#329#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="date_util.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="47" column="25" lean-forward="false" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vm_util.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/components/base/vm_util.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1323">
+              <caret line="55" column="25" lean-forward="false" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#117#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events_dispatcher.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/components/base/events_dispatcher.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="e#39#75#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commons.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/components/base/commons.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,7 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.</find>
       <find>./</find>
       <find>./e</find>
       <find>./ev</find>
@@ -100,6 +149,7 @@
       <find>loading</find>
       <find>showAddDialog</find>
       <find>showDialog</find>
+      <find>hide</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -126,10 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/js/vm_util.js" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/components/user_basic_info_page.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/components/events_dispatcher.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/static_server.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/js/vm_config.js" />
@@ -174,9 +220,13 @@
         <option value="$PROJECT_DIR$/src/backend/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/backend/components/base/edit_form.jsx" />
         <option value="$PROJECT_DIR$/src/backend/components/base/edit_dialog.jsx" />
-        <option value="$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx" />
-        <option value="$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx" />
+        <option value="$PROJECT_DIR$/src/backend/components/base/events_dispatcher.jsx" />
+        <option value="$PROJECT_DIR$/src/backend/components/base/commons.jsx" />
+        <option value="$PROJECT_DIR$/src/backend/components/base/vm_util.jsx" />
+        <option value="$PROJECT_DIR$/src/backend/js/date_util.js" />
         <option value="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" />
+        <option value="$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx" />
+        <option value="$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx" />
       </list>
     </option>
   </component>
@@ -214,8 +264,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -463,6 +511,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -472,18 +522,19 @@
     <property name="nodejs_interpreter_path" value="D:/node-v9.2.0-win-x64/node" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\zk\vm-web\src\backend\components\base" />
+      <recent name="E:\zk\vm-web\src\backend\scss\index" />
+      <recent name="E:\zk\vm-web\src\backend\components\user" />
+      <recent name="E:\zk\vm-web\src\backend\components" />
+      <recent name="E:\zk\vm-web\src\backend\scss" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\zk\vm-web\src\backend\scss\base" />
       <recent name="E:\zk\vm-web\src\backend\scss\index" />
       <recent name="E:\zk\vm-web\src\backend\scss\home" />
       <recent name="E:\zk\vm-web\src\backend\scss\user" />
       <recent name="E:\zk\vm-web\src\backend\components\base" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\zk\vm-web\src\backend\scss\index" />
-      <recent name="E:\zk\vm-web\src\backend\components\user" />
-      <recent name="E:\zk\vm-web\src\backend\components" />
-      <recent name="E:\zk\vm-web\src\backend\scss" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -921,12 +972,13 @@
       <workItem from="1519718524227" duration="18772000" />
       <workItem from="1519965047783" duration="2600000" />
       <workItem from="1520298591786" duration="59940000" />
-      <workItem from="1520478015059" duration="2300000" />
+      <workItem from="1520478015059" duration="4025000" />
+      <workItem from="1520485569683" duration="7213000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112994000" />
+    <option name="totallyTimeSpent" value="121932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -940,24 +992,24 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3219616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -991,34 +1043,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/movies_displayer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/view/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/scss/global.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="69" column="17" lean-forward="true" selection-start-line="69" selection-start-column="17" selection-end-line="70" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/js/date_util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1186,13 +1210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/js/vm_util.js" />
     <entry file="file://$PROJECT_DIR$/src/backend/js/util.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1229,21 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/components/base/vm_util.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/components/base/events_dispatcher.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/components/index/head.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -1269,6 +1271,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,33 +1331,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx">
+    <entry file="file://$PROJECT_DIR$/src/backend/node_modules/antd/lib/message/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="42" />
+        <state relative-caret-position="405">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/components/base/commons.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/js/date_util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/dist/vendors.dll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="49408" column="14" lean-forward="false" selection-start-line="49408" selection-start-column="14" selection-end-line="49408" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/components/base/events_dispatcher.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#259#333#0" expanded="true" />
+            <element signature="e#39#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/components/base/vm_util.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1323">
+          <caret line="55" column="25" lean-forward="false" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/js/date_util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="47" column="25" lean-forward="false" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/components/user/user_page.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="477" column="24" lean-forward="true" selection-start-line="477" selection-start-column="24" selection-end-line="477" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#288#329#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_form_temple.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="84" column="27" lean-forward="false" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
+        <state relative-caret-position="192">
+          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
           <folding>
             <element signature="e#259#333#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/components/user/user_page.jsx">
+    <entry file="file://$PROJECT_DIR$/src/backend/components/base/edit_dialog_temple.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state relative-caret-position="570">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
-            <element signature="e#243#284#0" expanded="true" />
+            <element signature="e#259#333#0" expanded="true" />
           </folding>
         </state>
       </provider>

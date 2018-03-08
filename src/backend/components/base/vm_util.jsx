@@ -1,3 +1,4 @@
+import {Layout, Menu, Breadcrumb, Icon, Select, DatePicker, message, notification, Button, Table, Input} from 'antd';
 import ReactDOM from 'react-dom';
 import React from 'react';
 function fail(code) {
@@ -14,35 +15,8 @@ function success(code) {
  * 非json用url拼接-后台使用@RequestParam
  * @type {{ajaxError: string, requestServerSuccess: ajax.requestServerSuccess, requestServerError: ajax.requestServerError, ajax: ajax.ajax, get: ajax.get, put: ajax.put, post: ajax.post, contentType: {TEXT: string, JSON: string}}}
  */
-var ajax ={
+var ajax = {
     ajaxError: "访问服务器失败,请稍后重试",
-
-    requestServerSuccess: function (args, result) {
-        if (isUndefined(result)) {
-            return;
-        }
-        if (fail(result.code) && !isUndefined(args.onResponseFailure)) {
-            args.onResponseFailure(result);
-        }
-        if (success(result.code) && !isUndefined(args.onResponseSuccess)) {
-            args.onResponseSuccess(result);
-        }
-
-    },
-    requestServerError: function (args, XMLHttpRequest, textStatus, errorThrown) {
-        console.error(XMLHttpRequest);
-        console.error(textStatus);
-        console.error(errorThrown);
-
-        // window.VmFrontendEventsDispatcher.showMsgDialog(this.ajaxError, function () {
-        //
-        // });
-        if (!isUndefined(args.onRequestError)) {
-            args.onRequestError();
-        }
-
-
-    },
     ajax: function (args) {
 
         //handler args.async
@@ -72,12 +46,10 @@ var ajax ={
         if (isUndefined(args.enctype)) {
             args.enctype = "text/plain";
         }
-        //handle args.loadingMsg
-        // if (!isUndefined(args.loadingMsg)) {
-        //     window.EventsDispatcher.showLoading(args.loadingMsg);
-        // }
-        // c("request data is : ");
-        // c(args);
+        c("Request url is : ");
+        c(args.url);
+        c("Request data is : ");
+        c(args.data);
         $.ajax({
             url: vm_config.http_url_prefix + args.url,
             //配合@requestBody
@@ -94,12 +66,26 @@ var ajax ={
                 }
             }.bind(this),
             success: function (result) {
-                this.requestServerSuccess(args, result);
+                if (success(result.code) && !isUndefined(args.success)) {
+                    args.success(result);
+                }
+                if (fail(result.code) && !isUndefined(args.failure)) {
+                    args.failure(result);
+                }
             }.bind(this),
             error: function (XMLHttpRequest, textStatus, errorThrown) {
+                //tip
+                message.error(this.ajaxError);
 
-                this.requestServerError(args, XMLHttpRequest, textStatus, errorThrown);
-            }.bind(this)
+                if (!isUndefined(args.error)) {
+                    args.error(args, XMLHttpRequest, textStatus, errorThrown);
+                }
+            }.bind(this),
+            complete: function (XMLHttpRequest, textStatus) {
+                if (!isUndefined(args.complete)) {
+                    args.complete(args, XMLHttpRequest, textStatus);
+                }
+            }.bind(this),
         });
     },
     get: function (args) {
