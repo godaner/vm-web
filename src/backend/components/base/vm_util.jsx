@@ -109,6 +109,19 @@ var ajax = {
 
 
 var commons = {
+    getObjByKey(objArr,key,val){
+        for(var i =0;i<objArr.length;i++){
+            var obj = objArr[i];
+            if(obj[key] == val){
+                return obj;
+            }
+        }
+    },
+    undefined2EmptyStr(obj){
+        if(isUndefined(obj)){
+            return "";
+        }
+    },
     highLight: function (sourceText, highLightText) {
         if (isUndefined(highLightText)) {
             return sourceText;

@@ -7,8 +7,8 @@
     "build": "webpack",
     "server": "nodemon ./static_server.js",
     "dll": "webpack --progress --colors --config ./webpack.dll.config.js",
-	"complier":"webpack --watch",
-	"run":"npm run dll | npm run complier | npm run server"
+    "complier": "webpack --watch",
+    "run": "npm run dll | npm run complier | npm run server"
   },
   "author": "zhangke",
   "license": "ISC",
@@ -38,6 +38,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.13.1",
     "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "moment": "^2.21.0"
   }
 }

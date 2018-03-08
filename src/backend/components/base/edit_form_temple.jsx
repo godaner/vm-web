@@ -45,10 +45,14 @@ const EditFormTempleWrapper = React.createClass({
             const {filed} = formItem;
             const {config, id, input} = filed;
 
-            if(isUndefined(config.validateFirst)){
+            if (isUndefined(config.validateFirst)) {
                 config.validateFirst = true;
             }
-
+            //!!!!该处可能更改
+            var type = typeof config.initialValue;
+            if (!isUndefined(config.initialValue) && (type == "number" || type == "boolean")) {
+                config.initialValue = config.initialValue + "";//转化为字符串
+            }
 
             return (
                 <FormItem key={i}>
@@ -83,8 +87,6 @@ const EditFormTempleWrapper = React.createClass({
         );
     }
 });
-const EditFormTemple = Form.create({
-
-})(EditFormTempleWrapper);
+const EditFormTemple = Form.create({})(EditFormTempleWrapper);
 export default EditFormTemple;   //将App组件导出
 
