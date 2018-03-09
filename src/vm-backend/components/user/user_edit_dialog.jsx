@@ -130,9 +130,9 @@ var UserEditDialog = React.createClass({
 
         var formLayout = "horizontal";
 
-        var formItems = [
+        var formRows = [
                 {
-                    formItems: [
+                    cols: [
                         {
                             col: {span: 11},
                             label: "用户名",
@@ -175,7 +175,7 @@ var UserEditDialog = React.createClass({
 
                 },
                 {
-                    formItems: [
+                    cols: [
                         {
                             col: {span: 11},
                             label: "id",
@@ -210,7 +210,7 @@ var UserEditDialog = React.createClass({
 
                 },
                 {
-                    formItems: [
+                    cols: [
                         {
                             col: {span: 11},
                             label: "密码",
@@ -251,23 +251,8 @@ var UserEditDialog = React.createClass({
 
                 },
                 {
-                    formItems: [
-                        {
-                            col: {span: 11},
-                            label: "简介",
-                            id: "description",
-                            config: {
-                                initialValue: echoData.description,
-                                rules: [{required: true, message: '请输入简介!'}],
-                            }
-                            ,
-                            input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
-                        },
+                    cols: [
 
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
                         {
                             col: {span: 11},
                             label: "状态",
@@ -281,24 +266,7 @@ var UserEditDialog = React.createClass({
                                 <Option value="1">正常</Option>
                                 <Option value="2">冻结</Option>
                             </Select>
-                        }
-                    ]
-
-
-                },
-                {
-                    formItems: [
-                        {
-                            col: {span: 11},
-                            label: "创建时间",
-                            id: "ignore_createTime",
-                            config: {
-                                initialValue: echoData.createTime,
-                            }
-                            ,
-                            input: <Input disabled={true}/>
                         },
-
                         {
                             col: {span: 2},
                             input: <div></div>
@@ -316,14 +284,50 @@ var UserEditDialog = React.createClass({
                     ]
 
 
-                }
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "创建时间",
+                            id: "ignore_createTime",
+                            config: {
+                                initialValue: echoData.createTime,
+                            }
+                            ,
+                            input: <Input disabled={true}/>
+                        }
+                    ]
+
+
+                },
+            {
+                cols: [
+                    {
+                        col: {span: 24},
+                        label: "简介",
+                        id: "description",
+                        config: {
+                            initialValue: echoData.description,
+                            rules: [{required: true, message: '请输入简介!'}],
+                        }
+                        ,
+                        input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
+                    }
+
+
+                ]
+
+
+            },
+
 
 
             ]
         ;
         return <EditDialogTemple
             title="修改用户"
-            formItems={formItems}
+            formRows={formRows}
             formLayout={formLayout}
             handleSubmit={this.handleSubmit}
             handleCancel={this.handleCancel}

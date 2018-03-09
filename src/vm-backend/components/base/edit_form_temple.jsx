@@ -37,14 +37,14 @@ const EditFormTempleWrapper = React.createClass({
         }.bind(this));
 
     },
-    generateFormItems(formItems){
+    generateFormRows(formRows){
         //get props.form
         const {getFieldDecorator} = this.props.form;
 
-        var formItemsRes = formItems.map(function (formItem, i) {
-            var {formItems} = formItem;
-            var formItemsResV2 = formItems.map(function (formItem, j) {
-                var {config, id, input, label, col, wrapperCol, labelCol} = formItem;
+        var formRowsRes = formRows.map(function (row, i) {
+            var {cols} = row;
+            var colsRes = cols.map(function (aCol, j) {
+                var {config, id, input, label, col, wrapperCol, labelCol} = aCol;
                 if (!isUndefined(config)) {
                     if (isUndefined(config.validateFirst)) {
                         config.validateFirst = true;
@@ -55,11 +55,13 @@ const EditFormTempleWrapper = React.createClass({
                         config.initialValue = config.initialValue + "";//转化为字符串
                     }
                 }else{
-                    w("isUndefined(config)");
+                    // w(input);
+                    // w("isUndefined(config)");
                     config = {};
                 }
                 if (isUndefined(id)) {
-                    w("isUndefined(id)");
+                    // w(input);
+                    // w("=>isUndefined(id)");
                     id = uuid();
                 }
 
@@ -102,19 +104,19 @@ const EditFormTempleWrapper = React.createClass({
             return (
                 <FormItem key={i}>
                     {
-                        formItemsResV2
+                        colsRes
                     }
                 </FormItem>
             );
         }.bind(this));
-        return formItemsRes;
+        return formRowsRes;
     },
     render: function () {
 
         //get props
-        var {loading, formItems, formLayout} = this.props;
+        var {loading, formRows, formLayout} = this.props;
 
-        var formItemsRes = this.generateFormItems(formItems);
+        var formItemsRes = this.generateFormRows(formRows);
 
         if (isUndefined(formLayout)) {
             formLayout = null;

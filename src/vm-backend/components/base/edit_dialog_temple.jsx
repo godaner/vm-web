@@ -18,10 +18,17 @@ import {ajax, commons} from "../base/vm_util";
 
 var EditDialogTemple = React.createClass({
     getInitialState: function () {
+        var {width, height} = this.props;
+        if (isUndefined(width)) {
+            width = "450px";
+        }
+        if (isUndefined(height)) {
+            height = "300px";
+        }
         return {
             // modelWidth: "350px",
-            modelWidth: "450px",
-            modelHeight: "300px",
+            modelWidth: width,
+            modelHeight: height,
             formLoading: false,
             visible: false,
 
@@ -92,7 +99,7 @@ var EditDialogTemple = React.createClass({
     render: function () {
 
         //get props
-        const {formItems, title,formLayout} = this.props;
+        const {formRows, title, formLayout} = this.props;
 
         //get state
         const {modelWidth, modelHeight, formLoading, visible, clearForm} = this.state;
@@ -112,7 +119,7 @@ var EditDialogTemple = React.createClass({
                     <EditFormTemple
                         ref={this.saveFormRef}
                         handleSubmit={this.handleSubmit}
-                        formItems={formItems}
+                        formRows={formRows}
                         formLayout={formLayout}
                         loading={formLoading}
                     />

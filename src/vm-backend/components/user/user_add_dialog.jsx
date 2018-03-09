@@ -69,10 +69,11 @@ var UserAddDialog = React.createClass({
     },
     render(){
         // var getFieldDecorator = this.getUserAddDialog().getFieldDecorator();
-        var formItems = [
+        var formRows = [
             {
 
-                filed: {
+                cols: [{
+                    label:"用户名",
                     id: "username",
                     config: {
                         rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
@@ -81,11 +82,12 @@ var UserAddDialog = React.createClass({
                                   name="username"
                                   prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                   placeholder="用户名"/>
-                }
+                }]
             }
             ,
             {
-                filed: {
+                cols: [{
+                    label:"密码",
                     id: "password",
                     config: {
                         rules: [{required: true, whitespace: true, message: '请输入密码!'}],
@@ -94,10 +96,11 @@ var UserAddDialog = React.createClass({
                                   autoComplete="off"
                                   prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                   placeholder="密码"/>
-                }
+                }]
             },
             {
-                filed: {
+                cols: [{
+                    label:"性别",
                     id: "sex",
                     config: {
                         rules: [
@@ -108,21 +111,23 @@ var UserAddDialog = React.createClass({
                         <Option value="2">女</Option>
                         <Option value="3">未知</Option>
                     </Select>
-                }
+                }]
             },
             {
-                filed: {
+                cols: [{
+                    label:"用户名",
                     id: "birthday",
                     config: {
                         rules: [{type: 'object', required: true, message: '请输入你的生日!'}],
 
                     },
                     input: <DatePicker placeholder="请输入生日"/>
-                }
+                }]
             }
             ,
             {
-                filed: {
+                cols: [{
+                    label:"简介",
                     id: "description",
                     config: {
                         rules: [
@@ -130,11 +135,12 @@ var UserAddDialog = React.createClass({
                         // initialValue: "1"
                     },
                     input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
-                }
+                }]
             }
             ,
             {
-                filed: {
+                cols: [{
+                    label:"状态",
                     id: "status",
                     config: {
                         rules: [
@@ -145,13 +151,13 @@ var UserAddDialog = React.createClass({
                         <Option value="1">正常</Option>
                         <Option value="2">冻结</Option>
                     </Select>
-                }
+                }]
             }
 
         ];
         return <EditDialogTemple
             title="添加用户"
-            formItems={formItems}
+            formRows={formRows}
             handleSubmit={this.handleSubmit}
             handleCancel={this.handleCancel}
             ref="user_add_dialog"/>;
