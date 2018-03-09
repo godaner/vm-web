@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table} from "antd";
+import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table,Upload} from "antd";
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
@@ -38,13 +38,13 @@ var UserEditDialog = React.createClass({
             url: editUserUrl,
             data: values,
             success: function (result) {
-                const {onEditSuccess}= this.props;
+                const {onEditSuccess} = this.props;
 
 
                 message.success(result.msg);
                 this.getUserEditDialog().closeDialog();
                 //callback
-                !isUndefined(onEditSuccess)?onEditSuccess(result.data.user):undefined;
+                !isUndefined(onEditSuccess) ? onEditSuccess(result.data.user) : undefined;
 
 
                 //clear form
@@ -101,6 +101,29 @@ var UserEditDialog = React.createClass({
                                       disabled={true}/>
                     }
                 },
+
+                // {
+                //
+                //     filed: {
+                //         id: "file",
+                //         config: {
+                //             initialValue: echoData.username,
+                //             rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
+                //         },
+                //         input: <Upload
+                //             // name="avatar"
+                //             // listType="picture-card"
+                //             // className="avatar-uploader"
+                //             // showUploadList={false}
+                //             // action="//jsonplaceholder.typicode.com/posts/"
+                //             // beforeUpload={beforeUpload}
+                //             // onChange={this.handleChange}
+                //         >
+                //             {imageUrl ? <img src={imageUrl} alt=""/> : uploadButton}
+                //         </Upload>
+                //     }
+                // }
+                ,
                 {
 
                     filed: {

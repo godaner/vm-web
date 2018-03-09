@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table} from "antd";
+import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
@@ -8,7 +8,7 @@ import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
 const Option = Select.Option;
-const {Header, Content, Footer, Sider} = Layout;
+const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
 const TextArea = Input.TextArea;
@@ -132,11 +132,58 @@ var UserPage = React.createClass({
             },
             {
                 title: '头像',
-                width: 100,
+                width: 150,
                 dataIndex: 'imgUrl',
                 render: (text) => {
-                    const imgUrl = vm_config.http_url_prefix + text;
-                    return <img style={{width: 50, height: 50}} src={imgUrl}/>
+                    const imageUrl = vm_config.http_url_prefix + text;
+
+                    var beforeUpload = function (file) {
+                        const isJPG = file.type === 'image/jpeg';
+                        if (!isJPG) {
+                            message.error('You can only upload JPG file!');
+                        }
+                        const isLt2M = file.size / 1024 / 1024 < 2;
+                        if (!isLt2M) {
+                            message.error('Image must smaller than 2MB!');
+                        }
+                        return isJPG && isLt2M;
+                    }
+                    var handleChange = function (info) {
+                        if (info.file.status === 'uploading') {
+                            this.setState({loading: true});
+                            return;
+                        }
+                        if (info.file.status === 'done') {
+                            // Get this url from response in real world.
+                            getBase64(info.file.originFileObj, imageUrl => this.setState({
+                                imageUrl,
+                                loading: false,
+                            }));
+                        }
+                    }
+
+                    const uploadButton = (
+                        <div>
+                            {/*<Icon type={this.state.loading ? 'loading' : 'plus'}/>*/}
+                            <Icon type={false ? 'loading' : 'plus'}/>
+                            <div className="ant-upload-text">Upload</div>
+                        </div>
+                    );
+                    return (
+                        <Upload
+                            name="avatar"
+                            listType="picture-card"
+                            className="avatar-uploader"
+                            showUploadList={false}
+                            action="//jsonplaceholder.typicode.com/posts/"
+                            beforeUpload={beforeUpload}
+                            onChange={handleChange}
+                        >
+                            {imageUrl ? <img style={{
+                                width: "100%"
+                            }} src={imageUrl} alt=""/> : uploadButton}
+                        </Upload>);
+
                 }
             },
             {
