@@ -91,44 +91,6 @@ var UserEditDialog = React.createClass({
         }
         echoData = filterEchoData(echoData);
 
-        // Upload
-
-        const imageUrl = vm_config.http_url_prefix + echoData.imgUrl;
-
-        var beforeUpload = function (file) {
-            // const isJPG = file.type === 'image/jpeg';
-            // if (!isJPG) {
-            //     message.error('You can only upload JPG file!');
-            // }
-            // const isLt2M = file.size / 1024 / 1024 < 2;
-            // if (!isLt2M) {
-            //     message.error('Image must smaller than 2MB!');
-            // }
-            // return isJPG && isLt2M;
-            return true;
-        }
-        var handleChange = function (info) {
-            // if (info.file.status === 'uploading') {
-            //     this.setState({loading: true});
-            //     return;
-            // }
-            // if (info.file.status === 'done') {
-            //     // Get this url from response in real world.
-            //     getBase64(info.file.originFileObj, imageUrl => this.setState({
-            //         imageUrl,
-            //         loading: false,
-            //     }));
-            // }
-            c(info);
-        }
-
-        // const uploadButton = (
-        //     <div>
-        //         {/*<Icon type={this.state.loading ? 'loading' : 'plus'}/>*/}
-        //         <Icon type={false ? 'loading' : 'plus'}/>
-        //         <div className="ant-upload-text">Upload</div>
-        //     </div>
-        // );
 
         var formLayout = "horizontal";
 
@@ -137,24 +99,14 @@ var UserEditDialog = React.createClass({
                     cols: [
                         {
                             col: {span: 11},
-                            label: "头像",
-                            id: "file",
+                            label: "id",
+                            id: "id",
                             config: {
-                                rules: [{required: true, whitespace: true, message: '请选择头像!'}],
+                                initialValue: echoData.id,
                             },
-                            input: <Upload
-                                name="avatar"
-                                listType="picture-card"
-                                className="avatar-uploader"
-                                showUploadList={false}
-                                action={vm_config.http_url_prefix + "/src/img"}
-                                beforeUpload={beforeUpload}
-                                onChange={handleChange}
-                            >
-                                <img style={{
-                                    width: "100%"
-                                }} src={imageUrl} alt=""/>
-                            </Upload>
+                            input: <Input name="id"
+                                          autoComplete="off"
+                                          disabled={true}/>
                         },
                         {
                             col: {span: 2},
@@ -179,15 +131,19 @@ var UserEditDialog = React.createClass({
                     cols: [
                         {
                             col: {span: 11},
-                            label: "id",
-                            id: "id",
+                            label: "状态",
+                            id: "status",
                             config: {
-                                initialValue: echoData.id,
-                            },
-                            input: <Input name="id"
-                                          autoComplete="off"
-                                          disabled={true}/>
-                        },
+                                initialValue: echoData.status,
+                                rules: [{required: true, message: '请输入状态!'}],
+                            }
+                            ,
+                            input: <Select placeholder="请输入状态">
+                                <Option value="1">正常</Option>
+                                <Option value="2">冻结</Option>
+                            </Select>
+                        }
+                        ,
                         {
                             col: {span: 2},
                             input: <div></div>
@@ -253,21 +209,17 @@ var UserEditDialog = React.createClass({
                 },
                 {
                     cols: [
-
                         {
                             col: {span: 11},
-                            label: "状态",
-                            id: "status",
+                            label: "创建时间",
+                            id: "ignore_createTime",
                             config: {
-                                initialValue: echoData.status,
-                                rules: [{required: true, message: '请输入状态!'}],
+                                initialValue: echoData.createTime,
                             }
                             ,
-                            input: <Select placeholder="请输入状态">
-                                <Option value="1">正常</Option>
-                                <Option value="2">冻结</Option>
-                            </Select>
-                        },
+                            input: <Input disabled={true}/>
+                        }
+                        ,
                         {
                             col: {span: 2},
                             input: <div></div>
@@ -278,22 +230,6 @@ var UserEditDialog = React.createClass({
                             id: "ignore_updateTime",
                             config: {
                                 initialValue: echoData.updateTime,
-                            }
-                            ,
-                            input: <Input disabled={true}/>
-                        }
-                    ]
-
-
-                },
-                {
-                    cols: [
-                        {
-                            col: {span: 24},
-                            label: "创建时间",
-                            id: "ignore_createTime",
-                            config: {
-                                initialValue: echoData.createTime,
                             }
                             ,
                             input: <Input disabled={true}/>

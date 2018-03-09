@@ -72,31 +72,6 @@ var UserAddDialog = React.createClass({
 
         var formRows = [
             {
-                cols: [{
-                    label: "头像",
-                    id: "file",
-                    config: {
-                        rules: [{whitespace: true, message: '请选择头像!'}],
-                    },
-                    input: <Upload
-                        name="avatar"
-                        listType="picture-card"
-                        className="avatar-uploader"
-                        showUploadList={false}
-                        action={vm_config.http_url_prefix + "/src/img"}
-                        // beforeUpload={beforeUpload}
-                        // onChange={handleChange}
-                    >
-                        <div>
-                            {/*<Icon type={this.state.loading ? 'loading' : 'plus'}/>*/}
-                            <Icon type={false ? 'loading' : 'plus'}/>
-                            <div className="ant-upload-text">选择上传</div>
-                        </div>
-                    </Upload>
-                }]
-            }
-            ,
-            {
 
                 cols: [{
                     label: "用户名",
