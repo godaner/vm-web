@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table} from "antd";
+import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
@@ -68,12 +68,38 @@ var UserAddDialog = React.createClass({
 
     },
     render(){
-        // var getFieldDecorator = this.getUserAddDialog().getFieldDecorator();
+
+
         var formRows = [
+            {
+                cols: [{
+                    label: "头像",
+                    id: "file",
+                    config: {
+                        rules: [{whitespace: true, message: '请选择头像!'}],
+                    },
+                    input: <Upload
+                        name="avatar"
+                        listType="picture-card"
+                        className="avatar-uploader"
+                        showUploadList={false}
+                        action={vm_config.http_url_prefix + "/src/img"}
+                        // beforeUpload={beforeUpload}
+                        // onChange={handleChange}
+                    >
+                        <div>
+                            {/*<Icon type={this.state.loading ? 'loading' : 'plus'}/>*/}
+                            <Icon type={false ? 'loading' : 'plus'}/>
+                            <div className="ant-upload-text">选择上传</div>
+                        </div>
+                    </Upload>
+                }]
+            }
+            ,
             {
 
                 cols: [{
-                    label:"用户名",
+                    label: "用户名",
                     id: "username",
                     config: {
                         rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
@@ -87,7 +113,7 @@ var UserAddDialog = React.createClass({
             ,
             {
                 cols: [{
-                    label:"密码",
+                    label: "密码",
                     id: "password",
                     config: {
                         rules: [{required: true, whitespace: true, message: '请输入密码!'}],
@@ -100,7 +126,7 @@ var UserAddDialog = React.createClass({
             },
             {
                 cols: [{
-                    label:"性别",
+                    label: "性别",
                     id: "sex",
                     config: {
                         rules: [
@@ -115,7 +141,7 @@ var UserAddDialog = React.createClass({
             },
             {
                 cols: [{
-                    label:"用户名",
+                    label: "用户名",
                     id: "birthday",
                     config: {
                         rules: [{type: 'object', required: true, message: '请输入你的生日!'}],
@@ -127,7 +153,7 @@ var UserAddDialog = React.createClass({
             ,
             {
                 cols: [{
-                    label:"简介",
+                    label: "简介",
                     id: "description",
                     config: {
                         rules: [
@@ -140,7 +166,7 @@ var UserAddDialog = React.createClass({
             ,
             {
                 cols: [{
-                    label:"状态",
+                    label: "状态",
                     id: "status",
                     config: {
                         rules: [

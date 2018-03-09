@@ -96,37 +96,39 @@ var UserEditDialog = React.createClass({
         const imageUrl = vm_config.http_url_prefix + echoData.imgUrl;
 
         var beforeUpload = function (file) {
-            const isJPG = file.type === 'image/jpeg';
-            if (!isJPG) {
-                message.error('You can only upload JPG file!');
-            }
-            const isLt2M = file.size / 1024 / 1024 < 2;
-            if (!isLt2M) {
-                message.error('Image must smaller than 2MB!');
-            }
-            return isJPG && isLt2M;
+            // const isJPG = file.type === 'image/jpeg';
+            // if (!isJPG) {
+            //     message.error('You can only upload JPG file!');
+            // }
+            // const isLt2M = file.size / 1024 / 1024 < 2;
+            // if (!isLt2M) {
+            //     message.error('Image must smaller than 2MB!');
+            // }
+            // return isJPG && isLt2M;
+            return true;
         }
         var handleChange = function (info) {
-            if (info.file.status === 'uploading') {
-                this.setState({loading: true});
-                return;
-            }
-            if (info.file.status === 'done') {
-                // Get this url from response in real world.
-                getBase64(info.file.originFileObj, imageUrl => this.setState({
-                    imageUrl,
-                    loading: false,
-                }));
-            }
+            // if (info.file.status === 'uploading') {
+            //     this.setState({loading: true});
+            //     return;
+            // }
+            // if (info.file.status === 'done') {
+            //     // Get this url from response in real world.
+            //     getBase64(info.file.originFileObj, imageUrl => this.setState({
+            //         imageUrl,
+            //         loading: false,
+            //     }));
+            // }
+            c(info);
         }
 
-        const uploadButton = (
-            <div>
-                {/*<Icon type={this.state.loading ? 'loading' : 'plus'}/>*/}
-                <Icon type={false ? 'loading' : 'plus'}/>
-                <div className="ant-upload-text">Upload</div>
-            </div>
-        );
+        // const uploadButton = (
+        //     <div>
+        //         {/*<Icon type={this.state.loading ? 'loading' : 'plus'}/>*/}
+        //         <Icon type={false ? 'loading' : 'plus'}/>
+        //         <div className="ant-upload-text">Upload</div>
+        //     </div>
+        // );
 
         var formLayout = "horizontal";
 
@@ -135,24 +137,23 @@ var UserEditDialog = React.createClass({
                     cols: [
                         {
                             col: {span: 11},
-                            label: "用户名",
+                            label: "头像",
                             id: "file",
                             config: {
-                                initialValue: echoData.username,
-                                rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
+                                rules: [{required: true, whitespace: true, message: '请选择头像!'}],
                             },
                             input: <Upload
                                 name="avatar"
                                 listType="picture-card"
                                 className="avatar-uploader"
                                 showUploadList={false}
-                                action="//jsonplaceholder.typicode.com/posts/"
+                                action={vm_config.http_url_prefix + "/src/img"}
                                 beforeUpload={beforeUpload}
                                 onChange={handleChange}
                             >
-                                {imageUrl ? <img style={{
+                                <img style={{
                                     width: "100%"
-                                }} src={imageUrl} alt=""/> : uploadButton}
+                                }} src={imageUrl} alt=""/>
                             </Upload>
                         },
                         {
@@ -301,26 +302,25 @@ var UserEditDialog = React.createClass({
 
 
                 },
-            {
-                cols: [
-                    {
-                        col: {span: 24},
-                        label: "简介",
-                        id: "description",
-                        config: {
-                            initialValue: echoData.description,
-                            rules: [{required: true, message: '请输入简介!'}],
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "简介",
+                            id: "description",
+                            config: {
+                                initialValue: echoData.description,
+                                rules: [{required: true, message: '请输入简介!'}],
+                            }
+                            ,
+                            input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
                         }
-                        ,
-                        input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
-                    }
 
 
-                ]
+                    ]
 
 
-            },
-
+                },
 
 
             ]
