@@ -19,7 +19,8 @@ import {ajax, commons} from "../base/vm_util";
 var EditDialogTemple = React.createClass({
     getInitialState: function () {
         return {
-            modelWidth: "350px",
+            // modelWidth: "350px",
+            modelWidth: "450px",
             modelHeight: "300px",
             formLoading: false,
             visible: false,
@@ -91,7 +92,7 @@ var EditDialogTemple = React.createClass({
     render: function () {
 
         //get props
-        const {formItems, title} = this.props;
+        const {formItems, title,formLayout} = this.props;
 
         //get state
         const {modelWidth, modelHeight, formLoading, visible, clearForm} = this.state;
@@ -112,6 +113,7 @@ var EditDialogTemple = React.createClass({
                         ref={this.saveFormRef}
                         handleSubmit={this.handleSubmit}
                         formItems={formItems}
+                        formLayout={formLayout}
                         loading={formLoading}
                     />
                 </Modal>

@@ -490,7 +490,14 @@ $.fn.serializeParams = function () {
 function c(msg) {
     console.info(msg);
 }
-
+/**
+ * 封装console.warn(msg);
+ *
+ * @param msg
+ */
+function w(msg) {
+    console.warn(msg);
+}
 /**
  * 封装alert
  *

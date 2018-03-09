@@ -16,7 +16,7 @@ function success(code) {
  * @type {{ajaxError: string, requestServerSuccess: ajax.requestServerSuccess, requestServerError: ajax.requestServerError, ajax: ajax.ajax, get: ajax.get, put: ajax.put, post: ajax.post, contentType: {TEXT: string, JSON: string}}}
  */
 var ajax = {
-    ajaxError: "访问服务器失败,请稍后重试",
+    ajaxError: "网络不佳,请稍后重试",
     ajax: function (args) {
 
         //handler args.async
@@ -109,28 +109,45 @@ var ajax = {
 
 
 var commons = {
-    updateObjByKey(objArr,key,keyVal,newObj){
+    objDeepCopy(obj){
+        var str, newobj = obj.constructor === Array ? [] : {};
+        if (typeof obj !== 'object') {
+            return;
+        } else if (window.JSON) {
+            str = JSON.stringify(obj), //系列化对象
+                newobj = JSON.parse(str); //还原
+        } else {
+            for (var i in obj) {
+                newobj[i] = typeof obj[i] === 'object' ?
+                    cloneObj(obj[i]) : obj[i];
+            }
+        }
+        return newobj;
+
+    },
+    updateObjByKey(objArr, key, keyVal, newObj){
         var newArr = [];
-        for(var i =0;i<objArr.length;i++){
+        for (var i = 0; i < objArr.length; i++) {
             var obj = objArr[i];
-            if(obj[key] == keyVal){
+            if (obj[key] == keyVal) {
                 newArr.push(newObj);
-            }else{
+            } else {
                 newArr.push(obj);
             }
         }
         return newArr;
     },
-    getObjByKey(objArr,key,keyVal){
-        for(var i =0;i<objArr.length;i++){
+    getObjByKey(objArr, key, keyVal){
+        for (var i = 0; i < objArr.length; i++) {
             var obj = objArr[i];
-            if(obj[key] == keyVal){
-                return obj;
+            if (obj[key] == keyVal) {
+                //深拷贝
+                return commons.objDeepCopy(obj);
             }
         }
     },
     undefined2EmptyStr(obj){
-        if(isUndefined(obj)){
+        if (isUndefined(obj)) {
             return "";
         }
     },

@@ -132,57 +132,16 @@ var UserPage = React.createClass({
             },
             {
                 title: '头像',
-                width: 150,
+                width: 80,
                 dataIndex: 'imgUrl',
                 render: (text) => {
                     const imageUrl = vm_config.http_url_prefix + text;
 
-                    var beforeUpload = function (file) {
-                        const isJPG = file.type === 'image/jpeg';
-                        if (!isJPG) {
-                            message.error('You can only upload JPG file!');
-                        }
-                        const isLt2M = file.size / 1024 / 1024 < 2;
-                        if (!isLt2M) {
-                            message.error('Image must smaller than 2MB!');
-                        }
-                        return isJPG && isLt2M;
-                    }
-                    var handleChange = function (info) {
-                        if (info.file.status === 'uploading') {
-                            this.setState({loading: true});
-                            return;
-                        }
-                        if (info.file.status === 'done') {
-                            // Get this url from response in real world.
-                            getBase64(info.file.originFileObj, imageUrl => this.setState({
-                                imageUrl,
-                                loading: false,
-                            }));
-                        }
-                    }
 
-                    const uploadButton = (
-                        <div>
-                            {/*<Icon type={this.state.loading ? 'loading' : 'plus'}/>*/}
-                            <Icon type={false ? 'loading' : 'plus'}/>
-                            <div className="ant-upload-text">Upload</div>
-                        </div>
-                    );
-                    return (
-                        <Upload
-                            name="avatar"
-                            listType="picture-card"
-                            className="avatar-uploader"
-                            showUploadList={false}
-                            action="//jsonplaceholder.typicode.com/posts/"
-                            beforeUpload={beforeUpload}
-                            onChange={handleChange}
-                        >
-                            {imageUrl ? <img style={{
-                                width: "100%"
-                            }} src={imageUrl} alt=""/> : uploadButton}
-                        </Upload>);
+                    return <img style={{
+                                width: 30,
+                                height: 30
+                            }} src={imageUrl} alt=""/> ;
 
                 }
             },
@@ -384,7 +343,7 @@ var UserPage = React.createClass({
     showEditDialog(record)
     {
         record = commons.getObjByKey(this.state.userTable.originalData, "id", record.id);
-
+        c(record);
         this.updateUserEditDialogEchoData(record)
 
         this.getUserEditDialog().showDialog();

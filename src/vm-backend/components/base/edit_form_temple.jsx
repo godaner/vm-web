@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Layout, Modal, Menu, Breadcrumb, Form, Icon, Input, Button, Checkbox} from 'antd';
+import {Layout, Modal, Menu, Breadcrumb, Form, Icon, Input, Button, Checkbox, Col} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
@@ -42,24 +42,68 @@ const EditFormTempleWrapper = React.createClass({
         const {getFieldDecorator} = this.props.form;
 
         var formItemsRes = formItems.map(function (formItem, i) {
-            const {filed} = formItem;
-            const {config, id, input} = filed;
+            var {formItems} = formItem;
+            var formItemsResV2 = formItems.map(function (formItem, j) {
+                var {config, id, input, label, col, wrapperCol, labelCol} = formItem;
+                if (!isUndefined(config)) {
+                    if (isUndefined(config.validateFirst)) {
+                        config.validateFirst = true;
+                    }
+                    //!!!!该处可能更改
+                    var type = typeof config.initialValue;
+                    if (!isUndefined(config.initialValue) && (type == "number" || type == "boolean")) {
+                        config.initialValue = config.initialValue + "";//转化为字符串
+                    }
+                }else{
+                    w("isUndefined(config)");
+                    config = {};
+                }
+                if (isUndefined(id)) {
+                    w("isUndefined(id)");
+                    id = uuid();
+                }
 
-            if (isUndefined(config.validateFirst)) {
-                config.validateFirst = true;
-            }
-            //!!!!该处可能更改
-            var type = typeof config.initialValue;
-            if (!isUndefined(config.initialValue) && (type == "number" || type == "boolean")) {
-                config.initialValue = config.initialValue + "";//转化为字符串
-            }
+                if (isUndefined(col)) {
+                    col = {};
+                }
+                if (isUndefined(col.span)) {
+                    col.span = null;
+                }
+                if (isUndefined(wrapperCol)) {
+                    wrapperCol = null;
+                }
+                if (isUndefined(labelCol)) {
+                    labelCol = null;
+                }
+                if (isUndefined(label)) {
+                    label = null;
+                }
+
+
+                return (
+                    <Col span={col.span}
+                         key={j}>
+                        <FormItem
+                            label={label}
+                            wrapperCol={wrapperCol}
+                            labelCol={labelCol}>
+                            {
+                                getFieldDecorator(
+                                    id, config)(
+                                    input
+                                )
+                            }
+                        </FormItem>
+                    </Col>
+                );
+            }.bind(this));
+
 
             return (
                 <FormItem key={i}>
-                    {getFieldDecorator(
-                        id, config)(
-                        input
-                    )}
+                    {
+                        formItemsResV2
+                    }
                 </FormItem>
             );
         }.bind(this));
@@ -68,12 +112,18 @@ const EditFormTempleWrapper = React.createClass({
     render: function () {
 
         //get props
-        const {loading, formItems} = this.props;
+        var {loading, formItems, formLayout} = this.props;
 
         var formItemsRes = this.generateFormItems(formItems);
 
+        if (isUndefined(formLayout)) {
+            formLayout = null;
+        }
         return (
-            <Form onSubmit={this.handleSubmit} id="edit-form" ref="edit_form">
+            <Form onSubmit={this.handleSubmit}
+                // layout={formLayout}
+                  id="edit-form"
+                  ref="edit_form">
                 {
                     formItemsRes
                 }
