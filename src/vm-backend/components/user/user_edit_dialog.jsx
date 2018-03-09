@@ -17,7 +17,7 @@ const TextArea = Input.TextArea;
 var UserEditDialog = React.createClass({
     getInitialState(){
         return {
-            editUserUrl: "/user/info",
+            editUserUrl: "/user/info"
         };
     },
     showDialog(){
@@ -38,10 +38,17 @@ var UserEditDialog = React.createClass({
             url: editUserUrl,
             data: values,
             success: function (result) {
+                const {onEditSuccess}= this.props;
+
+
                 message.success(result.msg);
                 this.getUserEditDialog().closeDialog();
                 //callback
-                this.props.onEditSuccess(result.data.user);
+                !isUndefined(onEditSuccess)?onEditSuccess(result.data.user):undefined;
+
+
+                //clear form
+                this.getUserEditDialog().clearForm();
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -81,7 +88,6 @@ var UserEditDialog = React.createClass({
             return echoData;
         }
         echoData = filterEchoData(echoData);
-        c(echoData.birthday);
         var formItems = [
                 {
 

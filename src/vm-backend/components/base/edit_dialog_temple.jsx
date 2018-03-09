@@ -69,7 +69,6 @@ var EditDialogTemple = React.createClass({
     },
     closeDialog(){
         this.updateStateVisible(false);
-        this.form.resetFields();//!!!!
     },
     showDialog(){
         this.updateStateVisible(true);
@@ -86,6 +85,9 @@ var EditDialogTemple = React.createClass({
     saveFormRef(form){//!!!!
         this.form = form;
     },
+    clearForm(){//清空表单
+        this.form.resetFields();//!!!!
+    },
     render: function () {
 
         //get props
@@ -100,6 +102,7 @@ var EditDialogTemple = React.createClass({
                     visible={visible}
                     title={title}
                     onCancel={this.handleCancel}
+                    afterClose={this.afterClose}
                     width={modelWidth}
                     height={modelHeight}
                     footer={null}

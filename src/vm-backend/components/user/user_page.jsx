@@ -25,7 +25,7 @@ var UserPage = React.createClass({
                 editable: false,
                 haveSearchUsername: false,
                 usernameDropdownVisible: false,
-                bordered: false,
+                bordered: true,
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
                 selectedRowKeys: [],
@@ -127,7 +127,8 @@ var UserPage = React.createClass({
             {
                 title: 'id',
                 width: 100,
-                dataIndex: 'id'
+                dataIndex: 'id',
+                sorter: true
             },
             {
                 title: '头像',
@@ -140,11 +141,12 @@ var UserPage = React.createClass({
             },
             {
                 title: '用户名',
-                width: 100,
+                width: 150,
                 dataIndex: 'username',
                 render: (text, record) => {
                     return commons.highLight(text, this.state.userTable.query.usernameQuery);
                 },
+                sorter: true,
                 filterDropdown: (
                     <div className="custom-filter-dropdown">
                         <Search
@@ -177,17 +179,20 @@ var UserPage = React.createClass({
                         res = "未知";
                     }
                     return res;
-                }
+                },
+                sorter: true
 
 
             },
             {
                 title: '密码', width: 100,
-                dataIndex: 'password'
+                dataIndex: 'password',
+                sorter: true
             },
             {
                 title: '简介', width: 200,
-                dataIndex: 'description'
+                dataIndex: 'description',
+                sorter: true
             },
             {
                 title: '生日',
@@ -195,25 +200,26 @@ var UserPage = React.createClass({
                 dataIndex: 'birthday',
                 render: (text) => {
                     return timeFormatter.formatDate(text * 1000);
-                }
+                },
+                sorter: true
             },
             {
                 title: '创建时间',
-                width: 100,
+                width: 150,
                 dataIndex: 'create_time',
                 render: (text) => {
                     return timeFormatter.formatTime(text * 1000);
                 },
-                defaultSortOrder: 'descend',
                 sorter: true
             },
             {
                 title: '最后更新时间',
-                width: 100,
+                width: 150,
                 dataIndex: 'update_time',
                 render: (text) => {
                     return timeFormatter.formatTime(text * 1000);
-                }
+                },
+                sorter: true
             },
             {
                 title: '状态',
@@ -221,7 +227,8 @@ var UserPage = React.createClass({
                 dataIndex: 'status',
                 render: (text) => {
                     return text == 1 ? "正常" : text == 2 ? "冻结" : text;
-                }
+                },
+                sorter: true
             },
 
 
@@ -235,16 +242,18 @@ var UserPage = React.createClass({
                         <a onClick={this.deleteRecord} href="javascript:void(0)">删除</a>
                     </div>
                 },
+                sorter: true
             },]);
         this.loadUserTableData();
     },
     handleTableChange(pagination, filters, sorter)
     {
+
         const page = this.state.userTable.page;
         var size = pagination.pageSize;
         var start = (pagination.current - 1) * size;
-        var orderBy = sorter.field;
-        var orderType = sorter.order;
+        var orderBy = isUndefined(sorter.field) ? "" : sorter.field;
+        var orderType = isUndefined(sorter.order) ? "" : sorter.order;
         this.updateUserTablePage({
             start: start,
             size: size,
@@ -417,25 +426,27 @@ var UserPage = React.createClass({
                         {hasSelected ? `选择了 ${selectedRowKeys.length} 个选项` : ''}
                     </span>
                 </div>
-                <Table columns={columns}
-                       rowSelection={rowSelection}
-                       dataSource={data}
-                       pagination={
-                           {
-                               total: page.total,
-                               showTotal: (total, range) => {
-                                   return `第 ${range[0]}-${range[1]} 条记录 , 共 ${total} 条记录`;
-                               },
-                               pageSize: page.size,
-                               defaultCurrent: 1
-                           }
-                       }
-                       loading={tableLoading}
-                       onChange={this.handleTableChange}
-                       bordered={bordered}
-                       title={() => '用户列表'}
+                <Table
+                    locale={{emptyText: "暂无用户数据"}}
+                    columns={columns}
+                    rowSelection={rowSelection}
+                    dataSource={data}
+                    pagination={
+                        {
+                            total: page.total,
+                            showTotal: (total, range) => {
+                                return `第 ${range[0]}-${range[1]} 条记录 , 共 ${total} 条记录`;
+                            },
+                            pageSize: page.size,
+                            defaultCurrent: 1
+                        }
+                    }
+                    loading={tableLoading}
+                    onChange={this.handleTableChange}
+                    bordered={bordered}
+                    title={() => '用户列表'}
                     // footer={() => 'Footer'}
-                       scroll={{x: "100%", y: "100%"}}/>
+                    scroll={{x: "100%", y: "100%"}}/>
 
                 <UserEditDialog ref="user_edit_dialog"
                                 echoData={echoData}

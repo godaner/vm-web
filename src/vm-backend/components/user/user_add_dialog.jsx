@@ -43,9 +43,10 @@ var UserAddDialog = React.createClass({
                 this.getUserAddDialog().closeDialog();
 
                 //callback
-                onAddSuccess(result.data.user);
-                c("onAddSuccess");
-                c(result.data.user);
+                !isUndefined(onAddSuccess) ? onAddSuccess(result.data.user) : undefined;
+
+                //clear form
+                this.getUserAddDialog().clearForm();
 
             }.bind(this),
             failure: function (result) {
