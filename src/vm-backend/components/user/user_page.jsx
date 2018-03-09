@@ -205,7 +205,7 @@ var UserPage = React.createClass({
                     return timeFormatter.formatTime(text * 1000);
                 },
                 defaultSortOrder: 'descend',
-                sorter: (a, b) => a.create_time - b.create_time,
+                sorter: true
             },
             {
                 title: '最后更新时间',
@@ -213,8 +213,7 @@ var UserPage = React.createClass({
                 dataIndex: 'update_time',
                 render: (text) => {
                     return timeFormatter.formatTime(text * 1000);
-                },
-                sorter: true
+                }
             },
             {
                 title: '状态',
