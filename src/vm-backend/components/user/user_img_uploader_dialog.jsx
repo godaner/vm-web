@@ -59,7 +59,7 @@ var UserImgUploaderDialog = React.createClass({
         this.setState(state);
     },
     showDialog(record){
-        this.updateStateConfigDisPlayImgUrl(vm_config.http_url_prefix + record.imgUrl);
+        this.updateStateConfigDisPlayImgUrl(record.imgUrl);
 
         this.refs.img_uploader_dialog_template.showDialog();
     },

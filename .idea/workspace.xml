@@ -7,11 +7,8 @@
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader_dialog_template.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader_dialog_template.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/user/user_img_uploader_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/user/user_img_uploader_dialog.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/user/user_page.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/user/user_page.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/view/index.html" afterPath="$PROJECT_DIR$/src/vm-backend/view/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_img_uploader_dialog.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_img_uploader_dialog.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_img_uploader_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="77" column="28" lean-forward="false" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+            <state relative-caret-position="462">
+              <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -90,14 +87,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="img_uploader.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="img_uploader.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="33" column="55" lean-forward="false" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+            <state relative-caret-position="512">
+              <caret line="185" column="69" lean-forward="false" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="69" />
               <folding>
                 <element signature="e#40#83#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vm_util.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-350">
+              <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,7 +133,7 @@
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_page.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
-              <caret line="126" column="53" lean-forward="false" selection-start-line="126" selection-start-column="43" selection-end-line="126" selection-end-column="53" />
+              <caret line="126" column="58" lean-forward="false" selection-start-line="126" selection-start-column="58" selection-end-line="126" selection-end-column="58" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#585#633#0" expanded="true" />
@@ -139,9 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sortOrder</find>
-      <find>sort</find>
-      <find>npm config set registry http://registry.npm.taobao.org</find>
       <find>Uncaught TypeError: Cannot read property 'NODE_ENV' of undefined</find>
       <find>Uncaught TypeError: Cannot read property 'NODE_ENV</find>
       <find>NODE_ENV</find>
@@ -161,7 +165,6 @@
       <find>ImgUploader</find>
       <find>img_uploader.scss</find>
       <find>./edit_form_temple</find>
-      <find>&quot;./events_dispatcher&quot;</find>
       <find>$defaultBlueRgb</find>
       <find>img_uploader_dialog</find>
       <find>this.img_uploader_dialog.showDialo</find>
@@ -169,6 +172,10 @@
       <find>this.config</find>
       <find>user_img_uploader_dialog</find>
       <find>showDialog</find>
+      <find>&quot;./events_dispatcher&quot;</find>
+      <find>window.EventsDispatcher.showLoading</find>
+      <find>window.EventsDispatcher.showLoading</find>
+      <find>this.state.uploadTempImgTip</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -250,10 +257,10 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/scss/base/img_uploader.scss" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_page.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/view/index.html" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader_dialog_template.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_img_uploader_dialog.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx" />
       </list>
     </option>
   </component>
@@ -1049,12 +1056,12 @@
       <workItem from="1520485569683" duration="22623000" />
       <workItem from="1520561457480" duration="10092000" />
       <workItem from="1520577238661" duration="14563000" />
-      <workItem from="1520660842745" duration="4677000" />
+      <workItem from="1520660842745" duration="5797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166674000" />
+    <option name="totallyTimeSpent" value="167794000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1312,14 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="62" column="22" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1362,17 +1361,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/edit_form_temple.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-            <element signature="e#264#338#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_add_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1386,27 +1374,6 @@
         <state relative-caret-position="135">
           <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_page.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="126" column="53" lean-forward="false" selection-start-line="126" selection-start-column="43" selection-end-line="126" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#585#633#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="33" column="55" lean-forward="false" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
-          <folding>
-            <element signature="e#40#83#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1444,12 +1411,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_img_uploader_dialog.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="77" column="28" lean-forward="false" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+        <state relative-caret-position="-350">
+          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/edit_form_temple.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#264#338#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_page.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="126" column="58" lean-forward="false" selection-start-line="126" selection-start-column="58" selection-end-line="126" selection-end-column="58" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#585#633#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_img_uploader_dialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="185" column="69" lean-forward="false" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="69" />
+          <folding>
+            <element signature="e#40#83#0" expanded="true" />
           </folding>
         </state>
       </provider>

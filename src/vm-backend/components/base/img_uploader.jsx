@@ -31,6 +31,7 @@ var ImgUpload = React.createClass({
         };
     },
     componentDidMount(){
+        c(this.state.config.displayImgUrl);
         this.previewImg(this.state.config.displayImgUrl);
     },
     validateImgFileOnSubmit(){
@@ -182,8 +183,8 @@ var ImgUpload = React.createClass({
             // this.previewImg(this.state.user.ImgUrl);
             return;
         }
+        var hideMessage = message.loading(this.state.uploadTempImgTip);
 
-        message.loading(this.state.uploadTempImgTip);
 
         var formData = new FormData();
         formData.append("file", imgFile);
@@ -199,6 +200,7 @@ var ImgUpload = React.createClass({
 
             }.bind(this),
             success: function (result) {
+                c(result);
                 //更新服务器暂存图片访问地址
                 this.previewImg(result.data.imgUrl);
                 //更新服务器暂存图片名
@@ -215,6 +217,7 @@ var ImgUpload = React.createClass({
                 if (callfun != undefined) {
                     callfun()
                 }
+                hideMessage();
             }.bind(this),
             
         })
@@ -228,6 +231,7 @@ var ImgUpload = React.createClass({
         this.getImgInput().val("");
     },
     saveImg(callfun){
+        var hideLoading = message.loading(this.state.saveImgTip);
 
         // var imgInput = this.getImgInput();
         // var imgFile = this.getImgFile();
@@ -239,13 +243,12 @@ var ImgUpload = React.createClass({
             return;
         }
 
-        window.EventsDispatcher.showLoading();
+        // window.EventsDispatcher.showLoading();
 
         // var userId = this.state.user.id;
         const url = this.state.config.saveImgUrl;
         var data = this.state.willUpdatedImgInfo;
         // data.serverCacheFileName = this.state.serverTempImgFileName;
-        var hideLoading = message.loading(this.state.saveImgTip);
         ajax.put({
             url: url,
             data: data,
