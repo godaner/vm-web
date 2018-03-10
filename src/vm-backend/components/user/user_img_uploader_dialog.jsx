@@ -10,6 +10,7 @@ import ImgUploaderDialogTemplate from "../base/img_uploader_dialog_template";
 const {Header, Content, Footer, Sider} = Layout;
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
+import {commons} from "../base/vm_util";
 
 var UserImgUploaderDialog = React.createClass({
     getInitialState: function () {
@@ -63,7 +64,12 @@ var UserImgUploaderDialog = React.createClass({
         this.updateStateConfigExtraInfo(record);
 
         this.refs.img_uploader_dialog_template.showDialog();
-        this.refs.img_uploader_dialog_template.previewImg(record.imgUrl)
+        this.refs.img_uploader_dialog_template.previewImg(commons.addUrlParam({
+            url:record.imgUrl,
+            obj:{
+                width:"300"
+            }
+        }))
 
     },
     componentDidMount(){

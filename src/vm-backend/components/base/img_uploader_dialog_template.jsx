@@ -64,7 +64,7 @@ var ImgUploaderDialog = React.createClass({
         this.updateStateVisible(true);
     },
     previewImg(imgUrl){
-        
+
         setTimeout(function () {
 
             c(this.refs.img_uploader);
