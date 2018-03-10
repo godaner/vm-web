@@ -211,6 +211,7 @@ var ImgUpload = React.createClass({
 
             }.bind(this),
             failure: function (result) {
+                message.error(result.msg);
 
             }.bind(this),
             complete: function () {
@@ -286,6 +287,7 @@ var ImgUpload = React.createClass({
 
             }.bind(this),
             failure: function (result) {
+                message.error(result.msg);
 
             }.bind(this)
         })

@@ -46,6 +46,8 @@ var ajax = {
         if (isUndefined(args.enctype)) {
             args.enctype = "text/plain";
         }
+        c("Request args is : ");
+        c(args);
         c("Request url is : ");
         c(args.url);
         c("Request data is : ");
@@ -109,6 +111,80 @@ var ajax = {
 
 
 var commons = {
+    /**
+     * 对url添加时间戳
+     * @param url
+     * @returns {*}
+     */
+    timestamp(url){
+        //  var getTimestamp=Math.random();
+        var t = new Date().getTime();
+        url = addUrlParam({
+            url: url,
+            obj: {
+                t: t
+            }
+        })
+        c(url);
+        return url;
+    },
+
+    /**
+     * 对url添加参数,替换原有参数
+     * @param url
+     * @returns {*}
+     */
+    addUrlParam(args){
+
+        var url = args.url;
+        var obj = args.obj;
+
+        //  var getTimestamp=Math.random();
+        for (var key in obj) {
+            var val = obj[key];
+            var p = getUrlParam(url, key);
+            c(p);
+            if (!isUndefined(p)) {
+                changeUrlParam(url, key, val);
+            } else {
+                if (url.indexOf("?") > -1) {
+                    url = url + "&" + key + "=" + val;
+                } else {
+                    url = url + "?" + key + "=" + val;
+                }
+            }
+
+
+        }
+
+        return url;
+    },
+
+    changeUrlParam(url, arg, val){
+        var pattern = arg + '=([^&]*)';
+        var replaceText = arg + '=' + val;
+        return url.match(pattern) ? url.replace(eval('/(' + arg + '=)([^&]*)/gi'), replaceText) : (url.match('[\?]') ? url + '&' + replaceText : url + '?' + replaceText);
+    },
+    /**
+     * 获取指定的URL参数值
+     * URL:http://www.quwan.com/index?name=tyler
+     * 参数：paramName URL参数
+     * 调用方法:getParam("name")
+     * 返回值:tyler
+     */
+    getUrlParam(url, variable) {
+
+        var query = url.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        return undefined;
+
+    },
     objDeepCopy(obj){
         var str, newobj = obj.constructor === Array ? [] : {};
         if (typeof obj !== 'object') {

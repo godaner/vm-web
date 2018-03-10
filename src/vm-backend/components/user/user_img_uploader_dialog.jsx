@@ -22,7 +22,7 @@ var UserImgUploaderDialog = React.createClass({
             config: {
                 fileTypes: ["jpg", "png"],
                 fileMaxsize: 1024 * 1024 * 2,//2M
-                saveImgUrl: "/user/img/v2",
+                saveImgUrl: "/user/img",
                 uploadTempImgUrl: "/src/img",
                 server_url_prefix: vm_config.http_url_prefix,
                 displayImgUrl: undefined,
