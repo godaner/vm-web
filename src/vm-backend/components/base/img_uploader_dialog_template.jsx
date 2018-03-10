@@ -63,6 +63,10 @@ var ImgUploaderDialog = React.createClass({
     showDialog(){
         this.updateStateVisible(true);
     },
+    previewImg(imgUrl){
+        c(this.refs.img_uploader);
+        this.refs.img_uploader.previewImg(imgUrl);
+    },
     updateStateVisible(visible){
         var state = this.state;
         state.visible = visible;
@@ -91,6 +95,7 @@ var ImgUploaderDialog = React.createClass({
                 footer={null}
             >
                 <ImgUploader
+                    ref="img_uploader"
                     onUpdateImgSuccess={onUpdateImgSuccess}
                     config={config}/>
 

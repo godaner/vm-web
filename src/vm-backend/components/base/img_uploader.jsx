@@ -32,8 +32,7 @@ var ImgUpload = React.createClass({
         };
     },
     componentDidMount(){
-        c(this.state.config.displayImgUrl);
-        this.previewImg(this.state.config.displayImgUrl);
+
     },
     validateImgFileOnSubmit(){
         //服务器未接收到相关的图片缓存
@@ -295,6 +294,7 @@ var ImgUpload = React.createClass({
 
     },
     render: function () {
+
         return (
             <div id="img_uploader" className="clearfix">
 

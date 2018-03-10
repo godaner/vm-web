@@ -25,7 +25,6 @@ var UserImgUploaderDialog = React.createClass({
                 saveImgUrl: "/user/img",
                 uploadTempImgUrl: "/src/img",
                 server_url_prefix: vm_config.http_url_prefix,
-                displayImgUrl: undefined,
                 extraInfo: {}
             }
 
@@ -54,22 +53,18 @@ var UserImgUploaderDialog = React.createClass({
     closeDialog(){
         this.refs.img_uploader_dialog_template.closeDialog();
     },
-    updateStateConfigDisPlayImgUrl(displayImgUrl){
-        var state = this.state;
-        this.state.config.displayImgUrl = displayImgUrl;
-        this.setState(state);
-    },
     updateStateConfigExtraInfo(extraInfo){
         var state = this.state;
         this.state.config.extraInfo = extraInfo;
         this.setState(state);
     },
     showDialog(record){
-        this.updateStateConfigDisPlayImgUrl(record.imgUrl);
 
         this.updateStateConfigExtraInfo(record);
 
         this.refs.img_uploader_dialog_template.showDialog();
+        this.refs.img_uploader_dialog_template.previewImg(record.imgUrl)
+
     },
     componentDidMount(){
 
