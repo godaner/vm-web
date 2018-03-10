@@ -14,15 +14,10 @@ const Search = Input.Search;
 const TextArea = Input.TextArea;
 import UserEditDialog from "./user_edit_dialog";
 import UserAddDialog from "./user_add_dialog";
+import UserImgUploaderDialog from "./user_img_uploader_dialog";
 var UserPage = React.createClass({
     getInitialState: function () {
-        this.config = {
-            fileTypes: ["jpg", "png"],
-            fileMaxsize: 1024 * 1024 * 2,//2M
-            saveImgUrl: "/user/img",
-            uploadTempImgUrl: "/src/img",
-            server_url_prefix: vm_config.http_url_prefix
-        };
+
         return {
             userEditDialog: {
                 echoData: undefined
@@ -128,48 +123,12 @@ var UserPage = React.createClass({
         state.userEditDialog.echoData = echoData;
         this.setState(state);
     },
+    showUserImgUploaderDialog(){
+        this.refs.user_img_uploader_dialog.showDialog();
+    },
     componentDidMount()
     {
 
-
-// Upload
-
-        // const imageUrl = vm_config.http_url_prefix + echoData.imgUrl;
-
-        var beforeUpload = function (file) {
-            // const isJPG = file.type === 'image/jpeg';
-            // if (!isJPG) {
-            //     message.error('You can only upload JPG file!');
-            // }
-            // const isLt2M = file.size / 1024 / 1024 < 2;
-            // if (!isLt2M) {
-            //     message.error('Image must smaller than 2MB!');
-            // }
-            // return isJPG && isLt2M;
-            return true;
-        }
-        var handleChange = function (info) {
-            // if (info.file.status === 'uploading') {
-            //     this.setState({loading: true});
-            //     return;
-            // }
-            // if (info.file.status === 'done') {
-            //     // Get this url from response in real world.
-            //     getBase64(info.file.originFileObj, imageUrl => this.setState({
-            //         imageUrl,
-            //         loading: false,
-            //     }));
-            // }
-            c(info);
-        }
-
-        // const uploadButton = (
-        //     <div>
-        //         {/*<Icon type={this.state.loading ? 'loading' : 'plus'}/>*/}
-        //         <Icon type={false ? 'loading' : 'plus'}/>
-        //         <div className="ant-upload-text">Upload</div>
-        //     </div>
-        // );
         this.updateUserTableColumns([
             {
                 title: 'id',
@@ -183,24 +142,12 @@ var UserPage = React.createClass({
                 dataIndex: 'imgUrl',
                 render: (text) => {
                     const imageUrl = vm_config.http_url_prefix + text;
-                    {/*<img style={{*/}
-                        // width: 30,
-                        // height: 30
-                    // }} src={imageUrl} alt=""/>
 
-                    return <Upload
-                        name="avatar"
-                        listType="picture-card"
-                        className="avatar-uploader"
-                        showUploadList={false}
-                        action={vm_config.http_url_prefix + "/src/img"}
-                        beforeUpload={beforeUpload}
-                        onChange={handleChange}
-                    >
-                        <img style={{
-                            width: "100%"
-                        }} src={imageUrl} alt=""/>
-                    </Upload>;
+
+                    return <img onClick={this.showUserImgUploaderDialog} style={{
+                        width: "100%",
+                        cursor: "pointer"
+                    }} src={imageUrl} alt=""/>
 
                 }
             },
@@ -446,6 +393,10 @@ var UserPage = React.createClass({
         // c(newRecord);
         this.loadUserTableData();
     },
+    onUpdateImgSuccess(result){
+        this.onEditSuccess(result.data.user);
+
+    },
     render: function () {
 
         const {echoData} = this.state.userEditDialog;
@@ -518,6 +469,9 @@ var UserPage = React.createClass({
                                 onEditSuccess={this.onEditSuccess}/>
                 <UserAddDialog ref="user_add_dialog"
                                onAddSuccess={this.onAddSuccess}/>
+                <UserImgUploaderDialog
+                    ref="user_img_uploader_dialog"
+                    onUpdateImgSuccess={this.onUpdateImgSuccess}/>
             </div>
         );
     }

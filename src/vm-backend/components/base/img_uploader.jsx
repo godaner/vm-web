@@ -1,5 +1,6 @@
 import React from 'react';  //引入react组件
-import "../scss/img_uploader.scss";
+import "../../scss/base/img_uploader.scss";
+import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
 /**
  * 图片上传组件
  */
@@ -13,15 +14,15 @@ var ImgUpload = React.createClass({
         //     uploadTempImgUrl:"/online/img/temp",//服务器接受imgFile,返回tempImgUrl和fileId
         //      server_url_prefix:""
         // };
-        var config = this.props.config;
+        const {config} = this.props;
         return {
             config: config,
             uploadTempImgTip: "正在读取图片",
-            saveImg: "正在保存 图片",
-            userImgFileTooMax: "文件过大,最大允许 : " + (config.fileMaxsize / 1024) + " kb",
-            userImgFileExtError: "文件类型错误,允许的文件类型 : " + config.fileTypes,
-            userImgFileIsEmpty: "请选择一个文件",
-            userImgUpdateSuccess: " 图片更新成功",
+            saveImgTip: "正在保存图片",
+            imgFileTooMax: "文件过大,最大允许 : " + (config.fileMaxsize / 1024) + " kb",
+            imgFileExtError: "文件类型错误,允许的文件类型 : " + config.fileTypes,
+            imgFileIsEmpty: "请选择一个文件",
+            imgUpdateSuccess: " 图片更新成功",
             willUpdatedImgInfo: {
                 fileId: undefined//服务器临时保存的用户 图片的filename，如a.png，如果为undefined，那么将禁止其更新 图片
             },
@@ -29,12 +30,12 @@ var ImgUpload = React.createClass({
         };
     },
     componentDidMount(){
-        // this.previewImg(this.state.config.defaultDisplayImg);
+        // this.previewImg(this.config.defaultDisplayImg);
     },
     validateImgFileOnSubmit(){
         //服务器未接收到相关的图片缓存
         if (isUndefined(this.state.willUpdatedImgInfo.fileId)) {
-            throw this.state.userImgFileIsEmpty;
+            throw this.state.imgFileIsEmpty;
         }
     },
     validateImgFileOnChoice(imgFile){
@@ -43,14 +44,14 @@ var ImgUpload = React.createClass({
 
         //unselect, size
         if (isUndefined(imgFile) || isUndefined(imgFile.size)) {
-            throw this.state.userImgFileIsEmpty;
+            throw this.state.imgFileIsEmpty;
         }
-        if (imgFile.size > this.state.config.fileMaxsize) {
-            throw this.state.userImgFileTooMax;
+        if (imgFile.size > this.config.fileMaxsize) {
+            throw this.state.imgFileTooMax;
         }
         var ext = getFileNameExt(imgFile.name);
-        if (!this.state.config.fileTypes.contains(ext)) {
-            throw this.state.userImgFileExtError;
+        if (!this.config.fileTypes.contains(ext)) {
+            throw this.state.imgFileExtError;
         }
 
     },
@@ -155,9 +156,9 @@ var ImgUpload = React.createClass({
             $imgPreview.cropper(options);
             this.updateStateImgPreview($imgPreview);
         }
-        // a(this.state.config.server_url_prefix + imgUrl);
+        // a(this.config.server_url_prefix + imgUrl);
 
-        this.state.$imgPreview.cropper("replace",  this.state.config.server_url_prefix+imgUrl);
+        this.state.$imgPreview.cropper("replace",  this.config.server_url_prefix+imgUrl);
 
     },
     uploadTempImg(callfun){
@@ -170,8 +171,10 @@ var ImgUpload = React.createClass({
             this.validateImgFileOnChoice(imgFile)
         } catch (e) {
             // window.EventsDispatcher.closeLoading();
-            window.EventsDispatcher.showMsgDialog(e);
+            // window.EventsDispatcher.showMsgDialog(e);
 
+
+            message.error(e);
             // clear input #file
             // this.clearImgInput();
             //back self original img
@@ -179,26 +182,22 @@ var ImgUpload = React.createClass({
             return;
         }
 
-        window.EventsDispatcher.showLoading(this.state.uploadTempImgTip);
+        message.loading(this.state.uploadTempImgTip);
 
         var formData = new FormData();
         formData.append("file", imgFile);
         // var userId = this.state.user.id;
-        const url = this.state.config.uploadTempImgUrl;
+        const url = this.config.uploadTempImgUrl;
         ajax.post({
             url: url,
             data: formData,
             enctype: 'multipart/form-data',
             contentType: false, //必须false才会避开jQuery对 formdata 的默认处理 XMLHttpRequest会对 formdata 进行正确的处理
             processData: false, //必须false才会自动加上正确的Content-Type
-            onBeforeRequest: function () {
+            beforeSend: function () {
 
             }.bind(this),
-            onResponseStart: function () {
-                window.EventsDispatcher.closeLoading();
-
-            }.bind(this),
-            onResponseSuccess: function (result) {
+            success: function (result) {
                 //更新服务器暂存图片访问地址
                 this.previewImg(result.data.imgUrl);
                 //更新服务器暂存图片名
@@ -207,18 +206,16 @@ var ImgUpload = React.createClass({
                 // this.initCropper();
 
             }.bind(this),
-            onResponseFailure: function (result) {
+            failure: function (result) {
 
             }.bind(this),
-            onResponseEnd: function () {
+            complete: function () {
                 //callfun
                 if (callfun != undefined) {
                     callfun()
                 }
             }.bind(this),
-            onRequestError: function () {
-
-            }.bind(this)
+            
         })
     },
     updateTempFileId(fileId){
@@ -237,35 +234,40 @@ var ImgUpload = React.createClass({
             this.validateImgFileOnSubmit();
         } catch (e) {
             // window.EventsDispatcher.closeLoading();
-            window.EventsDispatcher.showMsgDialog(e);
+            message.error(e);
             return;
         }
 
         window.EventsDispatcher.showLoading();
 
         // var userId = this.state.user.id;
-        const url = this.state.config.saveImgUrl;
+        const url = this.config.saveImgUrl;
         var data = this.state.willUpdatedImgInfo;
         // data.serverCacheFileName = this.state.serverTempImgFileName;
+        var hideLoading = message.loading(this.state.saveImgTip);
         ajax.put({
             url: url,
             data: data,
-            loadingMsg: this.state.saveImg,
-            onBeforeRequest: function () {
+            beforeSend: function () {
 
             }.bind(this),
-            onResponseStart: function () {
-                window.EventsDispatcher.closeLoading();
+            complete: function () {
+                // window.EventsDispatcher.closeLoading();
+
+                if (callfun != undefined) {
+                    callfun()
+                }
+                hideLoading();
 
             }.bind(this),
-            onResponseSuccess: function (result) {
+            success: function (result) {
 
                 // c("result");
                 // c(result);
                 this.props.onUpdateImgSuccess(result);
                 // this.previewImg(result.data.tempImgUrl);
-
-                window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
+                message.success(result.msg);
+                // window.EventsDispatcher.showMsgDialog(this.state.imgUpdateSuccess);
 
                 // clear temp filename
                 this.updateTempFileId(undefined);
@@ -276,16 +278,7 @@ var ImgUpload = React.createClass({
                 this.clearImgInput();
 
             }.bind(this),
-            onResponseFailure: function (result) {
-
-            }.bind(this),
-            onResponseEnd: function () {
-                //callfun
-                if (callfun != undefined) {
-                    callfun()
-                }
-            }.bind(this),
-            onRequestError: function () {
+            failure: function (result) {
 
             }.bind(this)
         })
