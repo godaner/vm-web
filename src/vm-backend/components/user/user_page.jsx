@@ -123,8 +123,8 @@ var UserPage = React.createClass({
         state.userEditDialog.echoData = echoData;
         this.setState(state);
     },
-    showUserImgUploaderDialog(){
-        this.refs.user_img_uploader_dialog.showDialog();
+    showUserImgUploaderDialog(record){
+        this.refs.user_img_uploader_dialog.showDialog(record);
     },
     componentDidMount()
     {
@@ -140,11 +140,11 @@ var UserPage = React.createClass({
                 title: '头像',
                 width: 80,
                 dataIndex: 'imgUrl',
-                render: (text) => {
+                render: (text,record) => {
                     const imageUrl = vm_config.http_url_prefix + text;
 
 
-                    return <img onClick={this.showUserImgUploaderDialog} style={{
+                    return <img onClick={()=>this.showUserImgUploaderDialog(record)} style={{
                         width: "100%",
                         cursor: "pointer"
                     }} src={imageUrl} alt=""/>

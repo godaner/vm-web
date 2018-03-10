@@ -22,8 +22,8 @@ var ImgUploaderDialog = React.createClass({
         }
         return {
             // modelWidth: "350px",
-            modelWidth: width,
-            modelHeight: height,
+            width: width,
+            height: height,
             visible: false,
             title:title,
             config:config
@@ -78,7 +78,7 @@ var ImgUploaderDialog = React.createClass({
         const {title, onUpdateImgSuccess} = this.props;
 
         //get state
-        const {modelWidth, modelHeight, visible,config} = this.state;
+        const {width, height, visible,config} = this.state;
         return (
             <Modal
                 className='extra'
@@ -86,8 +86,8 @@ var ImgUploaderDialog = React.createClass({
                 title={title}
                 onCancel={this.handleCancel}
                 afterClose={this.afterClose}
-                width={modelWidth}
-                height={modelHeight}
+                width={width}
+                height={height}
                 footer={null}
             >
                 <ImgUploader

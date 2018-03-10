@@ -17,14 +17,15 @@ var UserImgUploaderDialog = React.createClass({
         return {
             // modelWidth: "350px",
             title: "更细用户头像",
-            modelWidth: 350,
-            modelHeight: 300,
+            width: 550,
+            height: 400,
             config: {
                 fileTypes: ["jpg", "png"],
                 fileMaxsize: 1024 * 1024 * 2,//2M
                 saveImgUrl: "/user/img",
                 uploadTempImgUrl: "/src/img",
-                server_url_prefix: vm_config.http_url_prefix
+                server_url_prefix: vm_config.http_url_prefix,
+                displayImgUrl: undefined
             }
 
         };
@@ -52,7 +53,14 @@ var UserImgUploaderDialog = React.createClass({
     closeDialog(){
         this.refs.img_uploader_dialog_template.closeDialog();
     },
-    showDialog(){
+    updateStateConfigDisPlayImgUrl(displayImgUrl){
+        var state = this.state;
+        this.state.config.displayImgUrl = displayImgUrl;
+        this.setState(state);
+    },
+    showDialog(record){
+        this.updateStateConfigDisPlayImgUrl(vm_config.http_url_prefix + record.imgUrl);
+
         this.refs.img_uploader_dialog_template.showDialog();
     },
     componentDidMount(){
@@ -67,7 +75,7 @@ var UserImgUploaderDialog = React.createClass({
     render: function () {
 
         //get state
-        const {modelWidth, modelHeight, title,config} = this.state;
+        const {width, height, title, config} = this.state;
         return (
             <div id="user_img_uploader_dialog">
                 <ImgUploaderDialogTemplate
@@ -75,8 +83,8 @@ var UserImgUploaderDialog = React.createClass({
                     title={title}
                     handleCancel={this.handleCancel}
                     afterClose={this.afterClose}
-                    modelWidth={modelWidth}
-                    modelHeight={modelHeight}
+                    width={width}
+                    height={height}
                     onUpdateImgSuccess={this.onUpdateImgSuccess}
                     config={config}/>
             </div>

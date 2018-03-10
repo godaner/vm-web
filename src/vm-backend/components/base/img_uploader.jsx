@@ -1,5 +1,6 @@
 import React from 'react';  //引入react组件
 import "../../scss/base/img_uploader.scss";
+import {ajax, commons} from "../base/vm_util";
 import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
 /**
  * 图片上传组件
@@ -30,7 +31,7 @@ var ImgUpload = React.createClass({
         };
     },
     componentDidMount(){
-        // this.previewImg(this.config.defaultDisplayImg);
+        this.previewImg(this.state.config.displayImgUrl);
     },
     validateImgFileOnSubmit(){
         //服务器未接收到相关的图片缓存
@@ -46,11 +47,11 @@ var ImgUpload = React.createClass({
         if (isUndefined(imgFile) || isUndefined(imgFile.size)) {
             throw this.state.imgFileIsEmpty;
         }
-        if (imgFile.size > this.config.fileMaxsize) {
+        if (imgFile.size > this.state.config.fileMaxsize) {
             throw this.state.imgFileTooMax;
         }
         var ext = getFileNameExt(imgFile.name);
-        if (!this.config.fileTypes.contains(ext)) {
+        if (!this.state.config.fileTypes.contains(ext)) {
             throw this.state.imgFileExtError;
         }
 
@@ -156,9 +157,9 @@ var ImgUpload = React.createClass({
             $imgPreview.cropper(options);
             this.updateStateImgPreview($imgPreview);
         }
-        // a(this.config.server_url_prefix + imgUrl);
+        // a(this.state.config.server_url_prefix + imgUrl);
 
-        this.state.$imgPreview.cropper("replace",  this.config.server_url_prefix+imgUrl);
+        this.state.$imgPreview.cropper("replace",  this.state.config.server_url_prefix+imgUrl);
 
     },
     uploadTempImg(callfun){
@@ -187,7 +188,7 @@ var ImgUpload = React.createClass({
         var formData = new FormData();
         formData.append("file", imgFile);
         // var userId = this.state.user.id;
-        const url = this.config.uploadTempImgUrl;
+        const url = this.state.config.uploadTempImgUrl;
         ajax.post({
             url: url,
             data: formData,
@@ -241,7 +242,7 @@ var ImgUpload = React.createClass({
         window.EventsDispatcher.showLoading();
 
         // var userId = this.state.user.id;
-        const url = this.config.saveImgUrl;
+        const url = this.state.config.saveImgUrl;
         var data = this.state.willUpdatedImgInfo;
         // data.serverCacheFileName = this.state.serverTempImgFileName;
         var hideLoading = message.loading(this.state.saveImgTip);
