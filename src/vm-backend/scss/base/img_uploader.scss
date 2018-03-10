@@ -63,9 +63,6 @@ $defaultLightGrayRgb: "rgb(241,242,243)";
   }
   #head_preview {
     flex: 1;
-    & > * {
-      margin-left: 20px;
-    }
     #imgPreview0 {
       width: 80px;
       height: 80px;

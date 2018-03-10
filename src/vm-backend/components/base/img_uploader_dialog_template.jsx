@@ -13,7 +13,7 @@ const SubMenu = Menu.SubMenu;
 
 var ImgUploaderDialog = React.createClass({
     getInitialState: function () {
-        var {width, height,config,title} = this.props;
+        var {width, height, config, title} = this.props;
         if (isUndefined(width)) {
             width = "450px";
         }
@@ -25,8 +25,8 @@ var ImgUploaderDialog = React.createClass({
             width: width,
             height: height,
             visible: false,
-            title:title,
-            config:config
+            title: title,
+            config: config
 
         };
     },
@@ -78,7 +78,7 @@ var ImgUploaderDialog = React.createClass({
         const {title, onUpdateImgSuccess} = this.props;
 
         //get state
-        const {width, height, visible,config} = this.state;
+        const {width, height, visible, config} = this.state;
         return (
             <Modal
                 className='extra'

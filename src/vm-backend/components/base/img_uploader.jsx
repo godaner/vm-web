@@ -11,9 +11,10 @@ var ImgUpload = React.createClass({
         // var config = {
         //     fileTypes: ["jpg", "png"],
         //     fileMaxsize: 1024 * 1024 * 2,//1M
-        //     saveImgUrl:"/online/img",//服务器接受x,y,w,h,fileId等参数,返回newImgUrl
+        //     saveImgUrl:"/src/img",//服务器接受x,y,w,h,fileId等参数,返回newImgUrl
         //     uploadTempImgUrl:"/online/img/temp",//服务器接受imgFile,返回tempImgUrl和fileId
         //      server_url_prefix:""
+        //     extraInfo:{userId:11...}最后保存图片是发送到服务器的信息
         // };
         const {config} = this.props;
         return {
@@ -160,7 +161,7 @@ var ImgUpload = React.createClass({
         }
         // a(this.state.config.server_url_prefix + imgUrl);
 
-        this.state.$imgPreview.cropper("replace",  this.state.config.server_url_prefix+imgUrl);
+        this.state.$imgPreview.cropper("replace", this.state.config.server_url_prefix + imgUrl);
 
     },
     uploadTempImg(callfun){
@@ -200,7 +201,7 @@ var ImgUpload = React.createClass({
 
             }.bind(this),
             success: function (result) {
-                c(result);
+
                 //更新服务器暂存图片访问地址
                 this.previewImg(result.data.imgUrl);
                 //更新服务器暂存图片名
@@ -219,7 +220,7 @@ var ImgUpload = React.createClass({
                 }
                 hideMessage();
             }.bind(this),
-            
+
         })
     },
     updateTempFileId(fileId){
@@ -231,7 +232,6 @@ var ImgUpload = React.createClass({
         this.getImgInput().val("");
     },
     saveImg(callfun){
-        var hideLoading = message.loading(this.state.saveImgTip);
 
         // var imgInput = this.getImgInput();
         // var imgFile = this.getImgFile();
@@ -243,11 +243,14 @@ var ImgUpload = React.createClass({
             return;
         }
 
+        var hideLoading = message.loading(this.state.saveImgTip);
         // window.EventsDispatcher.showLoading();
 
         // var userId = this.state.user.id;
         const url = this.state.config.saveImgUrl;
         var data = this.state.willUpdatedImgInfo;
+        // add extraInfo
+        data = $.extend(data, this.state.config.extraInfo);
         // data.serverCacheFileName = this.state.serverTempImgFileName;
         ajax.put({
             url: url,
@@ -336,14 +339,21 @@ var ImgUpload = React.createClass({
                     <p>预览 : </p>
                     <div id="imgPreview0">
                         <div className="preview"/>
+                    </div>
+                    <div>
                         80x
                     </div>
                     <div id="imgPreview1">
                         <div className="preview"/>
+                    </div>
+                    <div>
                         50x
                     </div>
                     <div id="imgPreview2">
                         <div className="preview"/>
+                    </div>
+                    <div>
+
                         30x
                     </div>
                 </div>

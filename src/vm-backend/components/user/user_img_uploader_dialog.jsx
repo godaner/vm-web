@@ -18,14 +18,15 @@ var UserImgUploaderDialog = React.createClass({
             // modelWidth: "350px",
             title: "更细用户头像",
             width: 550,
-            height: 400,
+            height: 700,
             config: {
                 fileTypes: ["jpg", "png"],
                 fileMaxsize: 1024 * 1024 * 2,//2M
-                saveImgUrl: "/user/img",
+                saveImgUrl: "/user/img/v2",
                 uploadTempImgUrl: "/src/img",
                 server_url_prefix: vm_config.http_url_prefix,
-                displayImgUrl: undefined
+                displayImgUrl: undefined,
+                extraInfo: {}
             }
 
         };
@@ -58,8 +59,15 @@ var UserImgUploaderDialog = React.createClass({
         this.state.config.displayImgUrl = displayImgUrl;
         this.setState(state);
     },
+    updateStateConfigExtraInfo(extraInfo){
+        var state = this.state;
+        this.state.config.extraInfo = extraInfo;
+        this.setState(state);
+    },
     showDialog(record){
         this.updateStateConfigDisPlayImgUrl(record.imgUrl);
+
+        this.updateStateConfigExtraInfo(record);
 
         this.refs.img_uploader_dialog_template.showDialog();
     },
