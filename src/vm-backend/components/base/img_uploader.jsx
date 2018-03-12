@@ -305,7 +305,7 @@ var ImgUpload = React.createClass({
 
     },
     render: function () {
-
+        const {fileTypes,fileMaxsize} = this.state.config;
         return (
             <div id="img_uploader" className="clearfix">
 
@@ -314,12 +314,14 @@ var ImgUpload = React.createClass({
                     <div id="img_upload_to_middle_div">
                         <div id="imgPreviewWrapper"
                              ref="imgPreviewWrapper">
+
+
                             <img src=""
                                  id="imgPreview"
                                  ref="imgPreview"/>
                         </div>
 
-
+                        <div>图片限制:允许格式：{fileTypes.join(",")} ；允许最大图片：{fileMaxsize/1024/1024} m</div>
                         <div id="btns_div">
                             <input type="file"
                                    ref="imgInput"

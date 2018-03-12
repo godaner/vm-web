@@ -116,6 +116,13 @@ var ajax = {
 
 
 var commons = {
+    makeTipSpan(text, len){
+        if (isUndefined(len)) {
+            len = 20;
+        }
+        var sText = text.substring(0, len) + "...";
+        return <span title={text}>{sText}</span>
+    },
     /**
      * 对url添加时间戳
      * @param url

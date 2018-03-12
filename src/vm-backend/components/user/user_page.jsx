@@ -163,20 +163,20 @@ var UserPage = React.createClass({
             },
             {
                 title: '头像',
-                width: 120,
+                width: 100,
                 dataIndex: 'imgUrl',
                 render: (text, record) => {
                     const imageUrl = commons.addUrlParam({
                         url: vm_config.http_url_prefix + text,
                         obj: {
-                            width: "80"
+                            width: "50"
                         }
                     });
 
 
                     return <img onClick={() => this.showUserImgUploaderDialog(record)} style={{
-                        width: 80,
-                        height: 80,
+                        width: 50,
+                        height: 50,
                         cursor: "pointer"
                     }} src={imageUrl} alt=""/>
 
@@ -235,6 +235,9 @@ var UserPage = React.createClass({
             {
                 title: '简介', width: 200,
                 dataIndex: 'description',
+                render: (text) => {
+                    return commons.makeTipSpan(text,33);
+                },
                 sorter: true
             },
             {
