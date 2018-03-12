@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
+import {Button, DatePicker, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table, Upload} from "antd";
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
@@ -24,12 +24,14 @@ var UserPage = React.createClass({
             },
             userTable: {
                 dataSourceUrl: "/user/list",
+                delUserUrl: "/user/info",
                 editable: false,
                 haveSearchUsername: false,
                 usernameDropdownVisible: false,
                 bordered: true,
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
+                refreshBtnLoading: false,
                 selectedRowKeys: [],
                 data: [],//displayData
                 originalData: [],
@@ -44,6 +46,7 @@ var UserPage = React.createClass({
                     usernameQuery: ""
                 },
                 columns: [],
+                deletingTip: "正在删除"
             }
         }
     },
@@ -86,6 +89,18 @@ var UserPage = React.createClass({
     {
         var state = this.state;
         state.userTable.data = data;
+        this.setState(state);
+    },
+    updateUserTableBatchDeleteLoading(loading)
+    {
+        var state = this.state;
+        state.userTable.batchDeleteBtnLoading = loading;
+        this.setState(state);
+    },
+    updateUserTableRefreshBtnLoading(loading)
+    {
+        var state = this.state;
+        state.userTable.refreshBtnLoading = loading;
         this.setState(state);
     },
     updateUserTablePage(page)
@@ -143,18 +158,18 @@ var UserPage = React.createClass({
                 title: '头像',
                 width: 120,
                 dataIndex: 'imgUrl',
-                render: (text,record) => {
+                render: (text, record) => {
                     const imageUrl = commons.addUrlParam({
-                        url:vm_config.http_url_prefix + text,
-                        obj:{
-                            width:"80"
+                        url: vm_config.http_url_prefix + text,
+                        obj: {
+                            width: "80"
                         }
                     });
 
 
-                    return <img onClick={()=>this.showUserImgUploaderDialog(record)} style={{
+                    return <img onClick={() => this.showUserImgUploaderDialog(record)} style={{
                         width: 80,
-                        height:80,
+                        height: 80,
                         cursor: "pointer"
                     }} src={imageUrl} alt=""/>
 
@@ -260,7 +275,13 @@ var UserPage = React.createClass({
                 render: (text, record) => {
                     return <div>
                         <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
-                        <a onClick={this.deleteRecord} href="javascript:void(0)">删除</a>
+                        <Popconfirm title="确认删除 ? "
+                                    okText="删除"
+                                    cancelText="取消"
+                                    onConfirm={() => this.deleteRecord([record.id])}>
+                            <a href="javascript:void(0)">删除</a>
+                        </Popconfirm>
+
                     </div>
                 },
                 sorter: true
@@ -307,6 +328,7 @@ var UserPage = React.createClass({
     loadUserTableData()
     {
         this.updateUserTableLoading(true);
+        this.updateUserTableRefreshBtnLoading(true);
         const {page, query} = this.state.userTable;
         //filter
         var orderType = page.orderType;
@@ -352,6 +374,7 @@ var UserPage = React.createClass({
             }.bind(this),
             complete: function () {
                 this.updateUserTableLoading(false);
+                this.updateUserTableRefreshBtnLoading(false);
             }.bind(this)
         });
     },
@@ -364,14 +387,33 @@ var UserPage = React.createClass({
         this.getUserEditDialog().showDialog();
 
     },
-    deleteRecord()
+    deleteRecord(ids)
     {
-        c("deleteRecord");
 
-    },
-    batchDeleteRecord()
-    {
-        c("batchDeleteRecord");
+        const hideLoading = message.loading(deletingTip);
+        this.updateUserTableBatchDeleteLoading(true);
+
+        const {deletingTip, delUserUrl} = this.state.userTable;
+        ajax.delete({
+            url: delUserUrl,
+            data: {
+                deleteUserIds: ids.join(",")
+            },
+            complete: function () {
+                hideLoading();
+                this.updateUserTableBatchDeleteLoading(false);
+            }.bind(this),
+            success: function (result) {
+                message.success(result.msg);
+                this.loadUserTableData();
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+            }.bind(this),
+            error: function () {
+
+            }
+        });
 
     },
     showAddDialog()
@@ -410,7 +452,7 @@ var UserPage = React.createClass({
 
         const {echoData} = this.state.userEditDialog;
 
-        const {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, bordered} = this.state.userTable;
+        const {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -432,20 +474,32 @@ var UserPage = React.createClass({
             <div>
                 <div style={{marginBottom: 16}}>
                     <Button
+                        loading={refreshBtnLoading}
+                        onClick={this.loadUserTableData}
+                    >
+                        刷新
+                    </Button>
+                    <Button
+                        style={{marginLeft: 8}}
                         type="primary"
                         onClick={this.showAddDialog}
                     >
                         添加
                     </Button>
-                    <Button
-                        style={{marginLeft: 8}}
-                        type="danger"
-                        onClick={this.batchDeleteRecord}
-                        disabled={!hasSelected}
-                        loading={batchDeleteBtnLoading}
-                    >
-                        批量删除
-                    </Button>
+                    <Popconfirm title="确认删除 ? "
+                                okText="删除"
+                                cancelText="取消"
+                                onConfirm={() => this.deleteRecord(selectedRowKeys)}>
+                        <Button
+                            style={{marginLeft: 8}}
+                            type="danger"
+                            disabled={!hasSelected}
+                            loading={batchDeleteBtnLoading}
+                        >
+                            批量删除
+                        </Button>
+                    </Popconfirm>
+
 
                     <span style={{marginLeft: 8}}>
                         {hasSelected ? `选择了 ${selectedRowKeys.length} 个选项` : ''}

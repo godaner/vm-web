@@ -102,6 +102,10 @@ var ajax = {
         args.type = "POST";
         this.ajax(args);
     },
+    delete: function (args) {
+        args.type = "DELETE";
+        this.ajax(args);
+    },
     contentType: {
         TEXT: "text/plain",
         JSON: "application/json",

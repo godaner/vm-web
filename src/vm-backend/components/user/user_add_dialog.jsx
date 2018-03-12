@@ -74,6 +74,7 @@ var UserAddDialog = React.createClass({
             {
 
                 cols: [{
+                    col: {span: 11},
                     label: "用户名",
                     id: "username",
                     config: {
@@ -83,11 +84,11 @@ var UserAddDialog = React.createClass({
                                   name="username"
                                   prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                   placeholder="用户名"/>
-                }]
-            }
-            ,
-            {
-                cols: [{
+                }, {
+                    col: {span: 2},
+                    input:<div></div>
+                }, {
+                    col: {span: 11},
                     label: "密码",
                     id: "password",
                     config: {
@@ -98,32 +99,37 @@ var UserAddDialog = React.createClass({
                                   prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                   placeholder="密码"/>
                 }]
-            },
+            }
+            ,
             {
-                cols: [{
-                    label: "性别",
-                    id: "sex",
-                    config: {
-                        rules: [
-                            {required: true, message: '请输入你的性别!'}],
-                    },
-                    input: <Select placeholder="请输入你的性别">
-                        <Option value="1">男</Option>
-                        <Option value="2">女</Option>
-                        <Option value="3">未知</Option>
-                    </Select>
-                }]
-            },
-            {
-                cols: [{
-                    label: "用户名",
-                    id: "birthday",
-                    config: {
-                        rules: [{type: 'object', required: true, message: '请输入你的生日!'}],
+                cols: [
+                    {
+                        col: {span: 11},
+                        label: "用户名",
+                        id: "birthday",
+                        config: {
+                            rules: [{type: 'object', required: true, message: '请输入你的生日!'}],
 
-                    },
-                    input: <DatePicker placeholder="请输入生日"/>
-                }]
+                        },
+                        input: <DatePicker placeholder="请输入生日"/>
+                    }, {
+                        col: {span: 2},
+                        input:<div></div>
+
+                    }, {
+                        col: {span: 11},
+                        label: "性别",
+                        id: "sex",
+                        config: {
+                            rules: [
+                                {required: true, message: '请输入你的性别!'}],
+                        },
+                        input: <Select placeholder="请输入你的性别">
+                            <Option value="1">男</Option>
+                            <Option value="2">女</Option>
+                            <Option value="3">未知</Option>
+                        </Select>
+                    }]
             }
             ,
             {
