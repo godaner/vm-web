@@ -17,7 +17,7 @@ var UserImgUploaderDialog = React.createClass({
 
         return {
             // modelWidth: "350px",
-            title: "更细用户头像",
+            title: "更新用户头像",
             width: 750,
             config: {
                 aspectRatio:1/1,

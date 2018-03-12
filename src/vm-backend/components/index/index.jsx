@@ -59,7 +59,9 @@ var Index = React.createClass({
                                     position: 'fixed',
                                     left: 0,
                                     top: 0,
-                                    right: 0
+                                    right: 0,
+                                    zIndex:9,//model之下，Content之上
+                                    padding:"0px 35px"
                                 }}>
                                 {/*head*/}
                                 <Head/>
