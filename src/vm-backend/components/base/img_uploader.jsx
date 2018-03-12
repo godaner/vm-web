@@ -40,6 +40,7 @@ var ImgUpload = React.createClass({
             throw this.state.imgFileIsEmpty;
         }
     },
+
     validateImgFileOnChoice(imgFile){
 
         // c(imgFile);
@@ -94,10 +95,15 @@ var ImgUpload = React.createClass({
         }.bind(this);
 
 
+        var {aspectRatio} = this.state.config;
+
+        aspectRatio = !isUndefined(aspectRatio) ? aspectRatio : 1 / 1;
+        // c(aspectRatio);
+
         var $previews = $('.preview');
         //cropper options
         var options = {
-            aspectRatio: 1 / 1,
+            aspectRatio: aspectRatio,
             viewMode: 2,
             ready: function (e) {
                 // console.log(e.type);
@@ -228,6 +234,10 @@ var ImgUpload = React.createClass({
         state.willUpdatedImgInfo.fileId = fileId;
         this.setState(state);
     },
+    clearSelectFileInfo(){//清除用户已选择的图片信息
+        this.updateTempFileId(undefined);
+        this.clearImgInput();
+    },
     clearImgInput(){
         this.getImgInput().val("");
     },
@@ -282,8 +292,9 @@ var ImgUpload = React.createClass({
                 //preview new img
                 this.previewImg(result.data.newImgUrl);
 
-                this.clearImgInput();
+                // this.clearSelectFileInfo();
 
+                this.clearSelectFileInfo();
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -342,22 +353,22 @@ var ImgUpload = React.createClass({
                     <div id="imgPreview0">
                         <div className="preview"/>
                     </div>
-                    <div>
-                        80x
-                    </div>
-                    <div id="imgPreview1">
-                        <div className="preview"/>
-                    </div>
-                    <div>
-                        50x
-                    </div>
-                    <div id="imgPreview2">
-                        <div className="preview"/>
-                    </div>
-                    <div>
+                    {/*<div>*/}
+                    {/*80x*/}
+                    {/*</div>*/}
+                    {/*<div id="imgPreview1">*/}
+                    {/*<div className="preview"/>*/}
+                    {/*</div>*/}
+                    {/*<div>*/}
+                    {/*50x*/}
+                    {/*</div>*/}
+                    {/*<div id="imgPreview2">*/}
+                    {/*<div className="preview"/>*/}
+                    {/*</div>*/}
+                    {/*<div>*/}
 
-                        30x
-                    </div>
+                    {/*30x*/}
+                    {/*</div>*/}
                 </div>
             </div>
         )

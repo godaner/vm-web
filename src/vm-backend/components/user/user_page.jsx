@@ -141,7 +141,7 @@ var UserPage = React.createClass({
             },
             {
                 title: '头像',
-                width: 100,
+                width: 120,
                 dataIndex: 'imgUrl',
                 render: (text,record) => {
                     const imageUrl = commons.addUrlParam({

@@ -13,17 +13,13 @@ const SubMenu = Menu.SubMenu;
 
 var ImgUploaderDialog = React.createClass({
     getInitialState: function () {
-        var {width, height, config, title} = this.props;
+        var {width, config, title} = this.props;
         if (isUndefined(width)) {
             width = "450px";
-        }
-        if (isUndefined(height)) {
-            height = "300px";
         }
         return {
             // modelWidth: "350px",
             width: width,
-            height: height,
             visible: false,
             title: title,
             config: config
@@ -59,6 +55,7 @@ var ImgUploaderDialog = React.createClass({
     },
     closeDialog(){
         this.updateStateVisible(false);
+        this.getImgUploader().clearSelectFileInfo();
     },
     showDialog(){
         this.updateStateVisible(true);
@@ -66,10 +63,12 @@ var ImgUploaderDialog = React.createClass({
     previewImg(imgUrl){
 
         setTimeout(function () {
-
-            c(this.refs.img_uploader);
-            this.refs.img_uploader.previewImg(imgUrl);
+            this.getImgUploader().previewImg(imgUrl);
         }.bind(this));
+
+    },
+    getImgUploader(){
+        return this.refs.img_uploader;;
     },
     updateStateVisible(visible){
         var state = this.state;
@@ -95,7 +94,6 @@ var ImgUploaderDialog = React.createClass({
                 onCancel={this.handleCancel}
                 afterClose={this.afterClose}
                 width={width}
-                height={height}
                 footer={null}
             >
                 <ImgUploader

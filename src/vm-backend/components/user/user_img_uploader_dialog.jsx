@@ -18,9 +18,9 @@ var UserImgUploaderDialog = React.createClass({
         return {
             // modelWidth: "350px",
             title: "更细用户头像",
-            width: 550,
-            height: 700,
+            width: 750,
             config: {
+                aspectRatio:1/1,
                 fileTypes: ["jpg", "png"],
                 fileMaxsize: 1024 * 1024 * 2,//2M
                 saveImgUrl: "/user/img",
@@ -84,7 +84,7 @@ var UserImgUploaderDialog = React.createClass({
     render: function () {
 
         //get state
-        const {width, height, title, config} = this.state;
+        const {width, title, config} = this.state;
         return (
             <div id="user_img_uploader_dialog">
                 <ImgUploaderDialogTemplate
@@ -93,7 +93,6 @@ var UserImgUploaderDialog = React.createClass({
                     handleCancel={this.handleCancel}
                     afterClose={this.afterClose}
                     width={width}
-                    height={height}
                     onUpdateImgSuccess={this.onUpdateImgSuccess}
                     config={config}/>
             </div>
