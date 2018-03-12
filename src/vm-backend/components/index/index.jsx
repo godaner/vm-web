@@ -4,13 +4,13 @@ import {Layout, Menu, Breadcrumb, Icon} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 import HomePage from "../home/home_page";
-import {Switch, BrowserRouter, HashRouter, Route,Link} from 'react-router-dom';
+import {Switch, BrowserRouter, HashRouter, Route, Link} from 'react-router-dom';
 import "../base/events_dispatcher";
 import Head from "./head";
 import LoginDialog from "./login_dialog";
 import Nav from "./nav";
 import Routes from "./routes";
-import {ajax,commons} from "../base/vm_util";
+import {ajax, commons} from "../base/vm_util";
 
 
 import "antd/dist/antd.css";
@@ -37,7 +37,7 @@ var Index = React.createClass({
                 <HashRouter>
                     <Layout style={{minHeight: '100vh'}}>
                         <Sider
-                            // style={{backgroundColor:"white"}}
+                            style={{overflow: 'auto', height: '100vh', position: 'fixed', left: 0}}
                             collapsible
                             collapsed={collapsed}
                             onCollapse={this.onCollapse}
@@ -47,16 +47,28 @@ var Index = React.createClass({
                             {/*nav*/}
                             <Nav/>
                         </Sider>
-                        <Layout>
-                            <Header style={{background: '#fff'}}>
+                        <Layout
+                            style={{marginLeft: 200}}
+                        >
+                            {/*style={{background: '#fff', padding: 0}}*/}
+                            <Header
+                                style={{
+                                    marginLeft: 200,
+                                    background: '#fff',
+                                    padding: 0,
+                                    position: 'fixed',
+                                    left: 0,
+                                    top: 0,
+                                    right: 0
+                                }}>
                                 {/*head*/}
                                 <Head/>
                             </Header>
-                            <Content style={{margin: '0 16px'}}>
+                            <Content style={{margin: '70px 16px 0', overflow: 'initial'}}>
                                 {/*<Breadcrumb style={{margin: '16px 0'}}*/}
-                                            {/*itemRender={itemRender} routes={routes}>*/}
-                                    {/*<Breadcrumb.Item>User</Breadcrumb.Item>*/}
-                                    {/*<Breadcrumb.Item>Bill</Breadcrumb.Item>*/}
+                                {/*itemRender={itemRender} routes={routes}>*/}
+                                {/*<Breadcrumb.Item>User</Breadcrumb.Item>*/}
+                                {/*<Breadcrumb.Item>Bill</Breadcrumb.Item>*/}
                                 {/*</Breadcrumb>*/}
                                 <Routes/>
 
