@@ -76,14 +76,14 @@ var LoginDialog = React.createClass({
         var username = $(this.refs.username).val();
         var password = $(this.refs.password).val();
         const url = "/user/login";
-        const data = {
+        const data = $.extend({
             username: username,
             password: password
-        }
+        }, getVisitInfoObj());
         ajax.put(
             {
                 url: url,
-                data:data,
+                data: data,
                 onBeforeRequest: function () {
                     //close login dialog
                     this.closeLoginDialog();
@@ -98,7 +98,7 @@ var LoginDialog = React.createClass({
 
                     // c(result);
                     //keep token
-                    localStorage.setItem(KEY_OF_ACCESS_TOKEN,result.data.user.token);
+                    localStorage.setItem(KEY_OF_ACCESS_TOKEN, result.data.user.token);
 
                     //login success,hide login dialog
                     this.closeLoginDialog();

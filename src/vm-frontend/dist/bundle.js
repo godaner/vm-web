@@ -8938,10 +8938,10 @@ var LoginDialog = _react2.default.createClass({
         var username = $(this.refs.username).val();
         var password = $(this.refs.password).val();
         var url = "/user/login";
-        var data = {
+        var data = $.extend({
             username: username,
             password: password
-        };
+        }, getVisitInfoObj());
         ajax.put({
             url: url,
             data: data,
@@ -10261,7 +10261,7 @@ var UserHeadPage = _react2.default.createClass({
         var config = {
             fileTypes: ["jpg", "png"],
             fileMaxsize: 1024 * 1024 * 2, //2M
-            saveImgUrl: "/user/img",
+            saveImgUrl: "/user/online/img",
             uploadTempImgUrl: "/src/img",
             server_url_prefix: vm_config.http_url_prefix
         };

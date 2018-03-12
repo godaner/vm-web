@@ -25,7 +25,7 @@ function lazyLoad() {
  * @type {{ajaxError: string, requestServerSuccess: ajax.requestServerSuccess, requestServerError: ajax.requestServerError, ajax: ajax.ajax, get: ajax.get, put: ajax.put, post: ajax.post, contentType: {TEXT: string, JSON: string}}}
  */
 var ajax = {
-    ajaxError: "访问服务器失败,请稍后重试",
+    ajaxError: "网络不佳,请稍后重试",
     offline:"您已离线",
     startResponse(args, result){
         window.EventsDispatcher.closeLoading();
