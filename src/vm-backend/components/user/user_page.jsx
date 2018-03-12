@@ -23,7 +23,7 @@ var UserPage = React.createClass({
                 echoData: undefined
             },
             userTable: {
-                dataSourceUrl: "/user/list",
+                dataSourceUrl: "/user/info/list",
                 delUserUrl: "/user/info",
                 editable: false,
                 haveSearchUsername: false,
@@ -78,6 +78,13 @@ var UserPage = React.createClass({
         var state = this.state;
         state.userTable.selectedRowKeys = selectedRowKeys;
         this.setState(state);
+    },
+
+    removeUserTableSelectedRowKeys(removeSelectedRowKeys)
+    {
+        var selectedRowKeys = this.state.userTable.selectedRowKeys;
+        selectedRowKeys = selectedRowKeys.removeByList(removeSelectedRowKeys);
+        this.updateUserTableSelectedRowKeys(selectedRowKeys);
     },
     updateUserTableUsernameQuery(newUsernameQuery)
     {
@@ -397,7 +404,7 @@ var UserPage = React.createClass({
         ajax.delete({
             url: delUserUrl,
             data: {
-                deleteUserIds: ids.join(",")
+                deletedIds: ids.join(",")
             },
             complete: function () {
                 hideLoading();
@@ -405,7 +412,11 @@ var UserPage = React.createClass({
             }.bind(this),
             success: function (result) {
                 message.success(result.msg);
+
+                this.removeUserTableSelectedRowKeys(ids);
+
                 this.loadUserTableData();
+
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -452,21 +463,24 @@ var UserPage = React.createClass({
 
         const {echoData} = this.state.userEditDialog;
 
-        const {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
+        var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
-                this.updateUserTableSelectedRowKeys(selectedRowKeys);
-                var selectedRowKeys = this.state.userTable.selectedRowKeys;
-                c(`selectedRowKeys is : ${selectedRowKeys}`, selectedRowKeys);
+                // c(selectedRows);
+                // var selectedRowKeys = this.state.userTable.selectedRowKeys;
+                // selectedRowKeys.push(selectedRows.key);
+                // this.updateUserTableSelectedRowKeys(selectedRowKeys);
+                // c(`selectedRowKeys is : ${selectedRowKeys}`, selectedRowKeys);
 
+                this.updateUserTableSelectedRowKeys(selectedRowKeys);
             },
             onSelect: (record, selected, selectedRows) => {
-                // c(record, selected, selectedRows);
+
             },
             onSelectAll: (selected, selectedRows, changeRows) => {
-                // c(selected, selectedRows, changeRows);
-            },
+
+            }
         };
         const hasSelected = selectedRowKeys.length > 0;
         //set now page's props

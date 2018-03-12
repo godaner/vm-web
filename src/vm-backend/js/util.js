@@ -3,13 +3,13 @@
  * @param url
  * @returns {*}
  */
-function timestamp(url){
+function timestamp(url) {
     //  var getTimestamp=Math.random();
-    var t=new Date().getTime();
+    var t = new Date().getTime();
     url = addUrlParam({
-        url:url,
-        obj:{
-            t:t
+        url: url,
+        obj: {
+            t: t
         }
     })
 
@@ -21,24 +21,24 @@ function timestamp(url){
  * @param url
  * @returns {*}
  */
-function addUrlParam(args){
+function addUrlParam(args) {
 
     var url = args.url;
     var obj = args.obj;
 
     //  var getTimestamp=Math.random();
-    for(var key in obj){
+    for (var key in obj) {
         var val = obj[key];
-        var p = getUrlParam(url,key);
+        var p = getUrlParam(url, key);
         c(p);
-        c(null==p);
-        if(!isUndefined(p)||null==p){
-            changeUrlParam(url,key,val);
-        }else{
-            if(url.indexOf("?")>-1){
-                url=url+"&"+key+"="+val;
-            }else{
-                url=url+"?"+key+"="+val;
+        c(null == p);
+        if (!isUndefined(p) || null == p) {
+            changeUrlParam(url, key, val);
+        } else {
+            if (url.indexOf("?") > -1) {
+                url = url + "&" + key + "=" + val;
+            } else {
+                url = url + "?" + key + "=" + val;
             }
         }
 
@@ -48,10 +48,10 @@ function addUrlParam(args){
     return url;
 }
 
-function changeUrlParam(url, arg, val){
-    var pattern = arg+'=([^&]*)';
-    var replaceText = arg+'='+val;
-    return url.match(pattern) ? url.replace(eval('/('+ arg+'=)([^&]*)/gi'), replaceText) : (url.match('[\?]') ? url+'&'+replaceText : url+'?'+replaceText);
+function changeUrlParam(url, arg, val) {
+    var pattern = arg + '=([^&]*)';
+    var replaceText = arg + '=' + val;
+    return url.match(pattern) ? url.replace(eval('/(' + arg + '=)([^&]*)/gi'), replaceText) : (url.match('[\?]') ? url + '&' + replaceText : url + '?' + replaceText);
 }
 /**
  * 获取指定的URL参数值
@@ -60,13 +60,15 @@ function changeUrlParam(url, arg, val){
  * 调用方法:getParam("name")
  * 返回值:tyler
  */
-function getUrlParam(url,variable) {
+function getUrlParam(url, variable) {
 
     var query = url.substring(1);
     var vars = query.split("&");
-    for (var i=0;i<vars.length;i++) {
+    for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");
-        if(pair[0] == variable){return pair[1];}
+        if (pair[0] == variable) {
+            return pair[1];
+        }
     }
     return undefined;
 
@@ -75,7 +77,7 @@ function getUrlParam(url,variable) {
  * 文件后缀，如jpg
  * @param fileName
  */
-function getFileNameExt(fileName){
+function getFileNameExt(fileName) {
     if (fileName == undefined || fileName == "") {
         return "";
     }
@@ -88,20 +90,20 @@ function getFileNameExt(fileName){
 
 function getFileUrl(source) {
     var url;
-    if (navigator.userAgent.indexOf("MSIE")>=1) { // IE
+    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE
         url = source.val();
     }
-    else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox
+    else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox
         url = window.URL.createObjectURL(source.val().get(0).files.item(0));
     }
-    else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome
+    else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome
         url = window.URL.createObjectURL(source.val().get(0).files.item(0));
     }
     return url;
 }
 function preImg(source, target) {
     var url = getFileUrl(source);
-    target.attr("src",url);
+    target.attr("src", url);
 }
 
 /**
@@ -198,6 +200,23 @@ Array.prototype.remove = function (item, all) {
         }
     }
     return result ? this : void 0;
+}
+
+
+Array.prototype.removeByList = function (list) {
+    if(isEmptyList(list)){
+        return this;
+    }
+    for (var i = 0; i < list.length; ) {
+        if(!isUndefined(this.remove(list[i], true))){
+            if(i>0){
+                i--;
+            }
+        }else{
+            i++;
+        }
+    }
+    return this;
 }
 // 同上面的Rmove,从尾部开始查找，找到后删除第一个匹配的立刻返回；
 // 如有找到元素返回处理后的数组自身，如果没有找到过就返回undefined;

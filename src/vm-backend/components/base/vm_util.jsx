@@ -104,6 +104,7 @@ var ajax = {
     },
     delete: function (args) {
         args.type = "DELETE";
+        args.contentType = ajax.contentType.JSON;//!!!delete比较特殊，无法采用DEFAULT: "application/x-www-form-urlencoded"方式
         this.ajax(args);
     },
     contentType: {
@@ -225,6 +226,14 @@ var commons = {
                 return commons.objDeepCopy(obj);
             }
         }
+    },
+    getFieldListByKey(objArr, keyName){
+        var retArr = [];
+        for (var i = 0; i < objArr.length; i++) {
+            var obj = objArr[i];
+            retArr.push(obj[keyName]);
+        }
+        return retArr;
     },
     undefined2EmptyStr(obj){
         if (isUndefined(obj)) {
