@@ -134,12 +134,12 @@ var UserLoginLogsTable = React.createClass({
                 dataIndex: 'id',
                 sorter: true
             },
-            {
-                title: '用户id',
-                width: 100,
-                dataIndex: 'user_id',
-                sorter: true
-            },
+            // {
+            //     title: '用户id',
+            //     width: 100,
+            //     dataIndex: 'user_id',
+            //     sorter: true
+            // },
             {
                 title: '用户名',
                 width: 100,
