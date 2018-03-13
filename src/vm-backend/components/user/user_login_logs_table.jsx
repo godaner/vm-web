@@ -22,7 +22,7 @@ var UserLoginLogsTable = React.createClass({
             userLoginLogsTable: {
                 dataSourceUrl: "/user/login/logs",
                 editable: false,
-                haveSearchUserLoginLogsname: false,
+                haveSearchUsername: false,
                 usernameDropdownVisible: false,
                 bordered: false,
                 tableLoading: false,
@@ -37,34 +37,34 @@ var UserLoginLogsTable = React.createClass({
                     total: 0
                 },
                 query: {
-                    usernameQuery: ""
+                    username: ""
                 },
                 columns: [],
                 deletingTip: "正在删除"
             }
         }
     },
-    onSearchUserLoginLogsname(newUserLoginLogsnameQuery)
+    onSearchUsername(username)
     {
-        this.updateUserLoginLogsTableUserLoginLogsnameQuery(newUserLoginLogsnameQuery);
-        if (!isEmptyString(this.state.userLoginLogsTable.query.usernameQuery)) {
-            this.updateUserLoginLogsTableHaveSearchUserLoginLogsname(true);
+        this.updateUsernameOfQuery(username);
+        if (!isEmptyString(this.state.userLoginLogsTable.query.username)) {
+            this.updateHaveSearchUsername(true);
         } else {
 
-            this.updateUserLoginLogsTableHaveSearchUserLoginLogsname(false);
+            this.updateHaveSearchUsername(false);
         }
         this.loadUserLoginLogsTableData();
     },
-    updateUserLoginLogsTableHaveSearchUserLoginLogsname(haveSearchUserLoginLogsname)
+    updateHaveSearchUsername(haveSearchUsername)
     {
         var state = this.state;
-        state.userLoginLogsTable.haveSearchUserLoginLogsname = haveSearchUserLoginLogsname;
+        state.userLoginLogsTable.haveSearchUsername = haveSearchUsername;
         this.setState(state);
     },
-    updateUserLoginLogsTableUserLoginLogsnameQuery(newUserLoginLogsnameQuery)
+    updateUsernameOfQuery(username)
     {
         var state = this.state;
-        state.userLoginLogsTable.query.usernameQuery = newUserLoginLogsnameQuery;
+        state.userLoginLogsTable.query.username = username;
         this.setState(state);
     },
     updateUserLoginLogsTableData(data)
@@ -126,6 +126,7 @@ var UserLoginLogsTable = React.createClass({
         //     "city":"成都",
         //     "loginTime":1520845823,
         //     "result":1
+        const {query, haveSearchUsername} = this.state.userLoginLogsTable;
         this.updateUserLoginLogsTableColumns([
             {
                 title: 'id',
@@ -138,6 +139,28 @@ var UserLoginLogsTable = React.createClass({
                 width: 100,
                 dataIndex: 'user_id',
                 sorter: true
+            },
+            {
+                title: '用户名',
+                width: 100,
+                dataIndex: 'username',
+                render: (text, record) => {
+                    return commons.highLight(text, query.username);
+                },
+                sorter: true,
+                filterDropdown: (
+                    <div className="custom-filter-dropdown">
+                        <Search
+                            placeholder="搜索用户名"
+                            onSearch={this.onSearchUsername}
+                            style={{width: 200}}
+                        />
+                    </div>
+                ),
+                filterIcon: <Icon type="search"
+                                  style={{color: haveSearchUsername ? '#108ee9' : '#aaa'}}/>,
+                // filterDropdownVisible: this.state.userTable.usernameDropdownVisible,
+
             },
             {
                 title: '登录ip',
@@ -198,8 +221,7 @@ var UserLoginLogsTable = React.createClass({
             },
 
 
-
-            ]);
+        ]);
         this.loadUserLoginLogsTableData();
     },
     handleTableChange(pagination, filters, sorter)
@@ -299,7 +321,7 @@ var UserLoginLogsTable = React.createClass({
     render: function () {
 
 
-        var { columns, data, page, tableLoading, refreshBtnLoading, bordered} = this.state.userLoginLogsTable;
+        var {columns, data, page, tableLoading, refreshBtnLoading, bordered} = this.state.userLoginLogsTable;
 
 
         //set now page's props
