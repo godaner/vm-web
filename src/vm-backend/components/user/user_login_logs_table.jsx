@@ -30,8 +30,8 @@ var UserLoginLogsTable = React.createClass({
                 data: [],//displayData
                 originalData: [],
                 page: {
-                    start: null,
-                    size: null,
+                    start: 0,
+                    size: 5,
                     orderBy: "",
                     orderType: "",
                     total: 0
