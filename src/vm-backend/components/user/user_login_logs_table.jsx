@@ -37,7 +37,8 @@ var UserLoginLogsTable = React.createClass({
                     total: 0
                 },
                 query: {
-                    username: ""
+                    username: "",
+                    userId:null
                 },
                 columns: [],
                 deletingTip: "正在删除"
