@@ -30,8 +30,8 @@ var UserLoginLogsTable = React.createClass({
                 data: [],//displayData
                 originalData: [],
                 page: {
-                    start: 0,
-                    size: 5,
+                    start: null,
+                    size: null,
                     orderBy: "",
                     orderType: "",
                     total: 0
@@ -145,6 +145,9 @@ var UserLoginLogsTable = React.createClass({
                 width: 100,
                 dataIndex: 'username',
                 render: (text, record) => {
+                    if(isUndefined(text)){
+                        return "未知";
+                    }
                     return commons.highLight(text, query.username);
                 },
                 sorter: true,
@@ -247,8 +250,9 @@ var UserLoginLogsTable = React.createClass({
 
 
             data.push({
-                key: item.id,
+                key: i,
                 id: item.id,
+                username: item.username,
                 create_time: item.createTime,
                 update_time: item.updateTime,
                 user_id: item.userId,
