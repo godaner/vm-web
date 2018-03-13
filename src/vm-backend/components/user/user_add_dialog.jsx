@@ -1,33 +1,33 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
+import { Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload } from "antd";
 import moment from 'moment';
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "antd/dist/antd.css";
 import "../../scss/user/user_page.scss";
 import "../base/events_dispatcher";
-import {ajax, commons} from "../base/vm_util";
+import { ajax, commons } from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
 const Option = Select.Option;
-const {Header, Content, Footer, Sider} = Layout;
+const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
 const TextArea = Input.TextArea;
 var UserAddDialog = React.createClass({
-    getInitialState(){
+    getInitialState() {
         return {
             addUserUrl: "/user/info",
         };
     },
-    showDialog(){
+    showDialog() {
         this.getUserAddDialog().showDialog();
     }
     ,
-    getUserAddDialog(){
+    getUserAddDialog() {
         return this.refs.user_add_dialog;
     },
-    handleSubmit(values){
+    handleSubmit(values) {
         const hideMessage = message.loading('正在添加用户', 0);
-        const {addUserUrl} = this.state;
+        const { addUserUrl } = this.state;
         var filterValues = function (values) {
             values.birthday = timeFormatter.long2Int(new Date(values.birthday._d).getTime());
             return values;
@@ -37,7 +37,7 @@ var UserAddDialog = React.createClass({
             url: addUserUrl,
             data: values,
             success: function (result) {
-                const {onAddSuccess} = this.props;
+                const { onAddSuccess } = this.props;
 
                 message.success(result.msg);
                 this.getUserAddDialog().closeDialog();
@@ -60,69 +60,69 @@ var UserAddDialog = React.createClass({
         });
 
     },
-    handleCancel(){
+    handleCancel() {
 
         c("handleCancel");
     },
-    componentDidMount(){
+    componentDidMount() {
 
     },
-    render(){
+    render() {
 
 
         var formRows = [
             {
 
                 cols: [{
-                    col: {span: 11},
+                    col: { span: 11 },
                     label: "用户名",
                     id: "username",
                     config: {
-                        rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
+                        rules: [{ required: true, whitespace: true, message: '请输入用户名!' }],
                     },
                     input: <Input autoComplete="off"
-                                  name="username"
-                                  prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                  placeholder="用户名"/>
+                        name="username"
+                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        placeholder="用户名" />
                 }, {
-                    col: {span: 2},
-                    input:<div></div>
+                    col: { span: 2 },
+                    input: <div></div>
                 }, {
-                    col: {span: 11},
+                    col: { span: 11 },
                     label: "密码",
                     id: "password",
                     config: {
-                        rules: [{required: true, whitespace: true, message: '请输入密码!'}],
+                        rules: [{ required: true, whitespace: true, message: '请输入密码!' }],
                     },
                     input: <Input name="password"
-                                  autoComplete="off"
-                                  prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                  placeholder="密码"/>
+                        autoComplete="off"
+                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        placeholder="密码" />
                 }]
             }
             ,
             {
                 cols: [
                     {
-                        col: {span: 11},
+                        col: { span: 11 },
                         label: "用户名",
                         id: "birthday",
                         config: {
-                            rules: [{type: 'object', required: true, message: '请输入你的生日!'}],
+                            rules: [{ type: 'object', required: true, message: '请输入你的生日!' }],
 
                         },
-                        input: <DatePicker placeholder="请输入生日"/>
+                        input: <DatePicker placeholder="请输入生日" />
                     }, {
-                        col: {span: 2},
-                        input:<div></div>
+                        col: { span: 2 },
+                        input: <div></div>
 
                     }, {
-                        col: {span: 11},
+                        col: { span: 11 },
                         label: "性别",
                         id: "sex",
                         config: {
                             rules: [
-                                {required: true, message: '请输入你的性别!'}],
+                                { required: true, message: '请输入你的性别!' }],
                         },
                         input: <Select placeholder="请输入你的性别">
                             <Option value="1">男</Option>
@@ -138,10 +138,10 @@ var UserAddDialog = React.createClass({
                     id: "description",
                     config: {
                         rules: [
-                            {required: true, message: '请输入简介!'}],
+                            { required: true, message: '请输入简介!' }],
                         // initialValue: "1"
                     },
-                    input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
+                    input: <TextArea placeholder="请输入简介" autosize={{ minRows: 4, maxRows: 8 }} />
                 }]
             }
             ,
@@ -151,7 +151,7 @@ var UserAddDialog = React.createClass({
                     id: "status",
                     config: {
                         rules: [
-                            {required: true, message: '请输入状态!'}],
+                            { required: true, message: '请输入状态!' }],
                         // initialValue: "1"
                     },
                     input: <Select placeholder="请输入状态">
@@ -167,7 +167,7 @@ var UserAddDialog = React.createClass({
             formRows={formRows}
             handleSubmit={this.handleSubmit}
             handleCancel={this.handleCancel}
-            ref="user_add_dialog"/>;
+            ref="user_add_dialog" />;
     }
 });
 
