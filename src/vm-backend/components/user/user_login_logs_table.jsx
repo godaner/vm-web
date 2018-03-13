@@ -20,7 +20,7 @@ var UserLoginLogsTable = React.createClass({
                 echoData: undefined
             },
             userLoginLogsTable: {
-                dataSourceUrl: "/user/login/logs/list",
+                dataSourceUrl: "/user/login/logs",
                 editable: false,
                 haveSearchUserLoginLogsname: false,
                 usernameDropdownVisible: false,
@@ -111,7 +111,21 @@ var UserLoginLogsTable = React.createClass({
     },
     componentDidMount()
     {
-
+        // "id":4,
+        //     "status":1,
+        //     "createTime":1520845823,
+        //     "updateTime":1520845823,
+        //     "isDeleted":2,
+        //     "userId":41,
+        //     "loginIp":"171.221.142.90",
+        //     "system":"Windows 7",
+        //     "dpi":"1920*1080",
+        //     "brower":"chrome 62.0.3202.94",
+        //     "country":"中国",
+        //     "province":"四川",
+        //     "city":"成都",
+        //     "loginTime":1520845823,
+        //     "result":1
         this.updateUserLoginLogsTableColumns([
             {
                 title: 'id',
@@ -120,120 +134,69 @@ var UserLoginLogsTable = React.createClass({
                 sorter: true
             },
             {
-                title: '头像',
+                title: '用户id',
                 width: 100,
-                dataIndex: 'imgUrl',
-                render: (text, record) => {
-                    const imageUrl = commons.addUrlParam({
-                        url: vm_config.http_url_prefix + text,
-                        obj: {
-                            width: "50"
-                        }
-                    });
-
-
-                    return <img onClick={() => this.showUserLoginLogsImgUploaderDialog(record)} style={{
-                        width: 50,
-                        height: 50,
-                        cursor: "pointer"
-                    }} src={imageUrl} alt=""/>
-
-                }
+                dataIndex: 'user_id',
+                sorter: true
             },
             {
-                title: '用户名',
-                width: 150,
-                dataIndex: 'username',
-                render: (text, record) => {
-                    return commons.highLight(text, this.state.userLoginLogsTable.query.usernameQuery);
-                },
-                sorter: true,
-                filterDropdown: (
-                    <div className="custom-filter-dropdown">
-                        <Search
-                            placeholder="搜索用户名"
-                            onSearch={this.onSearchUserLoginLogsname}
-                            style={{width: 200}}
-                        />
-                    </div>
-                ),
-                filterIcon: <Icon type="search"
-                                  style={{color: this.state.userLoginLogsTable.haveSearchUserLoginLogsname ? '#108ee9' : '#aaa'}}/>,
-                // filterDropdownVisible: this.state.userLoginLogsTable.usernameDropdownVisible,
-
-            },
-
-
-            {
-                title: '性别',
+                title: '登录ip',
                 width: 100,
-                dataIndex: 'sex',
-                render: (text) => {
-                    var res = text;
-                    if (text == 1) {
-                        res = "男";
-                    }
-                    if (text == 2) {
-                        res = "女";
-                    }
-                    if (text == 3) {
-                        res = "未知";
-                    }
-                    return res;
-                },
-                sorter: true
-
-
-            },
-            {
-                title: '密码', width: 100,
-                dataIndex: 'password',
+                dataIndex: 'login_ip',
                 sorter: true
             },
             {
-                title: '简介', width: 200,
-                dataIndex: 'description',
-                render: (text) => {
-                    return commons.makeTipSpan(text, 33);
-                },
-                sorter: true
-            },
-            {
-                title: '生日',
+                title: '操作系统',
                 width: 100,
-                dataIndex: 'birthday',
-                render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
-                },
+                dataIndex: 'system',
                 sorter: true
             },
+
             {
-                title: '创建时间',
-                width: 150,
-                dataIndex: 'create_time',
+                title: '分辨率',
+                width: 100,
+                dataIndex: 'dpi',
+                sorter: true
+            },
+
+            {
+                title: '浏览器',
+                width: 100,
+                dataIndex: 'brower',
+                sorter: true
+            },
+
+            {
+                title: '国家',
+                width: 100,
+                dataIndex: 'country',
+                sorter: true
+            },
+
+            {
+                title: '省份',
+                width: 100,
+                dataIndex: 'province',
+                sorter: true
+            },
+
+            {
+                title: '城市',
+                width: 100,
+                dataIndex: 'city',
+                sorter: true
+            },
+
+            {
+                title: '登陆时间',
+                width: 100,
+                dataIndex: 'login_time',
                 render: (text) => {
                     return timeFormatter.formatTime(text * 1000);
                 },
                 sorter: true
             },
-            {
-                title: '最后更新时间',
-                width: 150,
-                dataIndex: 'update_time',
-                render: (text) => {
-                    return timeFormatter.formatTime(text * 1000);
-                },
-                sorter: true
-            },
-            {
-                title: '状态',
-                width: 100,
-                dataIndex: 'status',
-                render: (text) => {
-                    return text == 1 ? "正常" : text == 2 ? "冻结" : text;
-                },
-                sorter: true
-            }
+
 
 
             ]);
@@ -260,18 +223,22 @@ var UserLoginLogsTable = React.createClass({
         const data = [];
         $.each(originalData, function (i, item) {
 
+
             data.push({
                 key: item.id,
                 id: item.id,
-                imgUrl: item.imgUrl,
-                username: item.username,
-                sex: item.sex,
-                password: item.password,
-                description: item.description,
-                birthday: item.birthday,
                 create_time: item.createTime,
                 update_time: item.updateTime,
-                status: item.status,
+                user_id: item.userId,
+                login_ip: item.userId,
+                system: item.system,
+                dpi: item.dpi,
+                brower: item.brower,
+                country: item.country,
+                province: item.province,
+                city: item.city,
+                login_time: item.loginTime,
+                result: item.result,
             });
         }.bind(this));
         return data;
