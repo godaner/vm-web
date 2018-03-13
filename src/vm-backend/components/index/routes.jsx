@@ -12,7 +12,8 @@ import '../../scss/base/routes.scss';
 import "../base/events_dispatcher";
 import UserPage from "../user/user_page";
 import HomePage from "../home/home_page";
-import {ajax,commons} from "../base/events_dispatcher";
+import {ajax, commons} from "../base/events_dispatcher";
+import UserLoginLogsPage from "../user/user_login_logs_page";
 
 var Routes = React.createClass({
     getInitialState: function () {
@@ -39,6 +40,15 @@ var Routes = React.createClass({
                                pathname: "/user"
                            })
                            return <UserPage />;
+                       }
+
+                       }/>
+                <Route exact path='/user/login/logs'
+                       render={() => {
+                           window.EventsDispatcher.onRouteEnter({
+                               pathname: "/user/login/logs"
+                           })
+                           return <UserLoginLogsPage />;
                        }
 
                        }/>

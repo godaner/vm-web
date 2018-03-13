@@ -89,8 +89,8 @@ var Nav = React.createClass({
                     <Menu.Item key="/user">
                             信息管理
                     </Menu.Item>
-                    <Menu.Item key="2">登录记录</Menu.Item>
-                    {/*<Menu.Item key="5">Alex</Menu.Item>*/}
+                    <Menu.Item key="/user/login/logs">登录记录</Menu.Item>
+
                 </SubMenu>
                 <SubMenu
                     key="adminMenu"
