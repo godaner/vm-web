@@ -17,10 +17,10 @@ var MovieImgUploaderDialog = React.createClass({
 
         return {
             // modelWidth: "350px",
-            title: "更新用户头像",
+            title: "更新电影图片",
             width: 650,
             config: {
-                aspectRatio:1/1,
+                aspectRatio:2/1,
                 fileTypes: ["jpg", "png"],
                 fileMaxsize: 1024 * 1024 * 2,//2M
                 saveImgUrl: "/movie/img",
@@ -60,7 +60,6 @@ var MovieImgUploaderDialog = React.createClass({
         this.setState(state);
     },
     showDialog(record){
-
         this.updateStateConfigExtraInfo(record);
 
         this.refs.img_uploader_dialog_template.showDialog();

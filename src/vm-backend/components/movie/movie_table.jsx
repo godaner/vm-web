@@ -147,12 +147,11 @@ var MovieTable = React.createClass({
     showMovieImgUploaderDialog(record){
         this.refs.movie_img_uploader_dialog.showDialog(record);
     },
-    closeMovieImgUploaderDialog(record){
+    closeMovieImgUploaderDialog(){
         this.refs.movie_img_uploader_dialog.closeDialog();
     },
     componentDidMount()
     {
-
 
         this.updateMovieTableColumns([
             {
@@ -164,7 +163,7 @@ var MovieTable = React.createClass({
             {
                 title: '封面',
                 width: 100,
-                dataIndex: 'img_url',
+                dataIndex: 'imgUrl',
                 render: (text, record) => {
                     const imageUrl = commons.addUrlParam({
                         url: vm_config.http_url_prefix + text,
@@ -172,6 +171,7 @@ var MovieTable = React.createClass({
                             width: "50"
                         }
                     });
+                    c(record);
 
 
                     return <img onClick={() => this.showMovieImgUploaderDialog(record)} style={{
@@ -185,7 +185,7 @@ var MovieTable = React.createClass({
             {
                 title: '播放封面',
                 width: 100,
-                dataIndex: 'post_url',
+                dataIndex: 'postUrl',
                 render: (text, record) => {
                     const imageUrl = commons.addUrlParam({
                         url: vm_config.http_url_prefix + text,
@@ -247,8 +247,6 @@ var MovieTable = React.createClass({
             {
 
 
-
-
                 title: '发布时间',
                 width: 100,
                 dataIndex: 'release_time',
@@ -274,7 +272,7 @@ var MovieTable = React.createClass({
                 width: 150,
                 dataIndex: 'movie_time',
                 render: (text) => {
-                    return text +" 分钟";
+                    return text + " 分钟";
                 },
                 sorter: true
             },
@@ -356,6 +354,7 @@ var MovieTable = React.createClass({
             data.push({
                 key: item.id,
                 id: item.id,
+                imgUrl: item.imgUrl,
                 name: item.name,
                 alias: item.alias,
                 description: item.description,
@@ -364,8 +363,7 @@ var MovieTable = React.createClass({
                 score: item.score,
                 watch_num: item.watchNum,
                 movie_time: item.movieTime,
-                poster_url: item.posterUrl,
-                img_url: item.imgUrl,
+                posterUrl: item.posterUrl,
                 create_time: item.createTime,
                 update_time: item.updateTime,
                 status: item.status
@@ -583,10 +581,10 @@ var MovieTable = React.createClass({
                     scroll={{x: "100%", y: "100%"}}/>
 
                 <MovieEditDialog ref="movie_edit_dialog"
-                                echoData={echoData}
-                                onEditSuccess={this.onEditSuccess}/>
+                                 echoData={echoData}
+                                 onEditSuccess={this.onEditSuccess}/>
                 <MovieAddDialog ref="movie_add_dialog"
-                               onAddSuccess={this.onAddSuccess}/>
+                                onAddSuccess={this.onAddSuccess}/>
                 <MovieImgUploaderDialog
                     ref="movie_img_uploader_dialog"
                     onUpdateImgSuccess={this.onUpdateImgSuccess}/>

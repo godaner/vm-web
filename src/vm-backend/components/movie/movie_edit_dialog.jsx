@@ -36,7 +36,7 @@ var MovieEditDialog = React.createClass({
             return values;
         }
         values = filterValues(values);
-        c(values);
+        // c(values);
         ajax.put({
             url: editMovieUrl,
             data: values,
