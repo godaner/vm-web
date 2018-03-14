@@ -1,19 +1,18 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import {Layout, Menu, Breadcrumb, Icon, Form, Input, Button, Checkbox} from 'antd';
-const FormItem = Form.Item;
-const {Header, Content, Footer, Sider} = Layout;
-const SubMenu = Menu.SubMenu;
-import {Switch, BrowserRouter, HashRouter, Route, withRouter} from 'react-router-dom';
+import React from "react";
+import {Form, Layout, Menu} from "antd";
+import {Route, withRouter} from "react-router-dom";
 
 
 import "antd/dist/antd.css";
-import '../../scss/base/routes.scss';
+import "../../scss/base/routes.scss";
 import "../base/events_dispatcher";
 import UserPage from "../user/user_page";
 import HomePage from "../home/home_page";
-import {ajax, commons} from "../base/events_dispatcher";
 import UserLoginLogsPage from "../user/user_login_logs_page";
+import MoviePage from "../movie/movie_page";
+const FormItem = Form.Item;
+const {Header, Content, Footer, Sider} = Layout;
+const SubMenu = Menu.SubMenu;
 
 var Routes = React.createClass({
     getInitialState: function () {
@@ -49,6 +48,15 @@ var Routes = React.createClass({
                                pathname: "/user/login/logs"
                            })
                            return <UserLoginLogsPage />;
+                       }
+
+                       }/>
+                <Route exact path='/movie'
+                       render={() => {
+                           window.EventsDispatcher.onRouteEnter({
+                               pathname: "/movie"
+                           })
+                           return <MoviePage />;
                        }
 
                        }/>

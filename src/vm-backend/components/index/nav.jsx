@@ -89,7 +89,7 @@ var Nav = React.createClass({
                     <Menu.Item key="/user">
                             信息管理
                     </Menu.Item>
-                    <Menu.Item key="/user/login/logs">登录记录</Menu.Item>
+                    <Menu.Item key="/user/login/logs">登录日志</Menu.Item>
 
                 </SubMenu>
                 <SubMenu
@@ -99,6 +99,7 @@ var Nav = React.createClass({
                 >
                     <Menu.Item key="/movie">电影管理</Menu.Item>
                     <Menu.Item key="/movie/filmmaker">电影人管理</Menu.Item>
+                    <Menu.Item key="/movie/tagGroup">标签分组管理</Menu.Item>
                 </SubMenu>
                 <SubMenu
                     key="adminMenu"

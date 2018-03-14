@@ -120,7 +120,11 @@ var commons = {
         if (isUndefined(len)) {
             len = 20;
         }
-        var sText = text.substring(0, len) + "...";
+        var sText = text.substring(0, len);
+
+        if (text.length > 20) {
+            sText += "...";
+        }
         return <span title={text}>{sText}</span>
     },
     /**
