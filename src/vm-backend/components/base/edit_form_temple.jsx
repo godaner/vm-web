@@ -54,7 +54,7 @@ const EditFormTempleWrapper = React.createClass({
                     if (!isUndefined(config.initialValue) && (type == "number" || type == "boolean")) {
                         config.initialValue = config.initialValue + "";//转化为字符串
                     }
-                }else{
+                } else {
                     // w(input);
                     // w("isUndefined(config)");
                     config = {};
@@ -130,6 +130,11 @@ const EditFormTempleWrapper = React.createClass({
                     formItemsRes
                 }
 
+                <FormItem>{/*增加“提交”按钮与上面内容的间隙*/}
+                    <Col span='24'>
+                        <Input style={{display: 'none'}}/>
+                    </Col>
+                </FormItem>
                 <FormItem>
                     <Button loading={loading} type="primary" htmlType="submit" id="edit-form-button">
                         提交

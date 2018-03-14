@@ -93,6 +93,14 @@ var Nav = React.createClass({
 
                 </SubMenu>
                 <SubMenu
+                    key="movieMenu"
+                    onTitleClick={this.onSubMenuClick}
+                    title={<span><Icon type="play-circle-o"/><span>电影管理</span></span>}
+                >
+                    <Menu.Item key="/movie">电影管理</Menu.Item>
+                    <Menu.Item key="/movie/filmmaker">电影人管理</Menu.Item>
+                </SubMenu>
+                <SubMenu
                     key="adminMenu"
                     onTitleClick={this.onSubMenuClick}
                     title={<span><Icon type="lock"/><span>管理员管理</span></span>}
@@ -100,13 +108,7 @@ var Nav = React.createClass({
                     <Menu.Item key="3">信息管理</Menu.Item>
                     <Menu.Item key="4">登录记录</Menu.Item>
                 </SubMenu>
-                <SubMenu
-                    key="movieMenu"
-                    onTitleClick={this.onSubMenuClick}
-                    title={<span><Icon type="play-circle-o"/><span>电影管理</span></span>}
-                >
-                    <Menu.Item key="5">信息管理</Menu.Item>
-                </SubMenu>
+
                 {/*<Menu.Item key="2">*/}
                 {/*<Icon type="desktop"/>*/}
                 {/*<span>视频管理</span>*/}

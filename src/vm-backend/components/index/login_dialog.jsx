@@ -1,36 +1,24 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import {Layout, Modal, Menu, Breadcrumb, Form, Icon, Input, Button, Checkbox} from 'antd';
-const {Header, Content, Footer, Sider} = Layout;
-const FormItem = Form.Item;
-const SubMenu = Menu.SubMenu;
-import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
-import LoginForm from "./login_form";
+import React from "react";
+import {Form, Icon, Input, Layout, Menu} from "antd";
+import EditDialogTemple from "../base/edit_dialog_temple";
 
 import "../base/events_dispatcher";
 
 
 import "antd/dist/antd.css";
-import '../../scss/index/login_dialog.scss';
-
-import {ajax,commons} from "../base/vm_util";
-
+import "../../scss/index/login_dialog.scss";
+const {Header, Content, Footer, Sider} = Layout;
+const FormItem = Form.Item;
+const SubMenu = Menu.SubMenu;
 
 
 var LoginDialog = React.createClass({
     getInitialState: function () {
         return {
-            visible: false,
-            modelWidth:"350px",
-            modelHeight:"300px",
-            onLoginSuccess: undefined,
-            onLoginFailure: undefined
+            width: 350,
+            title: "登录",
+            closable: false
         };
-    },
-    updateStateVisible(visible){
-        var state = this.state;
-        state.visible = visible;
-        this.setState(state);
     },
     updateStateOnLoginSuccess(onLoginSuccess){
         var state = this.state;
@@ -63,37 +51,70 @@ var LoginDialog = React.createClass({
 
     },
     showLoginDialog(){
-        this.updateStateVisible(true);
+        this.getUserAddDialog().showDialog();
+    },
+    getUserAddDialog() {
+        return this.refs.login_dialog;
     },
     handleCancel () {
-        this.updateStateVisible(false);
         c("handleCancel");
     },
-    getLoginForm(){
-        return this.refs.login_form;
+    handleSubmit(val){
+
+        c("handleSubmit");
+        c(val);
     },
     render: function () {
+        var formRows = [
+            {
 
+                cols: [{
+                    col: {span: 24},
+                    label: "用户名",
+                    id: "username",
+                    config: {
+                        rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
+                    },
+                    input: <Input autoComplete="off"
+                                  name="username"
+                                  prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                  placeholder="请输入您的用户名"/>
+                }]
+            }
+            ,
+            {
+                cols: [
+                    {
+                        col: {span: 24},
+                        label: "密码",
+                        id: "password",
+                        config: {
+                            rules: [{required: true, whitespace: true, message: '请输入密码!'}],
+                        },
+                        input: <Input name="password"
+                                      type="password"
+                                      autoComplete="off"
+                                      prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                      placeholder="请输入您的密码"/>
+                    }]
+            }
+
+
+
+        ];
 
         //get state
-        const {visible, loading,modelWidth,modelHeight} = this.state;
+        const {width, title, closable} = this.state;
         return (
-            <div id="login_dialog">
-                <Modal
-                    className='extra'
-                    visible={visible}
-                    title="登录"
-                    onCancel={this.handleCancel}
-                    width={modelWidth}
-                    height={modelHeight}
-                    footer={null}
-                >
 
-                    <div>
-                        <LoginForm ref="login_form"/>
-                    </div>
-                </Modal>
-            </div>
+            <EditDialogTemple
+                ref="login_dialog"
+                title={title}
+                width={width}
+                closable={closable}
+                formRows={formRows}
+                handleSubmit={this.handleSubmit}
+                handleCancel={this.handleCancel}/>
         );
     }
 })

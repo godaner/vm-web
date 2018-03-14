@@ -14,12 +14,21 @@ const SubMenu = Menu.SubMenu;
 
 var EditDialogTemple = React.createClass({
     getInitialState: function () {
-        var {width, height} = this.props;
+        var {width, height, maskClosable, closable, title} = this.props;
+        if (isUndefined(closable)) {
+            closable = true;
+        }
+        if (isUndefined(maskClosable)) {
+            maskClosable = false;
+        }
         if (isUndefined(width)) {
             width = "450px";
         }
         if (isUndefined(height)) {
             height = "300px";
+        }
+        if (isUndefined(title)) {
+            title = "无标题";
         }
         return {
             // modelWidth: "350px",
@@ -27,6 +36,9 @@ var EditDialogTemple = React.createClass({
             modelHeight: height,
             formLoading: false,
             visible: false,
+            closable: closable,
+            maskClosable: maskClosable,
+            title: title
 
         };
     },
@@ -92,13 +104,16 @@ var EditDialogTemple = React.createClass({
     clearForm(){//清空表单
         this.form.resetFields();//!!!!
     },
+    afterClose(){
+        c("afterClose");
+    },
     render: function () {
 
         //get props
-        const {formRows, title, formLayout} = this.props;
+        const {formRows, formLayout} = this.props;
 
         //get state
-        const {modelWidth, modelHeight, formLoading, visible, clearForm} = this.state;
+        const {modelWidth, modelHeight, closable, maskClosable, formLoading, visible, title} = this.state;
         return (
             <div id="user_edit_dialog">
                 <Modal
@@ -109,6 +124,8 @@ var EditDialogTemple = React.createClass({
                     afterClose={this.afterClose}
                     width={modelWidth}
                     height={modelHeight}
+                    closable={closable}
+                    maskClosable={maskClosable}
                     footer={null}
                 >
 
