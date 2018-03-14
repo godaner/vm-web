@@ -1,20 +1,19 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table, Upload} from "antd";
-import moment from 'moment';
+import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../scss/user/user_page.scss";
+import "../../scss/user/user_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
-import EditDialogTemple from "../base/edit_dialog_temple";
+import UserEditDialog from "./user_edit_dialog";
+import UserAddDialog from "./user_add_dialog";
+import UserImgUploaderDialog from "./user_img_uploader_dialog";
+import UserLoginLogsDialog from "./user_login_logs_dialog";
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
 const TextArea = Input.TextArea;
-import UserEditDialog from "./user_edit_dialog";
-import UserAddDialog from "./user_add_dialog";
-import UserImgUploaderDialog from "./user_img_uploader_dialog";
 var UserTable = React.createClass({
     getInitialState: function () {
 
@@ -284,13 +283,17 @@ var UserTable = React.createClass({
                 width: 150,
                 render: (text, record) => {
                     return <div>
-                        <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+                        <a onClick={() => this.showUserLoginLogsDialog(record.id)} href="javascript:void(0);">登录日志</a>
+                        &nbsp;&nbsp;
+                        <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
+                        &nbsp;&nbsp;
                         <Popconfirm title="确认删除 ? "
                                     okText="删除"
                                     cancelText="取消"
                                     onConfirm={() => this.deleteRecord([record.id])}>
                             <a href="javascript:void(0)">删除</a>
                         </Popconfirm>
+
 
                     </div>
                 },
@@ -462,6 +465,16 @@ var UserTable = React.createClass({
         this.onEditSuccess(result.data.user);
         this.closeUserImgUploaderDialog();
     },
+    getUserLoginLogsDialog(){
+        return this.refs.user_login_logs_dialog;
+    },
+    showUserLoginLogsDialog(userId){
+        c(userId);
+        c(this);
+        c(this.refs);
+        c(this.getUserLoginLogsDialog());
+        this.getUserLoginLogsDialog().showDialog(userId);
+    },
     render: function () {
 
         const {echoData} = this.state.userEditDialog;
@@ -552,6 +565,8 @@ var UserTable = React.createClass({
                 <UserImgUploaderDialog
                     ref="user_img_uploader_dialog"
                     onUpdateImgSuccess={this.onUpdateImgSuccess}/>
+                <UserLoginLogsDialog
+                    ref="user_login_logs_dialog"/>
             </div>
         );
     }

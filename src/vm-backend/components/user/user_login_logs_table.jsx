@@ -1,12 +1,10 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table, Upload} from "antd";
-import moment from 'moment';
+import {Button, Icon, Input, Layout, Menu, message, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../scss/user/user_page.scss";
 import "../base/events_dispatcher";
+import "../../scss/user/user_login_logs_table.scss";
 import {ajax, commons} from "../base/vm_util";
-import EditDialogTemple from "../base/edit_dialog_temple";
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -15,6 +13,7 @@ const TextArea = Input.TextArea;
 var UserLoginLogsTable = React.createClass({
     getInitialState: function () {
 
+        const {userId} = this.props;
         return {
             userEditDialog: {
                 echoData: undefined
@@ -38,7 +37,7 @@ var UserLoginLogsTable = React.createClass({
                 },
                 query: {
                     username: "",
-                    userId:null
+                    userId: userId
                 },
                 columns: [],
                 deletingTip: "正在删除"
@@ -146,7 +145,7 @@ var UserLoginLogsTable = React.createClass({
                 width: 100,
                 dataIndex: 'username',
                 render: (text, record) => {
-                    if(isUndefined(text)){
+                    if (isUndefined(text)) {
                         return "未知";
                     }
                     return commons.highLight(text, query.username);
@@ -257,7 +256,7 @@ var UserLoginLogsTable = React.createClass({
                 create_time: item.createTime,
                 update_time: item.updateTime,
                 user_id: item.userId,
-                login_ip: item.userId,
+                login_ip: item.loginIp,
                 system: item.system,
                 dpi: item.dpi,
                 brower: item.brower,
