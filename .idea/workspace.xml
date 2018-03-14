@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -119,8 +115,8 @@
       <file leaf-file-name="movie_edit_dialog.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+            <state relative-caret-position="297">
+              <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -991,12 +987,12 @@
       <workItem from="1520577238661" duration="14563000" />
       <workItem from="1520660842745" duration="13836000" />
       <workItem from="1520928411541" duration="136000" />
-      <workItem from="1520929078327" duration="19787000" />
+      <workItem from="1520929078327" duration="20612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207995000" />
+    <option name="totallyTimeSpent" value="208820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1477,8 +1473,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        <state relative-caret-position="297">
+          <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
