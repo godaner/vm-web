@@ -116,6 +116,7 @@ var ajax = {
 
 
 var commons = {
+
     makeTipSpan(text, len){
         if (isUndefined(len)) {
             len = 20;

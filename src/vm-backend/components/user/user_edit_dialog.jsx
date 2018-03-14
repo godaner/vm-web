@@ -17,7 +17,9 @@ const TextArea = Input.TextArea;
 var UserEditDialog = React.createClass({
     getInitialState(){
         return {
-            editUserUrl: "/user/info"
+            title: "修改用户信息",
+            editUserUrl: "/user/info",
+            tipOfEditing: "正在修改用户"
         };
     },
     showDialog(){
@@ -27,8 +29,8 @@ var UserEditDialog = React.createClass({
         return this.refs.user_edit_dialog;
     },
     handleSubmit(values){
-        const hideMessage = message.loading('正在修改用户', 0);
-        const {editUserUrl} = this.state;
+        const {editMovieUrl, tipOfEditing} = this.state;
+        const hideMessage = message.loading(tipOfEditing, 0);
         var filterValues = function (values) {
             values.birthday = timeFormatter.long2Int(new Date(values.birthday._d).getTime());
             return values;
@@ -261,8 +263,9 @@ var UserEditDialog = React.createClass({
 
             ]
         ;
+        const {title} = this.state;
         return <EditDialogTemple
-            title="修改用户"
+            title={title}
             formRows={formRows}
             formLayout={formLayout}
             handleSubmit={this.handleSubmit}

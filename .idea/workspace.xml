@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,7 +35,7 @@
       <file leaf-file-name="nav.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
+            <state relative-caret-position="705">
               <caret line="97" column="22" lean-forward="false" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
               <folding />
             </state>
@@ -86,8 +87,8 @@
       <file leaf-file-name="movie_table.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="243" column="41" lean-forward="false" selection-start-line="243" selection-start-column="41" selection-end-line="243" selection-end-column="41" />
+            <state relative-caret-position="298">
+              <caret line="483" column="4" lean-forward="false" selection-start-line="483" selection-start-column="4" selection-end-line="483" selection-end-column="4" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -105,33 +106,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vm_util.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vm_util.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="125" column="20" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
+            <state relative-caret-position="298">
+              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="movie_edit_dialog.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="movie_edit_dialog.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="movie_img_uploader_dialog.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_img_uploader_dialog.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="88" column="26" lean-forward="false" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
+            <state relative-caret-position="243">
+              <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -143,8 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selectedRowKeys</find>
-      <find>ajax</find>
       <find>width: 150</find>
       <find>usernameQuery</find>
       <find>onSea</find>
@@ -171,8 +158,10 @@
       <find>movie_</find>
       <find>movie_l</find>
       <find>movie_logi</find>
-      <find>User</find>
       <find>movie_login</find>
+      <find>updateNameOfQuery</find>
+      <find>updateMovieTableMovienameQuery</find>
+      <find>User</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -191,6 +180,8 @@
       <replace>username</replace>
       <replace>haveSearchUsername</replace>
       <replace>movie</replace>
+      <replace>Moviename</replace>
+      <replace>name</replace>
       <replace>Movie</replace>
     </replaceStrings>
     <dirStrings>
@@ -229,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" />
         <option value="$PROJECT_DIR$/src/backend/package.json" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/img_uploader.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/view/index.html" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/user_head_page.jsx" />
@@ -261,11 +251,12 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_img_uploader_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_add_dialog.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_page.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
       </list>
     </option>
   </component>
@@ -1000,12 +991,12 @@
       <workItem from="1520577238661" duration="14563000" />
       <workItem from="1520660842745" duration="13836000" />
       <workItem from="1520928411541" duration="136000" />
-      <workItem from="1520929078327" duration="16189000" />
+      <workItem from="1520929078327" duration="19787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204397000" />
+    <option name="totallyTimeSpent" value="207995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1280,14 +1271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="107" column="41" lean-forward="false" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/img_uploader_dialog_template.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -1411,16 +1394,8 @@
         <state relative-caret-position="1980">
           <caret line="88" column="26" lean-forward="false" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="97" column="22" lean-forward="false" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1431,14 +1406,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/scss/movie/movie_login_logs_table.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1466,31 +1433,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="298">
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/scss/movie/movie_login_logs_table.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3229">
+          <caret line="273" column="5" lean-forward="true" selection-start-line="273" selection-start-column="5" selection-end-line="273" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="97" column="22" lean-forward="false" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="243" column="41" lean-forward="false" selection-start-line="243" selection-start-column="41" selection-end-line="243" selection-end-column="41" />
+        <state relative-caret-position="298">
+          <caret line="483" column="4" lean-forward="false" selection-start-line="483" selection-start-column="4" selection-end-line="483" selection-end-column="4" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="125" column="20" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="243">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

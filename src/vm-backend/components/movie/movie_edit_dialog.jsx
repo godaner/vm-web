@@ -17,7 +17,9 @@ const TextArea = Input.TextArea;
 var MovieEditDialog = React.createClass({
     getInitialState(){
         return {
-            editMovieUrl: "/movie/info"
+            title: "修改电影信息",
+            editMovieUrl: "/movie/info",
+            tipOfEditing: '正在保存电影修改'
         };
     },
     showDialog(){
@@ -27,13 +29,14 @@ var MovieEditDialog = React.createClass({
         return this.refs.movie_edit_dialog;
     },
     handleSubmit(values){
-        const hideMessage = message.loading('正在修改用户', 0);
-        const {editMovieUrl} = this.state;
+        const {editMovieUrl, tipOfEditing} = this.state;
+        const hideMessage = message.loading(tipOfEditing, 0);
         var filterValues = function (values) {
-            values.birthday = timeFormatter.long2Int(new Date(values.birthday._d).getTime());
+            values.releaseTime = timeFormatter.long2Int(new Date(values.releaseTime._d).getTime());
             return values;
         }
         values = filterValues(values);
+        c(values);
         ajax.put({
             url: editMovieUrl,
             data: values,
@@ -77,14 +80,15 @@ var MovieEditDialog = React.createClass({
             if (isUndefined(echoData)) {
                 return {};
             }
-            if (!isUndefined(echoData.birthday)) {
-                echoData.birthday = moment(echoData.birthday * 1000);
-            }
             if (!isUndefined(echoData.createTime)) {
                 echoData.createTime = timeFormatter.formatDate(echoData.createTime * 1000);
             }
             if (!isUndefined(echoData.updateTime)) {
                 echoData.updateTime = timeFormatter.formatDate(echoData.updateTime * 1000);
+
+            }
+            if (!isUndefined(echoData.releaseTime)) {
+                echoData.releaseTime = moment(echoData.releaseTime * 1000);
 
             }
             return echoData;
@@ -114,15 +118,15 @@ var MovieEditDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "生日",
-                            id: "birthday",
+                            label: "名称",
+                            id: "name",
                             config: {
-                                initialValue: echoData.birthday,
-                                rules: [{type: 'object', required: true, message: '请输入你的生日!'}],
+                                initialValue: echoData.name,
+                                rules: [{required: true, message: '请输入电影名称!'}],
 
                             }
                             ,
-                            input: <DatePicker placeholder="请输入生日" name="birthday"/>
+                            input: <Input placeholder="请输入电影名称" name="name"/>
                         }
                     ]
 
@@ -150,17 +154,17 @@ var MovieEditDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "用户名",
-                            id: "moviename",
+                            label: "别名",
+                            id: "alias",
                             config: {
-                                initialValue: echoData.moviename,
-                                rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
+                                initialValue: echoData.alias,
+                                rules: [{required: true, whitespace: true, message: '请输入别名!'}],
                             },
-                            input: <Input name="moviename"
+                            input: <Input name="alias"
                                           prefix={<Icon type="movie"
                                                         style={{color: 'rgba(0,0,0,.25)'}}/>}
                                           autoComplete="off"
-                                          placeholder="用户名"/>
+                                          placeholder="别名"/>
                         }
                     ]
 
@@ -170,17 +174,16 @@ var MovieEditDialog = React.createClass({
                     cols: [
                         {
                             col: {span: 11},
-                            label: "密码",
-                            id: "password",
+                            label: "发布时间",
+                            id: "releaseTime",
                             config: {
-                                initialValue: echoData.password,
-                                rules: [{required: true, whitespace: true, message: '请输入密码!'}],
+                                initialValue: echoData.releaseTime,
+                                rules: [{type: 'object', required: true, whitespace: true, message: '请输入发布时间!'}],
                             }
                             ,
-                            input: <Input name="password"
-                                          prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                          autoComplete="off"
-                                          placeholder="密码"/>
+                            input: <DatePicker name="releaseTime"
+                                               autoComplete="off"
+                                               placeholder="请输入发布时间"/>
                         },
 
                         {
@@ -189,19 +192,48 @@ var MovieEditDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "性别",
-                            id: "sex",
+                            label: "评分",
+                            id: "ignore_score",
                             config: {
-                                initialValue: echoData.sex,
-                                rules: [
-                                    {required: true, message: '请输入你的性别!'}],
+                                initialValue: echoData.score,
                             }
                             ,
-                            input: <Select placeholder="请输入你的性别">
-                                <Option value="1">男</Option>
-                                <Option value="2">女</Option>
-                                <Option value="3">未知</Option>
-                            </Select>
+                            input: <Input name="ignore_score"
+                                          autoComplete="off"
+                                          disabled={true}/>
+                        }
+                    ]
+
+
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 11},
+                            label: "观看数",
+                            id: "ignore_watchNum",
+                            config: {
+                                initialValue: echoData.watchNum,
+                            }
+                            ,
+                            input: <Input disabled={true}/>
+                        }
+                        ,
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "电影时长(分钟)",
+                            id: "movieTime",
+                            config: {
+                                initialValue: echoData.movieTime,
+                            }
+                            ,
+                            input: <Input name="movieTime"
+                                          autoComplete="off"
+                                          placeholder="请输入电影时长"/>
                         }
                     ]
 
@@ -261,8 +293,9 @@ var MovieEditDialog = React.createClass({
 
             ]
         ;
+        const {title} = this.state;
         return <EditDialogTemple
-            title="修改用户"
+            title={title}
             formRows={formRows}
             formLayout={formLayout}
             handleSubmit={this.handleSubmit}

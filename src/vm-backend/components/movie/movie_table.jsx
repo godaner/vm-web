@@ -36,13 +36,13 @@ var MovieTable = React.createClass({
                 originalData: [],
                 page: {
                     start: 0,
-                    size: 100,
+                    size: 5,
                     orderBy: "",
                     orderType: "",
                     total: 0
                 },
                 query: {
-                    movienameQuery: ""
+                    name: ""
                 },
                 columns: [],
                 deletingTip: "正在删除"
@@ -51,8 +51,8 @@ var MovieTable = React.createClass({
     },
     onSearchMoviename(newMovienameQuery)
     {
-        this.updateMovieTableMovienameQuery(newMovienameQuery);
-        if (!isEmptyString(this.state.movieTable.query.movienameQuery)) {
+        this.updateNameOfQuery(newMovienameQuery);
+        if (!isEmptyString(this.state.movieTable.query.name)) {
             this.updateMovieTableHaveSearchMoviename(true);
         } else {
 
@@ -85,10 +85,10 @@ var MovieTable = React.createClass({
         selectedRowKeys = selectedRowKeys.removeByList(removeSelectedRowKeys);
         this.updateMovieTableSelectedRowKeys(selectedRowKeys);
     },
-    updateMovieTableMovienameQuery(newMovienameQuery)
+    updateNameOfQuery(name)
     {
         var state = this.state;
-        state.movieTable.query.movienameQuery = newMovienameQuery;
+        state.movieTable.query.name = name;
         this.setState(state);
     },
     updateMovieTableData(data)
@@ -208,7 +208,7 @@ var MovieTable = React.createClass({
                 width: 150,
                 dataIndex: 'name',
                 render: (text, record) => {
-                    return commons.highLight(text, this.state.movieTable.query.movienameQuery);
+                    return commons.highLight(text, this.state.movieTable.query.name);
                 },
                 sorter: true,
                 filterDropdown: (
@@ -273,6 +273,9 @@ var MovieTable = React.createClass({
                 title: '电影时长',
                 width: 150,
                 dataIndex: 'movie_time',
+                render: (text) => {
+                    return text +" 分钟";
+                },
                 sorter: true
             },
             {
