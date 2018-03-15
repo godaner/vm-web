@@ -18,11 +18,11 @@ var MovieImgUploaderDialog = React.createClass({
         return {
             // modelWidth: "350px",
             title: "更新电影图片",
-            width: 650,
+            width: 700,
             config: {
-                aspectRatio:2/1,
+                aspectRatio:1/1.5,
                 fileTypes: ["jpg", "png"],
-                fileMaxsize: 1024 * 1024 * 2,//2M
+                fileMaxsize: 1024 * 1024 * 1,//2M
                 saveImgUrl: "/movie/img",
                 uploadTempImgUrl: "/src/img",
                 server_url_prefix: vm_config.http_url_prefix,

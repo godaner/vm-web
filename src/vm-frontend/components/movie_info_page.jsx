@@ -275,7 +275,12 @@ var MovieInfoPage = React.createClass({
         //format releaseTime
         var releaseTime = timeFormatter.formatDate(this.state.movie.releaseTime);
         //imgUrl
-        var imgUrl = vm_config.http_url_prefix + this.state.movie.imgUrl;
+        var imgUrl = addUrlParam({
+            url:vm_config.http_url_prefix + this.state.movie.imgUrl,
+            obj:{
+                width:80
+            }
+        });
         return (
             <div id="movie_info_content">
                 <div id="basic_info">

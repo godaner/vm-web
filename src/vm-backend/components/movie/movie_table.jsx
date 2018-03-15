@@ -176,7 +176,7 @@ var MovieTable = React.createClass({
 
                     return <img onClick={() => this.showMovieImgUploaderDialog(record)} style={{
                         width: 50,
-                        height: 50,
+                        height: 75,
                         cursor: "pointer"
                     }} src={imageUrl} alt=""/>
 

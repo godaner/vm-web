@@ -1809,7 +1809,12 @@ var MoviesDisplayer = _react2.default.createClass({
                 state: { fromDashboard: true }
 
                 //imgUrl
-            };var imgUrl = vm_config.http_url_prefix + item.imgUrl;
+            };var imgUrl = addUrlParam({
+                url: vm_config.http_url_prefix + item.imgUrl,
+                obj: {
+                    width: 80
+                }
+            });
             return _react2.default.createElement(
                 'li',
                 { className: 'movie_item animated flipInX', key: item.id },
@@ -8283,7 +8288,12 @@ var MovieInfoPage = _react2.default.createClass({
         //format releaseTime
         var releaseTime = timeFormatter.formatDate(this.state.movie.releaseTime);
         //imgUrl
-        var imgUrl = vm_config.http_url_prefix + this.state.movie.imgUrl;
+        var imgUrl = addUrlParam({
+            url: vm_config.http_url_prefix + this.state.movie.imgUrl,
+            obj: {
+                width: 80
+            }
+        });
         return _react2.default.createElement(
             'div',
             { id: 'movie_info_content' },
