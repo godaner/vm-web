@@ -278,7 +278,7 @@ var MovieInfoPage = React.createClass({
         var imgUrl = addUrlParam({
             url:vm_config.http_url_prefix + this.state.movie.imgUrl,
             obj:{
-                width:80
+                width:300
             }
         });
         return (

@@ -1812,7 +1812,7 @@ var MoviesDisplayer = _react2.default.createClass({
             };var imgUrl = addUrlParam({
                 url: vm_config.http_url_prefix + item.imgUrl,
                 obj: {
-                    width: 80
+                    width: 300
                 }
             });
             return _react2.default.createElement(
@@ -8291,7 +8291,7 @@ var MovieInfoPage = _react2.default.createClass({
         var imgUrl = addUrlParam({
             url: vm_config.http_url_prefix + this.state.movie.imgUrl,
             obj: {
-                width: 80
+                width: 300
             }
         });
         return _react2.default.createElement(
