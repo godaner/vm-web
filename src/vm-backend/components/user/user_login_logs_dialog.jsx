@@ -10,13 +10,18 @@ var UserLoginLogsDialog = React.createClass({
         return {
             visible: false,
             title: "用户登录日志",
-            width: 1111
+            width: 1111,
         }
     },
     showDialog(userId){
-        c(this.getUserLoginLogsTable());
-        this.getUserLoginLogsTable().loadDataByUserId(userId);
+        // c(this.refs);
+        // c(this.refs.user_login_logs_table);
         this.setState({visible: true});
+        // this.setState({userId: userId});
+
+        setTimeout(function () {
+            this.getUserLoginLogsTable().loadDataByUserId(userId);
+        }.bind(this),10);
     },
     handleCancel(){
 
@@ -27,7 +32,7 @@ var UserLoginLogsDialog = React.createClass({
     },
     render: function () {
 
-        const {userId, visible, title, width} = this.state;
+        const {visible, title, width} = this.state;
         return (
             <Modal
                 id="user_login_logs_dialog"

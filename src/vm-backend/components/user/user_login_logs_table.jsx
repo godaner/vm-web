@@ -43,14 +43,14 @@ var UserLoginLogsTable = React.createClass({
             }
         }
     },
-    loadDataByUserId(userId){
-        this.updateUserIdOfQuery(userId);
-        this.loadUserLoginLogsTableData();
-    },
     updateUserIdOfQuery(userId){
         var state = this.state;
         state.userLoginLogsTable.query.userId = userId;
         this.setState(state);
+    },
+    loadDataByUserId(userId){
+        this.updateUserIdOfQuery(userId);
+        this.loadUserLoginLogsTableData();
     },
     onSearchUsername(username)
     {
@@ -233,6 +233,7 @@ var UserLoginLogsTable = React.createClass({
 
 
         ]);
+
         this.loadUserLoginLogsTableData();
     },
     handleTableChange(pagination, filters, sorter)
@@ -332,13 +333,12 @@ var UserLoginLogsTable = React.createClass({
     },
     render: function () {
 
-
         var {columns, data, page, tableLoading, refreshBtnLoading, bordered} = this.state.userLoginLogsTable;
 
 
         //set now page's props
         return (
-            <div>
+            <div id="user_login_logs_table">
                 <div style={{marginBottom: 16}}>
                     <Button
                         loading={refreshBtnLoading}

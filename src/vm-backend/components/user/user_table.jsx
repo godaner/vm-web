@@ -19,7 +19,7 @@ var UserTable = React.createClass({
 
         return {
             userImgUploaderDialog: {
-                title:"头像上传",
+                title: "头像上传",
                 config: {
                     width: 700,
                     aspectRatio: 1 / 1,
@@ -501,7 +501,7 @@ var UserTable = React.createClass({
 
         var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
 
-        const {config,title,width} = this.state.userImgUploaderDialog;
+        const {config, title, width} = this.state.userImgUploaderDialog;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
