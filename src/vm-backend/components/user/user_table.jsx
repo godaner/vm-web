@@ -48,7 +48,7 @@ var UserTable = React.createClass({
                 originalData: [],
                 page: {
                     start: 0,
-                    size: 5,
+                    size: 20,
                     orderBy: "",
                     orderType: "",
                     total: 0

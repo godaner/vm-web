@@ -12,7 +12,6 @@ import Nav from "./nav";
 import Routes from "./routes";
 import {ajax, commons} from "../base/vm_util";
 
-
 import "antd/dist/antd.css";
 import '../../scss/index/index.scss';
 
@@ -29,57 +28,45 @@ var Index = React.createClass({
 
     render: function () {
         //set now page's props
-        const {collapsed} = this.state;
+        // const {collapsed} = this.state;
 
 
         return (
             <div id="index">
                 <HashRouter>
+
                     <Layout style={{minHeight: '100vh'}}>
                         <Sider
-                            style={{overflow: 'auto', height: '100vh', position: 'fixed', left: 0}}
                             collapsible
-                            collapsed={collapsed}
+                            collapsed={this.state.collapsed}
                             onCollapse={this.onCollapse}
                         >
 
-                            <div className="logo"/>
                             {/*nav*/}
                             <Nav/>
                         </Sider>
-                        <Layout
-                            style={{marginLeft: 200}}
-                        >
-                            {/*style={{background: '#fff', padding: 0}}*/}
-                            <Header
-                                style={{
-                                    marginLeft: 200,
-                                    background: '#fff',
-                                    padding: 0,
-                                    position: 'fixed',
-                                    left: 0,
-                                    top: 0,
-                                    right: 0,
-                                    zIndex:9,//model之下，Content之上
-                                    padding:"0px 35px"
-                                }}>
+                        <Layout>
+                            <Header style={{ background: '#fff', padding: 0 }}>
                                 {/*head*/}
                                 <Head/>
                             </Header>
-                            <Content style={{margin: '70px 16px 0', overflow: 'initial'}}>
-                                {/*<Breadcrumb style={{margin: '16px 0'}}*/}
-                                {/*itemRender={itemRender} routes={routes}>*/}
-                                {/*<Breadcrumb.Item>User</Breadcrumb.Item>*/}
-                                {/*<Breadcrumb.Item>Bill</Breadcrumb.Item>*/}
-                                {/*</Breadcrumb>*/}
-                                <Routes/>
 
+                            <Content style={{ margin: '0 16px' }}>
+                                <Breadcrumb style={{ margin: '16px 0' }}>
+                                    <Breadcrumb.Item>User</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                                </Breadcrumb>
+
+                                <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                                    <Routes/>
+                                </div>
                             </Content>
                             <Footer style={{textAlign: 'center'}}>
                                 Vm backend ©2016 Created by Zhangke
                             </Footer>
                         </Layout>
                     </Layout>
+
 
                 </HashRouter>
                 {/*登录框*/}
