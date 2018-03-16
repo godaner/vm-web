@@ -234,8 +234,10 @@ var UserLoginLogsTable = React.createClass({
 
         ]);
 
-        this.loadUserLoginLogsTableData();
+        // this.loadUserLoginLogsTableData();
+        // 外部执行加载数据
     },
+
     handleTableChange(pagination, filters, sorter)
     {
 

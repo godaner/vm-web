@@ -15,16 +15,21 @@ const TextArea = Input.TextArea;
 import UserLoginLogsTable from "./user_login_logs_table";
 var UserLoginLogsPage = React.createClass({
     getInitialState: function () {
-
         return {}
     },
-
+    componentDidMount(){
+        this.getUserLoginLogsTable().loadUserLoginLogsTableData();
+    },
+    getUserLoginLogsTable(){
+        return this.refs.user_login_logs_table;
+    },
     render: function () {
 
         return (
             <div>
 
-                <UserLoginLogsTable/>
+                <UserLoginLogsTable
+                    ref="user_login_logs_table"/>
             </div>
         );
     }

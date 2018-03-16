@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_dialog.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_page.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_page.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_table.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/user/user_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/user/user_table.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -84,14 +83,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_login_logs_dialog.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_login_logs_dialog.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state relative-caret-position="540">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_login_logs_page.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_page.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="20" column="66" lean-forward="false" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,20 +109,10 @@
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="612">
-              <caret line="253" column="42" lean-forward="false" selection-start-line="253" selection-start-column="42" selection-end-line="253" selection-end-column="42" />
+              <caret line="254" column="11" lean-forward="true" selection-start-line="254" selection-start-column="11" selection-end-line="254" selection-end-column="11" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="head.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/head.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -167,11 +166,11 @@
       <find>登录</find>
       <find>user_login_logs_dialog</find>
       <find>loadUserLoginLogsTableData</find>
-      <find>comp</find>
       <find>com</find>
       <find>userId</find>
-      <find>loadDataByUserId</find>
       <find>getUserLoginLogsDialog</find>
+      <find>loadDataByUserId</find>
+      <find>comp</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -219,7 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/backend/components/user/user_page.jsx" />
         <option value="$PROJECT_DIR$/src/backend/package.json" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/img_uploader.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader_dialog.jsx" />
@@ -268,8 +266,9 @@
         <option value="$PROJECT_DIR$/src/vm-backend/scss/index/nav.scss" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_table.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_dialog.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_table.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_page.jsx" />
       </list>
     </option>
   </component>
@@ -982,12 +981,12 @@
       <workItem from="1521094170081" duration="644000" />
       <workItem from="1521100194258" duration="639000" />
       <workItem from="1521101253932" duration="6835000" />
-      <workItem from="1521169852508" duration="24126000" />
+      <workItem from="1521169852508" duration="24643000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243053000" />
+    <option name="totallyTimeSpent" value="243570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1087,13 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_page.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1454,16 +1446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="253" column="42" lean-forward="false" selection-start-line="253" selection-start-column="42" selection-end-line="253" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="541">
@@ -1474,11 +1456,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="540">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_table.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="254" column="11" lean-forward="true" selection-start-line="254" selection-start-column="11" selection-end-line="254" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_page.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="66" lean-forward="false" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
