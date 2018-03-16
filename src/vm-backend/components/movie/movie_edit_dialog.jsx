@@ -229,6 +229,7 @@ var MovieEditDialog = React.createClass({
                             id: "movieTime",
                             config: {
                                 initialValue: echoData.movieTime,
+                                rules: [{required: true, message: '请输入电影时长!'}],
                             }
                             ,
                             input: <Input name="movieTime"

@@ -1,14 +1,14 @@
 import React from "react";
-import { Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload } from "antd";
+import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
 import moment from 'moment';
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
 import "../../scss/movie/movie_page.scss";
 import "../base/events_dispatcher";
-import { ajax, commons } from "../base/vm_util";
+import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
 const Option = Select.Option;
-const { Header, Content, Footer, Sider } = Layout;
+const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
 const TextArea = Input.TextArea;
@@ -16,6 +16,7 @@ var MovieAddDialog = React.createClass({
     getInitialState() {
         return {
             addMovieUrl: "/movie/info",
+            tipOfAddingMovie: "正在添加电影"
         };
     },
     showDialog() {
@@ -26,10 +27,11 @@ var MovieAddDialog = React.createClass({
         return this.refs.movie_add_dialog;
     },
     handleSubmit(values) {
-        const hideMessage = message.loading('正在添加用户', 0);
-        const { addMovieUrl } = this.state;
+        const {tipOfAddingMovie} = this.state;
+        const hideMessage = message.loading(tipOfAddingMovie, 0);
+        const {addMovieUrl} = this.state;
         var filterValues = function (values) {
-            values.birthday = timeFormatter.long2Int(new Date(values.birthday._d).getTime());
+            values.releaseTime = timeFormatter.long2Int(new Date(values.releaseTime._d).getTime());
             return values;
         }
         values = filterValues(values);
@@ -37,7 +39,7 @@ var MovieAddDialog = React.createClass({
             url: addMovieUrl,
             data: values,
             success: function (result) {
-                const { onAddSuccess } = this.props;
+                const {onAddSuccess} = this.props;
 
                 message.success(result.msg);
                 this.getMovieAddDialog().closeDialog();
@@ -70,104 +72,145 @@ var MovieAddDialog = React.createClass({
     render() {
 
 
+        var formLayout = "horizontal";
+
         var formRows = [
-            {
+                {
+                    cols: [
 
-                cols: [{
-                    col: { span: 11 },
-                    label: "用户名",
-                    id: "moviename",
-                    config: {
-                        rules: [{ required: true, whitespace: true, message: '请输入用户名!' }],
-                    },
-                    input: <Input autoComplete="off"
-                        name="moviename"
-                        prefix={<Icon type="movie" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                        placeholder="用户名" />
-                }, {
-                    col: { span: 2 },
-                    input: <div></div>
-                }, {
-                    col: { span: 11 },
-                    label: "密码",
-                    id: "password",
-                    config: {
-                        rules: [{ required: true, whitespace: true, message: '请输入密码!' }],
-                    },
-                    input: <Input name="password"
-                        autoComplete="off"
-                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                        placeholder="密码" />
-                }]
-            }
-            ,
-            {
-                cols: [
-                    {
-                        col: { span: 11 },
-                        label: "用户名",
-                        id: "birthday",
-                        config: {
-                            rules: [{ type: 'object', required: true, message: '请输入你的生日!' }],
 
+                        {
+                            col: {span: 11},
+                            label: "名称",
+                            id: "name",
+                            config: {
+                                rules: [{required: true, message: '请输入电影名称!'}],
+
+                            }
+                            ,
+                            input: <Input placeholder="请输入电影名称" name="name"/>
                         },
-                        input: <DatePicker placeholder="请输入生日" />
-                    }, {
-                        col: { span: 2 },
-                        input: <div></div>
-
-                    }, {
-                        col: { span: 11 },
-                        label: "性别",
-                        id: "sex",
-                        config: {
-                            rules: [
-                                { required: true, message: '请输入你的性别!' }],
+                        {
+                            col: {span: 2},
+                            input: <div></div>
                         },
-                        input: <Select placeholder="请输入你的性别">
-                            <Option value="1">男</Option>
-                            <Option value="2">女</Option>
-                            <Option value="3">未知</Option>
-                        </Select>
-                    }]
-            }
-            ,
-            {
-                cols: [{
-                    label: "简介",
-                    id: "description",
-                    config: {
-                        rules: [
-                            { required: true, message: '请输入简介!' }],
-                        // initialValue: "1"
-                    },
-                    input: <TextArea placeholder="请输入简介" autosize={{ minRows: 4, maxRows: 8 }} />
-                }]
-            }
-            ,
-            {
-                cols: [{
-                    label: "状态",
-                    id: "status",
-                    config: {
-                        rules: [
-                            { required: true, message: '请输入状态!' }],
-                        // initialValue: "1"
-                    },
-                    input: <Select placeholder="请输入状态">
-                        <Option value="1">正常</Option>
-                        <Option value="2">冻结</Option>
-                    </Select>
-                }]
-            }
+                        {
+                            col: {span: 11},
+                            label: "电影时长",
+                            id: "movieTime",
+                            config: {
+                                rules: [{required: true, whitespace: true, message: '请输入电影时长!'}],
+                            },
+                            input: <Input name="movieTime"
+                                          prefix={<Icon type="movie"
+                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                          autoComplete="off"
+                                          placeholder="请输入电影时长"/>
+                        }
+                    ]
 
-        ];
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 11},
+                            label: "状态",
+                            id: "status",
+                            config: {
+                                rules: [{required: true, message: '请输入状态!'}],
+                            }
+                            ,
+                            input: <Select placeholder="请输入状态">
+                                <Option value="1">正常</Option>
+                                <Option value="2">冻结</Option>
+                            </Select>
+                        }
+                        ,
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "别名",
+                            id: "alias",
+                            config: {
+                                rules: [{required: true, whitespace: true, message: '请输入电影别名!'}],
+                            },
+                            input: <Input name="alias"
+                                          prefix={<Icon type="movie"
+                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                          autoComplete="off"
+                                          placeholder="请输入电影别名"/>
+                        }
+                    ]
+
+
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 11},
+                            label: "发布时间",
+                            id: "releaseTime",
+                            config: {
+                                rules: [{type: 'object', required: true, whitespace: true, message: '请输入发布时间!'}],
+                            }
+                            ,
+                            input: <DatePicker name="releaseTime"
+                                               autoComplete="off"
+                                               placeholder="请输入发布时间"/>
+                        },
+
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "电影时长(分钟)",
+                            id: "movieTime",
+                            config: {
+
+                                rules: [{required: true, message: '请输入简介!'}],
+                            }
+                            ,
+                            input: <Input name="movieTime"
+                                          autoComplete="off"
+                                          placeholder="请输入电影时长"/>
+                        }
+                    ]
+
+
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "简介",
+                            id: "description",
+                            config: {
+                                rules: [{required: true, message: '请输入简介!'}],
+                            }
+                            ,
+                            input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
+                        }
+
+
+                    ]
+
+
+                },
+
+
+            ]
+        ;
         return <EditDialogTemple
             title="添加用户"
             formRows={formRows}
             handleSubmit={this.handleSubmit}
             handleCancel={this.handleCancel}
-            ref="movie_add_dialog" />;
+            ref="movie_add_dialog"/>;
     }
 });
 

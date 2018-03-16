@@ -53,7 +53,7 @@ var MovieTable = React.createClass({
                 editable: false,
                 haveSearchMoviename: false,
                 movienameDropdownVisible: false,
-                bordered: false,
+                bordered: true,
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
                 refreshBtnLoading: false,
@@ -197,8 +197,8 @@ var MovieTable = React.createClass({
                 sorter: true
             },
             {
-                title: '封面',
-                width: 100,
+                title: '图片',
+                width: 90,
                 dataIndex: 'imgUrl',
                 render: (text, record) => {
                     const imageUrl = commons.generateImgUrl({
@@ -217,7 +217,7 @@ var MovieTable = React.createClass({
             },
             {
                 title: '播放封面',
-                width: 100,
+                width: 120,
                 dataIndex: 'posterUrl',
                 render: (text, record) => {
                     const imageUrl = commons.generateImgUrl({
@@ -237,7 +237,7 @@ var MovieTable = React.createClass({
             },
             {
                 title: '电影名',
-                width: 150,
+                width: 120,
                 dataIndex: 'name',
                 render: (text, record) => {
                     return commons.highLight(text, this.state.movieTable.query.name);
@@ -289,19 +289,19 @@ var MovieTable = React.createClass({
             },
             {
                 title: '评分',
-                width: 100,
+                width: 80,
                 dataIndex: 'score',
                 sorter: true
             },
             {
                 title: '观看数',
-                width: 150,
+                width: 80,
                 dataIndex: 'watch_num',
                 sorter: true
             },
             {
-                title: '电影时长',
-                width: 150,
+                title: '时长',
+                width: 80,
                 dataIndex: 'movie_time',
                 render: (text) => {
                     return text + " 分钟";
@@ -310,7 +310,7 @@ var MovieTable = React.createClass({
             },
             {
                 title: '状态',
-                width: 100,
+                width: 80,
                 dataIndex: 'status',
                 render: (text) => {
                     return text == 1 ? "正常" : text == 2 ? "冻结" : text;
@@ -319,7 +319,7 @@ var MovieTable = React.createClass({
             },
 
             {
-                title: '最后更新时间',
+                title: '更新时间',
                 width: 100,
                 dataIndex: 'update_time',
                 render: (text) => {
@@ -340,7 +340,7 @@ var MovieTable = React.createClass({
             {
                 title: '操作',
                 dataIndex: 'operation',
-                width: 150,
+                width: 100,
                 render: (text, record) => {
                     return <div>
                         <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
