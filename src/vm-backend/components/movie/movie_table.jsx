@@ -8,6 +8,7 @@ import {ajax, commons} from "../base/vm_util";
 import MovieEditDialog from "./movie_edit_dialog";
 import MovieAddDialog from "./movie_add_dialog";
 import MovieImgUploaderDialog from "./movie_img_uploader_dialog";
+import MoviePosterUploaderDialog from "./movie_poster_uploader_dialog";
 
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
@@ -150,6 +151,12 @@ var MovieTable = React.createClass({
     closeMovieImgUploaderDialog(){
         this.refs.movie_img_uploader_dialog.closeDialog();
     },
+    showMoviePosterUploaderDialog(record){
+        this.refs.movie_poster_uploader_dialog.showDialog(record);
+    },
+    closeMoviePosterUploaderDialog(){
+        this.refs.movie_poster_uploader_dialog.closeDialog();
+    },
     componentDidMount()
     {
 
@@ -171,7 +178,6 @@ var MovieTable = React.createClass({
                             width: "50"
                         }
                     });
-                    c(record);
 
 
                     return <img onClick={() => this.showMovieImgUploaderDialog(record)} style={{
@@ -185,7 +191,7 @@ var MovieTable = React.createClass({
             {
                 title: '播放封面',
                 width: 100,
-                dataIndex: 'postUrl',
+                dataIndex: 'posterUrl',
                 render: (text, record) => {
                     const imageUrl = commons.addUrlParam({
                         url: vm_config.http_url_prefix + text,
@@ -195,9 +201,9 @@ var MovieTable = React.createClass({
                     });
 
 
-                    return <img onClick={() => this.showMovieImgUploaderDialog(record)} style={{
+                    return <img onClick={() => this.showMoviePosterUploaderDialog(record)} style={{
                         width: 50,
-                        height: 50,
+                        height: 75,
                         cursor: "pointer"
                     }} src={imageUrl} alt=""/>
 
@@ -355,6 +361,7 @@ var MovieTable = React.createClass({
                 key: item.id,
                 id: item.id,
                 imgUrl: item.imgUrl,
+                posterUrl: item.posterUrl,
                 name: item.name,
                 alias: item.alias,
                 description: item.description,
@@ -363,7 +370,6 @@ var MovieTable = React.createClass({
                 score: item.score,
                 watch_num: item.watchNum,
                 movie_time: item.movieTime,
-                posterUrl: item.posterUrl,
                 create_time: item.createTime,
                 update_time: item.updateTime,
                 status: item.status
@@ -498,6 +504,10 @@ var MovieTable = React.createClass({
         this.onEditSuccess(result.data.movie);
         this.closeMovieImgUploaderDialog();
     },
+    onUpdatePosterSuccess(result){
+        this.onEditSuccess(result.data.movie);
+        this.closeMoviePosterUploaderDialog();
+    },
     render: function () {
 
         const {echoData} = this.state.movieEditDialog;
@@ -588,6 +598,9 @@ var MovieTable = React.createClass({
                 <MovieImgUploaderDialog
                     ref="movie_img_uploader_dialog"
                     onUpdateImgSuccess={this.onUpdateImgSuccess}/>
+                <MoviePosterUploaderDialog
+                    ref="movie_poster_uploader_dialog"
+                    onUpdateImgSuccess={this.onUpdatePosterSuccess}/>
             </div>
         );
     }
