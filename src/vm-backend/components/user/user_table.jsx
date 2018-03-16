@@ -165,19 +165,14 @@ var UserTable = React.createClass({
                 width: 100,
                 dataIndex: 'imgUrl',
                 render: (text, record) => {
-                    const imageUrl = commons.addUrlParam({
-                        url: vm_config.http_url_prefix + text,
-                        obj: {
-                            width: "50"
-                        }
-                    });
+                    const imageUrl = vm_config.http_url_prefix + text + "/" + 50;
 
 
                     return <img onClick={() => this.showUserImgUploaderDialog(record)} style={{
                         width: 50,
                         height: 50,
                         cursor: "pointer"
-                    }} src={imageUrl} alt=""/>
+                    }} src={imageUrl} alt="暂无"/>
 
                 }
             },
@@ -469,10 +464,7 @@ var UserTable = React.createClass({
         return this.refs.user_login_logs_dialog;
     },
     showUserLoginLogsDialog(userId){
-        c(userId);
-        c(this);
-        c(this.refs);
-        c(this.getUserLoginLogsDialog());
+
         this.getUserLoginLogsDialog().showDialog(userId);
     },
     render: function () {

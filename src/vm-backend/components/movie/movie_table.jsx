@@ -184,7 +184,7 @@ var MovieTable = React.createClass({
                         width: 50,
                         height: 75,
                         cursor: "pointer"
-                    }} src={imageUrl} alt=""/>
+                    }} src={imageUrl} alt="暂无"/>
 
                 }
             },
@@ -196,16 +196,16 @@ var MovieTable = React.createClass({
                     const imageUrl = commons.addUrlParam({
                         url: vm_config.http_url_prefix + text,
                         obj: {
-                            width: "50"
+                            width: "80"
                         }
                     });
 
 
                     return <img onClick={() => this.showMoviePosterUploaderDialog(record)} style={{
-                        width: 50,
-                        height: 75,
+                        width: 80,
+                        height: 53,
                         cursor: "pointer"
-                    }} src={imageUrl} alt=""/>
+                    }} src={imageUrl} alt="暂无"/>
 
                 }
             },
@@ -317,8 +317,6 @@ var MovieTable = React.createClass({
                 width: 150,
                 render: (text, record) => {
                     return <div>
-                        <a onClick={() => this.showMovieLoginLogsDialog(record.id)} href="javascript:void(0);">登录日志</a>
-                        &nbsp;&nbsp;
                         <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
                         &nbsp;&nbsp;
                         <Popconfirm title="确认删除 ? "

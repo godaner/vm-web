@@ -20,8 +20,8 @@ var Head = React.createClass({
             protectedUserPageLists: ["/user/[0-9/_-a-zA-Z]*"],
             user: {},//默认为空对象
             pollOnlineUserStatusTimer: undefined,
-            pollOnlineUserStatusTimerInterval:10000,
-            isFirstVisitPage:true//用于辅助轮询
+            pollOnlineUserStatusTimerInterval: 10000,
+            isFirstVisitPage: true//用于辅助轮询
         };
     },
     componentDidMount: function () {
@@ -30,31 +30,31 @@ var Head = React.createClass({
         this.startPollOnlineUserStatus();
         //set is first visit page flag
     },
-    setIsFirstVisitPage:function (bol) {
+    setIsFirstVisitPage: function (bol) {
         var state = this.state;
         state.isFirstVisitPage = bol;
         this.setState(state);
     },
-    stopPollOnlineUserStatus:function () {
-        if(!isUndefined(this.state.pollOnlineUserStatusTimer)){
+    stopPollOnlineUserStatus: function () {
+        if (!isUndefined(this.state.pollOnlineUserStatusTimer)) {
             clearInterval(this.state.pollOnlineUserStatusTimer);
             this.setPollOnlineUserStatusTimer(undefined);
         }
     },
-    startPollOnlineUserStatus:function () {
-        if(!isUndefined(this.state.pollOnlineUserStatusTimer)){
-            return ;
+    startPollOnlineUserStatus: function () {
+        if (!isUndefined(this.state.pollOnlineUserStatusTimer)) {
+            return;
         }
 
         this.pollOnlineUserStatus();
         var pollOnlineUserStatusTimer = setInterval(function () {
             this.pollOnlineUserStatus();
-        }.bind(this),this.state.pollOnlineUserStatusTimerInterval);
+        }.bind(this), this.state.pollOnlineUserStatusTimerInterval);
         //set poll timer
         this.setPollOnlineUserStatusTimer(pollOnlineUserStatusTimer);
 
     },
-    pollOnlineUserStatus:function () {
+    pollOnlineUserStatus: function () {
         window.VmFrontendEventsDispatcher.feelerOnlineUser({
             onFeelerOnlineUser: function (isOnline, u) {
 
@@ -67,18 +67,18 @@ var Head = React.createClass({
                     //when user is online,open websocket
                     window.VmFrontendEventsDispatcher.protectPage();
                     //tip user
-                    if(!this.state.isFirstVisitPage){
+                    if (!this.state.isFirstVisitPage) {
                         window.VmFrontendEventsDispatcher.showMsgDialog(this.state.tipOfOffLine);
                     }
 
-                }else{
+                } else {
                     this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
                 }
                 this.setIsFirstVisitPage(false);
             }.bind(this)
         });
     },
-    setPollOnlineUserStatusTimer:function (pollOnlineUserStatusTimer) {
+    setPollOnlineUserStatusTimer: function (pollOnlineUserStatusTimer) {
         var state = this.state;
         state.pollOnlineUserStatusTimer = pollOnlineUserStatusTimer;
         this.setState(state);
@@ -94,6 +94,7 @@ var Head = React.createClass({
             const url = "/user/feelerOnlineUser";
             ajax.get({
                 url: url,
+                ignoreAjaxError: true,
                 onBeforeRequest: function () {
                 }.bind(this),
                 onResponseStart: function () {
@@ -249,7 +250,7 @@ var Head = React.createClass({
                 pathname: this.state.onlineUserBasicInfoUrl
             };
             //imgUrl
-            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "&width=50";
+            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "/" + 50;
             return (
                 <span>
                     <li>

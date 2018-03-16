@@ -20,7 +20,7 @@ var MoviePosterUploaderDialog = React.createClass({
             title: "更新电影封面",
             width: 700,
             config: {
-                aspectRatio:1/1.5,
+                aspectRatio:1.5/1,
                 fileTypes: ["jpg", "png"],
                 fileMaxsize: 1024 * 1024 * 1,//2M
                 saveImgUrl: "/movie/poster",
@@ -64,7 +64,7 @@ var MoviePosterUploaderDialog = React.createClass({
 
         this.refs.img_uploader_dialog_template.showDialog();
         this.refs.img_uploader_dialog_template.previewImg(commons.addUrlParam({
-            url:record.imgUrl,
+            url:record.posterUrl,
             obj:{
                 width:"300"
             }

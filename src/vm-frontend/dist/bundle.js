@@ -2828,9 +2828,17 @@ var MoviePlayer = _react2.default.createClass({
                     var version = versionsInfo[i];
                     videos.push([version.srcUrl, 'video/mp4', this.movieSharpness(version.sharpness), version.weight]);
                 }
+                videos.push(['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '1080', 1080]);
                 //init movie player
                 var options = {};
-                options.poster = result.data.posterUrl;
+                // const posterUrl = addUrlParam({
+                //     url: vm_config.http_url_prefix + result.data.posterUrl,
+                //     obj: {
+                //         width: 300
+                //     }
+                // });
+                var posterUrl = "http://192.168.0.122:5551/src/img/707/300";
+                options.poster = posterUrl;
                 options.video = videos;
                 //init movie player
                 this.initPlayer(options);
@@ -2847,6 +2855,8 @@ var MoviePlayer = _react2.default.createClass({
         });
     },
     initPlayer: function initPlayer(options) {
+        c("options.poster");
+        c(options.poster);
         var videoObject = {
             container: '#m_player', //“#”代表容器的ID，“.”或“”代表容器的class
             variable: 'player', //该属性必需设置，值等于下面的new chplayer()的对象
@@ -8608,6 +8618,7 @@ var Head = _react2.default.createClass({
             var url = "/user/feelerOnlineUser";
             ajax.get({
                 url: url,
+                ignoreAjaxError: true,
                 onBeforeRequest: function () {}.bind(_this),
                 onResponseStart: function () {}.bind(_this),
                 onResponseSuccess: function (result) {
@@ -8746,7 +8757,7 @@ var Head = _react2.default.createClass({
                 pathname: this.state.onlineUserBasicInfoUrl
             };
             //imgUrl
-            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "&width=50";
+            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "/" + 50;
             return _react2.default.createElement(
                 "span",
                 null,
@@ -10287,13 +10298,7 @@ var UserHeadPage = _react2.default.createClass({
         window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser: function (u) {
 
-                var imgUrl = timestamp(u.imgUrl);
-                imgUrl = addUrlParam({
-                    url: imgUrl,
-                    obj: {
-                        width: this.state.userHeadRequestWidth
-                    }
-                });
+                var imgUrl = timestamp(u.imgUrl + "/" + this.state.userHeadRequestWidth);
 
                 this.previewHeadImg(imgUrl);
             }.bind(this)

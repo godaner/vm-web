@@ -5,12 +5,9 @@ function fail(code) {
 function success(code) {
     return code > 0;
 }
-function offline(code){
+function offline(code) {
     return code == HTTP_RESPONSE_CODE_USER_IS_OFFLINE;
 }
-
-
-
 
 
 //开始懒加载，依赖jquery.lazyload.js
@@ -26,7 +23,7 @@ function lazyLoad() {
  */
 var ajax = {
     ajaxError: "网络不佳,请稍后重试",
-    offline:"您已离线",
+    offline: "您已离线",
     startResponse(args, result){
         window.EventsDispatcher.closeLoading();
         if (!isUndefined(args)) {
@@ -46,7 +43,7 @@ var ajax = {
         if (isUndefined(result)) {
             return;
         }
-        if(offline(result.code)){//离线
+        if (offline(result.code)) {//离线
             //show some tip
             window.VmFrontendEventsDispatcher.showMsgDialog(this.offline, function () {
 
@@ -54,7 +51,7 @@ var ajax = {
             //protect user page
             window.VmFrontendEventsDispatcher.protectPage();
 
-            return ;
+            return;
         }
         if (fail(result.code) && !isUndefined(args.onResponseFailure)) {
             args.onResponseFailure(result);
@@ -68,10 +65,12 @@ var ajax = {
         console.error(XMLHttpRequest);
         console.error(textStatus);
         console.error(errorThrown);
+        if (args.ignoreAjaxError != true) {
+            window.VmFrontendEventsDispatcher.showMsgDialog(this.ajaxError, function () {
 
-        window.VmFrontendEventsDispatcher.showMsgDialog(this.ajaxError, function () {
+            });
+        }
 
-        });
         if (!isUndefined(args.onRequestError)) {
             args.onRequestError();
         }
