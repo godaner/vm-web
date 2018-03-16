@@ -13,7 +13,6 @@ const TextArea = Input.TextArea;
 var UserLoginLogsTable = React.createClass({
     getInitialState: function () {
 
-        const {userId} = this.props;
         return {
             userEditDialog: {
                 echoData: undefined
@@ -37,12 +36,21 @@ var UserLoginLogsTable = React.createClass({
                 },
                 query: {
                     username: "",
-                    userId: userId
+                    userId: null
                 },
                 columns: [],
                 deletingTip: "正在删除"
             }
         }
+    },
+    loadDataByUserId(userId){
+        this.updateUserIdOfQuery(userId);
+        this.loadUserLoginLogsTableData();
+    },
+    updateUserIdOfQuery(userId){
+        var state = this.state;
+        state.userLoginLogsTable.query.userId = userId;
+        this.setState(state);
     },
     onSearchUsername(username)
     {
@@ -367,4 +375,4 @@ var UserLoginLogsTable = React.createClass({
 });
 
 
-export default withRouter(UserLoginLogsTable);   //将App组件导出
+export default UserLoginLogsTable;   //将App组件导出

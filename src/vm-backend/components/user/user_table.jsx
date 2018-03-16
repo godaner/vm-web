@@ -48,7 +48,7 @@ var UserTable = React.createClass({
                 originalData: [],
                 page: {
                     start: 0,
-                    size: 20,
+                    size: 5,
                     orderBy: "",
                     orderType: "",
                     total: 0
@@ -408,7 +408,7 @@ var UserTable = React.createClass({
     showEditDialog(record)
     {
         record = commons.getObjByKey(this.state.userTable.originalData, "id", record.id);
-        c(record);
+
         this.updateUserEditDialogEchoData(record)
 
         this.getUserEditDialog().showDialog();
@@ -493,7 +493,6 @@ var UserTable = React.createClass({
         return this.refs.user_login_logs_dialog;
     },
     showUserLoginLogsDialog(userId){
-
         this.getUserLoginLogsDialog().showDialog(userId);
     },
     render: function () {

@@ -7,22 +7,23 @@ import "../base/events_dispatcher";
 import UserLoginLogsTable from "./user_login_logs_table";
 var UserLoginLogsDialog = React.createClass({
     getInitialState: function () {
-
-
         return {
-            userId: null,
             visible: false,
             title: "用户登录日志",
             width: 1111
         }
     },
     showDialog(userId){
-        this.setState({userId: userId});
+        c(this.getUserLoginLogsTable());
+        this.getUserLoginLogsTable().loadDataByUserId(userId);
         this.setState({visible: true});
     },
     handleCancel(){
 
         this.setState({visible: false});
+    },
+    getUserLoginLogsTable(){
+        return this.refs.user_login_logs_table;
     },
     render: function () {
 
@@ -36,11 +37,11 @@ var UserLoginLogsDialog = React.createClass({
                 onCancel={this.handleCancel}
                 footer={null}>
                 <UserLoginLogsTable
-                    userId={userId}/>
+                    ref="user_login_logs_table"/>
             </Modal>
         );
     }
 });
 
 
-export default (UserLoginLogsDialog);   //将App组件导出
+export default UserLoginLogsDialog;   //将App组件导出
