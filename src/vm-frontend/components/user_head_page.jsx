@@ -43,12 +43,10 @@ var UserHeadPage = React.createClass({
         this.getUserHeadUploader().previewImg(imgUrl);
     },
     onUpdateImgSuccess(result){
-        c(result);
         this.getUserHeadUploader().previewImg(generateImgUrl({
             imgUrl: result.data.imgUrl,
             width: 300
         }));
-        window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
         window.EventsDispatcher.updateHeadComponentUser(result.data.user);
     },
     onUploadTempImgSuccess(result){

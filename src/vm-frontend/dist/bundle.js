@@ -10311,12 +10311,10 @@ var UserHeadPage = _react2.default.createClass({
         this.getUserHeadUploader().previewImg(imgUrl);
     },
     onUpdateImgSuccess: function onUpdateImgSuccess(result) {
-        c(result);
         this.getUserHeadUploader().previewImg(generateImgUrl({
             imgUrl: result.data.imgUrl,
             width: 300
         }));
-        window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
         window.EventsDispatcher.updateHeadComponentUser(result.data.user);
     },
     onUploadTempImgSuccess: function onUploadTempImgSuccess(result) {
@@ -10429,12 +10427,12 @@ var ImgUpload = _react2.default.createClass({
         var config = this.props.config;
         return {
             config: config,
-            uploadTempImgTip: "正在读取头像",
-            saveImg: "正在保存头像",
+            uploadTempImgTip: "正在读取图片",
+            saveImg: "正在保存图片",
             userImgFileTooMax: "文件过大,最大允许 : " + config.fileMaxsize / 1024 + " kb",
             userImgFileExtError: "文件类型错误,允许的文件类型 : " + config.fileTypes,
             userImgFileIsEmpty: "请选择一个文件",
-            userImgUpdateSuccess: "头像更新成功",
+            userImgUpdateSuccess: "图片更新成功",
             willUpdatedImgInfo: {
                 fileId: undefined //服务器临时保存的用户头像的filename，如a.png，如果为undefined，那么将禁止其更新头像
             },
@@ -10612,10 +10610,6 @@ var ImgUpload = _react2.default.createClass({
                 this.updateTempFileId(result.data.fileId);
 
                 this.props.onUploadTempImgSuccess(result);
-
-                //更新服务器暂存图片访问地址
-                // this.previewImg(result.data.imgUrl);
-                // this.initCropper();
             }.bind(this),
             onResponseFailure: function (result) {}.bind(this),
             onResponseEnd: function () {
@@ -10637,8 +10631,6 @@ var ImgUpload = _react2.default.createClass({
     },
     saveImg: function saveImg(callfun) {
 
-        // var imgInput = this.getImgInput();
-        // var imgFile = this.getImgFile();
         try {
             this.validateImgFileOnSubmit();
         } catch (e) {
@@ -10663,19 +10655,14 @@ var ImgUpload = _react2.default.createClass({
             }.bind(this),
             onResponseSuccess: function (result) {
 
-                // c("result");
-                // c(result);
-                this.props.onUpdateImgSuccess(result);
-                // this.previewImg(result.data.tempImgUrl);
+                window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
 
                 // clear temp filename
                 this.updateTempFileId(undefined);
 
                 this.clearImgInput();
 
-                //preview new img
-                // this.previewImg(result.data.newImgUrl);
-
+                this.props.onUpdateImgSuccess(result);
             }.bind(this),
             onResponseFailure: function (result) {}.bind(this),
             onResponseEnd: function () {
