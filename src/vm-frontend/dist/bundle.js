@@ -10278,11 +10278,11 @@ var UserHeadPage = _react2.default.createClass({
 
     getInitialState: function getInitialState() {
         var config = {
+            aspectRatio: 1 / 1,
             fileTypes: ["jpg", "png"],
             fileMaxsize: 1024 * 1024 * 2, //2M
             saveImgUrl: "/user/online/img",
-            uploadTempImgUrl: "/src/img",
-            server_url_prefix: vm_config.http_url_prefix
+            uploadTempImgUrl: "/src/img"
         };
         return {
             config: config,
@@ -10295,10 +10295,12 @@ var UserHeadPage = _react2.default.createClass({
     componentDidMount: function componentDidMount() {
         window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser: function (u) {
-
-                var imgUrl = timestamp(u.imgUrl + "/" + this.state.userHeadRequestWidth);
-
-                this.previewHeadImg(imgUrl);
+                var imgUrl = generateImgUrl({
+                    imgUrl: u.imgUrl,
+                    width: this.state.userHeadRequestWidth
+                });
+                //预览头像
+                this.getUserHeadUploader().previewImg(imgUrl);
             }.bind(this)
         });
     },
@@ -10309,7 +10311,19 @@ var UserHeadPage = _react2.default.createClass({
         this.getUserHeadUploader().previewImg(imgUrl);
     },
     onUpdateImgSuccess: function onUpdateImgSuccess(result) {
+        c(result);
+        this.getUserHeadUploader().previewImg(generateImgUrl({
+            imgUrl: result.data.imgUrl,
+            width: 300
+        }));
+        window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
         window.EventsDispatcher.updateHeadComponentUser(result.data.user);
+    },
+    onUploadTempImgSuccess: function onUploadTempImgSuccess(result) {
+
+        this.getUserHeadUploader().previewImg(generateImgUrl({
+            imgUrl: result.data.imgUrl
+        }));
     },
 
     render: function render() {
@@ -10321,7 +10335,8 @@ var UserHeadPage = _react2.default.createClass({
                 { id: "react_img_uploader" },
                 _react2.default.createElement(_img_uploader2.default, { ref: "userHeadUploader",
                     config: this.state.config,
-                    onUpdateImgSuccess: this.onUpdateImgSuccess })
+                    onUpdateImgSuccess: this.onUpdateImgSuccess,
+                    onUploadTempImgSuccess: this.onUploadTempImgSuccess })
             ),
             _react2.default.createElement(
                 "div",
@@ -10463,6 +10478,11 @@ var ImgUpload = _react2.default.createClass({
         this.setState(state);
     },
     previewImg: function previewImg(imgUrl) {
+        setTimeout(function () {
+            this.previewImgWait(imgUrl);
+        }.bind(this));
+    },
+    previewImgWait: function previewImgWait(imgUrl) {
 
         var updateWillUpdateUserImgInfo = function (e) {
 
@@ -10488,7 +10508,7 @@ var ImgUpload = _react2.default.createClass({
         var $previews = $('.preview');
         //cropper options
         var options = {
-            aspectRatio: 1 / 1,
+            aspectRatio: this.state.config.aspectRatio,
             viewMode: 2,
             ready: function ready(e) {
                 // console.log(e.type);
@@ -10551,7 +10571,7 @@ var ImgUpload = _react2.default.createClass({
         }
         // a(this.state.config.server_url_prefix + imgUrl);
 
-        this.state.$imgPreview.cropper("replace", this.state.config.server_url_prefix + imgUrl);
+        this.state.$imgPreview.cropper("replace", imgUrl);
     },
     uploadTempImg: function uploadTempImg(callfun) {
 
@@ -10588,11 +10608,13 @@ var ImgUpload = _react2.default.createClass({
                 window.EventsDispatcher.closeLoading();
             }.bind(this),
             onResponseSuccess: function (result) {
-                //更新服务器暂存图片访问地址
-                this.previewImg(result.data.imgUrl);
                 //更新服务器暂存图片名
                 this.updateTempFileId(result.data.fileId);
 
+                this.props.onUploadTempImgSuccess(result);
+
+                //更新服务器暂存图片访问地址
+                // this.previewImg(result.data.imgUrl);
                 // this.initCropper();
             }.bind(this),
             onResponseFailure: function (result) {}.bind(this),
@@ -10646,15 +10668,14 @@ var ImgUpload = _react2.default.createClass({
                 this.props.onUpdateImgSuccess(result);
                 // this.previewImg(result.data.tempImgUrl);
 
-                window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
-
                 // clear temp filename
                 this.updateTempFileId(undefined);
 
-                //preview new img
-                this.previewImg(result.data.newImgUrl);
-
                 this.clearImgInput();
+
+                //preview new img
+                // this.previewImg(result.data.newImgUrl);
+
             }.bind(this),
             onResponseFailure: function (result) {}.bind(this),
             onResponseEnd: function () {

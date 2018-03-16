@@ -7,11 +7,11 @@ import ImgUploader from "./img_uploader";
 var UserHeadPage = React.createClass({
     getInitialState: function () {
         var config = {
+            aspectRatio: 1 / 1,
             fileTypes: ["jpg", "png"],
             fileMaxsize: 1024 * 1024 * 2,//2M
             saveImgUrl: "/user/online/img",
-            uploadTempImgUrl: "/src/img",
-            server_url_prefix: vm_config.http_url_prefix
+            uploadTempImgUrl: "/src/img"
         };
         return {
             config: config,
@@ -24,13 +24,17 @@ var UserHeadPage = React.createClass({
     componentDidMount(){
         window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser: function (u) {
-
-                var imgUrl = timestamp(u.imgUrl + "/" + this.state.userHeadRequestWidth);
-
-                this.previewHeadImg(imgUrl);
+                const imgUrl = generateImgUrl({
+                    imgUrl: u.imgUrl,
+                    width: this.state.userHeadRequestWidth
+                });
+                //预览头像
+                this.getUserHeadUploader().previewImg(imgUrl);
 
             }.bind(this)
         });
+
+
     },
     getUserHeadUploader(){
         return this.refs.userHeadUploader;
@@ -39,7 +43,19 @@ var UserHeadPage = React.createClass({
         this.getUserHeadUploader().previewImg(imgUrl);
     },
     onUpdateImgSuccess(result){
+        c(result);
+        this.getUserHeadUploader().previewImg(generateImgUrl({
+            imgUrl: result.data.imgUrl,
+            width: 300
+        }));
+        window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
         window.EventsDispatcher.updateHeadComponentUser(result.data.user);
+    },
+    onUploadTempImgSuccess(result){
+
+        this.getUserHeadUploader().previewImg(generateImgUrl({
+            imgUrl: result.data.imgUrl
+        }));
     },
     render: function () {
         return (
@@ -48,7 +64,8 @@ var UserHeadPage = React.createClass({
                 <div id="react_img_uploader">
                     <ImgUploader ref="userHeadUploader"
                                  config={this.state.config}
-                                 onUpdateImgSuccess={this.onUpdateImgSuccess}/>
+                                 onUpdateImgSuccess={this.onUpdateImgSuccess}
+                                 onUploadTempImgSuccess={this.onUploadTempImgSuccess}/>
                 </div>
 
                 <div id="tip">

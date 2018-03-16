@@ -67,6 +67,11 @@ var ImgUpload = React.createClass({
         this.setState(state);
     },
     previewImg(imgUrl){
+        setTimeout(function () {
+            this.previewImgWait(imgUrl);
+        }.bind(this));
+    },
+    previewImgWait(imgUrl){
 
         var updateWillUpdateUserImgInfo = function (e) {
 
@@ -94,7 +99,7 @@ var ImgUpload = React.createClass({
         var $previews = $('.preview');
         //cropper options
         var options = {
-            aspectRatio: 1 / 1,
+            aspectRatio: this.state.config.aspectRatio,
             viewMode: 2,
             ready: function (e) {
                 // console.log(e.type);
@@ -157,7 +162,7 @@ var ImgUpload = React.createClass({
         }
         // a(this.state.config.server_url_prefix + imgUrl);
 
-        this.state.$imgPreview.cropper("replace",  this.state.config.server_url_prefix+imgUrl);
+        this.state.$imgPreview.cropper("replace",  imgUrl);
 
     },
     uploadTempImg(callfun){
@@ -199,11 +204,13 @@ var ImgUpload = React.createClass({
 
             }.bind(this),
             onResponseSuccess: function (result) {
-                //更新服务器暂存图片访问地址
-                this.previewImg(result.data.imgUrl);
                 //更新服务器暂存图片名
                 this.updateTempFileId(result.data.fileId);
 
+                this.props.onUploadTempImgSuccess(result);
+
+                //更新服务器暂存图片访问地址
+                // this.previewImg(result.data.imgUrl);
                 // this.initCropper();
 
             }.bind(this),
@@ -265,15 +272,15 @@ var ImgUpload = React.createClass({
                 this.props.onUpdateImgSuccess(result);
                 // this.previewImg(result.data.tempImgUrl);
 
-                window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
-
                 // clear temp filename
                 this.updateTempFileId(undefined);
 
-                //preview new img
-                this.previewImg(result.data.newImgUrl);
-
                 this.clearImgInput();
+
+                //preview new img
+                // this.previewImg(result.data.newImgUrl);
+
+
 
             }.bind(this),
             onResponseFailure: function (result) {
