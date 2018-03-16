@@ -7,8 +7,7 @@ import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import MovieEditDialog from "./movie_edit_dialog";
 import MovieAddDialog from "./movie_add_dialog";
-import MovieImgUploaderDialog from "./movie_img_uploader_dialog";
-import MoviePosterUploaderDialog from "./movie_poster_uploader_dialog";
+import ImgUploaderDialogTemplate from "../base/img_uploader_dialog_template";
 
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
@@ -19,6 +18,32 @@ var MovieTable = React.createClass({
     getInitialState: function () {
 
         return {
+            posterUploaderDialog:{
+                title: "更新电影封面",
+                width: 700,
+                config: {
+                    aspectRatio:1.5/1,
+                    fileTypes: ["jpg", "png"],
+                    fileMaxsize: 1024 * 1024 * 1,//2M
+                    saveImgUrl: "/movie/poster",
+                    uploadTempImgUrl: "/src/img",
+                    server_url_prefix: vm_config.http_url_prefix,
+                    extraInfo: {}
+                }
+            },
+            imgUploaderDialog:{
+                title: "更新电影图片",
+                width: 700,
+                config: {
+                    aspectRatio:1/1.5,
+                    fileTypes: ["jpg", "png"],
+                    fileMaxsize: 1024 * 1024 * 1,//2M
+                    saveImgUrl: "/movie/img",
+                    uploadTempImgUrl: "/src/img",
+                    server_url_prefix: vm_config.http_url_prefix,
+                    extraInfo: {}
+                }
+            },
             movieEditDialog: {
                 echoData: undefined
             },
@@ -146,16 +171,20 @@ var MovieTable = React.createClass({
         this.setState(state);
     },
     showMovieImgUploaderDialog(record){
-        this.refs.movie_img_uploader_dialog.showDialog(record);
-    },
-    closeMovieImgUploaderDialog(){
-        this.refs.movie_img_uploader_dialog.closeDialog();
+        this.getMovieImgUploaderDialog().showDialog();
+        this.getMovieImgUploaderDialog().previewImg(commons.generateImgUrl({
+            imgUrl: record.imgUrl,
+            width: 300
+        }));
+        this.getMovieImgUploaderDialog().updateExtraInfo(record);
     },
     showMoviePosterUploaderDialog(record){
-        this.refs.movie_poster_uploader_dialog.showDialog(record);
-    },
-    closeMoviePosterUploaderDialog(){
-        this.refs.movie_poster_uploader_dialog.closeDialog();
+        this.getMoviePosterUploaderDialog().showDialog();
+        this.getMoviePosterUploaderDialog().previewImg(commons.generateImgUrl({
+            imgUrl: record.posterUrl,
+            width: 300
+        }));
+        this.getMoviePosterUploaderDialog().updateExtraInfo(record);
     },
     componentDidMount()
     {
@@ -495,13 +524,42 @@ var MovieTable = React.createClass({
         // c(newRecord);
         this.loadMovieTableData();
     },
+    getMovieImgUploaderDialog(){
+        return this.refs.movie_img_uploader_dialog;
+    },
     onUpdateImgSuccess(result){
+
+        //previewImg
+        const imgUrl = commons.generateImgUrl(
+            {
+                imgUrl: result.data.imgUrl,
+                width: 300
+            }
+        );
+        this.getMovieImgUploaderDialog().previewImg(imgUrl);
         this.onEditSuccess(result.data.movie);
-        this.closeMovieImgUploaderDialog();
+    },
+    onUploadTempImgSuccess(result){
+        this.getMovieImgUploaderDialog().previewImg(vm_config.http_url_prefix + result.data.imgUrl);
+    },
+    //---------------------------------------------------------//
+    getMoviePosterUploaderDialog(){
+        return this.refs.movie_poster_uploader_dialog;
     },
     onUpdatePosterSuccess(result){
+        //previewImg
+        const imgUrl = commons.generateImgUrl(
+            {
+                imgUrl: result.data.imgUrl,
+                width: 300
+            }
+        );
+        this.getMoviePosterUploaderDialog().previewImg(imgUrl);
         this.onEditSuccess(result.data.movie);
-        this.closeMoviePosterUploaderDialog();
+    },
+    onUploadTempPosterSuccess(result){
+        this.getMoviePosterUploaderDialog().previewImg(vm_config.http_url_prefix + result.data.imgUrl);
+
     },
     render: function () {
 
@@ -526,6 +584,11 @@ var MovieTable = React.createClass({
 
             }
         };
+
+        const posterUploaderDialog = this.state.posterUploaderDialog;
+        const imgUploaderDialog = this.state.imgUploaderDialog;
+
+
         const hasSelected = selectedRowKeys.length > 0;
         //set now page's props
         return (
@@ -590,12 +653,20 @@ var MovieTable = React.createClass({
                                  onEditSuccess={this.onEditSuccess}/>
                 <MovieAddDialog ref="movie_add_dialog"
                                 onAddSuccess={this.onAddSuccess}/>
-                <MovieImgUploaderDialog
+                <ImgUploaderDialogTemplate
                     ref="movie_img_uploader_dialog"
-                    onUpdateImgSuccess={this.onUpdateImgSuccess}/>
-                <MoviePosterUploaderDialog
+                    config={imgUploaderDialog.config}
+                    title={imgUploaderDialog.title}
+                    width={imgUploaderDialog.width}
+                    onUpdateImgSuccess={this.onUpdateImgSuccess}
+                    onUploadTempImgSuccess={this.onUploadTempImgSuccess}/>
+                <ImgUploaderDialogTemplate
                     ref="movie_poster_uploader_dialog"
-                    onUpdateImgSuccess={this.onUpdatePosterSuccess}/>
+                    config={posterUploaderDialog.config}
+                    title={posterUploaderDialog.title}
+                    width={posterUploaderDialog.width}
+                    onUpdateImgSuccess={this.onUpdatePosterSuccess}
+                    onUploadTempImgSuccess={this.onUploadTempPosterSuccess}/>
             </div>
         );
     }

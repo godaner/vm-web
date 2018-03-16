@@ -29,7 +29,7 @@ var UserEditDialog = React.createClass({
         return this.refs.user_edit_dialog;
     },
     handleSubmit(values){
-        const {editMovieUrl, tipOfEditing} = this.state;
+        const {editUserUrl, tipOfEditing} = this.state;
         const hideMessage = message.loading(tipOfEditing, 0);
         var filterValues = function (values) {
             values.birthday = timeFormatter.long2Int(new Date(values.birthday._d).getTime());

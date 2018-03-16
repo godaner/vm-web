@@ -18,9 +18,10 @@ var UserTable = React.createClass({
     getInitialState: function () {
 
         return {
-            userImgUploader: {
+            userImgUploaderDialog: {
                 title:"头像上传",
                 config: {
+                    width: 700,
                     aspectRatio: 1 / 1,
                     fileTypes: ["jpg", "png"],
                     fileMaxsize: 1024 * 1024 * 2,//2M
@@ -160,7 +161,12 @@ var UserTable = React.createClass({
         return this.refs.user_img_uploader_dialog;
     },
     showUserImgUploaderDialog(record){
-        this.getUserImgUploaderDialog().showDialog(record);
+        this.getUserImgUploaderDialog().showDialog();
+        this.getUserImgUploaderDialog().previewImg(commons.generateImgUrl({
+            imgUrl: record.imgUrl,
+            width: 300
+        }));
+        this.getUserImgUploaderDialog().updateExtraInfo(record);
     },
     componentDidMount()
     {
@@ -470,7 +476,18 @@ var UserTable = React.createClass({
         this.loadUserTableData();
     },
     onUpdateImgSuccess(result){
+        //previewImg
+        const imgUrl = commons.generateImgUrl(
+            {
+                imgUrl: result.data.imgUrl,
+                width: 300
+            }
+        );
+        this.getUserImgUploaderDialog().previewImg(imgUrl);
         this.onEditSuccess(result.data.user);
+    },
+    onUploadTempImgSuccess(result){
+        this.getUserImgUploaderDialog().previewImg(vm_config.http_url_prefix + result.data.imgUrl);
     },
     getUserLoginLogsDialog(){
         return this.refs.user_login_logs_dialog;
@@ -485,7 +502,7 @@ var UserTable = React.createClass({
 
         var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
 
-        const {config,title} = this.state.userImgUploader;
+        const {config,title,width} = this.state.userImgUploaderDialog;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -570,9 +587,11 @@ var UserTable = React.createClass({
                                onAddSuccess={this.onAddSuccess}/>
                 <ImgUploaderDialogTemplate
                     config={config}
+                    width={width}
                     title={title}
                     ref="user_img_uploader_dialog"
-                    onUpdateImgSuccess={this.onUpdateImgSuccess}/>
+                    onUpdateImgSuccess={this.onUpdateImgSuccess}
+                    onUploadTempImgSuccess={this.onUploadTempImgSuccess}/>
                 <UserLoginLogsDialog
                     ref="user_login_logs_dialog"/>
             </div>

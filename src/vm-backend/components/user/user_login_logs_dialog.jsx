@@ -13,7 +13,7 @@ var UserLoginLogsDialog = React.createClass({
             userId: null,
             visible: false,
             title: "用户登录日志",
-            width: 999
+            width: 1111
         }
     },
     showDialog(userId){

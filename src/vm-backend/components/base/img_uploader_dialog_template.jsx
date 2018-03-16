@@ -58,13 +58,9 @@ var ImgUploaderDialogTemplate = React.createClass({
         this.updateStateVisible(false);
         this.getImgUploader().clearSelectFileInfo();
     },
-    showDialog(record){
+    showDialog(){
         this.updateStateVisible(true);
-        this.previewImg(commons.generateImgUrl({
-            imgUrl: record.imgUrl,
-            width: 300
-        }));
-        this.updateExtraInfo(record);
+
     },
     updateExtraInfo(extraInfo){
         var state = this.state;
@@ -91,22 +87,16 @@ var ImgUploaderDialogTemplate = React.createClass({
 
     },
     onUpdateImgSuccess(result){
-        //previewImg
-        const imgUrl = commons.generateImgUrl(
-            {
-                imgUrl: result.data.imgUrl,
-                width: 300
-            }
-        );
-        this.previewImg(imgUrl);
-        c(imgUrl);
+
         //callback
         const {onUpdateImgSuccess} = this.props;
         onUpdateImgSuccess(result);
     },
     onUploadTempImgSuccess(result){
 
-        this.previewImg(vm_config.http_url_prefix + result.data.imgUrl);
+        //callback
+        const {onUploadTempImgSuccess} = this.props;
+        onUploadTempImgSuccess(result);
     },
     render: function () {
 
