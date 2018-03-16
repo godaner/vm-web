@@ -80,7 +80,7 @@ var MovieAddDialog = React.createClass({
 
 
                         {
-                            col: {span: 11},
+                            col: {span: 24},
                             label: "名称",
                             id: "name",
                             config: {
@@ -90,23 +90,7 @@ var MovieAddDialog = React.createClass({
                             ,
                             input: <Input placeholder="请输入电影名称" name="name"/>
                         },
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
-                            label: "电影时长",
-                            id: "movieTime",
-                            config: {
-                                rules: [{required: true, whitespace: true, message: '请输入电影时长!'}],
-                            },
-                            input: <Input name="movieTime"
-                                          prefix={<Icon type="movie"
-                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                          autoComplete="off"
-                                          placeholder="请输入电影时长"/>
-                        }
+
                     ]
 
                 },
