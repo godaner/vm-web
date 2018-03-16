@@ -106,7 +106,7 @@ var MovieInfoPage = React.createClass({
                 //set movie info to state
 
                 state.movie = result.data.movie;
-
+c(state.movie);
                 this.setState(state);
 
                 //update movie description
