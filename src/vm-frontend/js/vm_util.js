@@ -1,3 +1,9 @@
+function generateImgUrl(args) {
+    if (isUndefined(args.width)) {
+        return vm_config.http_url_prefix + args.imgUrl;
+    }
+    return vm_config.http_url_prefix + args.imgUrl + "/" + args.width;
+}
 function fail(code) {
     return code < 0;
 }

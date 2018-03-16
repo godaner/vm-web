@@ -7,7 +7,7 @@ import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import UserEditDialog from "./user_edit_dialog";
 import UserAddDialog from "./user_add_dialog";
-import UserImgUploaderDialog from "./user_img_uploader_dialog";
+import ImgUploaderDialogTemplate from "../base/img_uploader_dialog_template";
 import UserLoginLogsDialog from "./user_login_logs_dialog";
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
@@ -18,6 +18,17 @@ var UserTable = React.createClass({
     getInitialState: function () {
 
         return {
+            userImgUploader: {
+                title:"头像上传",
+                config: {
+                    aspectRatio: 1 / 1,
+                    fileTypes: ["jpg", "png"],
+                    fileMaxsize: 1024 * 1024 * 2,//2M
+                    saveImgUrl: "/user/img",
+                    uploadTempImgUrl: "/src/img",
+                    extraInfo: {}
+                }
+            },
             userEditDialog: {
                 echoData: undefined
             },
@@ -144,11 +155,12 @@ var UserTable = React.createClass({
         state.userEditDialog.echoData = echoData;
         this.setState(state);
     },
-    showUserImgUploaderDialog(record){
-        this.refs.user_img_uploader_dialog.showDialog(record);
+
+    getUserImgUploaderDialog(){
+        return this.refs.user_img_uploader_dialog;
     },
-    closeUserImgUploaderDialog(record){
-        this.refs.user_img_uploader_dialog.closeDialog();
+    showUserImgUploaderDialog(record){
+        this.getUserImgUploaderDialog().showDialog(record);
     },
     componentDidMount()
     {
@@ -165,9 +177,10 @@ var UserTable = React.createClass({
                 width: 100,
                 dataIndex: 'imgUrl',
                 render: (text, record) => {
-                    const imageUrl = vm_config.http_url_prefix + text + "/" + 50;
-
-
+                    const imageUrl = commons.generateImgUrl({
+                        imgUrl: text,
+                        width: 50
+                    });
                     return <img onClick={() => this.showUserImgUploaderDialog(record)} style={{
                         width: 50,
                         height: 50,
@@ -458,7 +471,6 @@ var UserTable = React.createClass({
     },
     onUpdateImgSuccess(result){
         this.onEditSuccess(result.data.user);
-        this.closeUserImgUploaderDialog();
     },
     getUserLoginLogsDialog(){
         return this.refs.user_login_logs_dialog;
@@ -472,6 +484,8 @@ var UserTable = React.createClass({
         const {echoData} = this.state.userEditDialog;
 
         var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
+
+        const {config,title} = this.state.userImgUploader;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -554,7 +568,9 @@ var UserTable = React.createClass({
                                 onEditSuccess={this.onEditSuccess}/>
                 <UserAddDialog ref="user_add_dialog"
                                onAddSuccess={this.onAddSuccess}/>
-                <UserImgUploaderDialog
+                <ImgUploaderDialogTemplate
+                    config={config}
+                    title={title}
                     ref="user_img_uploader_dialog"
                     onUpdateImgSuccess={this.onUpdateImgSuccess}/>
                 <UserLoginLogsDialog

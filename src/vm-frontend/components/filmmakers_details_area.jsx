@@ -102,7 +102,9 @@ var FilmmakersDetailsArea = React.createClass({
                     state: {fromDashboard: true}
                 }
                 //imgUrl
-                var imgUrl = vm_config.http_url_prefix + filmmaker.imgUrl;
+                // var imgUrl = vm_config.http_url_prefix + filmmaker.imgUrl;
+
+                var imgUrl = generateImgUrl({imgUrl: filmmaker.imgUrl, width: 50});
                 res.push(
                     <li key={filmmaker.id} title={filmmaker.name}>
                         <Link title={filmmaker.name} to={location}>

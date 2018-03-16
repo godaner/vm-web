@@ -250,7 +250,10 @@ var Head = React.createClass({
                 pathname: this.state.onlineUserBasicInfoUrl
             };
             //imgUrl
-            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "/" + 50;
+            var headImgUrl = generateImgUrl({
+                imgUrl: this.state.user.imgUrl,
+                width: 50
+            });
             return (
                 <span>
                     <li>

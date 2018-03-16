@@ -21,7 +21,7 @@ var MovieInfoPage = React.createClass({
             whenMovieIsLoading: "加载电影信息",
             movieDescriptionTextLength: 100,
             movie: {},
-            movieUrl:this.props.match.url,//请求电影基本信息的url
+            movieUrl: this.props.match.url,//请求电影基本信息的url
             targetMovieId: this.props.match.params.movieId,
             //thisMovieFilmmakerIds:undefined,
             //thisMovieTagIds:undefined,
@@ -57,16 +57,16 @@ var MovieInfoPage = React.createClass({
         window.removeEventListener('resize', this.onWindowResize);
 
     },
-    componentDidUpdate:function(){
+    componentDidUpdate: function () {
         // c("componentDidUpdate");
     },
-    componentWillReceiveProps:function (props) {
+    componentWillReceiveProps: function (props) {
         //Link to!!!当点击某个Link标签时,路由会接受到一个新的props；但是如果跳转的是同一个页面,那么对不起，不会跳转，需要手动重置路由
-        if(!isEmpty(this.props.match.url)){
+        if (!isEmpty(this.props.match.url)) {
             this.props.history.push('/empty');
             setTimeout(() => {
                 this.props.history.replace(this.props.match.url);
-            },1);
+            }, 1);
         }
 
     },
@@ -119,7 +119,7 @@ var MovieInfoPage = React.createClass({
             onResponseFailure: function (result) {
                 window.VmFrontendEventsDispatcher.showMsgDialog(result.msg);
             }.bind(this),
-            onResponseEnd:function(){
+            onResponseEnd: function () {
                 // c(this.state)
                 //callfun
                 if (callfun != undefined) {
@@ -144,10 +144,10 @@ var MovieInfoPage = React.createClass({
     },
     getAboutTagsMovies: function (movieTags) {
         // c(movieTags);
-        if(isEmptyList(movieTags)){
+        if (isEmptyList(movieTags)) {
 
             this.noAboutTagsMovies();
-            return ;
+            return;
         }
 
 
@@ -163,11 +163,11 @@ var MovieInfoPage = React.createClass({
         var size = this.state.aboutTagsMoviesPage.size;
         var start = this.state.aboutTagsMoviesPage.start;
 
-        var url = "/movie/about/tag?orderBy="+orderBy
-            +"&orderType="+orderType
-            +"&size="+size
-            +"&start="+start
-            +"&excludeMovieId="+this.state.targetMovieId;
+        var url = "/movie/about/tag?orderBy=" + orderBy
+            + "&orderType=" + orderType
+            + "&size=" + size
+            + "&start=" + start
+            + "&excludeMovieId=" + this.state.targetMovieId;
         url = contactUrlWithArray(url, "tagIds", tagIds);
         ajax.get({
             url: url,
@@ -181,9 +181,9 @@ var MovieInfoPage = React.createClass({
             }.bind(this),
             onResponseSuccess: function (result) {
 
-                if(isEmptyList(result.data.movies)){
+                if (isEmptyList(result.data.movies)) {
                     this.noAboutTagsMovies();
-                    return ;
+                    return;
                 }
 
                 var state = this.state;
@@ -214,10 +214,10 @@ var MovieInfoPage = React.createClass({
         this.refs.aboutFilmmakersMovies_MoviesDisplayer.noMoviesTip();
     },
     getAboutFilmmakerMovies(movieFilmmakers){
-        if(isEmptyList(movieFilmmakers)){
+        if (isEmptyList(movieFilmmakers)) {
 
             this.noAboutFilmmakerMovies();
-            return ;
+            return;
         }
 
 
@@ -233,11 +233,11 @@ var MovieInfoPage = React.createClass({
         var start = this.state.aboutFilmmakersMoviesPage.start;
 
 
-        var url = "/movie/about/filmmaker?orderBy="+orderBy
-            +"&orderType="+orderType
-            +"&size="+size
-            +"&start="+start
-            +"&excludeMovieId="+this.state.targetMovieId;
+        var url = "/movie/about/filmmaker?orderBy=" + orderBy
+            + "&orderType=" + orderType
+            + "&size=" + size
+            + "&start=" + start
+            + "&excludeMovieId=" + this.state.targetMovieId;
         url = contactUrlWithArray(url, "filmmakerIds", ids);
 
         ajax.get({
@@ -275,12 +275,7 @@ var MovieInfoPage = React.createClass({
         //format releaseTime
         var releaseTime = timeFormatter.formatDate(this.state.movie.releaseTime);
         //imgUrl
-        var imgUrl = addUrlParam({
-            url:vm_config.http_url_prefix + this.state.movie.imgUrl,
-            obj:{
-                width:300
-            }
-        });
+        var imgUrl = generateImgUrl({imgUrl: this.state.movie.imgUrl, width: 300});
         return (
             <div id="movie_info_content">
                 <div id="basic_info">

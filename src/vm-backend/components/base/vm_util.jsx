@@ -116,7 +116,13 @@ var ajax = {
 
 
 var commons = {
-
+    generateImgUrl(args){
+        const {width, imgUrl} = args;
+        if (isUndefined(width)) {
+            return vm_config.http_url_prefix + imgUrl;
+        }
+        return vm_config.http_url_prefix + imgUrl + "/" + width;
+    },
     makeTipSpan(text, len){
         if (isUndefined(len)) {
             len = 20;

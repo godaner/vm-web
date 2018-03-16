@@ -10,12 +10,13 @@ import ImgUploader from "./img_uploader";
 const {Header, Content, Footer, Sider} = Layout;
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
+import {commons, ajax} from "./vm_util";
 
-var ImgUploaderDialog = React.createClass({
+var ImgUploaderDialogTemplate = React.createClass({
     getInitialState: function () {
         var {width, config, title} = this.props;
         if (isUndefined(width)) {
-            width = "450px";
+            width = "650px";
         }
         return {
             // modelWidth: "350px",
@@ -57,8 +58,18 @@ var ImgUploaderDialog = React.createClass({
         this.updateStateVisible(false);
         this.getImgUploader().clearSelectFileInfo();
     },
-    showDialog(){
+    showDialog(record){
         this.updateStateVisible(true);
+        this.previewImg(commons.generateImgUrl({
+            imgUrl: record.imgUrl,
+            width: 300
+        }));
+        this.updateExtraInfo(record);
+    },
+    updateExtraInfo(extraInfo){
+        var state = this.state;
+        this.state.config.extraInfo = extraInfo;
+        this.setState(state);
     },
     previewImg(imgUrl){
 
@@ -68,7 +79,8 @@ var ImgUploaderDialog = React.createClass({
 
     },
     getImgUploader(){
-        return this.refs.img_uploader;;
+        return this.refs.img_uploader;
+        ;
     },
     updateStateVisible(visible){
         var state = this.state;
@@ -78,14 +90,31 @@ var ImgUploaderDialog = React.createClass({
     componentDidMount(){
 
     },
+    onUpdateImgSuccess(result){
+        //previewImg
+        const imgUrl = commons.generateImgUrl(
+            {
+                imgUrl: result.data.imgUrl,
+                width: 300
+            }
+        );
+        this.previewImg(imgUrl);
+        c(imgUrl);
+        //callback
+        const {onUpdateImgSuccess} = this.props;
+        onUpdateImgSuccess(result);
+    },
+    onUploadTempImgSuccess(result){
 
+        this.previewImg(vm_config.http_url_prefix + result.data.imgUrl);
+    },
     render: function () {
 
         //get props
-        const {title, onUpdateImgSuccess} = this.props;
+        const {title} = this.props;
 
         //get state
-        const {width, height, visible, config} = this.state;
+        const {width, visible, config} = this.state;
         return (
             <Modal
                 className='extra'
@@ -98,7 +127,8 @@ var ImgUploaderDialog = React.createClass({
             >
                 <ImgUploader
                     ref="img_uploader"
-                    onUpdateImgSuccess={onUpdateImgSuccess}
+                    onUpdateImgSuccess={this.onUpdateImgSuccess}
+                    onUploadTempImgSuccess={this.onUploadTempImgSuccess}
                     config={config}/>
 
             </Modal>
@@ -106,4 +136,4 @@ var ImgUploaderDialog = React.createClass({
     }
 })
 
-export default ImgUploaderDialog;   //将App组件导出
+export default ImgUploaderDialogTemplate;   //将App组件导出

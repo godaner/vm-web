@@ -25,7 +25,6 @@ var UserImgUploaderDialog = React.createClass({
                 fileMaxsize: 1024 * 1024 * 2,//2M
                 saveImgUrl: "/user/img",
                 uploadTempImgUrl: "/src/img",
-                server_url_prefix: vm_config.http_url_prefix,
                 extraInfo: {}
             }
 
@@ -64,12 +63,9 @@ var UserImgUploaderDialog = React.createClass({
         this.updateStateConfigExtraInfo(record);
 
         this.refs.img_uploader_dialog_template.showDialog();
-        this.refs.img_uploader_dialog_template.previewImg(commons.addUrlParam({
-            url:record.imgUrl,
-            obj:{
-                width:"300"
-            }
-        }))
+
+    },
+    previewImg(url){
 
     },
     componentDidMount(){
@@ -79,6 +75,12 @@ var UserImgUploaderDialog = React.createClass({
         const {onUpdateImgSuccess} = this.props;
         if (!isUndefined(onUpdateImgSuccess)) {
             onUpdateImgSuccess(result);
+        }
+    },
+    onUploadTempImgSuccess(result){
+        const {onUploadTempImgSuccess} = this.props;
+        if (!isUndefined(onUploadTempImgSuccess)) {
+            onUploadTempImgSuccess(result);
         }
     },
     render: function () {
@@ -94,6 +96,7 @@ var UserImgUploaderDialog = React.createClass({
                     afterClose={this.afterClose}
                     width={width}
                     onUpdateImgSuccess={this.onUpdateImgSuccess}
+                    onUploadTempImgSuccess={this.onUploadTempImgSuccess}
                     config={config}/>
             </div>
         );

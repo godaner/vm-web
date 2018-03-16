@@ -172,11 +172,9 @@ var MovieTable = React.createClass({
                 width: 100,
                 dataIndex: 'imgUrl',
                 render: (text, record) => {
-                    const imageUrl = commons.addUrlParam({
-                        url: vm_config.http_url_prefix + text,
-                        obj: {
-                            width: "50"
-                        }
+                    const imageUrl = commons.generateImgUrl({
+                        imgUrl: text,
+                        width: 50
                     });
 
 
@@ -193,12 +191,11 @@ var MovieTable = React.createClass({
                 width: 100,
                 dataIndex: 'posterUrl',
                 render: (text, record) => {
-                    const imageUrl = commons.addUrlParam({
-                        url: vm_config.http_url_prefix + text,
-                        obj: {
-                            width: "80"
-                        }
+                    const imageUrl = commons.generateImgUrl({
+                        imgUrl: text,
+                        width: 80
                     });
+
 
 
                     return <img onClick={() => this.showMoviePosterUploaderDialog(record)} style={{

@@ -1809,11 +1809,9 @@ var MoviesDisplayer = _react2.default.createClass({
                 state: { fromDashboard: true }
 
                 //imgUrl
-            };var imgUrl = addUrlParam({
-                url: vm_config.http_url_prefix + item.imgUrl,
-                obj: {
-                    width: 300
-                }
+            };var imgUrl = generateImgUrl({
+                imgUrl: item.imgUrl,
+                width: 300
             });
             return _react2.default.createElement(
                 'li',
@@ -2703,7 +2701,9 @@ var FilmmakersDetailsArea = _react2.default.createClass({
                     pathname: '/filmmaker/' + filmmaker.id,
                     state: { fromDashboard: true }
                     //imgUrl
-                };var imgUrl = vm_config.http_url_prefix + filmmaker.imgUrl;
+                    // var imgUrl = vm_config.http_url_prefix + filmmaker.imgUrl;
+
+                };var imgUrl = generateImgUrl({ imgUrl: filmmaker.imgUrl, width: 50 });
                 res.push(_react2.default.createElement(
                     "li",
                     { key: filmmaker.id, title: filmmaker.name },
@@ -8298,12 +8298,7 @@ var MovieInfoPage = _react2.default.createClass({
         //format releaseTime
         var releaseTime = timeFormatter.formatDate(this.state.movie.releaseTime);
         //imgUrl
-        var imgUrl = addUrlParam({
-            url: vm_config.http_url_prefix + this.state.movie.imgUrl,
-            obj: {
-                width: 300
-            }
-        });
+        var imgUrl = generateImgUrl({ imgUrl: this.state.movie.imgUrl, width: 300 });
         return _react2.default.createElement(
             'div',
             { id: 'movie_info_content' },
@@ -8757,7 +8752,10 @@ var Head = _react2.default.createClass({
                 pathname: this.state.onlineUserBasicInfoUrl
             };
             //imgUrl
-            var headImgUrl = vm_config.http_url_prefix + this.state.user.imgUrl + "/" + 50;
+            var headImgUrl = generateImgUrl({
+                imgUrl: this.state.user.imgUrl,
+                width: 50
+            });
             return _react2.default.createElement(
                 "span",
                 null,

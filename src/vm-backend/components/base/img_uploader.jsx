@@ -166,7 +166,7 @@ var ImgUpload = React.createClass({
         }
         // a(this.state.config.server_url_prefix + imgUrl);
 
-        this.state.$imgPreview.cropper("replace", this.state.config.server_url_prefix + imgUrl);
+        this.state.$imgPreview.cropper("replace", imgUrl);
 
     },
     uploadTempImg(callfun){
@@ -207,12 +207,12 @@ var ImgUpload = React.createClass({
             }.bind(this),
             success: function (result) {
 
-                //更新服务器暂存图片访问地址
-                this.previewImg(result.data.imgUrl);
                 //更新服务器暂存图片名
                 this.updateTempFileId(result.data.fileId);
 
                 // this.initCropper();
+                this.props.onUploadTempImgSuccess(result);
+
 
             }.bind(this),
             failure: function (result) {
@@ -243,25 +243,21 @@ var ImgUpload = React.createClass({
     },
     saveImg(callfun){
 
-        // var imgInput = this.getImgInput();
-        // var imgFile = this.getImgFile();
         try {
             this.validateImgFileOnSubmit();
         } catch (e) {
-            // window.EventsDispatcher.closeLoading();
             message.error(e);
             return;
         }
 
         var hideLoading = message.loading(this.state.saveImgTip);
-        // window.EventsDispatcher.showLoading();
 
         // var userId = this.state.user.id;
         const url = this.state.config.saveImgUrl;
         var data = this.state.willUpdatedImgInfo;
         // add extraInfo
         data = $.extend(data, this.state.config.extraInfo);
-        // data.serverCacheFileName = this.state.serverTempImgFileName;
+
         ajax.put({
             url: url,
             data: data,
@@ -269,7 +265,6 @@ var ImgUpload = React.createClass({
 
             }.bind(this),
             complete: function () {
-                // window.EventsDispatcher.closeLoading();
 
                 if (callfun != undefined) {
                     callfun()
@@ -279,20 +274,9 @@ var ImgUpload = React.createClass({
             }.bind(this),
             success: function (result) {
 
-                // c("result");
-                // c(result);
-                this.props.onUpdateImgSuccess(result);
-                // this.previewImg(result.data.tempImgUrl);
                 message.success(result.msg);
-                // window.EventsDispatcher.showMsgDialog(this.state.imgUpdateSuccess);
 
-                // clear temp filename
-                this.updateTempFileId(undefined);
-
-                //preview new img
-                this.previewImg(result.data.newImgUrl);
-
-                // this.clearSelectFileInfo();
+                this.props.onUpdateImgSuccess(result);
 
                 this.clearSelectFileInfo();
             }.bind(this),

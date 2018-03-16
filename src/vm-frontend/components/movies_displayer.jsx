@@ -44,11 +44,9 @@ var MoviesDisplayer = React.createClass({
             }
 
             //imgUrl
-            var imgUrl = addUrlParam({
-                url:vm_config.http_url_prefix + item.imgUrl,
-                obj:{
-                    width:300
-                }
+            var imgUrl = generateImgUrl({
+                imgUrl: item.imgUrl,
+                width: 300
             });
             return <li className="movie_item animated flipInX" key={item.id}>
                 <div className="movie_img_div">
