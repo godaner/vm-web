@@ -88,6 +88,8 @@ var ImgUploaderDialogTemplate = React.createClass({
     },
     onUpdateImgSuccess(result){
 
+        this.updateStateVisible(false);
+
         //callback
         const {onUpdateImgSuccess} = this.props;
         onUpdateImgSuccess(result);

@@ -477,13 +477,13 @@ var UserTable = React.createClass({
     },
     onUpdateImgSuccess(result){
         //previewImg
-        const imgUrl = commons.generateImgUrl(
-            {
-                imgUrl: result.data.imgUrl,
-                width: 300
-            }
-        );
-        this.getUserImgUploaderDialog().previewImg(imgUrl);
+        // const imgUrl = commons.generateImgUrl(
+        //     {
+        //         imgUrl: result.data.imgUrl,
+        //         width: 300
+        //     }
+        // );
+        // this.getUserImgUploaderDialog().previewImg(imgUrl);
         this.onEditSuccess(result.data.user);
     },
     onUploadTempImgSuccess(result){

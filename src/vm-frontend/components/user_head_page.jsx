@@ -9,7 +9,7 @@ var UserHeadPage = React.createClass({
         var config = {
             aspectRatio: 1 / 1,
             fileTypes: ["jpg", "png"],
-            fileMaxsize: 1024 * 1024 * 2,//2M
+            fileMaxsize: 1024 * 1024 * 1,//2M
             saveImgUrl: "/user/online/img",
             uploadTempImgUrl: "/src/img"
         };

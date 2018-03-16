@@ -182,7 +182,7 @@ var MovieTable = React.createClass({
         this.getMoviePosterUploaderDialog().showDialog();
         this.getMoviePosterUploaderDialog().previewImg(commons.generateImgUrl({
             imgUrl: record.posterUrl,
-            width: 300
+            width: 600
         }));
         this.getMoviePosterUploaderDialog().updateExtraInfo(record);
     },
@@ -530,13 +530,13 @@ var MovieTable = React.createClass({
     onUpdateImgSuccess(result){
 
         //previewImg
-        const imgUrl = commons.generateImgUrl(
-            {
-                imgUrl: result.data.imgUrl,
-                width: 300
-            }
-        );
-        this.getMovieImgUploaderDialog().previewImg(imgUrl);
+        // const imgUrl = commons.generateImgUrl(
+        //     {
+        //         imgUrl: result.data.imgUrl,
+        //         width: 300
+        //     }
+        // );
+        // this.getMovieImgUploaderDialog().previewImg(imgUrl);
         this.onEditSuccess(result.data.movie);
     },
     onUploadTempImgSuccess(result){
@@ -548,13 +548,13 @@ var MovieTable = React.createClass({
     },
     onUpdatePosterSuccess(result){
         //previewImg
-        const imgUrl = commons.generateImgUrl(
-            {
-                imgUrl: result.data.imgUrl,
-                width: 300
-            }
-        );
-        this.getMoviePosterUploaderDialog().previewImg(imgUrl);
+        // const imgUrl = commons.generateImgUrl(
+        //     {
+        //         imgUrl: result.data.imgUrl,
+        //         width: 200
+        //     }
+        // );
+        // this.getMoviePosterUploaderDialog().previewImg(imgUrl);
         this.onEditSuccess(result.data.movie);
     },
     onUploadTempPosterSuccess(result){

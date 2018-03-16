@@ -2831,13 +2831,13 @@ var MoviePlayer = _react2.default.createClass({
                 videos.push(['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '1080', 1080]);
                 //init movie player
                 var options = {};
-                // const posterUrl = addUrlParam({
-                //     url: vm_config.http_url_prefix + result.data.posterUrl,
-                //     obj: {
-                //         width: 300
-                //     }
-                // });
-                var posterUrl = "http://192.168.0.122:5551/src/img/707/300";
+                var posterUrl = generateImgUrl({
+                    imgUrl: result.data.posterUrl,
+                    obj: {
+                        width: 600
+                    }
+                });
+                // const  posterUrl = "http://192.168.0.122:5551/src/img/707/300";
                 options.poster = posterUrl;
                 options.video = videos;
                 //init movie player
@@ -2855,8 +2855,8 @@ var MoviePlayer = _react2.default.createClass({
         });
     },
     initPlayer: function initPlayer(options) {
-        c("options.poster");
-        c(options.poster);
+        // c("options.poster");
+        // c(options.poster);
         var videoObject = {
             container: '#m_player', //“#”代表容器的ID，“.”或“”代表容器的class
             variable: 'player', //该属性必需设置，值等于下面的new chplayer()的对象
@@ -10280,7 +10280,7 @@ var UserHeadPage = _react2.default.createClass({
         var config = {
             aspectRatio: 1 / 1,
             fileTypes: ["jpg", "png"],
-            fileMaxsize: 1024 * 1024 * 2, //2M
+            fileMaxsize: 1024 * 1024 * 1, //2M
             saveImgUrl: "/user/online/img",
             uploadTempImgUrl: "/src/img"
         };
