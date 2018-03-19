@@ -2,11 +2,11 @@ import React from "react";
 import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../scss/movie/movie_table.scss";
+import "../../scss/movie/filmmaker_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
-import MovieEditDialog from "./movie_edit_dialog";
-import MovieAddDialog from "./movie_add_dialog";
+import FilmmakerEditDialog from "./filmmaker_edit_dialog";
+import FilmmakerAddDialog from "./filmmaker_add_dialog";
 import ImgUploaderDialogTemplate from "../base/img_uploader_dialog_template";
 
 const Option = Select.Option;
@@ -14,45 +14,33 @@ const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
 const TextArea = Input.TextArea;
-var MovieTable = React.createClass({
+var FilmmakerTable = React.createClass({
     getInitialState: function () {
 
         return {
-            posterUploaderDialog:{
-                title: "更新电影封面",
-                width: 700,
-                config: {
-                    aspectRatio:1.5/1,
-                    fileTypes: ["jpg", "png"],
-                    fileMaxsize: 1024 * 1024 * 1,//2M
-                    saveImgUrl: "/movie/poster",
-                    uploadTempImgUrl: "/src/img",
-                    server_url_prefix: vm_config.http_url_prefix,
-                    extraInfo: {}
-                }
-            },
+
             imgUploaderDialog:{
-                title: "更新电影图片",
+                title: "更新电影人图片",
                 width: 700,
                 config: {
-                    aspectRatio:1/1.5,
+                    aspectRatio:1/1,
                     fileTypes: ["jpg", "png"],
                     fileMaxsize: 1024 * 1024 * 1,//2M
-                    saveImgUrl: "/movie/img",
+                    saveImgUrl: "/filmmaker/img",
                     uploadTempImgUrl: "/src/img",
                     server_url_prefix: vm_config.http_url_prefix,
                     extraInfo: {}
                 }
             },
-            movieEditDialog: {
+            filmmakerEditDialog: {
                 echoData: undefined
             },
-            movieTable: {
-                dataSourceUrl: "/movie/info/list",
-                delMovieUrl: "/movie/info",
+            filmmakerTable: {
+                dataSourceUrl: "/filmmaker/info/list",
+                delFilmmakerUrl: "/filmmaker/info",
                 editable: false,
-                haveSearchMoviename: false,
-                movienameDropdownVisible: false,
+                haveSearchFilmmakername: false,
+                filmmakernameDropdownVisible: false,
                 bordered: true,
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
@@ -75,121 +63,113 @@ var MovieTable = React.createClass({
             }
         }
     },
-    onSearchMoviename(newMovienameQuery)
+    onSearchFilmmakername(newFilmmakernameQuery)
     {
-        this.updateNameOfQuery(newMovienameQuery);
-        if (!isEmptyString(this.state.movieTable.query.name)) {
-            this.updateMovieTableHaveSearchMoviename(true);
+        this.updateNameOfQuery(newFilmmakernameQuery);
+        if (!isEmptyString(this.state.filmmakerTable.query.name)) {
+            this.updateFilmmakerTableHaveSearchFilmmakername(true);
         } else {
 
-            this.updateMovieTableHaveSearchMoviename(false);
+            this.updateFilmmakerTableHaveSearchFilmmakername(false);
         }
-        this.loadMovieTableData();
+        this.loadFilmmakerTableData();
     },
-    updateMovieTableHaveSearchMoviename(haveSearchMoviename)
+    updateFilmmakerTableHaveSearchFilmmakername(haveSearchFilmmakername)
     {
         var state = this.state;
-        state.movieTable.haveSearchMoviename = haveSearchMoviename;
+        state.filmmakerTable.haveSearchFilmmakername = haveSearchFilmmakername;
         this.setState(state);
     },
-    updateMovieTableMovienameDropdownVisible(movienameDropdownVisible)
+    updateFilmmakerTableFilmmakernameDropdownVisible(filmmakernameDropdownVisible)
     {
         var state = this.state;
-        state.movieTable.movienameDropdownVisible = movienameDropdownVisible;
+        state.filmmakerTable.filmmakernameDropdownVisible = filmmakernameDropdownVisible;
         this.setState(state);
     },
-    updateMovieTableSelectedRowKeys(selectedRowKeys)
+    updateFilmmakerTableSelectedRowKeys(selectedRowKeys)
     {
         var state = this.state;
-        state.movieTable.selectedRowKeys = selectedRowKeys;
+        state.filmmakerTable.selectedRowKeys = selectedRowKeys;
         this.setState(state);
     },
 
-    removeMovieTableSelectedRowKeys(removeSelectedRowKeys)
+    removeFilmmakerTableSelectedRowKeys(removeSelectedRowKeys)
     {
-        var selectedRowKeys = this.state.movieTable.selectedRowKeys;
+        var selectedRowKeys = this.state.filmmakerTable.selectedRowKeys;
         selectedRowKeys = selectedRowKeys.removeByList(removeSelectedRowKeys);
-        this.updateMovieTableSelectedRowKeys(selectedRowKeys);
+        this.updateFilmmakerTableSelectedRowKeys(selectedRowKeys);
     },
     updateNameOfQuery(name)
     {
         var state = this.state;
-        state.movieTable.query.name = name;
+        state.filmmakerTable.query.name = name;
         this.setState(state);
     },
-    updateMovieTableData(data)
+    updateFilmmakerTableData(data)
     {
         var state = this.state;
-        state.movieTable.data = data;
+        state.filmmakerTable.data = data;
         this.setState(state);
     },
-    updateMovieTableBatchDeleteLoading(loading)
+    updateFilmmakerTableBatchDeleteLoading(loading)
     {
         var state = this.state;
-        state.movieTable.batchDeleteBtnLoading = loading;
+        state.filmmakerTable.batchDeleteBtnLoading = loading;
         this.setState(state);
     },
-    updateMovieTableRefreshBtnLoading(loading)
+    updateFilmmakerTableRefreshBtnLoading(loading)
     {
         var state = this.state;
-        state.movieTable.refreshBtnLoading = loading;
+        state.filmmakerTable.refreshBtnLoading = loading;
         this.setState(state);
     },
-    updateMovieTablePage(page)
+    updateFilmmakerTablePage(page)
     {
         var state = this.state;
-        state.movieTable.page = page;
+        state.filmmakerTable.page = page;
         this.setState(state);
     },
-    updateMovieTableQuery(query)
+    updateFilmmakerTableQuery(query)
     {
         var state = this.state;
-        state.movieTable.query = query;
+        state.filmmakerTable.query = query;
         this.setState(state);
     },
-    updateMovieTableLoading(flag)
+    updateFilmmakerTableLoading(flag)
     {
         var state = this.state;
-        state.movieTable.tableLoading = flag;
+        state.filmmakerTable.tableLoading = flag;
         this.setState(state);
     },
-    updateMovieTableColumns(columns)
+    updateFilmmakerTableColumns(columns)
     {
 
         var state = this.state;
-        state.movieTable.columns = columns;
+        state.filmmakerTable.columns = columns;
         this.setState(state);
     },
-    updateMovieTableOriginalData(originalData){
+    updateFilmmakerTableOriginalData(originalData){
         var state = this.state;
-        state.movieTable.originalData = originalData;
+        state.filmmakerTable.originalData = originalData;
         this.setState(state);
     },
-    updateMovieEditDialogEchoData(echoData){
+    updateFilmmakerEditDialogEchoData(echoData){
         var state = this.state;
-        state.movieEditDialog.echoData = echoData;
+        state.filmmakerEditDialog.echoData = echoData;
         this.setState(state);
     },
-    showMovieImgUploaderDialog(record){
-        this.getMovieImgUploaderDialog().showDialog();
-        this.getMovieImgUploaderDialog().previewImg(commons.generateImgUrl({
+    showFilmmakerImgUploaderDialog(record){
+        this.getFilmmakerImgUploaderDialog().showDialog();
+        this.getFilmmakerImgUploaderDialog().previewImg(commons.generateImgUrl({
             imgUrl: record.imgUrl,
             width: 300
         }));
-        this.getMovieImgUploaderDialog().updateExtraInfo(record);
-    },
-    showMoviePosterUploaderDialog(record){
-        this.getMoviePosterUploaderDialog().showDialog();
-        this.getMoviePosterUploaderDialog().previewImg(commons.generateImgUrl({
-            imgUrl: record.posterUrl,
-            width: 600
-        }));
-        this.getMoviePosterUploaderDialog().updateExtraInfo(record);
+        this.getFilmmakerImgUploaderDialog().updateExtraInfo(record);
     },
     componentDidMount()
     {
 
-        this.updateMovieTableColumns([
+        this.updateFilmmakerTableColumns([
             {
                 title: 'id',
                 width: 100,
@@ -207,7 +187,7 @@ var MovieTable = React.createClass({
                     });
 
 
-                    return <img onClick={() => this.showMovieImgUploaderDialog(record)} style={{
+                    return <img onClick={() => this.showFilmmakerImgUploaderDialog(record)} style={{
                         width: 50,
                         height: 75,
                         cursor: "pointer"
@@ -215,46 +195,27 @@ var MovieTable = React.createClass({
 
                 }
             },
+
             {
-                title: '播放封面',
-                width: 120,
-                dataIndex: 'posterUrl',
-                render: (text, record) => {
-                    const imageUrl = commons.generateImgUrl({
-                        imgUrl: text,
-                        width: 80
-                    });
-
-
-
-                    return <img onClick={() => this.showMoviePosterUploaderDialog(record)} style={{
-                        width: 80,
-                        height: 53,
-                        cursor: "pointer"
-                    }} src={imageUrl} alt="暂无"/>
-
-                }
-            },
-            {
-                title: '电影名',
+                title: '名称',
                 width: 120,
                 dataIndex: 'name',
                 render: (text, record) => {
-                    return commons.highLight(text, this.state.movieTable.query.name);
+                    return commons.highLight(text, this.state.filmmakerTable.query.name);
                 },
                 sorter: true,
                 filterDropdown: (
                     <div className="custom-filter-dropdown">
                         <Search
                             placeholder="搜索电影名"
-                            onSearch={this.onSearchMoviename}
+                            onSearch={this.onSearchFilmmakername}
                             style={{width: 200}}
                         />
                     </div>
                 ),
                 filterIcon: <Icon type="search"
-                                  style={{color: this.state.movieTable.haveSearchMoviename ? '#108ee9' : '#aaa'}}/>,
-                // filterDropdownVisible: this.state.movieTable.movienameDropdownVisible,
+                                  style={{color: this.state.filmmakerTable.haveSearchFilmmakername ? '#108ee9' : '#aaa'}}/>,
+                // filterDropdownVisible: this.state.filmmakerTable.filmmakernameDropdownVisible,
 
             },
 
@@ -267,45 +228,65 @@ var MovieTable = React.createClass({
 
 
             },
+
+            {
+                title: '国家',
+                width: 100,
+                dataIndex: 'country',
+                sorter: true
+            },
+
+            {
+                title: '职业',
+                width: 100,
+                dataIndex: 'profession',
+                sorter: true,
+                render: (text) => {
+                    return commons.makeTipSpan(text, 10);
+                },
+            },
+
+            {
+                title: '血型',
+                width: 100,
+                dataIndex: 'bloodType',
+                sorter: true
+            },
+
+            {
+                title: '星座',
+                width: 100,
+                dataIndex: 'constellation',
+                sorter: true
+            },
+
+            {
+                title: '生日',
+                width: 100,
+                dataIndex: 'birthday',
+                sorter: true
+            },
+
+            {
+                title: '性别',
+                width: 100,
+                dataIndex: 'sex',
+                sorter: true
+            },
+
             {
                 title: '简介',
-                width: 200,
+                width: 150,
                 dataIndex: 'description',
                 sorter: true,
                 render: (text) => {
-                    return commons.makeTipSpan(text, 33);
+                    return commons.makeTipSpan(text, 19);
                 },
-            },
-            {
-
-
-                title: '发布时间',
-                width: 100,
-                dataIndex: 'release_time',
-                render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
-                },
-                sorter: true
             },
             {
                 title: '评分',
                 width: 80,
                 dataIndex: 'score',
-                sorter: true
-            },
-            {
-                title: '观看数',
-                width: 80,
-                dataIndex: 'watch_num',
-                sorter: true
-            },
-            {
-                title: '时长',
-                width: 80,
-                dataIndex: 'movie_time',
-                render: (text) => {
-                    return text + " 分钟";
-                },
                 sorter: true
             },
             {
@@ -343,14 +324,7 @@ var MovieTable = React.createClass({
                 width: 100,
                 render: (text, record) => {
                     return <div>
-                        <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">上传资源</a>
-                        &nbsp;&nbsp;
 
-                        <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">导演</a>
-                        &nbsp;&nbsp;
-
-                        <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">演员</a>
-                        &nbsp;&nbsp;
                         <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
                         &nbsp;&nbsp;
                         <Popconfirm title="确认删除 ? "
@@ -365,29 +339,29 @@ var MovieTable = React.createClass({
                 },
                 sorter: true
             },]);
-        this.loadMovieTableData();
+        this.loadFilmmakerTableData();
     },
-    uploadMovieSrc(record){
-      c("uploadMovieSrc");
+    uploadFilmmakerSrc(record){
+      c("uploadFilmmakerSrc");
     },
     handleTableChange(pagination, filters, sorter)
     {
 
-        const page = this.state.movieTable.page;
+        const page = this.state.filmmakerTable.page;
         var size = pagination.pageSize;
         var start = (pagination.current - 1) * size;
         var orderBy = isUndefined(sorter.field) ? "" : sorter.field;
         var orderType = isUndefined(sorter.order) ? "" : sorter.order;
-        this.updateMovieTablePage({
+        this.updateFilmmakerTablePage({
             start: start,
             size: size,
             orderBy: orderBy,
             orderType: orderType,
             total: page.total
         });
-        this.loadMovieTableData();
+        this.loadFilmmakerTableData();
     },
-    movieTableDataFiledsConverter(originalData){
+    filmmakerTableDataFiledsConverter(originalData){
         const data = [];
         $.each(originalData, function (i, item) {
 
@@ -396,27 +370,28 @@ var MovieTable = React.createClass({
                 key: item.id,
                 id: item.id,
                 imgUrl: item.imgUrl,
-                posterUrl: item.posterUrl,
                 name: item.name,
                 alias: item.alias,
                 description: item.description,
-                director_id: item.directorId,
-                release_time: item.releaseTime,
-                score: item.score,
-                watch_num: item.watchNum,
-                movie_time: item.movieTime,
                 create_time: item.createTime,
                 update_time: item.updateTime,
-                status: item.status
+                status: item.status,
+                profession: item.profession,
+                bloodType: item.bloodType,
+                constellation: item.constellation,
+                sex: item.sex,
+                country: item.country,
+                birthday: item.birthday,
+
             });
         }.bind(this));
         return data;
     },
-    loadMovieTableData()
+    loadFilmmakerTableData()
     {
-        this.updateMovieTableLoading(true);
-        this.updateMovieTableRefreshBtnLoading(true);
-        const {page, query} = this.state.movieTable;
+        this.updateFilmmakerTableLoading(true);
+        this.updateFilmmakerTableRefreshBtnLoading(true);
+        const {page, query} = this.state.filmmakerTable;
         //filter
         var orderType = page.orderType;
         if (orderType == "descend") {
@@ -429,22 +404,22 @@ var MovieTable = React.createClass({
 
         //ajax
         ajax.get({
-            url: this.state.movieTable.dataSourceUrl,
+            url: this.state.filmmakerTable.dataSourceUrl,
             data: $.extend(page, query),
             success: function (result) {
 
                 var originalData = result.data.list;
                 //handle data
 
-                var data = this.movieTableDataFiledsConverter(originalData)
+                var data = this.filmmakerTableDataFiledsConverter(originalData)
                 //save data
 
-                this.updateMovieTableOriginalData(originalData);
+                this.updateFilmmakerTableOriginalData(originalData);
 
-                this.updateMovieTableData(data);
+                this.updateFilmmakerTableData(data);
 
-                var page = this.state.movieTable.page;
-                this.updateMovieTablePage({
+                var page = this.state.filmmakerTable.page;
+                this.updateFilmmakerTablePage({
                     start: page.start,
                     size: page.size,
                     orderBy: page.orderBy,
@@ -460,42 +435,42 @@ var MovieTable = React.createClass({
 
             }.bind(this),
             complete: function () {
-                this.updateMovieTableLoading(false);
-                this.updateMovieTableRefreshBtnLoading(false);
+                this.updateFilmmakerTableLoading(false);
+                this.updateFilmmakerTableRefreshBtnLoading(false);
             }.bind(this)
         });
     },
     showEditDialog(record)
     {
-        record = commons.getObjByKey(this.state.movieTable.originalData, "id", record.id);
+        record = commons.getObjByKey(this.state.filmmakerTable.originalData, "id", record.id);
         c(record);
-        this.updateMovieEditDialogEchoData(record)
+        this.updateFilmmakerEditDialogEchoData(record)
 
-        this.getMovieEditDialog().showDialog();
+        this.getFilmmakerEditDialog().showDialog();
 
     },
     deleteRecord(ids)
     {
 
         const hideLoading = message.loading(deletingTip);
-        this.updateMovieTableBatchDeleteLoading(true);
+        this.updateFilmmakerTableBatchDeleteLoading(true);
 
-        const {deletingTip, delMovieUrl} = this.state.movieTable;
+        const {deletingTip, delFilmmakerUrl} = this.state.filmmakerTable;
         ajax.delete({
-            url: delMovieUrl,
+            url: delFilmmakerUrl,
             data: {
                 deletedIds: ids.join(",")
             },
             complete: function () {
                 hideLoading();
-                this.updateMovieTableBatchDeleteLoading(false);
+                this.updateFilmmakerTableBatchDeleteLoading(false);
             }.bind(this),
             success: function (result) {
                 message.success(result.msg);
 
-                this.removeMovieTableSelectedRowKeys(ids);
+                this.removeFilmmakerTableSelectedRowKeys(ids);
 
-                this.loadMovieTableData();
+                this.loadFilmmakerTableData();
 
             }.bind(this),
             failure: function (result) {
@@ -510,33 +485,33 @@ var MovieTable = React.createClass({
     showAddDialog()
     {
         c("showAddDialog");
-        this.getMovieAddDialog().showDialog();
+        this.getFilmmakerAddDialog().showDialog();
     },
-    getMovieAddDialog()
+    getFilmmakerAddDialog()
     {
-        return this.refs.movie_add_dialog;
+        return this.refs.filmmaker_add_dialog;
     },
-    getMovieEditDialog()
+    getFilmmakerEditDialog()
     {
-        return this.refs.movie_edit_dialog;
+        return this.refs.filmmaker_edit_dialog;
     },
     onEditSuccess(newRecord){
 
-        var newOriginalData = commons.updateObjByKey(this.state.movieTable.originalData, "id", newRecord.id, newRecord);
+        var newOriginalData = commons.updateObjByKey(this.state.filmmakerTable.originalData, "id", newRecord.id, newRecord);
 
 
-        this.updateMovieTableOriginalData(newOriginalData);
+        this.updateFilmmakerTableOriginalData(newOriginalData);
 
-        var newData = this.movieTableDataFiledsConverter(newOriginalData);
+        var newData = this.filmmakerTableDataFiledsConverter(newOriginalData);
 
-        this.updateMovieTableData(newData);
+        this.updateFilmmakerTableData(newData);
     },
     onAddSuccess(newRecord){
         // c(newRecord);
-        this.loadMovieTableData();
+        this.loadFilmmakerTableData();
     },
-    getMovieImgUploaderDialog(){
-        return this.refs.movie_img_uploader_dialog;
+    getFilmmakerImgUploaderDialog(){
+        return this.refs.filmmaker_img_uploader_dialog;
     },
     onUpdateImgSuccess(result){
 
@@ -547,46 +522,28 @@ var MovieTable = React.createClass({
         //         width: 300
         //     }
         // );
-        // this.getMovieImgUploaderDialog().previewImg(imgUrl);
-        this.onEditSuccess(result.data.movie);
+        // this.getFilmmakerImgUploaderDialog().previewImg(imgUrl);
+        this.onEditSuccess(result.data.filmmaker);
     },
     onUploadTempImgSuccess(result){
-        this.getMovieImgUploaderDialog().previewImg(vm_config.http_url_prefix + result.data.imgUrl);
+        this.getFilmmakerImgUploaderDialog().previewImg(vm_config.http_url_prefix + result.data.imgUrl);
     },
-    //---------------------------------------------------------//
-    getMoviePosterUploaderDialog(){
-        return this.refs.movie_poster_uploader_dialog;
-    },
-    onUpdatePosterSuccess(result){
-        //previewImg
-        // const imgUrl = commons.generateImgUrl(
-        //     {
-        //         imgUrl: result.data.imgUrl,
-        //         width: 200
-        //     }
-        // );
-        // this.getMoviePosterUploaderDialog().previewImg(imgUrl);
-        this.onEditSuccess(result.data.movie);
-    },
-    onUploadTempPosterSuccess(result){
-        this.getMoviePosterUploaderDialog().previewImg(vm_config.http_url_prefix + result.data.imgUrl);
 
-    },
     render: function () {
 
-        const {echoData} = this.state.movieEditDialog;
+        const {echoData} = this.state.filmmakerEditDialog;
 
-        var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.movieTable;
+        var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.filmmakerTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
                 // c(selectedRows);
-                // var selectedRowKeys = this.state.movieTable.selectedRowKeys;
+                // var selectedRowKeys = this.state.filmmakerTable.selectedRowKeys;
                 // selectedRowKeys.push(selectedRows.key);
-                // this.updateMovieTableSelectedRowKeys(selectedRowKeys);
+                // this.updateFilmmakerTableSelectedRowKeys(selectedRowKeys);
                 // c(`selectedRowKeys is : ${selectedRowKeys}`, selectedRowKeys);
 
-                this.updateMovieTableSelectedRowKeys(selectedRowKeys);
+                this.updateFilmmakerTableSelectedRowKeys(selectedRowKeys);
             },
             onSelect: (record, selected, selectedRows) => {
 
@@ -607,7 +564,7 @@ var MovieTable = React.createClass({
                 <div style={{marginBottom: 16}}>
                     <Button
                         loading={refreshBtnLoading}
-                        onClick={this.loadMovieTableData}
+                        onClick={this.loadFilmmakerTableData}
                     >
                         刷新
                     </Button>
@@ -659,29 +616,23 @@ var MovieTable = React.createClass({
                     // footer={() => 'Footer'}
                     scroll={{x: "100%", y: "100%"}}/>
 
-                <MovieEditDialog ref="movie_edit_dialog"
+                <FilmmakerEditDialog ref="filmmaker_edit_dialog"
                                  echoData={echoData}
                                  onEditSuccess={this.onEditSuccess}/>
-                <MovieAddDialog ref="movie_add_dialog"
+                <FilmmakerAddDialog ref="filmmaker_add_dialog"
                                 onAddSuccess={this.onAddSuccess}/>
                 <ImgUploaderDialogTemplate
-                    ref="movie_img_uploader_dialog"
+                    ref="filmmaker_img_uploader_dialog"
                     config={imgUploaderDialog.config}
                     title={imgUploaderDialog.title}
                     width={imgUploaderDialog.width}
                     onUpdateImgSuccess={this.onUpdateImgSuccess}
                     onUploadTempImgSuccess={this.onUploadTempImgSuccess}/>
-                <ImgUploaderDialogTemplate
-                    ref="movie_poster_uploader_dialog"
-                    config={posterUploaderDialog.config}
-                    title={posterUploaderDialog.title}
-                    width={posterUploaderDialog.width}
-                    onUpdateImgSuccess={this.onUpdatePosterSuccess}
-                    onUploadTempImgSuccess={this.onUploadTempPosterSuccess}/>
+
             </div>
         );
     }
 });
 
 
-export default withRouter(MovieTable);   //将App组件导出
+export default withRouter(FilmmakerTable);   //将App组件导出

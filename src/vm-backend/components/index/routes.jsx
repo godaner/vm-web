@@ -10,6 +10,7 @@ import UserPage from "../user/user_page";
 import HomePage from "../home/home_page";
 import UserLoginLogsPage from "../user/user_login_logs_page";
 import MoviePage from "../movie/movie_page";
+import FilmmakerPage from "../movie/filmmaker_page";
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -57,6 +58,15 @@ var Routes = React.createClass({
                                pathname: "/movie"
                            })
                            return <MoviePage />;
+                       }
+
+                       }/>
+                <Route exact path='/movie/filmmaker'
+                       render={() => {
+                           window.EventsDispatcher.onRouteEnter({
+                               pathname: "/movie/filmmaker"
+                           })
+                           return <FilmmakerPage />;
                        }
 
                        }/>
