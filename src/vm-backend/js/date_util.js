@@ -47,7 +47,7 @@ Date.prototype.getCountOfMonthDay = function () { //author: meizz
 var timeFormatter = {
     int2Long: function (int) {
 
-        return ( int * 1000).toFixed(0);
+        return int * 1000;
     },
     long2Int: function (long) {
         return ( long / 1000).toFixed(0);

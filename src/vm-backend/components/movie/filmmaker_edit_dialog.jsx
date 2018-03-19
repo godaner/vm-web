@@ -15,12 +15,17 @@ const TextArea = Input.TextArea;
 
 
 var FilmmakerEditDialog = React.createClass({
+
     getInitialState(){
+
         return {
-            title: "修改电影信息",
+            title: "修改电影人信息",
             editFilmmakerUrl: "/filmmaker/info",
-            tipOfEditing: '正在保存电影修改'
+            tipOfEditing: '正在保存电影人修改',
         };
+    },
+    componentWillReceiveProps(){
+
     },
     showDialog(){
         this.getFilmmakerEditDialog().showDialog();
@@ -69,6 +74,16 @@ var FilmmakerEditDialog = React.createClass({
         c("handleCancel");
     },
     componentDidMount(){
+    },
+    updateConstellationObj(obj){
+        this.setState({
+            constellationObj: obj
+        });
+    },
+    onBirthdayChange(date, dateString){
+
+        var {echoData} = this.props;
+        echoData.constellation = commons.transConStrByDate(date._d)
 
     },
     render(){
@@ -87,12 +102,15 @@ var FilmmakerEditDialog = React.createClass({
                 echoData.updateTime = timeFormatter.formatDate(echoData.updateTime * 1000);
 
             }
-            if (!isUndefined(echoData.releaseTime)) {
-                echoData.releaseTime = moment(echoData.releaseTime * 1000);
+            if (!isUndefined(echoData.birthday)) {
+                echoData.birthday = moment(echoData.birthday * 1000);
 
             }
+
+
             return echoData;
-        }
+        }.bind(this)
+
         echoData = filterEchoData(echoData);
 
 
@@ -122,11 +140,11 @@ var FilmmakerEditDialog = React.createClass({
                             id: "name",
                             config: {
                                 initialValue: echoData.name,
-                                rules: [{required: true, message: '请输入电影名称!'}],
+                                rules: [{required: true, message: '请输入电影人名称!'}],
 
                             }
                             ,
-                            input: <Input placeholder="请输入电影名称" name="name"/>
+                            input: <Input placeholder="请输入电影人名称" name="name"/>
                         }
                     ]
 
@@ -174,16 +192,16 @@ var FilmmakerEditDialog = React.createClass({
                     cols: [
                         {
                             col: {span: 11},
-                            label: "发布时间",
-                            id: "releaseTime",
+                            label: "生日",
+                            id: "birthday",
                             config: {
-                                initialValue: echoData.releaseTime,
-                                rules: [{type: 'object', required: true, whitespace: true, message: '请输入发布时间!'}],
+                                initialValue: echoData.birthday,
+                                rules: [{type: 'object', required: true, whitespace: true, message: '请输入生日!'}],
                             }
                             ,
-                            input: <DatePicker name="releaseTime"
+                            input: <DatePicker onChange={this.onBirthdayChange}
                                                autoComplete="off"
-                                               placeholder="请输入发布时间"/>
+                                               placeholder="请输入生日"/>
                         },
 
                         {
@@ -192,15 +210,18 @@ var FilmmakerEditDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "评分",
-                            id: "ignore_score",
+                            label: "性别",
+                            id: "sex",
                             config: {
-                                initialValue: echoData.score,
+                                initialValue: echoData.sex,
+                                rules: [{required: true, message: '请输入性别!'}],
                             }
                             ,
-                            input: <Input name="ignore_score"
-                                          autoComplete="off"
-                                          disabled={true}/>
+                            input: <Select placeholder="请输入性别">
+                                <Option value="1">男</Option>
+                                <Option value="2">女</Option>
+                                <Option value="3">未知</Option>
+                            </Select>
                         }
                     ]
 
@@ -210,31 +231,56 @@ var FilmmakerEditDialog = React.createClass({
                     cols: [
                         {
                             col: {span: 11},
-                            label: "观看数",
-                            id: "ignore_watchNum",
+                            label: "职业",
+                            id: "profession",
                             config: {
-                                initialValue: echoData.watchNum,
+                                initialValue: echoData.profession,
+                                rules: [{required: true, whitespace: true, message: '请输入职业!'}],
                             }
                             ,
-                            input: <Input disabled={true}/>
-                        }
-                        ,
+                            input: <Input placeholder="请输入职业"/>
+                        },
+
                         {
                             col: {span: 2},
                             input: <div></div>
                         },
                         {
                             col: {span: 11},
-                            label: "电影时长(分钟)",
-                            id: "filmmakerTime",
+                            label: "血型",
+                            id: "bloodType",
                             config: {
-                                initialValue: echoData.filmmakerTime,
-                                rules: [{required: true, message: '请输入电影时长!'}],
+                                initialValue: echoData.bloodType,
+                                rules: [{required: true, whitespace: true, message: '请输入血型!'}],
                             }
                             ,
-                            input: <Input name="filmmakerTime"
-                                          autoComplete="off"
-                                          placeholder="请输入电影时长"/>
+                            input: <Select placeholder="请输入请输入血型">
+                                <Option value="1">A</Option>
+                                <Option value="2">B</Option>
+                                <Option value="3">C</Option>
+                            </Select>
+                        }
+                    ]
+
+
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 11},
+                            label: "国家",
+                            id: "country",
+                            config: {
+                                initialValue: echoData.country,
+                                rules: [{required: true, whitespace: true, message: '请输入国家!'}],
+                            }
+                            ,
+                            input: <Input placeholder="请输入国家"/>
+                        }
+                        ,
+                        {
+                            col: {span: 2},
+                            input: <div></div>
                         }
                     ]
 

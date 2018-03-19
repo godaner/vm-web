@@ -18,11 +18,11 @@ var MovieTable = React.createClass({
     getInitialState: function () {
 
         return {
-            posterUploaderDialog:{
+            posterUploaderDialog: {
                 title: "更新电影封面",
                 width: 700,
                 config: {
-                    aspectRatio:1.5/1,
+                    aspectRatio: 1.5 / 1,
                     fileTypes: ["jpg", "png"],
                     fileMaxsize: 1024 * 1024 * 1,//2M
                     saveImgUrl: "/movie/poster",
@@ -31,11 +31,11 @@ var MovieTable = React.createClass({
                     extraInfo: {}
                 }
             },
-            imgUploaderDialog:{
+            imgUploaderDialog: {
                 title: "更新电影图片",
                 width: 700,
                 config: {
-                    aspectRatio:1/1.5,
+                    aspectRatio: 1 / 1.5,
                     fileTypes: ["jpg", "png"],
                     fileMaxsize: 1024 * 1024 * 1,//2M
                     saveImgUrl: "/movie/img",
@@ -226,7 +226,6 @@ var MovieTable = React.createClass({
                     });
 
 
-
                     return <img onClick={() => this.showMoviePosterUploaderDialog(record)} style={{
                         width: 80,
                         height: 53,
@@ -283,7 +282,7 @@ var MovieTable = React.createClass({
                 width: 100,
                 dataIndex: 'release_time',
                 render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
+                    return timeFormatter.formatTime(timeFormatter.int2Long(text) );
                 },
                 sorter: true
             },
@@ -323,7 +322,7 @@ var MovieTable = React.createClass({
                 width: 100,
                 dataIndex: 'update_time',
                 render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
+                    return timeFormatter.formatTime();
                 },
                 sorter: true
             },
@@ -332,7 +331,7 @@ var MovieTable = React.createClass({
                 width: 100,
                 dataIndex: 'create_time',
                 render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
+                    return timeFormatter.formatTime(timeFormatter.int2Long(text));
                 },
                 sorter: true
             },
@@ -368,7 +367,7 @@ var MovieTable = React.createClass({
         this.loadMovieTableData();
     },
     uploadMovieSrc(record){
-      c("uploadMovieSrc");
+        c("uploadMovieSrc");
     },
     handleTableChange(pagination, filters, sorter)
     {

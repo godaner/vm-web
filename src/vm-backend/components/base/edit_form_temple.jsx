@@ -31,6 +31,8 @@ const EditFormTempleWrapper = React.createClass({
         this.props.form.validateFields(function (err, values) {
             if (!err) {
                 if (!isUndefined(handleSubmit)) {
+                    c("form values is :");
+                    c(values);
                     handleSubmit(values);
                 }
             }

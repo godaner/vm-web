@@ -116,6 +116,41 @@ var ajax = {
 
 
 var commons = {
+    getCons(){
+
+        return ['魔羯', '水瓶', '双鱼', '牡羊', '金牛', '双子', '巨蟹', '狮子', '处女', '天秤', '天蝎', '射手', '魔羯'];
+    },
+    getConMap(){
+
+        const map = [];
+        const cons = commons.getCons();
+        for (var i = 0; i < cons.length; i++) {
+            map.push({index: i, text: cons[i]});
+        }
+        return map;
+    },
+    transConStrByIndex(args){
+        const {index} = args;
+
+        const consStr = commons.getCons();
+
+        return consStr[index];
+    },
+    transConStrByDate(args){
+        const {date} = args;
+
+        const index = commons.transConIntByDate({date,date});
+
+
+        return commons.transConStrByIndex(index);
+    },
+    transConIntByDate(args){
+        const {date} = args;
+        const month = date.getMonth() + 1
+        const day = date.getDay();
+        return month - (day < "102223444433".charAt(month - 1) - -19);   //输出0～12的数字，0表示摩羯，1表示水瓶，依此类推，...，11是射手，12是摩羯。
+    },
+
     generateImgUrl(args){
         const {width, imgUrl} = args;
         if (isUndefined(width)) {

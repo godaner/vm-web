@@ -258,7 +258,7 @@ var UserTable = React.createClass({
                 width: 100,
                 dataIndex: 'birthday',
                 render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
+                    return timeFormatter.formatDate(timeFormatter.int2Long(text));
                 },
                 sorter: true
             },
@@ -267,7 +267,7 @@ var UserTable = React.createClass({
                 width: 150,
                 dataIndex: 'create_time',
                 render: (text) => {
-                    return timeFormatter.formatTime(text * 1000);
+                    return timeFormatter.formatTime(timeFormatter.int2Long(text));
                 },
                 sorter: true
             },
@@ -276,7 +276,7 @@ var UserTable = React.createClass({
                 width: 150,
                 dataIndex: 'update_time',
                 render: (text) => {
-                    return timeFormatter.formatTime(text * 1000);
+                    return timeFormatter.formatTime(timeFormatter.int2Long(text));
                 },
                 sorter: true
             },

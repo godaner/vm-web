@@ -19,11 +19,11 @@ var FilmmakerTable = React.createClass({
 
         return {
 
-            imgUploaderDialog:{
+            imgUploaderDialog: {
                 title: "更新电影人图片",
                 width: 700,
                 config: {
-                    aspectRatio:1/1,
+                    aspectRatio: 1 / 1,
                     fileTypes: ["jpg", "png"],
                     fileMaxsize: 1024 * 1024 * 1,//2M
                     saveImgUrl: "/filmmaker/img",
@@ -249,14 +249,7 @@ var FilmmakerTable = React.createClass({
             {
                 title: '血型',
                 width: 100,
-                dataIndex: 'bloodType',
-                sorter: true
-            },
-
-            {
-                title: '星座',
-                width: 100,
-                dataIndex: 'constellation',
+                dataIndex: 'blood_type',
                 sorter: true
             },
 
@@ -264,7 +257,11 @@ var FilmmakerTable = React.createClass({
                 title: '生日',
                 width: 100,
                 dataIndex: 'birthday',
-                sorter: true
+                sorter: true,
+
+                render: (text, record) => {
+                    return timeFormatter.formatDate(timeFormatter.int2Long(text));
+                },
             },
 
             {
@@ -304,7 +301,7 @@ var FilmmakerTable = React.createClass({
                 width: 100,
                 dataIndex: 'update_time',
                 render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
+                    return timeFormatter.formatTime(timeFormatter.int2Long(text));
                 },
                 sorter: true
             },
@@ -313,7 +310,8 @@ var FilmmakerTable = React.createClass({
                 width: 100,
                 dataIndex: 'create_time',
                 render: (text) => {
-                    return timeFormatter.formatDate(text * 1000);
+
+                    return timeFormatter.formatTime(timeFormatter.int2Long(text));
                 },
                 sorter: true
             },
@@ -342,7 +340,7 @@ var FilmmakerTable = React.createClass({
         this.loadFilmmakerTableData();
     },
     uploadFilmmakerSrc(record){
-      c("uploadFilmmakerSrc");
+        c("uploadFilmmakerSrc");
     },
     handleTableChange(pagination, filters, sorter)
     {
@@ -378,7 +376,6 @@ var FilmmakerTable = React.createClass({
                 status: item.status,
                 profession: item.profession,
                 bloodType: item.bloodType,
-                constellation: item.constellation,
                 sex: item.sex,
                 country: item.country,
                 birthday: item.birthday,
@@ -443,7 +440,7 @@ var FilmmakerTable = React.createClass({
     showEditDialog(record)
     {
         record = commons.getObjByKey(this.state.filmmakerTable.originalData, "id", record.id);
-        c(record);
+
         this.updateFilmmakerEditDialogEchoData(record)
 
         this.getFilmmakerEditDialog().showDialog();
@@ -617,10 +614,10 @@ var FilmmakerTable = React.createClass({
                     scroll={{x: "100%", y: "100%"}}/>
 
                 <FilmmakerEditDialog ref="filmmaker_edit_dialog"
-                                 echoData={echoData}
-                                 onEditSuccess={this.onEditSuccess}/>
+                                     echoData={echoData}
+                                     onEditSuccess={this.onEditSuccess}/>
                 <FilmmakerAddDialog ref="filmmaker_add_dialog"
-                                onAddSuccess={this.onAddSuccess}/>
+                                    onAddSuccess={this.onAddSuccess}/>
                 <ImgUploaderDialogTemplate
                     ref="filmmaker_img_uploader_dialog"
                     config={imgUploaderDialog.config}

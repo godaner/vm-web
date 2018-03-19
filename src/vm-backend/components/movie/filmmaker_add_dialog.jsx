@@ -16,7 +16,7 @@ var FilmmakerAddDialog = React.createClass({
     getInitialState() {
         return {
             addFilmmakerUrl: "/filmmaker/info",
-            tipOfAddingFilmmaker: "正在添加电影"
+            tipOfAddingFilmmaker: "正在添加电影人"
         };
     },
     showDialog() {
@@ -31,7 +31,7 @@ var FilmmakerAddDialog = React.createClass({
         const hideMessage = message.loading(tipOfAddingFilmmaker, 0);
         const {addFilmmakerUrl} = this.state;
         var filterValues = function (values) {
-            values.releaseTime = timeFormatter.long2Int(new Date(values.releaseTime._d).getTime());
+            values.birthday = timeFormatter.long2Int(values.birthday._d.getTime());
             return values;
         }
         values = filterValues(values);
@@ -80,17 +80,33 @@ var FilmmakerAddDialog = React.createClass({
 
 
                         {
-                            col: {span: 24},
+                            col: {span: 11},
                             label: "名称",
                             id: "name",
                             config: {
-                                rules: [{required: true, message: '请输入电影名称!'}],
+                                rules: [{required: true, message: '请输入电影人名称!'}],
 
                             }
                             ,
-                            input: <Input placeholder="请输入电影名称" name="name"/>
+                            input: <Input placeholder="请输入电影人名称" name="name"/>
                         },
-
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "别名",
+                            id: "alias",
+                            config: {
+                                rules: [{required: true, whitespace: true, message: '请输入电影人别名!'}],
+                            },
+                            input: <Input name="alias"
+                                          prefix={<Icon type="filmmaker"
+                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                          autoComplete="off"
+                                          placeholder="请输入电影人别名"/>
+                        }
                     ]
 
                 },
@@ -116,16 +132,17 @@ var FilmmakerAddDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "别名",
-                            id: "alias",
+                            label: "性别",
+                            id: "sex",
                             config: {
-                                rules: [{required: true, whitespace: true, message: '请输入电影别名!'}],
-                            },
-                            input: <Input name="alias"
-                                          prefix={<Icon type="filmmaker"
-                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                          autoComplete="off"
-                                          placeholder="请输入电影别名"/>
+                                rules: [{required: true, message: '请输入性别!'}],
+                            }
+                            ,
+                            input: <Select placeholder="请输入性别">
+                                <Option value="1">男</Option>
+                                <Option value="2">女</Option>
+                                <Option value="3">未知</Option>
+                            </Select>
                         }
                     ]
 
@@ -133,36 +150,69 @@ var FilmmakerAddDialog = React.createClass({
                 },
                 {
                     cols: [
+
                         {
                             col: {span: 11},
-                            label: "发布时间",
-                            id: "releaseTime",
+                            label: "生日",
+                            id: "birthday",
                             config: {
-                                rules: [{type: 'object', required: true, whitespace: true, message: '请输入发布时间!'}],
+                                rules: [{type: 'object', required: true, whitespace: true, message: '请输入生日!'}],
                             }
                             ,
-                            input: <DatePicker name="releaseTime"
-                                               autoComplete="off"
-                                               placeholder="请输入发布时间"/>
+                            input: <DatePicker autoComplete="off"
+                                               placeholder="请输入生日"/>
                         },
-
                         {
                             col: {span: 2},
                             input: <div></div>
                         },
                         {
                             col: {span: 11},
-                            label: "电影时长(分钟)",
-                            id: "filmmakerTime",
+                            label: "职业",
+                            id: "profession",
                             config: {
-
-                                rules: [{required: true, message: '请输入简介!'}],
+                                rules: [{required: true, whitespace: true, message: '请输入职业!'}],
                             }
                             ,
-                            input: <Input name="filmmakerTime"
-                                          autoComplete="off"
-                                          placeholder="请输入电影时长"/>
+                            input: <Input placeholder="请输入职业"/>
+                        },
+
+                    ]
+
+
+                },
+                {
+                    cols: [
+
+                        {
+                            col: {span: 11},
+                            label: "血型",
+                            id: "bloodType",
+                            config: {
+                                rules: [{required: true, whitespace: true, message: '请输入血型!'}],
+                            }
+                            ,
+                            input: <Select placeholder="请输入请输入血型">
+                                <Option value="1">A</Option>
+                                <Option value="2">B</Option>
+                                <Option value="3">C</Option>
+                            </Select>
+                        },
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "国家",
+                            id: "country",
+                            config: {
+                                rules: [{required: true, whitespace: true, message: '请输入国家!'}],
+                            }
+                            ,
+                            input: <Input placeholder="请输入国家"/>
                         }
+
                     ]
 
 
