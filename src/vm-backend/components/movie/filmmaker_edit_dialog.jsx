@@ -37,7 +37,7 @@ var FilmmakerEditDialog = React.createClass({
         const {editFilmmakerUrl, tipOfEditing} = this.state;
         const hideMessage = message.loading(tipOfEditing, 0);
         var filterValues = function (values) {
-            values.releaseTime = timeFormatter.long2Int(new Date(values.releaseTime._d).getTime());
+            values.birthday = timeFormatter.long2Int(values.birthday._d.getTime());
             return values;
         }
         values = filterValues(values);
@@ -218,9 +218,9 @@ var FilmmakerEditDialog = React.createClass({
                             }
                             ,
                             input: <Select placeholder="请输入性别">
-                                <Option value="1">男</Option>
-                                <Option value="2">女</Option>
-                                <Option value="3">未知</Option>
+                                {
+                                    commons.getSexOptions()
+                                }
                             </Select>
                         }
                     ]
@@ -255,9 +255,9 @@ var FilmmakerEditDialog = React.createClass({
                             }
                             ,
                             input: <Select placeholder="请输入请输入血型">
-                                <Option value="1">A</Option>
-                                <Option value="2">B</Option>
-                                <Option value="3">C</Option>
+                                {
+                                    commons.getBloodTypeOptions()
+                                }
                             </Select>
                         }
                     ]

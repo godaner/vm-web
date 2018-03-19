@@ -172,7 +172,7 @@ var FilmmakerTable = React.createClass({
         this.updateFilmmakerTableColumns([
             {
                 title: 'id',
-                width: 100,
+                width: 80,
                 dataIndex: 'id',
                 sorter: true
             },
@@ -222,7 +222,7 @@ var FilmmakerTable = React.createClass({
 
             {
                 title: '别名',
-                width: 100,
+                width: 80,
                 dataIndex: 'alias',
                 sorter: true
 
@@ -231,14 +231,14 @@ var FilmmakerTable = React.createClass({
 
             {
                 title: '国家',
-                width: 100,
+                width: 80,
                 dataIndex: 'country',
                 sorter: true
             },
 
             {
                 title: '职业',
-                width: 100,
+                width: 80,
                 dataIndex: 'profession',
                 sorter: true,
                 render: (text) => {
@@ -248,14 +248,18 @@ var FilmmakerTable = React.createClass({
 
             {
                 title: '血型',
-                width: 100,
+                width: 80,
                 dataIndex: 'blood_type',
-                sorter: true
+                sorter: true,
+                render: (text, record) => {
+                    return commons.getBloodTypeStrByIndex({index:text});
+                },
+
             },
 
             {
                 title: '生日',
-                width: 100,
+                width: 80,
                 dataIndex: 'birthday',
                 sorter: true,
 
@@ -266,9 +270,12 @@ var FilmmakerTable = React.createClass({
 
             {
                 title: '性别',
-                width: 100,
+                width: 80,
                 dataIndex: 'sex',
-                sorter: true
+                sorter: true,
+                render: (text) => {
+                    return commons.getSexStrByIndex({index:text});
+                },
             },
 
             {
@@ -279,12 +286,6 @@ var FilmmakerTable = React.createClass({
                 render: (text) => {
                     return commons.makeTipSpan(text, 19);
                 },
-            },
-            {
-                title: '评分',
-                width: 80,
-                dataIndex: 'score',
-                sorter: true
             },
             {
                 title: '状态',
@@ -298,7 +299,7 @@ var FilmmakerTable = React.createClass({
 
             {
                 title: '更新时间',
-                width: 100,
+                width: 80,
                 dataIndex: 'update_time',
                 render: (text) => {
                     return timeFormatter.formatTime(timeFormatter.int2Long(text));
@@ -307,7 +308,7 @@ var FilmmakerTable = React.createClass({
             },
             {
                 title: '创建时间',
-                width: 100,
+                width: 80,
                 dataIndex: 'create_time',
                 render: (text) => {
 
@@ -319,7 +320,7 @@ var FilmmakerTable = React.createClass({
             {
                 title: '操作',
                 dataIndex: 'operation',
-                width: 100,
+                width: 80,
                 render: (text, record) => {
                     return <div>
 
@@ -375,7 +376,7 @@ var FilmmakerTable = React.createClass({
                 update_time: item.updateTime,
                 status: item.status,
                 profession: item.profession,
-                bloodType: item.bloodType,
+                blood_type: item.bloodType,
                 sex: item.sex,
                 country: item.country,
                 birthday: item.birthday,
@@ -611,7 +612,7 @@ var FilmmakerTable = React.createClass({
                     bordered={bordered}
                     title={() => '用户列表'}
                     // footer={() => 'Footer'}
-                    scroll={{x: "100%", y: "100%"}}/>
+                    scroll={{x: "80%", y: "80%"}}/>
 
                 <FilmmakerEditDialog ref="filmmaker_edit_dialog"
                                      echoData={echoData}

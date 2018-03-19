@@ -1,6 +1,6 @@
-import {Layout, Menu, Breadcrumb, Icon, Select, DatePicker, message, notification, Button, Table, Input} from 'antd';
-import ReactDOM from 'react-dom';
-import React from 'react';
+import {message, Select} from "antd";
+import React from "react";
+const Option = Select.Option;
 function fail(code) {
     return code < 0;
 }
@@ -116,35 +116,70 @@ var ajax = {
 
 
 var commons = {
-    getCons(){
+    getOptions(args){
+        var {start, data} = args;
+        if (isUndefined(start)) {
+            start = 1
+        }
 
+        var options = [];
+        for (var i = 0; i < data.length; i++) {
+            const v = i + start + '';
+            options.push(<Option key={i} value={v}>{data[i]}</Option>);
+        }
+        return options;
+    },
+    getSexStrs(){
+        return ['男', '女', '未知'];
+    },
+    getSexOptions(){
+
+        const sexs = commons.getSexStrs();
+
+        return commons.getOptions({data: sexs});
+    },
+    getBloodTypeStrs(){
+        return ['A', 'B', 'AB', 'O', 'E', '未知'];
+    },
+    getBloodTypeStrByIndex(args){
+        const {index} = args
+
+        const bloodTypes = commons.getBloodTypeStrs();
+
+        return bloodTypes[index - 1];
+    },
+    getBloodTypeOptions(){
+
+        const bloodTypes = commons.getBloodTypeStrs();
+
+        return commons.getOptions({data: bloodTypes});
+    },
+    getSexStrByIndex(args){
+        const {index} = args
+
+        const sexs = ['男', '女', '未知'];
+
+        return sexs[index - 1];
+    },
+    getConsStrs(){
         return ['魔羯', '水瓶', '双鱼', '牡羊', '金牛', '双子', '巨蟹', '狮子', '处女', '天秤', '天蝎', '射手', '魔羯'];
     },
-    getConMap(){
-
-        const map = [];
-        const cons = commons.getCons();
-        for (var i = 0; i < cons.length; i++) {
-            map.push({index: i, text: cons[i]});
-        }
-        return map;
-    },
-    transConStrByIndex(args){
+    getConStrByIndex(args){
         const {index} = args;
 
         const consStr = commons.getCons();
 
         return consStr[index];
     },
-    transConStrByDate(args){
+    getConStrByDate(args){
         const {date} = args;
 
-        const index = commons.transConIntByDate({date,date});
+        const index = commons.transConIntByDate({date, date});
 
 
         return commons.transConStrByIndex(index);
     },
-    transConIntByDate(args){
+    getConIntByDate(args){
         const {date} = args;
         const month = date.getMonth() + 1
         const day = date.getDay();

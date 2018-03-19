@@ -139,9 +139,9 @@ var FilmmakerAddDialog = React.createClass({
                             }
                             ,
                             input: <Select placeholder="请输入性别">
-                                <Option value="1">男</Option>
-                                <Option value="2">女</Option>
-                                <Option value="3">未知</Option>
+                                {
+                                    commons.getSexOptions()
+                                }
                             </Select>
                         }
                     ]
@@ -193,9 +193,9 @@ var FilmmakerAddDialog = React.createClass({
                             }
                             ,
                             input: <Select placeholder="请输入请输入血型">
-                                <Option value="1">A</Option>
-                                <Option value="2">B</Option>
-                                <Option value="3">C</Option>
+                                {
+                                    commons.getBloodTypeOptions()
+                                }
                             </Select>
                         },
                         {

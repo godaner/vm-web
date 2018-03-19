@@ -224,17 +224,7 @@ var UserTable = React.createClass({
                 width: 100,
                 dataIndex: 'sex',
                 render: (text) => {
-                    var res = text;
-                    if (text == 1) {
-                        res = "男";
-                    }
-                    if (text == 2) {
-                        res = "女";
-                    }
-                    if (text == 3) {
-                        res = "未知";
-                    }
-                    return res;
+                    return commons.getSexStrByIndex({index:text});
                 },
                 sorter: true
 
