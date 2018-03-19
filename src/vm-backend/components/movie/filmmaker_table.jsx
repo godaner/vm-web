@@ -189,7 +189,7 @@ var FilmmakerTable = React.createClass({
 
                     return <img onClick={() => this.showFilmmakerImgUploaderDialog(record)} style={{
                         width: 50,
-                        height: 75,
+                        height: 50,
                         cursor: "pointer"
                     }} src={imageUrl} alt="暂无"/>
 
