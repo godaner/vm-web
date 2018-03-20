@@ -11,6 +11,8 @@ import HomePage from "../home/home_page";
 import UserLoginLogsPage from "../user/user_login_logs_page";
 import MoviePage from "../movie/movie_page";
 import FilmmakerPage from "../movie/filmmaker_page";
+import TagGroupPage from "../movie/tagGroup_page";
+
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -67,6 +69,15 @@ var Routes = React.createClass({
                                pathname: "/movie/filmmaker"
                            })
                            return <FilmmakerPage />;
+                       }
+
+                       }/>
+                <Route exact path='/movie/tagGroup'
+                       render={() => {
+                           window.EventsDispatcher.onRouteEnter({
+                               pathname: "/movie/tagGroup"
+                           })
+                           return <TagGroupPage />;
                        }
 
                        }/>

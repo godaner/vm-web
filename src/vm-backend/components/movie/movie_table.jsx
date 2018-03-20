@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
+import {Button, Icon, Input, Layout, Menu, message, Dropdown, Popconfirm, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
 import "../../scss/movie/movie_table.scss";
@@ -189,6 +189,8 @@ var MovieTable = React.createClass({
     componentDidMount()
     {
 
+
+
         this.updateMovieTableColumns([
             {
                 title: 'id',
@@ -282,7 +284,7 @@ var MovieTable = React.createClass({
                 width: 100,
                 dataIndex: 'release_time',
                 render: (text) => {
-                    return timeFormatter.formatTime(timeFormatter.int2Long(text) );
+                    return timeFormatter.formatTime(timeFormatter.int2Long(text));
                 },
                 sorter: true
             },
@@ -312,7 +314,7 @@ var MovieTable = React.createClass({
                 width: 80,
                 dataIndex: 'status',
                 render: (text) => {
-                    return commons.getStatusStrByIndex({index:text})
+                    return commons.getStatusStrByIndex({index: text})
                 },
                 sorter: true
             },
@@ -341,17 +343,32 @@ var MovieTable = React.createClass({
                 dataIndex: 'operation',
                 width: 100,
                 render: (text, record) => {
+
+                    const menu = (
+                        <Menu>
+                            <Menu.Item>
+                                <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">上传资源</a>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Popconfirm title="确认删除 ? "
+                                            okText="删除"
+                                            cancelText="取消"
+                                            onConfirm={() => this.deleteRecord([record.id])}>
+                                    <a href="javascript:void(0)">删除</a>
+                                </Popconfirm>
+                            </Menu.Item>
+                        </Menu>
+                    );
                     return <div>
-                        <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">上传资源</a>
-                        &nbsp;&nbsp;
-                        <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
-                        &nbsp;&nbsp;
-                        <Popconfirm title="确认删除 ? "
-                                    okText="删除"
-                                    cancelText="取消"
-                                    onConfirm={() => this.deleteRecord([record.id])}>
-                            <a href="javascript:void(0)">删除</a>
-                        </Popconfirm>
+
+                        <Dropdown overlay={menu}>
+                            <a href="javascript:void(0);">
+                                操作 <Icon type="down"/>
+                            </a>
+                        </Dropdown>
 
 
                     </div>

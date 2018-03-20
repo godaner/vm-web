@@ -91,7 +91,7 @@ var Nav = React.createClass({
                         title={<span><Icon type="user"/><span>用户管理</span></span>}
                     >
                         <Menu.Item key="/user">
-                            信息管理
+                            用户管理
                         </Menu.Item>
                         <Menu.Item key="/user/login/logs">登录日志</Menu.Item>
 
