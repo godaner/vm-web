@@ -103,7 +103,7 @@ var MovieEditDialog = React.createClass({
 
 
                 //clear form
-                this.getMovieEditDialog().clearForm();
+                // this.getMovieEditDialog().clearForm();
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -125,9 +125,9 @@ var MovieEditDialog = React.createClass({
     },
     handleFilmmakerSelectChange(value){
         console.log(`Selected: ${value}`);
+
     },
     render(){
-
 
         var {echoData} = this.props;
         echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
@@ -159,8 +159,9 @@ var MovieEditDialog = React.createClass({
 
         if (!isUndefined(filmmakers)) {
             filmmakerOptions = filmmakers.map(function (item, i) {
-                var val = item.id + '';
-                return <Option key={i} value={val}>{item.name}</Option>;
+                const val = item.id + '';
+                const title = "姓名：" + item.name + "\r\n别名：" + item.alias + "\r\n简介:" + item.description;
+                return <Option title={title} key={item.name} value={val}>{item.name}</Option>;
             }.bind(this));
         }
 
@@ -354,6 +355,8 @@ var MovieEditDialog = React.createClass({
                             ,
                             input: <Select
                                 mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关电影人"
                                 placeholder="请选择演员"
                                 onChange={this.handleFilmmakerSelectChange}
                                 style={{width: '100%'}}

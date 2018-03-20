@@ -105,7 +105,7 @@ var EditDialogTemple = React.createClass({
         this.form.resetFields();//!!!!
     },
     afterClose(){
-        c("afterClose");
+        this.form.resetFields();//!!!!关闭后自动清空表单
     },
     render: function () {
 
