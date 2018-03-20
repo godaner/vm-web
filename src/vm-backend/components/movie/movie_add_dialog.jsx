@@ -146,8 +146,7 @@ var MovieAddDialog = React.createClass({
                             }
                             ,
                             input: <Select placeholder="请输入状态">
-                                <Option value="1">正常</Option>
-                                <Option value="2">冻结</Option>
+                                {commons.getStatusOptions()}
                             </Select>
                         }
                         ,
@@ -162,8 +161,7 @@ var MovieAddDialog = React.createClass({
                             config: {
                                 rules: [{required: true, whitespace: true, message: '请输入电影别名!'}],
                             },
-                            input: <Input name="alias"
-                                          autoComplete="off"
+                            input: <Input autoComplete="off"
                                           placeholder="请输入电影别名"/>
                         }
                     ]
@@ -180,8 +178,7 @@ var MovieAddDialog = React.createClass({
                                 rules: [{type: 'object', required: true, whitespace: true, message: '请输入发布时间!'}],
                             }
                             ,
-                            input: <DatePicker name="releaseTime"
-                                               autoComplete="off"
+                            input: <DatePicker autoComplete="off"
                                                placeholder="请输入发布时间"/>
                         },
 
@@ -198,8 +195,7 @@ var MovieAddDialog = React.createClass({
                                 rules: [{required: true, message: '请输入简介!'}],
                             }
                             ,
-                            input: <Input name="movieTime"
-                                          autoComplete="off"
+                            input: <Input autoComplete="off"
                                           placeholder="请输入电影时长"/>
                         }
                     ]

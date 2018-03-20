@@ -135,6 +135,13 @@ var commons = {
         }
         return options;
     },
+    getStatusStrByIndex(args){
+        const {index} = args
+
+        const data = commons.getStatusStrs();
+
+        return data[index - 1];
+    },
     getStatusOptions(){
 
         const data = commons.getStatusStrs();

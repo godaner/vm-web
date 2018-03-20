@@ -312,7 +312,7 @@ var MovieTable = React.createClass({
                 width: 80,
                 dataIndex: 'status',
                 render: (text) => {
-                    return text == 1 ? "正常" : text == 2 ? "冻结" : text;
+                    return commons.getStatusStrByIndex({index:text})
                 },
                 sorter: true
             },
