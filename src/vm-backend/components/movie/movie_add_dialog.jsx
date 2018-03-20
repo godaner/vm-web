@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
+import {Button, DatePicker, Icon, Input,InputNumber, Layout, Menu, message, Select, Table, Upload} from "antd";
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
@@ -15,6 +15,7 @@ const TextArea = Input.TextArea;
 var MovieAddDialog = React.createClass({
     getInitialState() {
         return {
+            title:"添加电影",
             addMovieUrl: "/movie/info",
             getFilmmakersUrl: "/filmmaker/info/list",
             tipOfAddingMovie: "正在添加电影",
@@ -99,7 +100,7 @@ var MovieAddDialog = React.createClass({
     },
     render() {
 
-        const {filmmakers} = this.state;
+        const {filmmakers,title} = this.state;
 
         //filmmakerOptions,actorOptions
         var filmmakerOptions = [];
@@ -195,8 +196,11 @@ var MovieAddDialog = React.createClass({
                                 rules: [{required: true, message: '请输入简介!'}],
                             }
                             ,
-                            input: <Input autoComplete="off"
-                                          placeholder="请输入电影时长"/>
+                            input: <InputNumber autoComplete="off"
+                                                style={{width:'100%'}}
+                                                placeholder="请输入电影时长"
+                                                min={1}
+                                                max={600}/>
                         }
                     ]
 
@@ -275,7 +279,7 @@ var MovieAddDialog = React.createClass({
 
 
         return <EditDialogTemple
-            title="添加用户"
+            title={title}
             formRows={formRows}
             handleSubmit={this.handleSubmit}
             handleCancel={this.handleCancel}

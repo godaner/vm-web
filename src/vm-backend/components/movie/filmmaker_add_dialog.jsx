@@ -15,6 +15,7 @@ const TextArea = Input.TextArea;
 var FilmmakerAddDialog = React.createClass({
     getInitialState() {
         return {
+            title:"添加电影人",
             addFilmmakerUrl: "/filmmaker/info",
             tipOfAddingFilmmaker: "正在添加电影人"
         };
@@ -71,6 +72,7 @@ var FilmmakerAddDialog = React.createClass({
     },
     render() {
 
+        const {title} = this.state;
 
         var formLayout = "horizontal";
 
@@ -101,10 +103,7 @@ var FilmmakerAddDialog = React.createClass({
                             config: {
                                 rules: [{required: true, whitespace: true, message: '请输入电影人别名!'}],
                             },
-                            input: <Input name="alias"
-                                          prefix={<Icon type="filmmaker"
-                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                          autoComplete="off"
+                            input: <Input autoComplete="off"
                                           placeholder="请输入电影人别名"/>
                         }
                     ]
@@ -240,7 +239,7 @@ var FilmmakerAddDialog = React.createClass({
             ]
         ;
         return <EditDialogTemple
-            title="添加用户"
+            title={title}
             formRows={formRows}
             handleSubmit={this.handleSubmit}
             handleCancel={this.handleCancel}

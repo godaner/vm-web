@@ -89,6 +89,7 @@ var FilmmakerEditDialog = React.createClass({
     render(){
         var {echoData} = this.props;
 
+        const {title} = this.state;
 
         // filterEchoData
         var filterEchoData = function (echoData) {
@@ -178,10 +179,7 @@ var FilmmakerEditDialog = React.createClass({
                                 initialValue: echoData.alias,
                                 rules: [{required: true, whitespace: true, message: '请输入别名!'}],
                             },
-                            input: <Input name="alias"
-                                          prefix={<Icon type="filmmaker"
-                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                          autoComplete="off"
+                            input: <Input autoComplete="off"
                                           placeholder="别名"/>
                         }
                     ]
@@ -340,7 +338,6 @@ var FilmmakerEditDialog = React.createClass({
 
             ]
         ;
-        const {title} = this.state;
         return <EditDialogTemple
             title={title}
             formRows={formRows}

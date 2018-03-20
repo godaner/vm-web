@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
+import {Button, DatePicker, Icon, InputNumber, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
@@ -127,6 +127,9 @@ var MovieEditDialog = React.createClass({
     render(){
 
         var {echoData} = this.props;
+
+        const {title, width, filmmakers, actorIds} = this.state;
+
         echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
         // filterEchoData
         var filterEchoData = function (echoData) {
@@ -148,8 +151,6 @@ var MovieEditDialog = React.createClass({
         }
         echoData = filterEchoData(echoData);
 
-
-        const {filmmakers, actorIds} = this.state;
 
         //filmmakerOptions,actorOptions
         var filmmakerOptions = [];
@@ -300,16 +301,25 @@ var MovieEditDialog = React.createClass({
                                 rules: [{required: true, message: '请输入电影时长!'}],
                             }
                             ,
-                            input: <Input name="movieTime"
-                                          autoComplete="off"
-                                          placeholder="请输入电影时长"/>
+                            input: <InputNumber autoComplete="off"
+                                                style={{width: '100%'}}
+                                                placeholder="请输入电影时长"
+                                                min={1}
+                                                max={600}/>
                         },
                         {
-                            col: {span: 1},
+                            col: {
+                                span: 1
+                            }
+                            ,
                             input: <div></div>
-                        },
+                        }
+                        ,
                         {
-                            col: {span: 7},
+                            col: {
+                                span: 7
+                            }
+                            ,
                             label: "创建时间",
                             id: "ignore_createTime",
                             config: {
@@ -364,7 +374,8 @@ var MovieEditDialog = React.createClass({
                     ]
 
 
-                },
+                }
+                ,
                 {
                     cols: [
 
@@ -407,12 +418,12 @@ var MovieEditDialog = React.createClass({
                     ]
 
 
-                },
+                }
+                ,
 
 
             ]
         ;
-        const {title, width} = this.state;
         return <EditDialogTemple
             width={width}
             title={title}

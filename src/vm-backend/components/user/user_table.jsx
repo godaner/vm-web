@@ -224,7 +224,7 @@ var UserTable = React.createClass({
                 width: 100,
                 dataIndex: 'sex',
                 render: (text) => {
-                    return commons.getSexStrByIndex({index:text});
+                    return commons.getSexStrByIndex({index: text});
                 },
                 sorter: true
 
@@ -275,7 +275,7 @@ var UserTable = React.createClass({
                 width: 100,
                 dataIndex: 'status',
                 render: (text) => {
-                    return text == 1 ? "正常" : text == 2 ? "冻结" : text;
+                    return commons.getStatusStrByIndex({index: text});
                 },
                 sorter: true
             },

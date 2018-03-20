@@ -1,7 +1,6 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
-import moment from 'moment';
-import {withRouter} from "react-router-dom";
+import {DatePicker, Input, Layout, Menu, message, Select} from "antd";
+import moment from "moment";
 import "antd/dist/antd.css";
 import "../../scss/user/user_page.scss";
 import "../base/events_dispatcher";
@@ -73,6 +72,7 @@ var UserEditDialog = React.createClass({
     render(){
         var {echoData} = this.props;
 
+        const {title} = this.state;
 
         // filterEchoData
         var filterEchoData = function (echoData) {
@@ -158,10 +158,7 @@ var UserEditDialog = React.createClass({
                                 initialValue: echoData.username,
                                 rules: [{required: true, whitespace: true, message: '请输入用户名!'}],
                             },
-                            input: <Input name="username"
-                                          prefix={<Icon type="user"
-                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                          autoComplete="off"
+                            input: <Input autoComplete="off"
                                           placeholder="用户名"/>
                         }
                     ]
@@ -179,9 +176,7 @@ var UserEditDialog = React.createClass({
                                 rules: [{required: true, whitespace: true, message: '请输入密码!'}],
                             }
                             ,
-                            input: <Input name="password"
-                                          prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                          autoComplete="off"
+                            input: <Input autoComplete="off"
                                           placeholder="密码"/>
                         },
 
@@ -263,7 +258,6 @@ var UserEditDialog = React.createClass({
 
             ]
         ;
-        const {title} = this.state;
         return <EditDialogTemple
             title={title}
             formRows={formRows}
