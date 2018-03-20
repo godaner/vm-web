@@ -80,13 +80,13 @@ var UserEditDialog = React.createClass({
                 return {};
             }
             if (!isUndefined(echoData.birthday)) {
-                echoData.birthday = moment(echoData.birthday * 1000);
+                echoData.birthday = moment(timeFormatter.int2Long(echoData.birthday));
             }
             if (!isUndefined(echoData.createTime)) {
-                echoData.createTime = timeFormatter.formatDate(echoData.createTime * 1000);
+                echoData.createTime = timeFormatter.formatDate(timeFormatter.int2Long(echoData.createTime));
             }
             if (!isUndefined(echoData.updateTime)) {
-                echoData.updateTime = timeFormatter.formatDate(echoData.updateTime * 1000);
+                echoData.updateTime = timeFormatter.formatDate(timeFormatter.int2Long(echoData.updateTime));
 
             }
             return echoData;

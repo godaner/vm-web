@@ -138,14 +138,14 @@ var MovieEditDialog = React.createClass({
                 return {};
             }
             if (!isUndefined(echoData.createTime)) {
-                echoData.createTime = timeFormatter.formatTime(echoData.createTime * 1000);
+                echoData.createTime = timeFormatter.formatTime(timeFormatter.int2Long(echoData.createTime));
             }
             if (!isUndefined(echoData.updateTime)) {
-                echoData.updateTime = timeFormatter.formatTime(echoData.updateTime * 1000);
+                echoData.updateTime = timeFormatter.formatTime(timeFormatter.int2Long(echoData.updateTime));
 
             }
             if (!isUndefined(echoData.releaseTime)) {
-                echoData.releaseTime = moment(echoData.releaseTime * 1000);
+                echoData.releaseTime = moment(timeFormatter.int2Long(echoData.releaseTime));
 
             }
             return echoData;
