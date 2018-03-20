@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="movie_edit_dialog.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="386" column="46" lean-forward="false" selection-start-line="386" selection-start-column="46" selection-end-line="386" selection-end-column="46" />
+            <state relative-caret-position="297">
+              <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -52,8 +51,8 @@
       <file leaf-file-name="edit_dialog_temple.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/edit_dialog_temple.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-375">
-              <caret line="103" column="13" lean-forward="false" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="13" />
+            <state relative-caret-position="405">
+              <caret line="23" column="29" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -112,9 +111,9 @@
       <find>show</find>
       <find>clearForm</find>
       <find>编辑</find>
-      <find>handleFilmmakerSelectChange</find>
       <find>director_id</find>
       <find>update_time</find>
+      <find>handleFilmmakerSelectChange</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -985,12 +984,12 @@
       <workItem from="1521100194258" duration="639000" />
       <workItem from="1521101253932" duration="6835000" />
       <workItem from="1521169852508" duration="38676000" />
-      <workItem from="1521452872089" duration="13455000" />
+      <workItem from="1521452872089" duration="14003000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271058000" />
+    <option name="totallyTimeSpent" value="271606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1443,14 +1442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/edit_dialog_temple.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375">
-          <caret line="103" column="13" lean-forward="false" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1719">
@@ -1461,10 +1452,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/edit_dialog_temple.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="23" column="29" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="386" column="46" lean-forward="false" selection-start-line="386" selection-start-column="46" selection-end-line="386" selection-end-column="46" />
+        <state relative-caret-position="297">
+          <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding />
         </state>
       </provider>

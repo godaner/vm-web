@@ -17,6 +17,7 @@ const TextArea = Input.TextArea;
 var MovieEditDialog = React.createClass({
     getInitialState(){
         return {
+            width: 600,
             title: "修改电影信息",
             editMovieUrl: "/movie/info",
             getFilmmakersUrl: "/filmmaker/info/list",
@@ -133,10 +134,10 @@ var MovieEditDialog = React.createClass({
                 return {};
             }
             if (!isUndefined(echoData.createTime)) {
-                echoData.createTime = timeFormatter.formatDate(echoData.createTime * 1000);
+                echoData.createTime = timeFormatter.formatTime(echoData.createTime * 1000);
             }
             if (!isUndefined(echoData.updateTime)) {
-                echoData.updateTime = timeFormatter.formatDate(echoData.updateTime * 1000);
+                echoData.updateTime = timeFormatter.formatTime(echoData.updateTime * 1000);
 
             }
             if (!isUndefined(echoData.releaseTime)) {
@@ -168,7 +169,7 @@ var MovieEditDialog = React.createClass({
                 {
                     cols: [
                         {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "id",
                             id: "id",
                             config: {
@@ -179,11 +180,11 @@ var MovieEditDialog = React.createClass({
                                           disabled={true}/>
                         },
                         {
-                            col: {span: 2},
+                            col: {span: 1},
                             input: <div></div>
                         },
                         {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "名称",
                             id: "name",
                             config: {
@@ -193,14 +194,14 @@ var MovieEditDialog = React.createClass({
                             }
                             ,
                             input: <Input placeholder="请输入电影名称" name="name"/>
-                        }
-                    ]
+                        },
 
-                },
-                {
-                    cols: [
                         {
-                            col: {span: 11},
+                            col: {span: 1},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 7},
                             label: "状态",
                             id: "status",
                             config: {
@@ -213,13 +214,15 @@ var MovieEditDialog = React.createClass({
                                 <Option value="2">冻结</Option>
                             </Select>
                         }
-                        ,
+                    ]
+
+                },
+                {
+                    cols: [
+
+
                         {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "别名",
                             id: "alias",
                             config: {
@@ -231,15 +234,14 @@ var MovieEditDialog = React.createClass({
                                                         style={{color: 'rgba(0,0,0,.25)'}}/>}
                                           autoComplete="off"
                                           placeholder="别名"/>
-                        }
-                    ]
+                        },
 
-
-                },
-                {
-                    cols: [
                         {
-                            col: {span: 11},
+                            col: {span: 1},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 7},
                             label: "发布时间",
                             id: "releaseTime",
                             config: {
@@ -249,18 +251,18 @@ var MovieEditDialog = React.createClass({
                             ,
                             input: <DatePicker name="releaseTime"
                                                style={{
-                                                   width:"100%"
+                                                   width: "100%"
                                                }}
                                                autoComplete="off"
                                                placeholder="请输入发布时间"/>
                         },
 
                         {
-                            col: {span: 2},
+                            col: {span: 1},
                             input: <div></div>
                         },
                         {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "评分",
                             id: "ignore_score",
                             config: {
@@ -278,7 +280,7 @@ var MovieEditDialog = React.createClass({
                 {
                     cols: [
                         {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "观看数",
                             id: "ignore_watchNum",
                             config: {
@@ -289,11 +291,11 @@ var MovieEditDialog = React.createClass({
                         }
                         ,
                         {
-                            col: {span: 2},
+                            col: {span: 1},
                             input: <div></div>
                         },
                         {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "电影时长(分钟)",
                             id: "movieTime",
                             config: {
@@ -304,15 +306,13 @@ var MovieEditDialog = React.createClass({
                             input: <Input name="movieTime"
                                           autoComplete="off"
                                           placeholder="请输入电影时长"/>
-                        }
-                    ]
-
-
-                },
-                {
-                    cols: [
+                        },
                         {
-                            col: {span: 11},
+                            col: {span: 1},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 7},
                             label: "创建时间",
                             id: "ignore_createTime",
                             config: {
@@ -321,13 +321,16 @@ var MovieEditDialog = React.createClass({
                             ,
                             input: <Input disabled={true}/>
                         }
-                        ,
+                    ]
+
+
+                },
+                {
+                    cols: [
+
+
                         {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "最后更新时间",
                             id: "ignore_updateTime",
                             config: {
@@ -335,16 +338,68 @@ var MovieEditDialog = React.createClass({
                             }
                             ,
                             input: <Input disabled={true}/>
+                        },
+                        {
+                            col: {span: 1},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 7},
+                            label: "最后更新时间",
+                            id: "ignore_updateTime",
+                            config: {
+                                initialValue: echoData.updateTime,
+                            }
+                            ,
+                            input: <Input disabled={true}/>
+                        },
+                        {
+                            col: {span: 1},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 7},
+                            label: "导演",
+                            id: "directorId",
+                            config: {
+                                initialValue: echoData.directorId,
+                                rules: [{required: true, message: '请选择导演!'}],
+                            }
+                            ,
+                            input: <Select
+                                showSearch
+                                optionFilterProp="children"
+                                notFoundContent="无相关电影人"
+                                placeholder="请选择导演"
+                                style={{width: '100%'}}
+                            >
+                                {filmmakerOptions}
+                            </Select>
                         }
                     ]
 
 
                 },
-
                 {
                     cols: [
                         {
-                            col: {span: 24},
+                            col: {span: 11},
+                            label: "简介",
+                            id: "description",
+                            config: {
+                                initialValue: echoData.description,
+                                rules: [{required: true, message: '请输入简介!'}],
+                            }
+                            ,
+                            input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
+                        }
+                        ,
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
                             label: "演员",
                             id: "actorIds",
                             config: {
@@ -369,58 +424,13 @@ var MovieEditDialog = React.createClass({
 
 
                 },
-            {
-                cols: [
-                    {
-                        col: {span: 24},
-                        label: "导演",
-                        id: "directorId",
-                        config: {
-                            initialValue: echoData.directorId,
-                            rules: [{required: true, message: '请选择导演!'}],
-                        }
-                        ,
-                        input: <Select
-                            showSearch
-                            optionFilterProp="children"
-                            notFoundContent="无相关电影人"
-                            placeholder="请选择导演"
-                            style={{width: '100%'}}
-                        >
-                            {filmmakerOptions}
-                        </Select>
-                    }
-
-
-                ]
-
-
-            },
-                {
-                    cols: [
-                        {
-                            col: {span: 24},
-                            label: "简介",
-                            id: "description",
-                            config: {
-                                initialValue: echoData.description,
-                                rules: [{required: true, message: '请输入简介!'}],
-                            }
-                            ,
-                            input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
-                        }
-
-
-                    ]
-
-
-                },
 
 
             ]
         ;
-        const {title} = this.state;
+        const {title, width} = this.state;
         return <EditDialogTemple
+            width={width}
             title={title}
             formRows={formRows}
             formLayout={formLayout}
