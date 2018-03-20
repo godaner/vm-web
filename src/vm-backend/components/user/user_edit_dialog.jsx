@@ -63,7 +63,7 @@ var UserEditDialog = React.createClass({
 
     },
     handleCancel(){
-
+        this.getUserEditDialog().clearForm();//!!防止触发reuqired后在关闭的bug
         c("handleCancel");
     },
     componentDidMount(){

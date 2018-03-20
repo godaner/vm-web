@@ -76,6 +76,7 @@ var MovieEditDialog = React.createClass({
         this.loadFilmmakerData();
 
         this.loadActorIdsData(record.id);
+
     },
     getMovieEditDialog(){
         return this.refs.movie_edit_dialog;
@@ -118,7 +119,7 @@ var MovieEditDialog = React.createClass({
 
     },
     handleCancel(){
-
+        this.getMovieEditDialog().clearForm();//!!防止触发reuqired后在关闭的bug
         c("handleCancel");
     },
     componentDidMount(){
