@@ -210,8 +210,7 @@ var MovieEditDialog = React.createClass({
                             }
                             ,
                             input: <Select placeholder="请输入状态">
-                                <Option value="1">正常</Option>
-                                <Option value="2">冻结</Option>
+                                {commons.getStatusOptions()}
                             </Select>
                         }
                     ]
@@ -230,8 +229,6 @@ var MovieEditDialog = React.createClass({
                                 rules: [{required: true, whitespace: true, message: '请输入别名!'}],
                             },
                             input: <Input name="alias"
-                                          prefix={<Icon type="movie"
-                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
                                           autoComplete="off"
                                           placeholder="别名"/>
                         },
@@ -343,20 +340,8 @@ var MovieEditDialog = React.createClass({
                             col: {span: 1},
                             input: <div></div>
                         },
-                        {
-                            col: {span: 7},
-                            label: "最后更新时间",
-                            id: "ignore_updateTime",
-                            config: {
-                                initialValue: echoData.updateTime,
-                            }
-                            ,
-                            input: <Input disabled={true}/>
-                        },
-                        {
-                            col: {span: 1},
-                            input: <div></div>
-                        },
+
+
                         {
                             col: {span: 7},
                             label: "导演",
@@ -382,6 +367,7 @@ var MovieEditDialog = React.createClass({
                 },
                 {
                     cols: [
+
                         {
                             col: {span: 11},
                             label: "简介",
@@ -392,13 +378,11 @@ var MovieEditDialog = React.createClass({
                             }
                             ,
                             input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
-                        }
-                        ,
+                        },
                         {
                             col: {span: 2},
                             input: <div></div>
-                        },
-                        {
+                        }, {
                             col: {span: 11},
                             label: "演员",
                             id: "actorIds",
@@ -412,12 +396,12 @@ var MovieEditDialog = React.createClass({
                                 optionFilterProp="children"
                                 notFoundContent="无相关电影人"
                                 placeholder="请选择演员"
-                                onChange={this.handleFilmmakerSelectChange}
+                                // onChange={this.handleFilmmakerSelectChange}
                                 style={{width: '100%'}}
                             >
                                 {filmmakerOptions}
                             </Select>
-                        }
+                        },
 
 
                     ]

@@ -16,11 +16,16 @@ var MovieAddDialog = React.createClass({
     getInitialState() {
         return {
             addMovieUrl: "/movie/info",
-            tipOfAddingMovie: "正在添加电影"
+            getFilmmakersUrl: "/filmmaker/info/list",
+            tipOfAddingMovie: "正在添加电影",
+            filmmakers: []
         };
     },
     showDialog() {
         this.getMovieAddDialog().showDialog();
+
+        this.loadFilmmakerData();
+
     }
     ,
     getMovieAddDialog() {
@@ -32,6 +37,7 @@ var MovieAddDialog = React.createClass({
         const {addMovieUrl} = this.state;
         var filterValues = function (values) {
             values.releaseTime = timeFormatter.long2Int(new Date(values.releaseTime._d).getTime());
+            values.actorIds = values.actorIds.join(",");
             return values;
         }
         values = filterValues(values);
@@ -62,6 +68,28 @@ var MovieAddDialog = React.createClass({
         });
 
     },
+
+    updateFilmmakers(filmmakers){
+        this.setState({filmmakers: filmmakers});
+    },
+    loadFilmmakerData () {
+        const {getFilmmakersUrl} = this.state;
+        ajax.get({
+            url: getFilmmakersUrl,
+            success: function (result) {
+
+                this.updateFilmmakers(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
     handleCancel() {
 
         c("handleCancel");
@@ -70,6 +98,19 @@ var MovieAddDialog = React.createClass({
 
     },
     render() {
+
+        const {filmmakers} = this.state;
+
+        //filmmakerOptions,actorOptions
+        var filmmakerOptions = [];
+
+        if (!isUndefined(filmmakers)) {
+            filmmakerOptions = filmmakers.map(function (item, i) {
+                const val = item.id + '';
+                const title = "姓名：" + item.name + "\r\n别名：" + item.alias + "\r\n简介:" + item.description;
+                return <Option title={title} key={item.name} value={val}>{item.name}</Option>;
+            }.bind(this));
+        }
 
 
         var formLayout = "horizontal";
@@ -122,8 +163,6 @@ var MovieAddDialog = React.createClass({
                                 rules: [{required: true, whitespace: true, message: '请输入电影别名!'}],
                             },
                             input: <Input name="alias"
-                                          prefix={<Icon type="movie"
-                                                        style={{color: 'rgba(0,0,0,.25)'}}/>}
                                           autoComplete="off"
                                           placeholder="请输入电影别名"/>
                         }
@@ -170,6 +209,54 @@ var MovieAddDialog = React.createClass({
                 {
                     cols: [
                         {
+                            col: {span: 11},
+                            label: "演员",
+                            id: "actorIds",
+                            config: {
+                                rules: [{required: true, message: '请选择演员!'}],
+                            }
+                            ,
+                            input: <Select
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关电影人"
+                                placeholder="请选择演员"
+                                style={{width: '100%'}}
+                            >
+                                {filmmakerOptions}
+                            </Select>
+                        },
+
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "导演",
+                            id: "directorId",
+                            config: {
+                                rules: [{required: true, message: '请选择导演!'}],
+                            }
+                            ,
+                            input: <Select
+                                showSearch
+                                optionFilterProp="children"
+                                notFoundContent="无相关电影人"
+                                placeholder="请选择导演"
+                                style={{width: '100%'}}
+                            >
+                                {filmmakerOptions}
+                            </Select>
+                        }
+                    ]
+
+
+                },
+
+                {
+                    cols: [
+                        {
                             col: {span: 24},
                             label: "简介",
                             id: "description",
@@ -189,6 +276,8 @@ var MovieAddDialog = React.createClass({
 
             ]
         ;
+
+
         return <EditDialogTemple
             title="添加用户"
             formRows={formRows}

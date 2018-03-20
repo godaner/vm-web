@@ -135,14 +135,23 @@ var commons = {
         }
         return options;
     },
+    getStatusOptions(){
+
+        const data = commons.getStatusStrs();
+
+        return commons.getOptions({data: data});
+    },
+    getStatusStrs(){
+        return ['正常', '冻结'];
+    },
     getSexStrs(){
         return ['男', '女', '未知'];
     },
     getSexOptions(){
 
-        const sexs = commons.getSexStrs();
+        const data = commons.getSexStrs();
 
-        return commons.getOptions({data: sexs});
+        return commons.getOptions({data: data});
     },
     getBloodTypeStrs(){
         return ['A', 'B', 'AB', 'O', 'E', '未知'];
@@ -156,9 +165,9 @@ var commons = {
     },
     getBloodTypeOptions(){
 
-        const bloodTypes = commons.getBloodTypeStrs();
+        const data = commons.getBloodTypeStrs();
 
-        return commons.getOptions({data: bloodTypes});
+        return commons.getOptions({data: data});
     },
     getSexStrByIndex(args){
         const {index} = args
@@ -285,7 +294,7 @@ var commons = {
 
     },
     objDeepCopy(obj){
-        if(isUndefined(obj)){
+        if (isUndefined(obj)) {
             return undefined;
         }
         var str, newobj = obj.constructor === Array ? [] : {};
