@@ -116,6 +116,12 @@ var ajax = {
 
 
 var commons = {
+    toStrArr(notStrArr){
+        for (var i = 0; i < notStrArr.length; i++) {
+            notStrArr[i] = notStrArr[i] + '';
+        }
+        return notStrArr;
+    },
     getOptions(args){
         var {start, data} = args;
         if (isUndefined(start)) {
@@ -279,6 +285,9 @@ var commons = {
 
     },
     objDeepCopy(obj){
+        if(isUndefined(obj)){
+            return undefined;
+        }
         var str, newobj = obj.constructor === Array ? [] : {};
         if (typeof obj !== 'object') {
             return;
@@ -292,6 +301,11 @@ var commons = {
             }
         }
         return newobj;
+
+    },
+    clone(obj){
+
+        return commons.objDeepCopy(obj);
 
     },
     updateObjByKey(objArr, key, keyVal, newObj){

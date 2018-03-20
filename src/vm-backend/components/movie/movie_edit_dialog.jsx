@@ -19,11 +19,62 @@ var MovieEditDialog = React.createClass({
         return {
             title: "修改电影信息",
             editMovieUrl: "/movie/info",
-            tipOfEditing: '正在保存电影修改'
+            getFilmmakersUrl: "/filmmaker/info/list",
+            getActorIdsUrl: "/filmmaker/id/list/",//   ---/filmmaker/id/{movieId}
+            tipOfEditing: '正在保存电影修改',
+            filmmakers: [],
+            actorIds: []
         };
     },
-    showDialog(){
+    updateFilmmakers(filmmakers){
+        this.setState({filmmakers: filmmakers});
+    },
+    updateActorIds(actorIds){
+        this.setState({actorIds: actorIds});
+    },
+    loadFilmmakerData () {
+        const {getFilmmakersUrl} = this.state;
+        ajax.get({
+            url: getFilmmakersUrl,
+            success: function (result) {
+
+                this.updateFilmmakers(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
+    loadActorIdsData (movieId) {
+        const {getActorIdsUrl} = this.state;
+        ajax.get({
+            url: getActorIdsUrl + movieId,
+            success: function (result) {
+
+                this.updateActorIds(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
+    showDialog(record){
+
         this.getMovieEditDialog().showDialog();
+
+        this.loadFilmmakerData();
+
+        this.loadActorIdsData(record.id);
     },
     getMovieEditDialog(){
         return this.refs.movie_edit_dialog;
@@ -33,6 +84,7 @@ var MovieEditDialog = React.createClass({
         const hideMessage = message.loading(tipOfEditing, 0);
         var filterValues = function (values) {
             values.releaseTime = timeFormatter.long2Int(new Date(values.releaseTime._d).getTime());
+            values.actorIds = values.actorIds.join(",");
             return values;
         }
         values = filterValues(values);
@@ -71,10 +123,14 @@ var MovieEditDialog = React.createClass({
     componentDidMount(){
 
     },
+    handleFilmmakerSelectChange(value){
+        console.log(`Selected: ${value}`);
+    },
     render(){
+
+
         var {echoData} = this.props;
-
-
+        echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
         // filterEchoData
         var filterEchoData = function (echoData) {
             if (isUndefined(echoData)) {
@@ -94,6 +150,19 @@ var MovieEditDialog = React.createClass({
             return echoData;
         }
         echoData = filterEchoData(echoData);
+
+
+        const {filmmakers, actorIds} = this.state;
+
+        //filmmakerOptions,actorOptions
+        var filmmakerOptions = [];
+
+        if (!isUndefined(filmmakers)) {
+            filmmakerOptions = filmmakers.map(function (item, i) {
+                var val = item.id + '';
+                return <Option key={i} value={val}>{item.name}</Option>;
+            }.bind(this));
+        }
 
 
         var formLayout = "horizontal";
@@ -267,6 +336,33 @@ var MovieEditDialog = React.createClass({
                             ,
                             input: <Input disabled={true}/>
                         }
+                    ]
+
+
+                },
+
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "演员",
+                            id: "actorIds",
+                            config: {
+                                initialValue: commons.toStrArr(actorIds),
+                                rules: [{required: true, message: '请选择演员!'}],
+                            }
+                            ,
+                            input: <Select
+                                mode="multiple"
+                                placeholder="请选择演员"
+                                onChange={this.handleFilmmakerSelectChange}
+                                style={{width: '100%'}}
+                            >
+                                {filmmakerOptions}
+                            </Select>
+                        }
+
+
                     ]
 
 

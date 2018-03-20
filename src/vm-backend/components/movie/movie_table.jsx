@@ -344,12 +344,6 @@ var MovieTable = React.createClass({
                     return <div>
                         <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">上传资源</a>
                         &nbsp;&nbsp;
-
-                        <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">导演</a>
-                        &nbsp;&nbsp;
-
-                        <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">演员</a>
-                        &nbsp;&nbsp;
                         <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
                         &nbsp;&nbsp;
                         <Popconfirm title="确认删除 ? "
@@ -467,10 +461,10 @@ var MovieTable = React.createClass({
     showEditDialog(record)
     {
         record = commons.getObjByKey(this.state.movieTable.originalData, "id", record.id);
-        c(record);
+        // c(record);
         this.updateMovieEditDialogEchoData(record)
 
-        this.getMovieEditDialog().showDialog();
+        this.getMovieEditDialog().showDialog(record);
 
     },
     deleteRecord(ids)
