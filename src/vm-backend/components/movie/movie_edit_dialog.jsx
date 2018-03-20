@@ -123,10 +123,6 @@ var MovieEditDialog = React.createClass({
     componentDidMount(){
 
     },
-    handleFilmmakerSelectChange(value){
-        console.log(`Selected: ${value}`);
-
-    },
     render(){
 
         var {echoData} = this.props;
@@ -252,6 +248,9 @@ var MovieEditDialog = React.createClass({
                             }
                             ,
                             input: <DatePicker name="releaseTime"
+                                               style={{
+                                                   width:"100%"
+                                               }}
                                                autoComplete="off"
                                                placeholder="请输入发布时间"/>
                         },
@@ -370,6 +369,33 @@ var MovieEditDialog = React.createClass({
 
 
                 },
+            {
+                cols: [
+                    {
+                        col: {span: 24},
+                        label: "导演",
+                        id: "directorId",
+                        config: {
+                            initialValue: echoData.directorId,
+                            rules: [{required: true, message: '请选择导演!'}],
+                        }
+                        ,
+                        input: <Select
+                            showSearch
+                            optionFilterProp="children"
+                            notFoundContent="无相关电影人"
+                            placeholder="请选择导演"
+                            style={{width: '100%'}}
+                        >
+                            {filmmakerOptions}
+                        </Select>
+                    }
+
+
+                ]
+
+
+            },
                 {
                     cols: [
                         {

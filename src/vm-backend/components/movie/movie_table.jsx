@@ -322,7 +322,7 @@ var MovieTable = React.createClass({
                 width: 100,
                 dataIndex: 'update_time',
                 render: (text) => {
-                    return timeFormatter.formatTime();
+                    return timeFormatter.formatTime(timeFormatter.int2Long(text));
                 },
                 sorter: true
             },
