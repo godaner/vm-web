@@ -6,6 +6,7 @@ import "../../scss/movie/tagGroup_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import TagTable from "./tag_table";
+import TagGroupEditDialog from "./tagGroup_edit_dialog";
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -16,7 +17,10 @@ var TagGroupTable = React.createClass({
 
         return {
 
-
+            editDialog:{
+                echoData:{}
+            },
+            addDialog:{},
             tagGroupTable: {
                 dataSourceUrl: "/tagGroup/info/list",
                 delTagGroupUrl: "/tagGroup/info",
@@ -305,14 +309,30 @@ var TagGroupTable = React.createClass({
             }.bind(this)
         });
     },
+    updateEchoData(echoData){
+        var state = this.state;
+        state.editDialog.echoData = echoData;
+        this.setState(state);
+    },
     showEditDialog(record)
     {
         record = commons.getObjByKey(this.state.tagGroupTable.originalData, "id", record.id);
         // c(record);
-        this.updateTagGroupEditDialogEchoData(record)
+        this.updateEchoData(record)
 
         this.getTagGroupEditDialog().showDialog(record);
 
+    },
+    onEditSuccess(newRecord){
+
+        var newOriginalData = commons.updateObjByKey(this.state.movieTable.originalData, "id", newRecord.id, newRecord);
+
+
+        this.updateTagGroupTableOriginalData(newOriginalData);
+
+        var newData = this.tagGroupTableDataFiledsConverter(newOriginalData);
+
+        this.updateTagGroupTableData(newData);
     },
     deleteRecord(ids)
     {
@@ -373,6 +393,8 @@ var TagGroupTable = React.createClass({
 
 
         var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.tagGroupTable;
+
+        const {echoData} = this.state.editDialog;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -455,6 +477,9 @@ var TagGroupTable = React.createClass({
                     scroll={{x: "100%", y: "100%"}}/>
 
 
+                <TagGroupEditDialog ref="tagGroup_edit_dialog"
+                                 echoData={echoData}
+                                 onEditSuccess={this.onEditSuccess}/>
             </div>
         );
     }
