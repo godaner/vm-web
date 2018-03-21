@@ -28,9 +28,10 @@
         display: inline;
       }
       label {
-        display: inline;
-        //background-color: red;
-        width: 20%;
+        width: 80px;
+        text-align: right;
+        display: inline-block;
+        margin-right:10px;
       }
       ul {
         width: 80%;

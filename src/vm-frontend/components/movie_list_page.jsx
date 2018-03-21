@@ -248,12 +248,11 @@ var MovieListPage = React.createClass({
                 }
 
 
-
             }.bind(this),
             onResponseFailure: function (result) {
                 window.VmFrontendEventsDispatcher.showMsgDialog(result.msg);
             }.bind(this),
-            onResponseEnd:function(){
+            onResponseEnd: function () {
                 //callfun
                 if (callfun != undefined) {
                     callfun()
