@@ -325,8 +325,7 @@ var TagGroupTable = React.createClass({
 
     },
     onEditSuccess(newRecord){
-
-        var newOriginalData = commons.updateObjByKey(this.state.movieTable.originalData, "id", newRecord.id, newRecord);
+        var newOriginalData = commons.updateObjByKey(this.state.tagGroupTable.originalData, "id", newRecord.id, newRecord);
 
 
         this.updateTagGroupTableOriginalData(newOriginalData);
@@ -334,6 +333,10 @@ var TagGroupTable = React.createClass({
         var newData = this.tagGroupTableDataFiledsConverter(newOriginalData);
 
         this.updateTagGroupTableData(newData);
+    },
+    onAddSuccess(){
+
+        this.loadTagGroupTableData();
     },
     deleteRecord(ids)
     {

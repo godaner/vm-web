@@ -51,7 +51,7 @@ var TagGroupEditDialog = React.createClass({
                 message.success(result.msg);
                 this.getTagGroupEditDialog().closeDialog();
                 //callback
-                !isUndefined(onEditSuccess) ? onEditSuccess(result.data.movie) : undefined;
+                !isUndefined(onEditSuccess) ? onEditSuccess(result.data.tagGroup) : undefined;
 
 
                 //clear form

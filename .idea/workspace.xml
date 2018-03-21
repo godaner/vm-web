@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
@@ -28,21 +29,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tagGroup_table.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tagGroup_table.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tagGroup_edit_dialog.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="204" column="9" lean-forward="true" selection-start-line="102" selection-start-column="8" selection-end-line="204" selection-end-column="9" />
+            <state relative-caret-position="612">
+              <caret line="338" column="37" lean-forward="false" selection-start-line="338" selection-start-column="37" selection-end-line="338" selection-end-column="37" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -50,11 +41,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tagGroup_add_dialog.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tagGroup_edit_dialog.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="53" column="76" lean-forward="true" selection-start-line="53" selection-start-column="76" selection-end-line="53" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tagGroup_add_dialog.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_add_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+            <state relative-caret-position="153">
+              <caret line="46" column="57" lean-forward="false" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="57" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -77,8 +78,8 @@
       <file leaf-file-name="movie_table.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="674" column="54" lean-forward="true" selection-start-line="674" selection-start-column="54" selection-end-line="675" selection-end-column="64" />
+            <state relative-caret-position="315">
+              <caret line="544" column="24" lean-forward="true" selection-start-line="544" selection-start-column="24" selection-end-line="545" selection-end-column="34" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -90,9 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TagGroupTable</find>
-      <find>TreeNode</find>
-      <find>treeData</find>
       <find>Badge</find>
       <find>create_time</find>
       <find>TagGroup</find>
@@ -118,8 +116,11 @@
       <find>add</find>
       <find>show</find>
       <find>添加</find>
-      <find>onAdd</find>
+      <find>onE</find>
       <find>_d</find>
+      <find>onAddSuccess</find>
+      <find>onAdd</find>
+      <find>originalDat</find>
     </findStrings>
     <replaceStrings>
       <replace>user</replace>
@@ -150,8 +151,8 @@
       <replace>data</replace>
       <replace>Tag</replace>
       <replace>TagGroup</replace>
-      <replace>editUrl</replace>
       <replace>tagGroup</replace>
+      <replace>editUrl</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\zk\vm-web\src\backend</dir>
@@ -223,9 +224,9 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tag_table.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_add_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_add_dialog.jsx" />
       </list>
     </option>
   </component>
@@ -940,12 +941,12 @@
       <workItem from="1521101253932" duration="6835000" />
       <workItem from="1521169852508" duration="38676000" />
       <workItem from="1521452872089" duration="26924000" />
-      <workItem from="1521596122196" duration="4364000" />
+      <workItem from="1521596122196" duration="5444000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="288891000" />
+    <option name="totallyTimeSpent" value="289971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1407,10 +1408,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_add_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="204" column="9" lean-forward="true" selection-start-line="102" selection-start-column="8" selection-end-line="204" selection-end-column="9" />
+        <state relative-caret-position="153">
+          <caret line="46" column="57" lean-forward="false" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="57" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1419,26 +1420,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="674" column="54" lean-forward="true" selection-start-line="674" selection-start-column="54" selection-end-line="675" selection-end-column="64" />
+        <state relative-caret-position="315">
+          <caret line="544" column="24" lean-forward="true" selection-start-line="544" selection-start-column="24" selection-end-line="545" selection-end-column="34" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        <state relative-caret-position="405">
+          <caret line="53" column="76" lean-forward="true" selection-start-line="53" selection-start-column="76" selection-end-line="53" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_add_dialog.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        <state relative-caret-position="612">
+          <caret line="338" column="37" lean-forward="false" selection-start-line="338" selection-start-column="37" selection-end-line="338" selection-end-column="37" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
