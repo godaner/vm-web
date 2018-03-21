@@ -16,7 +16,6 @@ const Search = Input.Search;
 const TextArea = Input.TextArea;
 var TagGroupTable = React.createClass({
     getInitialState: function () {
-
         return {
 
             editDialog: {
@@ -26,7 +25,7 @@ var TagGroupTable = React.createClass({
             tagGroupTable: {
                 dataSourceUrl: "/tagGroup/info/list",
                 delTagGroupUrl: "/tagGroup/info",
-                scroll:{ x: true, y: 450},
+                scroll: {x: true, y: 450},
                 editable: false,
                 haveSearchTagGroupname: false,
                 tagGroupnameDropdownVisible: false,
@@ -155,7 +154,7 @@ var TagGroupTable = React.createClass({
                 sorter: true
             },
             {
-                title: '名称',
+                title: '分组名称',
                 width: 90,
                 dataIndex: 'name',
 
@@ -410,7 +409,7 @@ var TagGroupTable = React.createClass({
     render: function () {
 
 
-        var {scroll,expandRowByClick, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.tagGroupTable;
+        var {scroll, expandRowByClick, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.tagGroupTable;
 
         const {echoData} = this.state.editDialog;
 
@@ -434,8 +433,6 @@ var TagGroupTable = React.createClass({
 
 
         const hasSelected = selectedRowKeys.length > 0;
-
-
 
 
         return (

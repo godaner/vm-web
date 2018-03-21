@@ -90,7 +90,7 @@ var TagTable = React.createClass({
                 width: 100
             },
             {
-                title: '名称',
+                title: '标签名称',
                 dataIndex: 'name',
                 key: 'name',
                 width: 100

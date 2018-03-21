@@ -38,11 +38,11 @@ var FilmmakerTable = React.createClass({
             filmmakerTable: {
                 dataSourceUrl: "/filmmaker/info/list",
                 delFilmmakerUrl: "/filmmaker/info",
-                scroll:{ x: true, y: 450},
+                scroll: {x: true, y: 450},
                 editable: false,
                 haveSearchFilmmakername: false,
                 filmmakernameDropdownVisible: false,
-                bordered: true,
+                bordered: false,
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
                 refreshBtnLoading: false,
@@ -279,15 +279,15 @@ var FilmmakerTable = React.createClass({
                 },
             },
 
-            {
-                title: '简介',
-                width: 150,
-                dataIndex: 'description',
-                sorter: true,
-                render: (text) => {
-                    return commons.makeTipSpan(text, 19);
-                },
-            },
+            // {
+            //     title: '简介',
+            //     width: 150,
+            //     dataIndex: 'description',
+            //     sorter: true,
+            //     render: (text) => {
+            //         return commons.makeTipSpan(text, 19);
+            //     },
+            // },
             {
                 title: '状态',
                 width: 80,
@@ -544,11 +544,14 @@ var FilmmakerTable = React.createClass({
         this.getFilmmakerImgUploaderDialog().previewImg(vm_config.http_url_prefix + result.data.imgUrl);
     },
 
+    expandedRowRender (record) {
+        return <span>简介 ：<p style={{margin: 0}}>{record.description}</p></span>;
+    },
     render: function () {
 
         const {echoData} = this.state.filmmakerEditDialog;
 
-        var {scroll,selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.filmmakerTable;
+        var {scroll, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.filmmakerTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -610,6 +613,7 @@ var FilmmakerTable = React.createClass({
                     </span>
                 </div>
                 <Table
+                    expandedRowRender={this.expandedRowRender}
                     locale={{emptyText: "暂无用户数据"}}
                     columns={columns}
                     rowSelection={rowSelection}
