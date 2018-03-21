@@ -5,7 +5,6 @@ import "antd/dist/antd.css";
 import "../../scss/movie/tag_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
-
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -81,7 +80,6 @@ var TagTable = React.createClass({
                 this.updateTableLoading(false);
             }.bind(this)
         });
-
 
 
         const columns = [
@@ -162,18 +160,24 @@ var TagTable = React.createClass({
 
 
     },
+
     render: function () {
 
 
         const {bordered, columns, data} = this.state.tagTable;
         return (
-            <Table
-                className="components-table-demo-nested"
-                bordered={bordered}
-                columns={columns}
-                dataSource={data}
-                pagination={false}
-            />
+            <div>
+
+                <Table
+                    className="components-table-demo-nested"
+                    bordered={bordered}
+                    columns={columns}
+                    dataSource={data}
+                    pagination={false}
+                />
+
+
+            </div>
         );
     }
 });

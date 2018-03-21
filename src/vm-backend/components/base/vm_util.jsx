@@ -341,7 +341,13 @@ var commons = {
             var obj = objArr[i];
             if (obj[key] == keyVal) {
                 //深拷贝
-                return commons.objDeepCopy(obj);
+                var res = undefined;
+                try {
+                    res = commons.objDeepCopy(obj)
+                } catch (e) {
+                    c(e);
+                }
+                return res;
             }
         }
     },

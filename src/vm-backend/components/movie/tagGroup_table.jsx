@@ -8,6 +8,7 @@ import {ajax, commons} from "../base/vm_util";
 import TagTable from "./tag_table";
 import TagGroupEditDialog from "./tagGroup_edit_dialog";
 import TagGroupAddDialog from "./tagGroup_add_dialog";
+import TagAddDialog from "./tag_add_dialog";
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -194,6 +195,9 @@ var TagGroupTable = React.createClass({
                     const menu = (
                         <Menu>
                             <Menu.Item>
+                                <a onClick={() => this.showTagAddDialog(record)} href="javascript:void(0);">添加标签</a>
+                            </Menu.Item>
+                            <Menu.Item>
                                 <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
                             </Menu.Item>
                             <Menu.Item>
@@ -376,6 +380,16 @@ var TagGroupTable = React.createClass({
         c("showAddDialog");
         this.getTagGroupAddDialog().showDialog();
     },
+    showTagAddDialog(record){
+        this.getTagAddDialog().showDialog(record);
+    },
+    onTagAddSuccess(){
+
+    },
+    getTagAddDialog()
+    {
+        return this.refs.tag_add_dialog;
+    },
     getTagGroupAddDialog()
     {
         return this.refs.tagGroup_add_dialog;
@@ -386,11 +400,10 @@ var TagGroupTable = React.createClass({
     },
     expandedRowRender(record){
 
-        return (
-            <TagTable
-                tagGroupId={record.id}
-            />
-        );
+
+        return <TagTable
+            tagGroupId={record.id}
+        />;
     },
 
     render: function () {
@@ -485,7 +498,9 @@ var TagGroupTable = React.createClass({
                                     echoData={echoData}
                                     onEditSuccess={this.onEditSuccess}/>
                 <TagGroupAddDialog ref="tagGroup_add_dialog"
-                                    onAddSuccess={this.onAddSuccess}/>
+                                   onAddSuccess={this.onAddSuccess}/>
+                <TagAddDialog ref="tag_add_dialog"
+                              onAddSuccess={this.onTagAddSuccess}/>
             </div>
         );
     }
