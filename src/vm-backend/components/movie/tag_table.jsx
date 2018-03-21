@@ -83,16 +83,7 @@ var TagTable = React.createClass({
         });
 
 
-        const menu = (
-            <Menu>
-                <Menu.Item>
-                    Action 1
-                </Menu.Item>
-                <Menu.Item>
-                    Action 2
-                </Menu.Item>
-            </Menu>
-        );
+
         const columns = [
             {
                 title: 'id',
@@ -138,17 +129,33 @@ var TagTable = React.createClass({
                 dataIndex: 'operation',
                 key: 'operation',
                 width: 100,
-                render: () => (
-                    <span className="table-operation">
-                        <a href="#">Pause</a>
-                        <a href="#">Stop</a>
+                render: () => {
+                    const menu = (
+                        <Menu>
+                            <Menu.Item>
+                                <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Popconfirm title="确认删除 ? "
+                                            okText="删除"
+                                            cancelText="取消"
+                                            onConfirm={() => this.deleteRecord([record.id])}>
+                                    <a href="javascript:void(0)">删除</a>
+                                </Popconfirm>
+                            </Menu.Item>
+                        </Menu>
+                    );
+                    return (
+                        <span className="table-operation">
+
                         <Dropdown overlay={menu}>
-                          <a href="#">
-                            More <Icon type="down"/>
+                          <a href="javascript:void(0);">
+                            操作 <Icon type="down"/>
                           </a>
                         </Dropdown>
                     </span>
-                ),
+                    );
+                },
             },
         ];
         this.updateTableColumns(columns);

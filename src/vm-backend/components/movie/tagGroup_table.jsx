@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table,Dropdown, Badge} from "antd";
+import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table, Dropdown, Badge} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
 import "../../scss/movie/tagGroup_table.scss";
@@ -186,18 +186,31 @@ var TagGroupTable = React.createClass({
                 dataIndex: 'operation',
                 width: 100,
                 render: (text, record) => {
-                    return <div>
-                        <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
-                        &nbsp;&nbsp;
-                        <Popconfirm title="确认删除 ? "
-                                    okText="删除"
-                                    cancelText="取消"
-                                    onConfirm={() => this.deleteRecord([record.id])}>
-                            <a href="javascript:void(0)">删除</a>
-                        </Popconfirm>
+                    const menu = (
+                        <Menu>
+                            <Menu.Item>
+                                <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Popconfirm title="确认删除 ? "
+                                            okText="删除"
+                                            cancelText="取消"
+                                            onConfirm={() => this.deleteRecord([record.id])}>
+                                    <a href="javascript:void(0)">删除</a>
+                                </Popconfirm>
+                            </Menu.Item>
+                        </Menu>
+                    );
+                    return (
+                        <span className="table-operation">
 
-
-                    </div>
+                        <Dropdown overlay={menu}>
+                          <a href="javascript:void(0);">
+                            操作 <Icon type="down"/>
+                          </a>
+                        </Dropdown>
+                    </span>
+                    );
                 },
                 sorter: true
             },]);
@@ -231,7 +244,7 @@ var TagGroupTable = React.createClass({
             data.push({
                 key: item.id,
                 id: item.id,
-                name:item.name,
+                name: item.name,
                 create_time: item.createTime,
                 update_time: item.updateTime,
                 status: item.status
@@ -359,7 +372,6 @@ var TagGroupTable = React.createClass({
     render: function () {
 
 
-
         var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.tagGroupTable;
 
         const rowSelection = {
@@ -379,7 +391,6 @@ var TagGroupTable = React.createClass({
 
             }
         };
-
 
 
         const hasSelected = selectedRowKeys.length > 0;

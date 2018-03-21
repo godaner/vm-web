@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
+import {Button, Dropdown, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
 import "../../scss/movie/filmmaker_table.scss";
@@ -252,7 +252,7 @@ var FilmmakerTable = React.createClass({
                 dataIndex: 'blood_type',
                 sorter: true,
                 render: (text, record) => {
-                    return commons.getBloodTypeStrByIndex({index:text});
+                    return commons.getBloodTypeStrByIndex({index: text});
                 },
 
             },
@@ -274,7 +274,7 @@ var FilmmakerTable = React.createClass({
                 dataIndex: 'sex',
                 sorter: true,
                 render: (text) => {
-                    return commons.getSexStrByIndex({index:text});
+                    return commons.getSexStrByIndex({index: text});
                 },
             },
 
@@ -322,19 +322,35 @@ var FilmmakerTable = React.createClass({
                 dataIndex: 'operation',
                 width: 80,
                 render: (text, record) => {
+
+                    const menu = (
+                        <Menu>
+                            <Menu.Item>
+                                <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Popconfirm title="确认删除 ? "
+                                            okText="删除"
+                                            cancelText="取消"
+                                            onConfirm={() => this.deleteRecord([record.id])}>
+                                    <a href="javascript:void(0)">删除</a>
+                                </Popconfirm>
+                            </Menu.Item>
+
+                        </Menu>
+                    );
                     return <div>
 
-                        <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
-                        &nbsp;&nbsp;
-                        <Popconfirm title="确认删除 ? "
-                                    okText="删除"
-                                    cancelText="取消"
-                                    onConfirm={() => this.deleteRecord([record.id])}>
-                            <a href="javascript:void(0)">删除</a>
-                        </Popconfirm>
+                        <Dropdown overlay={menu}>
+                            <a href="javascript:void(0);">
+                                操作 <Icon type="down"/>
+                            </a>
+                        </Dropdown>
 
 
                     </div>
+
+
                 },
                 sorter: true
             },]);
