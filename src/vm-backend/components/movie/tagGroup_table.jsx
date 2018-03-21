@@ -26,6 +26,7 @@ var TagGroupTable = React.createClass({
             tagGroupTable: {
                 dataSourceUrl: "/tagGroup/info/list",
                 delTagGroupUrl: "/tagGroup/info",
+                scroll:{ x: true, y: 450},
                 editable: false,
                 haveSearchTagGroupname: false,
                 tagGroupnameDropdownVisible: false,
@@ -33,6 +34,7 @@ var TagGroupTable = React.createClass({
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
                 refreshBtnLoading: false,
+                expandRowByClick: false,
                 selectedRowKeys: [],
                 data: [],//displayData
                 originalData: [],
@@ -384,7 +386,7 @@ var TagGroupTable = React.createClass({
         this.getTagAddDialog().showDialog(record);
     },
     onTagAddSuccess(){
-
+        this.loadTagGroupTableData();
     },
     getTagAddDialog()
     {
@@ -398,8 +400,7 @@ var TagGroupTable = React.createClass({
     {
         return this.refs.tagGroup_edit_dialog;
     },
-    expandedRowRender(record){
-
+    expandedRowRender (record) {
 
         return <TagTable
             tagGroupId={record.id}
@@ -409,7 +410,7 @@ var TagGroupTable = React.createClass({
     render: function () {
 
 
-        var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.tagGroupTable;
+        var {scroll,expandRowByClick, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.tagGroupTable;
 
         const {echoData} = this.state.editDialog;
 
@@ -433,7 +434,10 @@ var TagGroupTable = React.createClass({
 
 
         const hasSelected = selectedRowKeys.length > 0;
-        //set now page's props
+
+
+
+
         return (
             <div>
                 <div style={{marginBottom: 16}}>
@@ -471,7 +475,9 @@ var TagGroupTable = React.createClass({
                 </div>
                 <Table
                     className="components-table-demo-nested"
+                    scroll={scroll}
                     expandedRowRender={this.expandedRowRender}
+                    expandRowByClick={expandRowByClick}
                     locale={{emptyText: "暂无用户数据"}}
                     columns={columns}
                     rowSelection={rowSelection}
@@ -489,9 +495,7 @@ var TagGroupTable = React.createClass({
                     loading={tableLoading}
                     onChange={this.handleTableChange}
                     bordered={bordered}
-                    title={() => '用户列表'}
-                    // footer={() => 'Footer'}
-                    scroll={{x: "100%", y: "100%"}}/>
+                    title={() => '用户列表'}/>
 
 
                 <TagGroupEditDialog ref="tagGroup_edit_dialog"

@@ -56,7 +56,7 @@ var Index = React.createClass({
                                     <Breadcrumb.Item>Bill</Breadcrumb.Item>
                                 </Breadcrumb>
 
-                                <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                                <div style={{paddingLeft: 24, paddingRight: 24, background: '#fff', minHeight: 360}}>
                                     <Routes/>
                                 </div>
                             </Content>

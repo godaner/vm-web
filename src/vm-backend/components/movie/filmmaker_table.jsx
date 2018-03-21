@@ -38,6 +38,7 @@ var FilmmakerTable = React.createClass({
             filmmakerTable: {
                 dataSourceUrl: "/filmmaker/info/list",
                 delFilmmakerUrl: "/filmmaker/info",
+                scroll:{ x: true, y: 450},
                 editable: false,
                 haveSearchFilmmakername: false,
                 filmmakernameDropdownVisible: false,
@@ -547,7 +548,7 @@ var FilmmakerTable = React.createClass({
 
         const {echoData} = this.state.filmmakerEditDialog;
 
-        var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.filmmakerTable;
+        var {scroll,selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.filmmakerTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -628,7 +629,7 @@ var FilmmakerTable = React.createClass({
                     bordered={bordered}
                     title={() => '用户列表'}
                     // footer={() => 'Footer'}
-                    scroll={{x: "80%", y: "80%"}}/>
+                    scroll={scroll}/>
 
                 <FilmmakerEditDialog ref="filmmaker_edit_dialog"
                                      echoData={echoData}

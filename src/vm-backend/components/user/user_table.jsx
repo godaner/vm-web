@@ -36,6 +36,7 @@ var UserTable = React.createClass({
             userTable: {
                 dataSourceUrl: "/user/info/list",
                 delUserUrl: "/user/info",
+                scroll:{ x: true, y: 450},
                 editable: false,
                 haveSearchUsername: false,
                 usernameDropdownVisible: false,
@@ -489,7 +490,7 @@ var UserTable = React.createClass({
 
         const {echoData} = this.state.userEditDialog;
 
-        var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
+        var {scroll,selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
 
         const {config, title, width} = this.state.userImgUploaderDialog;
 
@@ -567,7 +568,7 @@ var UserTable = React.createClass({
                     bordered={bordered}
                     title={() => '用户列表'}
                     // footer={() => 'Footer'}
-                    scroll={{x: "100%", y: "100%"}}/>
+                    scroll={scroll}/>
 
                 <UserEditDialog ref="user_edit_dialog"
                                 echoData={echoData}

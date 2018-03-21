@@ -48,6 +48,7 @@ var MovieTable = React.createClass({
                 echoData: undefined
             },
             movieTable: {
+                scroll:{ x: true, y: 450},
                 dataSourceUrl: "/movie/info/list",
                 delMovieUrl: "/movie/info",
                 editable: false,
@@ -586,7 +587,7 @@ var MovieTable = React.createClass({
 
         const {echoData} = this.state.movieEditDialog;
 
-        var {selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.movieTable;
+        var {scroll,selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.movieTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -667,7 +668,7 @@ var MovieTable = React.createClass({
                     bordered={bordered}
                     title={() => '用户列表'}
                     // footer={() => 'Footer'}
-                    scroll={{x: "100%", y: "100%"}}/>
+                    scroll={scroll}/>
 
                 <MovieEditDialog ref="movie_edit_dialog"
                                  echoData={echoData}
