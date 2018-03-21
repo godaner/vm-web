@@ -7,6 +7,7 @@ import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import TagTable from "./tag_table";
 import TagGroupEditDialog from "./tagGroup_edit_dialog";
+import TagGroupAddDialog from "./tagGroup_add_dialog";
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -17,10 +18,10 @@ var TagGroupTable = React.createClass({
 
         return {
 
-            editDialog:{
-                echoData:{}
+            editDialog: {
+                echoData: {}
             },
-            addDialog:{},
+            addDialog: {},
             tagGroupTable: {
                 dataSourceUrl: "/tagGroup/info/list",
                 delTagGroupUrl: "/tagGroup/info",
@@ -478,8 +479,10 @@ var TagGroupTable = React.createClass({
 
 
                 <TagGroupEditDialog ref="tagGroup_edit_dialog"
-                                 echoData={echoData}
-                                 onEditSuccess={this.onEditSuccess}/>
+                                    echoData={echoData}
+                                    onEditSuccess={this.onEditSuccess}/>
+                <TagGroupAddDialog ref="tagGroup_add_dialog"
+                                    onAddSuccess={this.onAddSuccess}/>
             </div>
         );
     }
