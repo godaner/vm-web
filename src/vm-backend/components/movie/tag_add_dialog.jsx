@@ -69,7 +69,8 @@ var TagAddDialog = React.createClass({
 
     },
     handleCancel() {
-
+        //clear form
+        this.getTagAddDialog().clearForm();
         c("handleCancel");
     },
     componentDidMount() {
