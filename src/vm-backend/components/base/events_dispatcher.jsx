@@ -1,23 +1,22 @@
 import React from "react"; //引入react组件
 import {EventEmitter} from "events";
-import {ajax,commons} from "./vm_util";
-window.event = new EventEmitter();
+import {ajax, commons} from "./vm_util";
+window.eventEmitter = new EventEmitter();
 //项目前端事件分发器
 window.EventsDispatcher = {
-    event: window.event,
+    event: window.eventEmitter,
     showLoginDialog(args) {
         this.event.emit('showLoginDialog', args);
     },
-    onRouteEnter: function (args) {
+    onRouteEnter (args) {
         this.event.emit('onRouteEnter', args);
     },
-    showLoadingToast: function (args) {
-        const {msg} = args;
-
+    onTagAddSuccess (record) {
+        this.event.emit('onTagAddSuccess', record);
     }
 
 };
-var eventsDispatcher = window.EventsDispatcher;
-var EventsDispatcher = eventsDispatcher;
+const eventsDispatcher = window.EventsDispatcher;
+const EventsDispatcher = eventsDispatcher;
 
 

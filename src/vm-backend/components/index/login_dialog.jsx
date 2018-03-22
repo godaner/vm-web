@@ -32,7 +32,7 @@ var LoginDialog = React.createClass({
         this.setState(state);
     },
     registEvents(){
-        window.event.on('showLoginDialog', (args) => {
+        window.eventEmitter.on('showLoginDialog', (args) => {
 
             this.showLoginDialog();
 

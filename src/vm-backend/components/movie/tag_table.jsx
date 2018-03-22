@@ -26,6 +26,24 @@ var TagTable = React.createClass({
             }
         }
     },
+
+    componentDidMount(){
+
+        this.loadData();
+
+        this.registEvents();
+
+    },
+    registEvents(){
+        const {tagGroupId} = this.props;
+        window.eventEmitter.on('onTagAddSuccess', (record) => {
+
+            if (record.tagGroupId == tagGroupId) {debugger
+                this.loadData();
+            }
+
+        });
+    },
     updateTableLoading(loading){
         var state = this.state;
         state.tagTable.tableLoading = loading;
@@ -57,7 +75,7 @@ var TagTable = React.createClass({
         }
         return data;
     },
-    componentDidMount(){
+    loadData(){
         this.updateTableLoading(true);
         const {dataSourceUrl} = this.state.tagTable;
         const {tagGroupId} = this.props;
@@ -157,8 +175,6 @@ var TagTable = React.createClass({
             },
         ];
         this.updateTableColumns(columns);
-
-
     },
 
     render: function () {

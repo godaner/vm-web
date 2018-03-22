@@ -384,8 +384,8 @@ var TagGroupTable = React.createClass({
     showTagAddDialog(record){
         this.getTagAddDialog().showDialog(record);
     },
-    onTagAddSuccess(){
-        this.loadTagGroupTableData();
+    onTagAddSuccess(record){
+        window.EventsDispatcher.onTagAddSuccess(record);
     },
     getTagAddDialog()
     {
