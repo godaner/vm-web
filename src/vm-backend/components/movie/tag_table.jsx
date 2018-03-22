@@ -38,7 +38,8 @@ var TagTable = React.createClass({
         const {tagGroupId} = this.props;
         window.eventEmitter.on('onTagAddSuccess', (record) => {
 
-            if (record.tagGroupId == tagGroupId) {debugger
+            if (record.tagGroupId == tagGroupId) {
+                debugger
                 this.loadData();
             }
 
@@ -180,13 +181,14 @@ var TagTable = React.createClass({
     render: function () {
 
 
-        const {bordered, columns, data} = this.state.tagTable;
+        const {bordered, columns, data, tableLoading} = this.state.tagTable;
         return (
             <div>
 
                 <Table
                     className="components-table-demo-nested"
                     bordered={bordered}
+                    loading={tableLoading}
                     columns={columns}
                     dataSource={data}
                     pagination={false}
