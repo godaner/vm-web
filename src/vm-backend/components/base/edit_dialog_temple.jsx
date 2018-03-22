@@ -101,7 +101,7 @@ var EditDialogTemple = React.createClass({
     saveFormRef(form){//!!!!
         this.form = form;
     },
-    clearForm(){//清空表单
+    clearForm(){//！！！！清空表单，如果清除form，echoData将无法显示，目前还不知道原因！！！
         this.form.resetFields();//!!!!
     },
     afterClose(){

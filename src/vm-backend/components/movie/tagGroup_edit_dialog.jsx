@@ -55,7 +55,7 @@ var TagGroupEditDialog = React.createClass({
 
 
                 //clear form
-                // this.getTagGroupEditDialog().clearForm();
+                this.getTagGroupEditDialog().clearForm();
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -70,6 +70,7 @@ var TagGroupEditDialog = React.createClass({
     },
     handleCancel(){
         c("handleCancel");
+        this.getTagGroupEditDialog().clearForm();
     },
     componentDidMount(){
 
