@@ -1,10 +1,10 @@
 import React from "react";
-import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table, Dropdown, Badge} from "antd";
-import {withRouter} from "react-router-dom";
+import {Dropdown, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
 import "antd/dist/antd.css";
 import "../../scss/movie/tag_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
+import TagEditDialog from "./tag_edit_dialog";
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -21,7 +21,8 @@ var TagTable = React.createClass({
                 bordered: false,
                 tableLoading: false,
                 columns: [],
-                data: []
+                data: [],
+                echoData: {}
 
             }
         }
@@ -39,7 +40,6 @@ var TagTable = React.createClass({
         window.eventEmitter.on('onTagAddSuccess', (record) => {
 
             if (record.tagGroupId == tagGroupId) {
-                debugger
                 this.loadData();
             }
 
@@ -61,6 +61,12 @@ var TagTable = React.createClass({
         state.tagTable.data = data;
         this.setState(state);
     },
+
+    updateTableEchoData(echoData){
+        var state = this.state;
+        state.tagTable.echoData = echoData;
+        this.setState(state);
+    },
     dataConverter(dataArr){
         const data = [];
         for (let i = 0; i < dataArr.length; ++i) {
@@ -75,6 +81,13 @@ var TagTable = React.createClass({
             });
         }
         return data;
+    },
+    showEditDialog(record){
+        this.getEditDialog().showDialog(record);
+        this.updateTableEchoData(record);
+    },
+    getEditDialog(){
+        return this.refs.edit_dialog;
     },
     loadData(){
         this.updateTableLoading(true);
@@ -133,7 +146,7 @@ var TagTable = React.createClass({
                 }
             },
             {
-                title: '创建时间',
+                title: '最后更新时间',
                 dataIndex: 'update_time',
                 key: 'update_time',
                 width: 100,
@@ -146,7 +159,7 @@ var TagTable = React.createClass({
                 dataIndex: 'operation',
                 key: 'operation',
                 width: 100,
-                render: () => {
+                render: (text, record) => {
                     const menu = (
                         <Menu>
                             <Menu.Item>
@@ -177,11 +190,13 @@ var TagTable = React.createClass({
         ];
         this.updateTableColumns(columns);
     },
-
+    onEditSuccess(record){
+        this.loadData();
+    },
     render: function () {
 
 
-        const {bordered, columns, data, tableLoading} = this.state.tagTable;
+        const {bordered, columns, data, tableLoading, echoData} = this.state.tagTable;
         return (
             <div>
 
@@ -194,7 +209,10 @@ var TagTable = React.createClass({
                     pagination={false}
                 />
 
-
+                <TagEditDialog
+                    ref="edit_dialog"
+                    echoData={echoData}
+                    onEditSuccess={this.onEditSuccess}/>
             </div>
         );
     }
