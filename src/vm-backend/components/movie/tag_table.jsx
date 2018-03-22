@@ -22,7 +22,10 @@ var TagTable = React.createClass({
                 tableLoading: false,
                 columns: [],
                 data: [],
-                echoData: {}
+                originalData: [],
+                echoData: {},
+                deletingTip: "正在删除",
+                delTagUrl: "/tag/info"
 
             }
         }
@@ -44,6 +47,11 @@ var TagTable = React.createClass({
             }
 
         });
+        window.eventEmitter.on('loadTagTableData', () => {
+
+            this.loadData();
+
+        });
     },
     updateTableLoading(loading){
         var state = this.state;
@@ -61,7 +69,12 @@ var TagTable = React.createClass({
         state.tagTable.data = data;
         this.setState(state);
     },
+    updateOriginalData(originalData){
 
+        var state = this.state;
+        state.tagTable.originalData = originalData;
+        this.setState(state);
+    },
     updateTableEchoData(echoData){
         var state = this.state;
         state.tagTable.echoData = echoData;
@@ -83,11 +96,51 @@ var TagTable = React.createClass({
         return data;
     },
     showEditDialog(record){
-        this.getEditDialog().showDialog(record);
+
+        record = commons.getObjByKey(this.state.tagTable.originalData, "id", record.id);
+
         this.updateTableEchoData(record);
+
+        this.getEditDialog().showDialog(record);
+
+
     },
     getEditDialog(){
         return this.refs.edit_dialog;
+    },
+    deleteRecord(ids)
+    {
+
+        const hideLoading = message.loading(deletingTip);
+        // this.updateTagTableBatchDeleteLoading(true);
+
+        const {deletingTip, delTagUrl} = this.state.tagTable;
+        ajax.delete({
+            url: delTagUrl,
+            data: {
+                deletedIds: ids.join(",")
+            },
+            complete: function () {
+                hideLoading();
+                // this.updateTagTableBatchDeleteLoading(false);
+            }.bind(this),
+            success: function (result) {
+                message.success(result.msg);
+
+                // this.removeTagTableSelectedRowKeys(ids);
+
+                // this.loadTagTableData();
+
+                this.loadData();
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+            }.bind(this),
+            error: function () {
+
+            }
+        });
+
     },
     loadData(){
         this.updateTableLoading(true);
@@ -96,11 +149,19 @@ var TagTable = React.createClass({
         ajax.get({
             url: dataSourceUrl + tagGroupId,
             success: function (result) {
-                const tags = result.data.list;
 
-                const data = this.dataConverter(tags);
+
+                var originalData = result.data.list;
+                //handle data
+
+                var data = this.dataConverter(originalData)
+                //save data
+
+                this.updateOriginalData(originalData);
 
                 this.updateTableData(data);
+
+
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -197,6 +258,8 @@ var TagTable = React.createClass({
 
 
         const {bordered, columns, data, tableLoading, echoData} = this.state.tagTable;
+
+
         return (
             <div>
 

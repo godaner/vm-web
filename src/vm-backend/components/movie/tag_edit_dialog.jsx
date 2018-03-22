@@ -96,6 +96,7 @@ var TagEditDialog = React.createClass({
         }
         echoData = filterEchoData(echoData);
 
+        c(echoData);
 
         var formLayout = "horizontal";
 

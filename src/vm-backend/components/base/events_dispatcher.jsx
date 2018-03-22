@@ -13,8 +13,10 @@ window.EventsDispatcher = {
     },
     onTagAddSuccess (record) {
         this.event.emit('onTagAddSuccess', record);
+    },
+    loadTagTableData() {
+        this.event.emit('loadTagTableData');
     }
-
 };
 const eventsDispatcher = window.EventsDispatcher;
 const EventsDispatcher = eventsDispatcher;

@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
+import {Button, Icon, Input, Layout, Menu, message, Dropdown, Popconfirm, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
 import "../../scss/user/user_table.scss";
@@ -36,7 +36,7 @@ var UserTable = React.createClass({
             userTable: {
                 dataSourceUrl: "/user/info/list",
                 delUserUrl: "/user/info",
-                scroll:{ x: true, y: 450},
+                scroll: {x: true, y: 450},
                 editable: false,
                 haveSearchUsername: false,
                 usernameDropdownVisible: false,
@@ -287,17 +287,33 @@ var UserTable = React.createClass({
                 dataIndex: 'operation',
                 width: 150,
                 render: (text, record) => {
+                    const menu = (
+                        <Menu>
+                            <Menu.Item>
+                                <a onClick={() => this.showUserLoginLogsDialog(record.id)} href="javascript:void(0);">查看登录日志</a>
+                            </Menu.Item>
+                            <Menu.Item>
+
+                                <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
+                            </Menu.Item>
+                            <Menu.Item>
+
+                                <Popconfirm title="确认删除 ? "
+                                            okText="删除"
+                                            cancelText="取消"
+                                            onConfirm={() => this.deleteRecord([record.id])}>
+                                    <a href="javascript:void(0)">删除</a>
+                                </Popconfirm>
+                            </Menu.Item>
+                        </Menu>
+                    );
                     return <div>
-                        <a onClick={() => this.showUserLoginLogsDialog(record.id)} href="javascript:void(0);">登录日志</a>
-                        &nbsp;&nbsp;
-                        <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
-                        &nbsp;&nbsp;
-                        <Popconfirm title="确认删除 ? "
-                                    okText="删除"
-                                    cancelText="取消"
-                                    onConfirm={() => this.deleteRecord([record.id])}>
-                            <a href="javascript:void(0)">删除</a>
-                        </Popconfirm>
+
+                        <Dropdown overlay={menu}>
+                            <a href="javascript:void(0);">
+                                操作 <Icon type="down"/>
+                            </a>
+                        </Dropdown>
 
 
                     </div>
@@ -490,7 +506,7 @@ var UserTable = React.createClass({
 
         const {echoData} = this.state.userEditDialog;
 
-        var {scroll,selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
+        var {scroll, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.userTable;
 
         const {config, title, width} = this.state.userImgUploaderDialog;
 
@@ -546,7 +562,7 @@ var UserTable = React.createClass({
 
                     <span style={{marginLeft: 8}}>
                         {hasSelected ? `选择了 ${selectedRowKeys.length} 个选项` : ''}
-                    </span>
+                            </span>
                 </div>
                 <Table
                     locale={{emptyText: "暂无用户数据"}}

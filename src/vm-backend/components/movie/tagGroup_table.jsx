@@ -440,7 +440,10 @@ var TagGroupTable = React.createClass({
                 <div style={{marginBottom: 16}}>
                     <Button
                         loading={refreshBtnLoading}
-                        onClick={this.loadTagGroupTableData}
+                        onClick={() => {
+                            this.loadTagGroupTableData();
+                            window.EventsDispatcher.loadTagTableData();
+                        }}
                     >
                         刷新
                     </Button>
