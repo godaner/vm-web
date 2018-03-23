@@ -18,6 +18,7 @@ var UserLoginLogsTable = React.createClass({
                 echoData: undefined
             },
             userLoginLogsTable: {
+                title: '用户登录日志列表',
                 dataSourceUrl: "/user/login/logs",
                 editable: false,
                 haveSearchUsername: false,
@@ -335,7 +336,7 @@ var UserLoginLogsTable = React.createClass({
     },
     render: function () {
 
-        var {columns, data, page, tableLoading, refreshBtnLoading, bordered} = this.state.userLoginLogsTable;
+        var {title, columns, data, page, tableLoading, refreshBtnLoading, bordered} = this.state.userLoginLogsTable;
 
 
         //set now page's props
@@ -366,7 +367,7 @@ var UserLoginLogsTable = React.createClass({
                     loading={tableLoading}
                     onChange={this.handleTableChange}
                     bordered={bordered}
-                    title={() => '用户登录日志列表'}
+                    title={() => title}
                     // footer={() => 'Footer'}
                     scroll={{x: "100%", y: "100%"}}/>
 

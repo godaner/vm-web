@@ -34,6 +34,7 @@ var UserTable = React.createClass({
                 echoData: undefined
             },
             userTable: {
+                title: "用户列表",
                 dataSourceUrl: "/user/info/list",
                 delUserUrl: "/user/info",
                 scroll: {x: true, y: 450},
@@ -582,7 +583,7 @@ var UserTable = React.createClass({
                     loading={tableLoading}
                     onChange={this.handleTableChange}
                     bordered={bordered}
-                    title={() => '用户列表'}
+                    title={() => this.state.userTable.title}
                     // footer={() => 'Footer'}
                     scroll={scroll}/>
 

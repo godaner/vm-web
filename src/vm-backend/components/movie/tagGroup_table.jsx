@@ -23,7 +23,7 @@ var TagGroupTable = React.createClass({
             },
             addDialog: {},
             tagGroupTable: {
-                title:"标签分组列表",
+                title: "标签分组列表",
                 dataSourceUrl: "/tagGroup/info/list",
                 delTagGroupUrl: "/tagGroup/info",
                 scroll: {x: true, y: 450},
@@ -410,7 +410,7 @@ var TagGroupTable = React.createClass({
     render: function () {
 
 
-        var {title,scroll, expandRowByClick, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.tagGroupTable;
+        var {title, scroll, expandRowByClick, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.tagGroupTable;
 
         const {echoData} = this.state.editDialog;
 
@@ -496,7 +496,7 @@ var TagGroupTable = React.createClass({
                     loading={tableLoading}
                     onChange={this.handleTableChange}
                     bordered={bordered}
-                    title={title}/>
+                    title={()=>title}/>
 
 
                 <TagGroupEditDialog ref="tagGroup_edit_dialog"

@@ -36,6 +36,7 @@ var FilmmakerTable = React.createClass({
                 echoData: undefined
             },
             filmmakerTable: {
+                title: "电影人列表",
                 dataSourceUrl: "/filmmaker/info/list",
                 delFilmmakerUrl: "/filmmaker/info",
                 scroll: {x: true, y: 450},
@@ -293,7 +294,7 @@ var FilmmakerTable = React.createClass({
                 width: 80,
                 dataIndex: 'status',
                 render: (text) => {
-                    return commons.getStatusStrByIndex({index:text});
+                    return commons.getStatusStrByIndex({index: text});
                 },
                 sorter: true
             },
@@ -551,7 +552,7 @@ var FilmmakerTable = React.createClass({
 
         const {echoData} = this.state.filmmakerEditDialog;
 
-        var {scroll, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.filmmakerTable;
+        var {title, scroll, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.filmmakerTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -631,7 +632,7 @@ var FilmmakerTable = React.createClass({
                     loading={tableLoading}
                     onChange={this.handleTableChange}
                     bordered={bordered}
-                    title={() => '用户列表'}
+                    title={() => title}
                     // footer={() => 'Footer'}
                     scroll={scroll}/>
 
