@@ -172,7 +172,7 @@ var MovieEditDialog = React.createClass({
 
 
                 //clear form
-                // this.getMovieEditDialog().clearForm();
+                this.getMovieEditDialog().clearForm();
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -493,7 +493,8 @@ var MovieEditDialog = React.createClass({
                                             {
                                                 group.items.map(function (tag, i) {
                                                     // c(tag);
-                                                    return <Option key={i} value={tag.id}>{tag.name}</Option>;
+                                                    const v = tag.id + '';
+                                                    return <Option key={i} value={v}>{tag.name}</Option>;
                                                 })
                                             }
                                         </OptGroup>
