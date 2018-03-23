@@ -23,10 +23,12 @@ var MovieEditDialog = React.createClass({
             getFilmmakersUrl: "/filmmaker/info/list",
             getActorIdsUrl: "/filmmaker/id/list/",//   ---/filmmaker/id/{movieId}
             getTagGroupsUrl: "/tagGroup/list",
+            getSelectedTagIdsUrl: "/tag/id/list/",
             tipOfEditing: '正在保存电影修改',
             filmmakers: [],
             actorIds: [],
-            tagGroups: []
+            tagGroups: [],
+            selectedTagIds: []
         };
     },
     updateFilmmakers(filmmakers){
@@ -37,6 +39,27 @@ var MovieEditDialog = React.createClass({
     },
     updateTagGroups(tagGroups){
         this.setState({tagGroups: tagGroups});
+    },
+    updateSelectedTagIds(selectedTagIds){
+        this.setState({selectedTagIds: selectedTagIds});
+    },
+    loadSelectedTagIdsData (movieId) {
+        const {getSelectedTagIdsUrl} = this.state;
+        ajax.get({
+            url: getSelectedTagIdsUrl + movieId,
+            success: function (result) {
+
+                this.updateSelectedTagIds(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
     },
     loadFilmmakerData () {
         const {getFilmmakersUrl} = this.state;
@@ -100,6 +123,8 @@ var MovieEditDialog = React.createClass({
 
         this.loadTagGroupsData();
 
+        this.loadSelectedTagIdsData(record.id);
+
         this.loadActorIdsData(record.id);
 
     },
@@ -155,7 +180,7 @@ var MovieEditDialog = React.createClass({
 
         var {echoData} = this.props;
 
-        const {title, width, filmmakers, actorIds, tagGroups} = this.state;
+        const {title, width, filmmakers, actorIds, tagGroups, selectedTagIds} = this.state;
 
         echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
         // filterEchoData
@@ -434,7 +459,7 @@ var MovieEditDialog = React.createClass({
                             label: "标签",
                             id: "tagIds",
                             config: {
-                                // initialValue: commons.toStrArr(actorIds),
+                                initialValue: commons.toStrArr(selectedTagIds),
                                 rules: [{required: true, message: '请选择标签!'}],
                             }
                             ,
