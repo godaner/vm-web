@@ -58,28 +58,7 @@ var MovieVideoUploadDialog = React.createClass({
         formData.append("movieId", movieId);
 
         this.updateLoading(true);
-        // You can use any AJAX library you like
-        // reqwest({
-        //     url: '//jsonplaceholder.typicode.com/posts/',
-        //     method: 'post',
-        //     processData: false,
-        //     data: formData,
-        //     success: () => {
-        //         this.setState({
-        //             fileList: [],
-        //             uploading: false,
-        //         });
-        //         message.success('upload successfully.');
-        //     },
-        //     error: () => {
-        //         this.setState({
-        //             uploading: false,
-        //         });
-        //         message.error('upload failed.');
-        //     },
-        // });
 
-        this.updateLoading(true);
         ajax.post({
             url: uploadUrl,
             data: formData,
@@ -103,6 +82,13 @@ var MovieVideoUploadDialog = React.createClass({
 
         })
 
+    },
+
+    updateVisible(visible){
+        this.setState({visible: visible});
+    },
+    onCancel(){
+        this.updateVisible(false);
     },
     render(){
         const {width, title, uploadUrl, loading, visible, maskClosable} = this.state;
@@ -138,6 +124,7 @@ var MovieVideoUploadDialog = React.createClass({
                 visible={visible}
                 closable={!loading}
                 maskClosable={maskClosable}
+                onCancel={this.onCancel}
                 footer={null}>
                 <Upload {...props}>
                     <Button
