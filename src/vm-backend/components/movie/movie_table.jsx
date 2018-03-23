@@ -649,7 +649,7 @@ var MovieTable = React.createClass({
                     </span>
                 </div>
                 <Table
-                    locale={{emptyText: "暂无用户数据"}}
+                    locale={{emptyText: "暂无相关电影数据"}}
                     columns={columns}
                     rowSelection={rowSelection}
                     dataSource={data}

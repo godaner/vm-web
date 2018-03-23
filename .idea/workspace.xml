@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/tag_add_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/tag_add_dialog.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,85 +30,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tag_table.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_table.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="271" column="24" lean-forward="false" selection-start-line="271" selection-start-column="24" selection-end-line="271" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="tagGroup_table.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="505" column="25" lean-forward="true" selection-start-line="505" selection-start-column="25" selection-end-line="505" selection-end-column="25" />
+            <state relative-caret-position="504">
+              <caret line="359" column="24" lean-forward="true" selection-start-line="359" selection-start-column="24" selection-end-line="359" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tag_add_dialog.jsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_add_dialog.jsx">
+      <file leaf-file-name="movie_table.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="155" column="21" lean-forward="false" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
+            <state relative-caret-position="718">
+              <caret line="698" column="0" lean-forward="true" selection-start-line="698" selection-start-column="0" selection-end-line="698" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit_dialog_temple.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/edit_dialog_temple.jsx">
+      <file leaf-file-name="movie_edit_dialog.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="106" column="14" lean-forward="false" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tagGroup_edit_dialog.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="57" column="48" lean-forward="false" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="events_dispatcher.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tag_edit_dialog.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_edit_dialog.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="83" column="24" lean-forward="true" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_table.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_table.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="536" column="33" lean-forward="false" selection-start-line="536" selection-start-column="33" selection-end-line="536" selection-end-column="33" />
+            <state relative-caret-position="516">
+              <caret line="455" column="62" lean-forward="true" selection-start-line="455" selection-start-column="62" selection-end-line="455" selection-end-column="62" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -117,26 +66,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selectAssistantMenuMsg</find>
-      <find>render</find>
-      <find>renderE</find>
-      <find>show</find>
-      <find>on</find>
-      <find>ids</find>
-      <find>descript</find>
-      <find>imgUrl</find>
-      <find>showLoginDialog</find>
-      <find>window.event.on</find>
-      <find>window.event</find>
-      <find>TagGroup</find>
-      <find>标签组</find>
       <find>tagGroup</find>
       <find>movie</find>
       <find>标签分组</find>
       <find>showDialog</find>
       <find>clearForm</find>
       <find>tag_edit_dialog</find>
-      <find>操作</find>
       <find>delete</find>
       <find>deleteUrl</find>
       <find>deletingTip</find>
@@ -147,6 +82,20 @@
       <find>updateTableEchoData</find>
       <find>originalData</find>
       <find>loadU</find>
+      <find>map(function</find>
+      <find>map(functio</find>
+      <find>map(funct</find>
+      <find>map(func</find>
+      <find>map(fun</find>
+      <find>map(fu</find>
+      <find>map(f</find>
+      <find>map(</find>
+      <find>。map</find>
+      <find>》map</find>
+      <find>map</find>
+      <find>.map</find>
+      <find>.map(</find>
+      <find>操作</find>
     </findStrings>
     <replaceStrings>
       <replace>},</replace>
@@ -187,9 +136,9 @@
       <dir>E:\zk\vm-web\src\backend\components</dir>
       <dir>E:\zk\vm-web\src\vm-frontend</dir>
       <dir>E:\zk\vm-web\src\vm-backend\components\base</dir>
-      <dir>E:\zk\vm-web</dir>
       <dir>E:\zk\vm-web\src\vm-backend\components</dir>
       <dir>E:\zk\vm-web\src\vm-backend</dir>
+      <dir>E:\zk\vm-web</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -237,14 +186,12 @@
         <option value="$PROJECT_DIR$/src/vm-backend/scss/movie/tagGroup_table.scss" />
         <option value="$PROJECT_DIR$/src/vm-backend/scss/movie/tag_table.scss" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_edit_dialog.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_add_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/movie_list_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/scss/movie_list_page.scss" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/index.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tag_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx" />
@@ -254,6 +201,8 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/edit_dialog_temple.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tag_add_dialog.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
       </list>
     </option>
   </component>
@@ -949,12 +898,12 @@
       <workItem from="1521596122196" duration="8364000" />
       <workItem from="1521615380794" duration="10290000" />
       <workItem from="1521697117685" duration="16000" />
-      <workItem from="1521697273576" duration="4761000" />
+      <workItem from="1521697273576" duration="7619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307958000" />
+    <option name="totallyTimeSpent" value="310816000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -976,6 +925,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24520256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -988,7 +938,6 @@
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1013,10 +962,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23987207" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24520256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1261,13 +1210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/movie_list_page.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="562" column="42" lean-forward="true" selection-start-line="562" selection-start-column="42" selection-end-line="562" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_page.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1325,37 +1267,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17901">
-          <caret line="672" column="24" lean-forward="false" selection-start-line="672" selection-start-column="24" selection-end-line="672" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3024">
-          <caret line="120" column="19" lean-forward="false" selection-start-line="120" selection-start-column="19" selection-end-line="121" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="1382" column="0" lean-forward="false" selection-start-line="1382" selection-start-column="0" selection-end-line="1382" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_edit_dialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="83" column="24" lean-forward="true" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1372,7 +1288,7 @@
         <state relative-caret-position="284">
           <caret line="536" column="33" lean-forward="false" selection-start-line="536" selection-start-column="33" selection-end-line="536" selection-end-column="33" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1381,24 +1297,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
           <caret line="57" column="48" lean-forward="false" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="271" column="24" lean-forward="false" selection-start-line="271" selection-start-column="24" selection-end-line="271" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="505" column="25" lean-forward="true" selection-start-line="505" selection-start-column="25" selection-end-line="505" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1413,9 +1311,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_add_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="155" column="21" lean-forward="false" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
+        <state relative-caret-position="354">
+          <caret line="151" column="18" lean-forward="true" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_edit_dialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="83" column="24" lean-forward="true" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_table.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="271" column="24" lean-forward="false" selection-start-line="271" selection-start-column="24" selection-end-line="271" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="359" column="24" lean-forward="true" selection-start-line="359" selection-start-column="24" selection-end-line="359" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="698" column="0" lean-forward="true" selection-start-line="698" selection-start-column="0" selection-end-line="698" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/movie_list_page.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="31" column="63" lean-forward="false" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="455" column="62" lean-forward="true" selection-start-line="455" selection-start-column="62" selection-end-line="455" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -7,7 +7,7 @@ import "../../scss/movie/movie_page.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
-const Option = Select.Option;
+const { Option, OptGroup } = Select;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
@@ -22,9 +22,11 @@ var MovieEditDialog = React.createClass({
             editMovieUrl: "/movie/info",
             getFilmmakersUrl: "/filmmaker/info/list",
             getActorIdsUrl: "/filmmaker/id/list/",//   ---/filmmaker/id/{movieId}
+            getTagGroupsUrl: "/tagGroup/list",
             tipOfEditing: '正在保存电影修改',
             filmmakers: [],
-            actorIds: []
+            actorIds: [],
+            tagGroups: []
         };
     },
     updateFilmmakers(filmmakers){
@@ -32,6 +34,9 @@ var MovieEditDialog = React.createClass({
     },
     updateActorIds(actorIds){
         this.setState({actorIds: actorIds});
+    },
+    updateTagGroups(tagGroups){
+        this.setState({tagGroups: tagGroups});
     },
     loadFilmmakerData () {
         const {getFilmmakersUrl} = this.state;
@@ -69,11 +74,31 @@ var MovieEditDialog = React.createClass({
             }.bind(this)
         });
     },
+    loadTagGroupsData () {
+        const {getTagGroupsUrl} = this.state;
+        ajax.get({
+            url: getTagGroupsUrl,
+            success: function (result) {
+
+                this.updateTagGroups(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
     showDialog(record){
 
         this.getMovieEditDialog().showDialog();
 
         this.loadFilmmakerData();
+
+        this.loadTagGroupsData();
 
         this.loadActorIdsData(record.id);
 
@@ -129,7 +154,7 @@ var MovieEditDialog = React.createClass({
 
         var {echoData} = this.props;
 
-        const {title, width, filmmakers, actorIds} = this.state;
+        const {title, width, filmmakers, actorIds, tagGroups} = this.state;
 
         echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
         // filterEchoData
@@ -382,20 +407,6 @@ var MovieEditDialog = React.createClass({
 
                         {
                             col: {span: 11},
-                            label: "简介",
-                            id: "description",
-                            config: {
-                                initialValue: echoData.description,
-                                rules: [{required: true, message: '请输入简介!'}],
-                            }
-                            ,
-                            input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
-                        },
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        }, {
-                            col: {span: 11},
                             label: "演员",
                             id: "actorIds",
                             config: {
@@ -414,14 +425,64 @@ var MovieEditDialog = React.createClass({
                                 {filmmakerOptions}
                             </Select>
                         },
-
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "标签",
+                            id: "tagIds",
+                            config: {
+                                // initialValue: commons.toStrArr(actorIds),
+                                rules: [{required: true, message: '请选择标签!'}],
+                            }
+                            ,
+                            input: <Select
+                                // mode="multiple"
+                                // optionFilterProp="children"
+                                // notFoundContent="无相关标签"
+                                // placeholder="请选择标签"
+                                // onChange={this.handleFilmmakerSelectChange}
+                                style={{width: '100%'}}
+                            >
+                                {
+                                    tagGroups.map(function (group, i) {
+                                        // c(group);
+                                        return <OptGroup key={i} label={group.name}>
+                                            {
+                                                group.items.map(function (tag, i) {
+                                                    // c(tag);
+                                                    return <Option key={i} value={tag.id}>{tag.name}</Option>;
+                                                })
+                                            }
+                                        </OptGroup>
+                                    })
+                                }
+                            </Select>
+                        },
 
                     ]
 
 
                 }
                 ,
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "简介",
+                            id: "description",
+                            config: {
+                                initialValue: echoData.description,
+                                rules: [{required: true, message: '请输入简介!'}],
+                            }
+                            ,
+                            input: <TextArea placeholder="请输入简介" autosize={{minRows: 4, maxRows: 8}}/>
+                        }
+                    ]
 
+                }
 
             ]
         ;
