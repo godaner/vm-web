@@ -61,13 +61,18 @@ var MovieEditDialog = React.createClass({
             }.bind(this)
         });
     },
-    loadFilmmakerData () {
+    loadFilmmakerData (args) {
+        const {onSuccess} = args;
         const {getFilmmakersUrl} = this.state;
         ajax.get({
             url: getFilmmakersUrl,
             success: function (result) {
 
                 this.updateFilmmakers(result.data.list)
+
+                if (!isUndefined(onSuccess)) {
+                    onSuccess(result);
+                }
 
             }.bind(this),
             failure: function (result) {
@@ -97,7 +102,8 @@ var MovieEditDialog = React.createClass({
             }.bind(this)
         });
     },
-    loadTagGroupsData () {
+    loadTagGroupsData (args) {
+        const {onSuccess} = args;
         const {getTagGroupsUrl} = this.state;
         ajax.get({
             url: getTagGroupsUrl,
@@ -105,6 +111,9 @@ var MovieEditDialog = React.createClass({
 
                 this.updateTagGroups(result.data.list)
 
+                if (!isUndefined(onSuccess)) {
+                    onSuccess(result);
+                }
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -119,13 +128,20 @@ var MovieEditDialog = React.createClass({
 
         this.getMovieEditDialog().showDialog();
 
-        this.loadFilmmakerData();
+        this.loadFilmmakerData({
+            onSuccess: function () {
 
-        this.loadTagGroupsData();
+                this.loadActorIdsData(record.id);
+            }.bind(this)
+        });
 
-        this.loadSelectedTagIdsData(record.id);
+        this.loadTagGroupsData({
+            onSuccess: function () {
 
-        this.loadActorIdsData(record.id);
+                this.loadSelectedTagIdsData(record.id);
+            }.bind(this)
+        });
+
 
     },
     getMovieEditDialog(){
