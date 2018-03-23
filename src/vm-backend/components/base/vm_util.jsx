@@ -149,7 +149,7 @@ var commons = {
         return commons.getOptions({data: data});
     },
     getStatusStrs(){
-        return ['正常', '冻结'];
+        return [<span style={{color:"green"}}>正常</span>, <span style={{color:"red"}}>冻结</span>];
     },
     getSexStrs(){
         return ['男', '女', '未知'];
