@@ -70,7 +70,7 @@ var MovieVideoUploadDialog = React.createClass({
             }.bind(this),
             success: function (result) {
                 c(result);
-                message.error(result.msg);
+                message.success(result.msg);
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
