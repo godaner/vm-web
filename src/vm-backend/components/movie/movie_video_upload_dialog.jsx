@@ -14,7 +14,7 @@ const TextArea = Input.TextArea;
 var MovieVideoUploadDialog = React.createClass({
     getInitialState(){
         return {
-            width: 400,
+            width: 300,
             title: "上传视频资源",
             uploadUrl: "/movie/video",
             loading: false,
@@ -125,7 +125,8 @@ var MovieVideoUploadDialog = React.createClass({
                 closable={!loading}
                 maskClosable={maskClosable}
                 onCancel={this.onCancel}
-                footer={null}>
+                footer={null}
+                style={{textAlign:"center"}}>
                 <Upload {...props}>
                     <Button
                         disabled={this.state.fileList.length >= 1}
