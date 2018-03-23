@@ -7,7 +7,7 @@ import "../../scss/movie/movie_page.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
-const { Option, OptGroup } = Select;
+const {Option, OptGroup} = Select;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
@@ -112,6 +112,7 @@ var MovieEditDialog = React.createClass({
         var filterValues = function (values) {
             values.releaseTime = timeFormatter.long2Int(new Date(values.releaseTime._d).getTime());
             values.actorIds = values.actorIds.join(",");
+            values.tagIds = values.tagIds.join(",");
             return values;
         }
         values = filterValues(values);
@@ -419,7 +420,6 @@ var MovieEditDialog = React.createClass({
                                 optionFilterProp="children"
                                 notFoundContent="无相关电影人"
                                 placeholder="请选择演员"
-                                // onChange={this.handleFilmmakerSelectChange}
                                 style={{width: '100%'}}
                             >
                                 {filmmakerOptions}
@@ -439,11 +439,10 @@ var MovieEditDialog = React.createClass({
                             }
                             ,
                             input: <Select
-                                // mode="multiple"
-                                // optionFilterProp="children"
-                                // notFoundContent="无相关标签"
-                                // placeholder="请选择标签"
-                                // onChange={this.handleFilmmakerSelectChange}
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关标签"
+                                placeholder="请选择标签"
                                 style={{width: '100%'}}
                             >
                                 {
