@@ -2826,7 +2826,7 @@ var MoviePlayer = _react2.default.createClass({
                 var videos = [];
                 for (var i = 0; i < versionsInfo.length; i++) {
                     var version = versionsInfo[i];
-                    videos.push([version.srcUrl, 'video/mp4', this.movieSharpness(version.sharpness), version.weight]);
+                    videos.push([generateUrl({ url: version.srcUrl }), 'video/mp4', this.movieSharpness(version.sharpness), version.weight]);
                 }
                 videos.push(['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '1080', 1080]);
                 //init movie player

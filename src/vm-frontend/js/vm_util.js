@@ -4,6 +4,10 @@ function generateImgUrl(args) {
     }
     return vm_config.http_url_prefix + args.imgUrl + "/" + args.width;
 }
+function generateUrl(args) {
+
+    return vm_config.http_url_prefix + args.url ;
+}
 function fail(code) {
     return code < 0;
 }
