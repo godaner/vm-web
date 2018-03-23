@@ -22,7 +22,7 @@ var MovieEditDialog = React.createClass({
             editMovieUrl: "/movie/info",
             getFilmmakersUrl: "/filmmaker/info/list",
             getActorIdsUrl: "/filmmaker/id/list/",//   ---/filmmaker/id/{movieId}
-            getTagGroupsUrl: "/tagGroup/list",
+            getTagGroupsUrl: "/tagGroup/tag/list",
             getSelectedTagIdsUrl: "/tag/id/list/",
             tipOfEditing: '正在保存电影修改',
             filmmakers: [],

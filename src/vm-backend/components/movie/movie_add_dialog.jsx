@@ -18,7 +18,7 @@ var MovieAddDialog = React.createClass({
             title: "添加电影",
             addMovieUrl: "/movie/info",
             getFilmmakersUrl: "/filmmaker/info/list",
-            getTagGroupsUrl: "/tagGroup/list",
+            getTagGroupsUrl: "/tagGroup/tag/list",
             tipOfAddingMovie: "正在添加电影",
             filmmakers: [],
             tagGroups: []

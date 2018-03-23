@@ -269,15 +269,15 @@ var MovieTable = React.createClass({
 
 
             },
-            {
-                title: '简介',
-                width: 200,
-                dataIndex: 'description',
-                sorter: true,
-                render: (text) => {
-                    return commons.makeTipSpan(text, 33);
-                },
-            },
+            // {
+            //     title: '简介',
+            //     width: 200,
+            //     dataIndex: 'description',
+            //     sorter: true,
+            //     render: (text) => {
+            //         return commons.makeTipSpan(text, 33);
+            //     },
+            // },
             {
 
 
@@ -583,6 +583,9 @@ var MovieTable = React.createClass({
         this.getMoviePosterUploaderDialog().previewImg(vm_config.http_url_prefix + result.data.imgUrl);
 
     },
+    expandedRowRender(record){
+        return <span>简介 ：<p style={{margin: 0}}>{record.description}</p></span>;
+    },
     render: function () {
 
         const {echoData} = this.state.movieEditDialog;
@@ -651,6 +654,7 @@ var MovieTable = React.createClass({
                 <Table
                     locale={{emptyText: "暂无相关电影数据"}}
                     columns={columns}
+                    expandedRowRender={this.expandedRowRender}
                     rowSelection={rowSelection}
                     dataSource={data}
                     pagination={
