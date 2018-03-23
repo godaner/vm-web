@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Icon, Input, Layout, Menu, message, Dropdown, Popconfirm, Select, Table} from "antd";
+import {Button, Icon, Input, Layout, Menu, message, Upload, Dropdown, Popconfirm, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
 import "../../scss/movie/movie_table.scss";
@@ -8,6 +8,7 @@ import {ajax, commons} from "../base/vm_util";
 import MovieEditDialog from "./movie_edit_dialog";
 import MovieAddDialog from "./movie_add_dialog";
 import ImgUploaderDialogTemplate from "../base/img_uploader_dialog_template";
+import MovieVideoUploadDialog from "./movie_video_upload_dialog";
 
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
@@ -48,7 +49,7 @@ var MovieTable = React.createClass({
                 echoData: undefined
             },
             movieTable: {
-                scroll:{ x: true, y: 450},
+                scroll: {x: true, y: 450},
                 dataSourceUrl: "/movie/info/list",
                 delMovieUrl: "/movie/info",
                 editable: false,
@@ -189,7 +190,6 @@ var MovieTable = React.createClass({
     },
     componentDidMount()
     {
-
 
 
         this.updateMovieTableColumns([
@@ -348,7 +348,7 @@ var MovieTable = React.createClass({
                     const menu = (
                         <Menu>
                             <Menu.Item>
-                                <a onClick={() => this.uploadMovieSrc(record)} href="javascript:void(0);">上传资源</a>
+                                <a onClick={() => this.showMovieVideoUploadDialog(record)} href="javascript:void(0);">上传资源</a>
                             </Menu.Item>
                             <Menu.Item>
                                 <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
@@ -586,11 +586,17 @@ var MovieTable = React.createClass({
     expandedRowRender(record){
         return <span>简介 ：<p style={{margin: 0}}>{record.description}</p></span>;
     },
+    getMovieVideoUploadDialog(){
+        return this.refs.movie_video_upload_dialog;
+    },
+    showMovieVideoUploadDialog(record){
+        this.getMovieVideoUploadDialog().showDialog(record);
+    },
     render: function () {
 
         const {echoData} = this.state.movieEditDialog;
 
-        var {scroll,selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.movieTable;
+        var {scroll, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.movieTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
@@ -693,6 +699,8 @@ var MovieTable = React.createClass({
                     width={posterUploaderDialog.width}
                     onUpdateImgSuccess={this.onUpdatePosterSuccess}
                     onUploadTempImgSuccess={this.onUploadTempPosterSuccess}/>
+                <MovieVideoUploadDialog
+                    ref="movie_video_upload_dialog"/>
             </div>
         );
     }
