@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input,InputNumber, Layout, Menu, message, Select, Table, Upload} from "antd";
+import {Button, DatePicker, Icon, Input, InputNumber, Layout, Menu, message, Select, Table, Upload} from "antd";
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
@@ -7,7 +7,7 @@ import "../../scss/movie/movie_page.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
-const Option = Select.Option;
+const {Option, OptGroup} = Select;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
@@ -15,17 +15,42 @@ const TextArea = Input.TextArea;
 var MovieAddDialog = React.createClass({
     getInitialState() {
         return {
-            title:"添加电影",
+            title: "添加电影",
             addMovieUrl: "/movie/info",
             getFilmmakersUrl: "/filmmaker/info/list",
+            getTagGroupsUrl: "/tagGroup/list",
             tipOfAddingMovie: "正在添加电影",
-            filmmakers: []
+            filmmakers: [],
+            tagGroups: []
         };
+    },
+    updateTagGroups(tagGroups){
+        this.setState({tagGroups: tagGroups});
+    },
+    loadTagGroupsData () {
+        const {getTagGroupsUrl} = this.state;
+        ajax.get({
+            url: getTagGroupsUrl,
+            success: function (result) {
+
+                this.updateTagGroups(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
     },
     showDialog() {
         this.getMovieAddDialog().showDialog();
 
         this.loadFilmmakerData();
+
+        this.loadTagGroupsData();
 
     }
     ,
@@ -39,6 +64,7 @@ var MovieAddDialog = React.createClass({
         var filterValues = function (values) {
             values.releaseTime = timeFormatter.long2Int(new Date(values.releaseTime._d).getTime());
             values.actorIds = values.actorIds.join(",");
+            values.tagIds = values.tagIds.join(",");
             return values;
         }
         values = filterValues(values);
@@ -100,7 +126,7 @@ var MovieAddDialog = React.createClass({
     },
     render() {
 
-        const {filmmakers,title} = this.state;
+        const {filmmakers, title, tagGroups} = this.state;
 
         //filmmakerOptions,actorOptions
         var filmmakerOptions = [];
@@ -122,7 +148,7 @@ var MovieAddDialog = React.createClass({
 
 
                         {
-                            col: {span: 24},
+                            col: {span: 11},
                             label: "名称",
                             id: "name",
                             config: {
@@ -132,6 +158,20 @@ var MovieAddDialog = React.createClass({
                             ,
                             input: <Input placeholder="请输入电影名称" name="name"/>
                         },
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "别名",
+                            id: "alias",
+                            config: {
+                                rules: [{required: true, whitespace: true, message: '请输入电影别名!'}],
+                            },
+                            input: <Input autoComplete="off"
+                                          placeholder="请输入电影别名"/>
+                        }
 
                     ]
 
@@ -157,14 +197,20 @@ var MovieAddDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "别名",
-                            id: "alias",
+                            label: "电影时长(分钟)",
+                            id: "movieTime",
                             config: {
-                                rules: [{required: true, whitespace: true, message: '请输入电影别名!'}],
-                            },
-                            input: <Input autoComplete="off"
-                                          placeholder="请输入电影别名"/>
+
+                                rules: [{required: true, message: '请输入时长!'}],
+                            }
+                            ,
+                            input: <InputNumber autoComplete="off"
+                                                style={{width: '100%'}}
+                                                placeholder="请输入电影时长"
+                                                min={1}
+                                                max={600}/>
                         }
+
                     ]
 
 
@@ -186,29 +232,7 @@ var MovieAddDialog = React.createClass({
                         {
                             col: {span: 2},
                             input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
-                            label: "电影时长(分钟)",
-                            id: "movieTime",
-                            config: {
-
-                                rules: [{required: true, message: '请输入简介!'}],
-                            }
-                            ,
-                            input: <InputNumber autoComplete="off"
-                                                style={{width:'100%'}}
-                                                placeholder="请输入电影时长"
-                                                min={1}
-                                                max={600}/>
-                        }
-                    ]
-
-
-                },
-                {
-                    cols: [
-                        {
+                        }, {
                             col: {span: 11},
                             label: "演员",
                             id: "actorIds",
@@ -225,12 +249,13 @@ var MovieAddDialog = React.createClass({
                             >
                                 {filmmakerOptions}
                             </Select>
-                        },
+                        }
+                    ]
 
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
+
+                },
+                {
+                    cols: [
                         {
                             col: {span: 11},
                             label: "导演",
@@ -248,6 +273,41 @@ var MovieAddDialog = React.createClass({
                             >
                                 {filmmakerOptions}
                             </Select>
+                        },
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "标签",
+                            id: "tagIds",
+                            config: {
+                                rules: [{required: true, message: '请选择标签!'}],
+                            }
+                            ,
+                            input: <Select
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关标签"
+                                placeholder="请选择标签"
+                                style={{width: '100%'}}
+                            >
+                                {
+                                    tagGroups.map(function (group, i) {
+                                        // c(group);
+                                        return <OptGroup key={i} label={group.name}>
+                                            {
+                                                group.items.map(function (tag, i) {
+                                                    // c(tag);
+                                                    const v = tag.id + '';
+                                                    return <Option key={i} value={v}>{tag.name}</Option>;
+                                                })
+                                            }
+                                        </OptGroup>
+                                    })
+                                }
+                            </Select>
                         }
                     ]
 
@@ -256,6 +316,8 @@ var MovieAddDialog = React.createClass({
 
                 {
                     cols: [
+
+
                         {
                             col: {span: 24},
                             label: "简介",
