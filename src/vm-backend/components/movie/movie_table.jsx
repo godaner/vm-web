@@ -57,7 +57,7 @@ var MovieTable = React.createClass({
                 editable: false,
                 haveSearchMoviename: false,
                 movienameDropdownVisible: false,
-                bordered: true,
+                bordered: false,
                 tableLoading: false,
                 batchDeleteBtnLoading: false,
                 refreshBtnLoading: false,
