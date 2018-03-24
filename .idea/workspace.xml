@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -62,7 +63,17 @@
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="351">
-              <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+              <caret line="190" column="57" lean-forward="false" selection-start-line="190" selection-start-column="57" selection-end-line="190" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vm_util.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="118" column="26" lean-forward="false" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -216,7 +227,6 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tag_add_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_add_dialog.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_file_upload_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/scss/movie/movie_video_upload_dialog.scss" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx" />
@@ -230,6 +240,7 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx" />
       </list>
     </option>
@@ -867,12 +878,12 @@
       <workItem from="1521811092901" duration="11000" />
       <workItem from="1521813706578" duration="876000" />
       <workItem from="1521818249325" duration="145000" />
-      <workItem from="1521867953570" duration="4817000" />
+      <workItem from="1521867953570" duration="5140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331671000" />
+    <option name="totallyTimeSpent" value="331994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1172,13 +1183,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="144" column="8" lean-forward="true" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
@@ -1321,10 +1325,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="118" column="26" lean-forward="false" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
-          <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <caret line="190" column="57" lean-forward="false" selection-start-line="190" selection-start-column="57" selection-end-line="190" selection-end-column="57" />
           <folding />
         </state>
       </provider>

@@ -116,6 +116,22 @@ var ajax = {
 
 
 var commons = {
+    getSharpnessStrByIndex(args){
+        const {index} = args
+
+        const data = commons.getSharpnessStrs();
+
+        return data[index - 1];
+    },
+    getSharpnessOptions(){
+
+        const data = commons.getSharpnessStrs();
+
+        return commons.getOptions({data: data});
+    },
+    getSharpnessStrs(){
+        return ['标清', '高清', '超清'];
+    },
     toStrArr(notStrArr){
         for (var i = 0; i < notStrArr.length; i++) {
             notStrArr[i] = notStrArr[i] + '';

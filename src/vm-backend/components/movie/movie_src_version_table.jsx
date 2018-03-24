@@ -17,7 +17,7 @@ var MovieSrcVersionTable = React.createClass({
 
 
             tagTable: {
-                dataSourceUrl: "/info/list/ByMovieId/",
+                dataSourceUrl: "/movie/version/info/list/ByMovieId/",
                 bordered: false,
                 tableLoading: false,
                 columns: [],
@@ -87,7 +87,7 @@ var MovieSrcVersionTable = React.createClass({
             data.push({
                 key: i,
                 id: d.id,
-                name: d.name,
+                sharpness: d.sharpness,
                 status: d.status,
                 create_time: d.createTime,
                 update_time: d.updateTime
@@ -183,10 +183,13 @@ var MovieSrcVersionTable = React.createClass({
                 width: 100
             },
             {
-                title: '标签名称',
-                dataIndex: 'name',
-                key: 'name',
-                width: 100
+                title: '清晰度',
+                dataIndex: 'sharpness',
+                key: 'sharpness',
+                width: 100,
+                render: function (text) {
+                    return commons.getSharpnessStrByIndex({index: text});
+                }
             },
             {
                 title: '状态',
