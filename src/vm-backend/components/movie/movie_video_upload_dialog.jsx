@@ -16,7 +16,7 @@ var MovieVideoUploadDialog = React.createClass({
         return {
             width: 300,
             title: "上传视频资源",
-            uploadUrl: "/movie/video",
+            uploadUrl: "/movie/version/video",
             loading: false,
             visible: false,
             maskClosable: false,
