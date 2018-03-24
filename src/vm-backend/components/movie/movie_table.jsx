@@ -715,7 +715,7 @@ var MovieTable = React.createClass({
                     onUpdateImgSuccess={this.onUpdatePosterSuccess}
                     onUploadTempImgSuccess={this.onUploadTempPosterSuccess}/>
                 <MovieVideoUploadDialog
-                    onAddSuccess={this.onMovieSrcVersionAddSuccess}
+                    onMovieSrcVersionAddSuccess={this.onMovieSrcVersionAddSuccess}
                     ref="movie_video_upload_dialog"/>
             </div>
         );

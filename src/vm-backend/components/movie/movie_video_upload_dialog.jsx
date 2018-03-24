@@ -45,7 +45,9 @@ var MovieVideoUploadDialog = React.createClass({
     handleCancel(){
 
     },
-
+    updateFileList(fileList){
+        this.setState({fileList});
+    },
     handleUpload  ()  {
 
         const {fileList, uploadUrl, movieId,sharpness} = this.state;
@@ -77,6 +79,8 @@ var MovieVideoUploadDialog = React.createClass({
 
                 this.updateSharpness(undefined);
 
+                this.updateFileList([]);
+
                 onMovieSrcVersionAddSuccess(result.data.video);
 
             }.bind(this),
@@ -97,7 +101,6 @@ var MovieVideoUploadDialog = React.createClass({
     },
     onCancel(){
         this.updateVisible(false);
-        this.updateSharpness(undefined);
     },
     onSelectSharpness(value, option){
         this.updateSharpness(value);
