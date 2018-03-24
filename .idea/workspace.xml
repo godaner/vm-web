@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,12 +48,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tags_of_movie.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tags_of_movie.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="594">
+              <caret line="32" column="56" lean-forward="false" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="movie_src_version_table.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="movie_table.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,9 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loadU</find>
-      <find>map(function</find>
-      <find>map(functio</find>
       <find>map(funct</find>
       <find>map(func</find>
       <find>map(fun</find>
@@ -101,9 +121,11 @@
       <find>movie</find>
       <find>getMovieSrcVersion</find>
       <find>state.movie</find>
+      <find>Tag</find>
+      <find>tagGrou</find>
+      <find>tagGroup</find>
     </findStrings>
     <replaceStrings>
-      <replace>}</replace>
       <replace>field</replace>
       <replace>图片</replace>
       <replace>imgUpdateSuccess</replace>
@@ -113,7 +135,6 @@
       <replace>width: 100</replace>
       <replace>username</replace>
       <replace>haveSearchUsername</replace>
-      <replace>movie</replace>
       <replace>Moviename</replace>
       <replace>Movie</replace>
       <replace>name</replace>
@@ -133,6 +154,8 @@
       <replace>标签</replace>
       <replace>Tag</replace>
       <replace>MovieVideoUploadDialog</replace>
+      <replace>MovieSrcVersion</replace>
+      <replace>movie</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\zk\vm-web\src\backend</dir>
@@ -157,7 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vm-frontend/components/movies_displayer.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_img_uploader_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_img_uploader_dialog.jsx" />
@@ -197,7 +219,6 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_file_upload_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/scss/movie/movie_video_upload_dialog.scss" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_login_logs_table.jsx" />
@@ -208,6 +229,8 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/components/movie_info_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx" />
       </list>
     </option>
   </component>
@@ -274,54 +297,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,19 +394,19 @@
     <property name="nodejs_interpreter_path" value="D:/node-v9.2.0-win-x64/node" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\zk\vm-web\src\vm-backend\components\movie" />
-      <recent name="E:\zk\vm-web\src\vm-backend\scss\movie" />
-      <recent name="E:\zk\vm-web\src\vm-backend\components\user" />
-      <recent name="E:\zk\vm-web\src\vm-backend\scss" />
-      <recent name="E:\zk\vm-web\src\vm-frontend\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\zk\vm-web\src\backend\scss\base" />
       <recent name="E:\zk\vm-web\src\backend\scss\index" />
       <recent name="E:\zk\vm-web\src\backend\scss\home" />
       <recent name="E:\zk\vm-web\src\backend\scss\user" />
       <recent name="E:\zk\vm-web\src\backend\components\base" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\zk\vm-web\src\vm-backend\components\movie" />
+      <recent name="E:\zk\vm-web\src\vm-backend\scss\movie" />
+      <recent name="E:\zk\vm-web\src\vm-backend\components\user" />
+      <recent name="E:\zk\vm-web\src\vm-backend\scss" />
+      <recent name="E:\zk\vm-web\src\vm-frontend\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -892,12 +867,12 @@
       <workItem from="1521811092901" duration="11000" />
       <workItem from="1521813706578" duration="876000" />
       <workItem from="1521818249325" duration="145000" />
-      <workItem from="1521867953570" duration="3498000" />
+      <workItem from="1521867953570" duration="4817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="330352000" />
+    <option name="totallyTimeSpent" value="331671000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -993,13 +968,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2132">
-          <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/filmmaker_info_page.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -1260,16 +1228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="51" column="27" lean-forward="false" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tagGroup_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1347,8 +1305,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="594">
+          <caret line="32" column="56" lean-forward="false" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
           <folding />
         </state>
       </provider>

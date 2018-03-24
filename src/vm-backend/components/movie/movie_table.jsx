@@ -9,6 +9,7 @@ import MovieEditDialog from "./movie_edit_dialog";
 import MovieAddDialog from "./movie_add_dialog";
 import ImgUploaderDialogTemplate from "../base/img_uploader_dialog_template";
 import MovieVideoUploadDialog from "./movie_video_upload_dialog";
+import MovieSrcVersionTable from "./movie_src_version_table";
 
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
@@ -49,7 +50,7 @@ var MovieTable = React.createClass({
                 echoData: undefined
             },
             movieTable: {
-                title:"电影列表",
+                title: "电影列表",
                 scroll: {x: true, y: 450},
                 dataSourceUrl: "/movie/info/list",
                 delMovieUrl: "/movie/info",
@@ -585,7 +586,14 @@ var MovieTable = React.createClass({
 
     },
     expandedRowRender(record){
-        return <span>简介 ：<p style={{margin: 0}}>{record.description}</p></span>;
+        return (
+            <span>
+                简介 ：
+                <p style={{margin: 0}}>{record.description}</p>
+                <MovieSrcVersionTable
+                    movieId={record.id}/>
+            </span>
+        );
     },
     getMovieVideoUploadDialog(){
         return this.refs.movie_video_upload_dialog;
@@ -597,7 +605,7 @@ var MovieTable = React.createClass({
 
         const {echoData} = this.state.movieEditDialog;
 
-        var {title,scroll, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.movieTable;
+        var {title, scroll, selectedRowKeys, columns, data, page, tableLoading, batchDeleteBtnLoading, refreshBtnLoading, bordered} = this.state.movieTable;
 
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
