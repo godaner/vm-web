@@ -21,7 +21,8 @@ var MovieVideoUploadDialog = React.createClass({
             visible: false,
             maskClosable: false,
             fileList: [],
-            movieId: undefined
+            movieId: undefined,
+            sharpness:undefined
         };
     },
 
@@ -49,13 +50,14 @@ var MovieVideoUploadDialog = React.createClass({
     },
     handleUpload  ()  {
 
-        const {fileList, uploadUrl, movieId} = this.state;
+        const {fileList, uploadUrl, movieId,sharpness} = this.state;
         const formData = new FormData();
         fileList.forEach((file) => {
             formData.append('file', file);
             // formData.append('files[]', file);
         });
         formData.append("movieId", movieId);
+        formData.append("sharpness", sharpness);
 
         this.updateLoading(true);
 
@@ -69,8 +71,13 @@ var MovieVideoUploadDialog = React.createClass({
 
             }.bind(this),
             success: function (result) {
-                c(result);
+                // c(result);
                 message.success(result.msg);
+
+                this.updateVisible(false);
+
+                this.updateSharpness(undefined);
+
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -89,6 +96,13 @@ var MovieVideoUploadDialog = React.createClass({
     },
     onCancel(){
         this.updateVisible(false);
+        this.updateSharpness(undefined);
+    },
+    onSelectSharpness(value, option){
+        this.updateSharpness(value);
+    },
+    updateSharpness(sharpness){
+        this.setState({sharpness});
     },
     render(){
         const {width, title, uploadUrl, loading, visible, maskClosable} = this.state;
@@ -126,7 +140,9 @@ var MovieVideoUploadDialog = React.createClass({
                 maskClosable={maskClosable}
                 onCancel={this.onCancel}
                 footer={null}
-                style={{textAlign:"center"}}>
+                style={{textAlign: "center"}}>
+
+
                 <Upload {...props}>
                     <Button
                         disabled={this.state.fileList.length >= 1}
@@ -134,15 +150,24 @@ var MovieVideoUploadDialog = React.createClass({
                         <Icon type="upload"/> 选择视频文件
                     </Button>
                 </Upload>
+                <Select name="sharpness"
+                        value={this.state.sharpness}
+                        disabled={loading}
+                        onSelect={this.onSelectSharpness}
+                        placeholder="请输入清晰度"
+                        style={{width: "65%", margin: 15}}>
+                    {commons.getSharpnessOptions()}
+                </Select>
                 <Button
                     className="upload-demo-start"
                     type="primary"
                     onClick={this.handleUpload}
-                    disabled={this.state.fileList.length === 0}
+                    disabled={this.state.fileList.length == 0|| isEmptyString(this.state.sharpness)}
                     loading={loading}
                 >
                     {loading ? '上传中' : '开始上传' }
                 </Button>
+
             </Modal>
         );
     }
