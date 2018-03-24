@@ -12,8 +12,7 @@ var MoviePlayer = React.createClass({
             moviePlayerPanelTitle: "电影播放"
         };
     }, componentDidMount: function () {
-        //get movie versions
-        this.getMovieSrcVersion();
+
 
         //add resize event listener
         window.addEventListener('resize', this.onWindowResize);
@@ -21,6 +20,15 @@ var MoviePlayer = React.createClass({
         this.adjustUI();
 
 
+    },
+    componentWillReceiveProps(){
+        c("componentWillReceiveProps");
+        c(this.props.movie);
+        //get movie versions
+        if(!isUndefined(this.props.movie.id)){
+
+            this.getMovieSrcVersion();
+        }
     },
     componentWillUnmount: function () {
         window.removeEventListener('resize', this.onWindowResize);
@@ -52,7 +60,7 @@ var MoviePlayer = React.createClass({
         }
     },
     getMovieSrcVersion: function (callfun) {
-        var url = "/movie/version/" + this.props.targetMovieId + "?orderBy=weight&orderType=desc";
+        var url = "/movie/version/" + this.props.movie.id + "?orderBy=weight&orderType=desc";
         ajax.get({
             url: url,
             onBeforeRequest: function () {
@@ -73,7 +81,7 @@ var MoviePlayer = React.createClass({
                 //init movie player
                 var options = {};
                 const posterUrl = generateImgUrl({
-                    imgUrl: result.data.posterUrl,
+                    imgUrl: this.props.movie.posterUrl,
                     obj: {
                         width: 600
                     }
@@ -82,7 +90,12 @@ var MoviePlayer = React.createClass({
                 options.poster = posterUrl;
                 options.video = videos;
                 //init movie player
-                this.initPlayer(options);
+                setTimeout(function () {
+
+                    this.initPlayer(options);
+                    c("OPTIONS");
+                    c(options);
+                }.bind(this),10)
             }.bind(this),
             onResponseFailure: function (result) {
                 window.VmFrontendEventsDispatcher.showMsgDialog(result.msg);
@@ -124,7 +137,7 @@ var MoviePlayer = React.createClass({
                 <InnerMessager defaultTip={this.state.whenPlayerIsLoading}
                                ref="player_inner_messager"/>
                 <div id="m_player"
-                     ref="m_player"></div>
+                     ref="m_player"/>
             </div>
         );
     }

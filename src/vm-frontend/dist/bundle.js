@@ -2775,14 +2775,22 @@ var MoviePlayer = _react2.default.createClass({
             moviePlayerPanelTitle: "电影播放"
         };
     }, componentDidMount: function componentDidMount() {
-        //get movie versions
-        this.getMovieSrcVersion();
 
         //add resize event listener
         window.addEventListener('resize', this.onWindowResize);
 
         this.adjustUI();
     },
+    componentWillReceiveProps: function componentWillReceiveProps() {
+        c("componentWillReceiveProps");
+        c(this.props.movie);
+        //get movie versions
+        if (!isUndefined(this.props.movie.id)) {
+
+            this.getMovieSrcVersion();
+        }
+    },
+
     componentWillUnmount: function componentWillUnmount() {
         window.removeEventListener('resize', this.onWindowResize);
     },
@@ -2813,7 +2821,7 @@ var MoviePlayer = _react2.default.createClass({
         }
     },
     getMovieSrcVersion: function getMovieSrcVersion(callfun) {
-        var url = "/movie/version/" + this.props.targetMovieId + "?orderBy=weight&orderType=desc";
+        var url = "/movie/version/" + this.props.movie.id + "?orderBy=weight&orderType=desc";
         ajax.get({
             url: url,
             onBeforeRequest: function () {}.bind(this),
@@ -2832,7 +2840,7 @@ var MoviePlayer = _react2.default.createClass({
                 //init movie player
                 var options = {};
                 var posterUrl = generateImgUrl({
-                    imgUrl: result.data.posterUrl,
+                    imgUrl: this.props.movie.posterUrl,
                     obj: {
                         width: 600
                     }
@@ -2841,7 +2849,12 @@ var MoviePlayer = _react2.default.createClass({
                 options.poster = posterUrl;
                 options.video = videos;
                 //init movie player
-                this.initPlayer(options);
+                setTimeout(function () {
+
+                    this.initPlayer(options);
+                    c("OPTIONS");
+                    c(options);
+                }.bind(this), 10);
             }.bind(this),
             onResponseFailure: function (result) {
                 window.VmFrontendEventsDispatcher.showMsgDialog(result.msg);
@@ -8120,6 +8133,16 @@ var MovieInfoPage = _react2.default.createClass({
     lazyLoadImg: function lazyLoadImg() {
         lazyLoad();
     },
+    updateMovie: function updateMovie(movie) {
+        var state = this.state;
+
+        //set movie info to state
+
+        state.movie = movie;
+
+        this.setState(state);
+    },
+
     getMovieBasicInfo: function getMovieBasicInfo(callfun) {
 
         // var movieId = this.state.targetMovieId;
@@ -8140,13 +8163,7 @@ var MovieInfoPage = _react2.default.createClass({
             }.bind(this),
             onResponseSuccess: function (result) {
 
-                var state = this.state;
-
-                //set movie info to state
-
-                state.movie = result.data.movie;
-                c(state.movie);
-                this.setState(state);
+                this.updateMovie(result.data.movie);
 
                 //update movie description
                 // this.updateMovieDescription(state.movie.description);
@@ -8416,7 +8433,7 @@ var MovieInfoPage = _react2.default.createClass({
                 _react2.default.createElement(
                     'div',
                     { id: 'm_wrapper', ref: 'm_wrapper' },
-                    _react2.default.createElement(_movies_player2.default, { targetMovieId: this.state.targetMovieId })
+                    _react2.default.createElement(_movies_player2.default, { movie: this.state.movie })
                 ),
                 _react2.default.createElement('div', { id: 'split' }),
                 _react2.default.createElement(

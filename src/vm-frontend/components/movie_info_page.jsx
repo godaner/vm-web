@@ -79,6 +79,16 @@ var MovieInfoPage = React.createClass({
     lazyLoadImg: function () {
         lazyLoad();
     },
+    updateMovie(movie){
+        var state = this.state;
+
+        //set movie info to state
+
+        state.movie = movie;
+
+        this.setState(state);
+
+    },
     getMovieBasicInfo: function (callfun) {
 
 
@@ -101,13 +111,8 @@ var MovieInfoPage = React.createClass({
             }.bind(this),
             onResponseSuccess: function (result) {
 
-                var state = this.state;
 
-                //set movie info to state
-
-                state.movie = result.data.movie;
-c(state.movie);
-                this.setState(state);
+                this.updateMovie(result.data.movie);
 
                 //update movie description
                 // this.updateMovieDescription(state.movie.description);
@@ -342,7 +347,7 @@ c(state.movie);
                 <div id="movie_player" className="clearfix">
 
                     <div id="m_wrapper" ref="m_wrapper">
-                        <MoviePlayer targetMovieId={this.state.targetMovieId}/>
+                        <MoviePlayer movie={this.state.movie}/>
                     </div>
                     <div id="split"></div>
                     <div id="actors_details_div_wrapper">
