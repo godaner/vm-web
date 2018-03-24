@@ -2441,7 +2441,7 @@ var TagsOfMovie = _react2.default.createClass({
         this.getTagsOfMovie();
     },
     getTagsOfMovie: function getTagsOfMovie(callfun) {
-        var url = "/movie/tag/" + this.state.movieId;
+        var url = "/tag/byMovieId/" + this.state.movieId;
         ajax.get({
             url: url,
             onBeforeRequest: function () {}.bind(this),

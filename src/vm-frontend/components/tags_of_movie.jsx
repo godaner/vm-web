@@ -17,7 +17,7 @@ var TagsOfMovie = React.createClass({
 
     },
     getTagsOfMovie: function (callfun) {
-        var url = "/movie/tag/" + this.state.movieId;
+        var url = "/tag/byMovieId/" + this.state.movieId;
         ajax.get({
             url: url,
             onBeforeRequest: function () {

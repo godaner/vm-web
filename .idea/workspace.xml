@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/components/movies_player.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/components/movies_player.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,18 +40,28 @@
       <file leaf-file-name="movie_info_page.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/movie_info_page.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="354" column="43" lean-forward="false" selection-start-line="354" selection-start-column="43" selection-end-line="354" selection-end-column="43" />
+            <state relative-caret-position="556">
+              <caret line="336" column="44" lean-forward="true" selection-start-line="336" selection-start-column="44" selection-end-line="336" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filmmakers_details_area.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tags_of_movie.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filmmakers_details_area.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="918">
+              <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -149,7 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vm-frontend/components/head.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/movies_displayer.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_img_uploader_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/img_uploader.jsx" />
@@ -200,6 +207,7 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/components/movies_player.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/movie_info_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx" />
       </list>
     </option>
   </component>
@@ -884,12 +892,12 @@
       <workItem from="1521811092901" duration="11000" />
       <workItem from="1521813706578" duration="876000" />
       <workItem from="1521818249325" duration="145000" />
-      <workItem from="1521867953570" duration="2976000" />
+      <workItem from="1521867953570" duration="3498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329830000" />
+    <option name="totallyTimeSpent" value="330352000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -985,13 +993,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/scss/movie/filmmaker_table.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2132">
@@ -1328,18 +1329,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/movie_info_page.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="354" column="43" lean-forward="false" selection-start-line="354" selection-start-column="43" selection-end-line="354" selection-end-column="43" />
+        <state relative-caret-position="918">
+          <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/movie_info_page.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="556">
+          <caret line="336" column="44" lean-forward="true" selection-start-line="336" selection-start-column="44" selection-end-line="336" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding />
         </state>
       </provider>
