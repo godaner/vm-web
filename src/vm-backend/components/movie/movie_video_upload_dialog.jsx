@@ -45,12 +45,11 @@ var MovieVideoUploadDialog = React.createClass({
     handleCancel(){
 
     },
-    componentDidMount(){
 
-    },
     handleUpload  ()  {
 
         const {fileList, uploadUrl, movieId,sharpness} = this.state;
+        const {onMovieSrcVersionAddSuccess} = this.props;
         const formData = new FormData();
         fileList.forEach((file) => {
             formData.append('file', file);
@@ -77,6 +76,8 @@ var MovieVideoUploadDialog = React.createClass({
                 this.updateVisible(false);
 
                 this.updateSharpness(undefined);
+
+                onMovieSrcVersionAddSuccess(result.data.video);
 
             }.bind(this),
             failure: function (result) {

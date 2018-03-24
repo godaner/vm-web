@@ -601,6 +601,9 @@ var MovieTable = React.createClass({
     showMovieVideoUploadDialog(record){
         this.getMovieVideoUploadDialog().showDialog(record);
     },
+    onMovieSrcVersionAddSuccess(record){
+        window.EventsDispatcher.onMovieSrcVersionAddSuccess(record);
+    },
     render: function () {
 
         const {echoData} = this.state.movieEditDialog;
@@ -636,7 +639,10 @@ var MovieTable = React.createClass({
                 <div style={{marginBottom: 16}}>
                     <Button
                         loading={refreshBtnLoading}
-                        onClick={this.loadMovieTableData}
+                        onClick={()=>{
+                            this.loadMovieTableData();
+                            window.EventsDispatcher.loadMovieSrcVersionTableData();
+                        }}
                     >
                         刷新
                     </Button>
@@ -709,6 +715,7 @@ var MovieTable = React.createClass({
                     onUpdateImgSuccess={this.onUpdatePosterSuccess}
                     onUploadTempImgSuccess={this.onUploadTempPosterSuccess}/>
                 <MovieVideoUploadDialog
+                    onAddSuccess={this.onMovieSrcVersionAddSuccess}
                     ref="movie_video_upload_dialog"/>
             </div>
         );

@@ -16,6 +16,12 @@ window.EventsDispatcher = {
     },
     loadTagTableData() {
         this.event.emit('loadTagTableData');
+    },
+    onMovieSrcVersionAddSuccess (record) {
+        this.event.emit('onMovieSrcVersionAddSuccess', record);
+    },
+    loadMovieSrcVersionTableData() {
+        this.event.emit('loadMovieSrcVersionTableData');
     }
 };
 const eventsDispatcher = window.EventsDispatcher;
