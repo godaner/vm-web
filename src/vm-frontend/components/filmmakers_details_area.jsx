@@ -27,7 +27,7 @@ var FilmmakersDetailsArea = React.createClass({
         this.adjustUI();
     },
     getFilmmakers: function () {
-        var url = "/movie/filmmaker/" + this.props.movieId;
+        var url = "/filmmaker/byMovieId/" + this.props.movieId;
 
         ajax.get({
             url: url,

@@ -2633,7 +2633,7 @@ var FilmmakersDetailsArea = _react2.default.createClass({
         this.adjustUI();
     },
     getFilmmakers: function getFilmmakers() {
-        var url = "/movie/filmmaker/" + this.props.movieId;
+        var url = "/filmmaker/byMovieId/" + this.props.movieId;
 
         ajax.get({
             url: url,
@@ -2852,8 +2852,8 @@ var MoviePlayer = _react2.default.createClass({
                 setTimeout(function () {
 
                     this.initPlayer(options);
-                    c("OPTIONS");
-                    c(options);
+                    // c("OPTIONS");
+                    // c(options);
                 }.bind(this), 10);
             }.bind(this),
             onResponseFailure: function (result) {

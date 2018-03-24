@@ -93,8 +93,8 @@ var MoviePlayer = React.createClass({
                 setTimeout(function () {
 
                     this.initPlayer(options);
-                    c("OPTIONS");
-                    c(options);
+                    // c("OPTIONS");
+                    // c(options);
                 }.bind(this),10)
             }.bind(this),
             onResponseFailure: function (result) {
