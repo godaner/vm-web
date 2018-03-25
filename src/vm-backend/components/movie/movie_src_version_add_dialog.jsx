@@ -16,7 +16,7 @@ var MovieSrcVersionAddDialog = React.createClass({
         return {
             width: 300,
             title: "上传视频资源",
-            uploadUrl: "/movie/version/video",
+            uploadUrl: "/movie/version/info",
             loading: false,
             visible: false,
             maskClosable: false,
