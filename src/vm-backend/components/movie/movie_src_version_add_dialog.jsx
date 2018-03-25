@@ -11,7 +11,7 @@ const Search = Input.Search;
 const TextArea = Input.TextArea;
 
 
-var MovieVideoUploadDialog = React.createClass({
+var MovieSrcVersionAddDialog = React.createClass({
     getInitialState(){
         return {
             width: 300,
@@ -177,4 +177,4 @@ var MovieVideoUploadDialog = React.createClass({
     }
 });
 
-export default MovieVideoUploadDialog;   //将App组件导出
+export default MovieSrcVersionAddDialog;   //将App组件导出

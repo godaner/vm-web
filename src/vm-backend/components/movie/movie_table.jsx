@@ -8,7 +8,7 @@ import {ajax, commons} from "../base/vm_util";
 import MovieEditDialog from "./movie_edit_dialog";
 import MovieAddDialog from "./movie_add_dialog";
 import ImgUploaderDialogTemplate from "../base/img_uploader_dialog_template";
-import MovieVideoUploadDialog from "./movie_video_upload_dialog";
+import MovieSrcVersionAddDialog from "./movie_src_version_add_dialog";
 import MovieSrcVersionTable from "./movie_src_version_table";
 
 const Option = Select.Option;
@@ -714,7 +714,7 @@ var MovieTable = React.createClass({
                     width={posterUploaderDialog.width}
                     onUpdateImgSuccess={this.onUpdatePosterSuccess}
                     onUploadTempImgSuccess={this.onUploadTempPosterSuccess}/>
-                <MovieVideoUploadDialog
+                <MovieSrcVersionAddDialog
                     onMovieSrcVersionAddSuccess={this.onMovieSrcVersionAddSuccess}
                     ref="movie_video_upload_dialog"/>
             </div>

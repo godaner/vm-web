@@ -237,14 +237,14 @@ var UserTable = React.createClass({
                 dataIndex: 'password',
                 sorter: true
             },
-            {
-                title: '简介', width: 200,
-                dataIndex: 'description',
-                render: (text) => {
-                    return commons.makeTipSpan(text, 33);
-                },
-                sorter: true
-            },
+            // {
+            //     title: '简介', width: 200,
+            //     dataIndex: 'description',
+            //     render: (text) => {
+            //         return commons.makeTipSpan(text, 33);
+            //     },
+            //     sorter: true
+            // },
             {
                 title: '生日',
                 width: 100,
@@ -503,6 +503,10 @@ var UserTable = React.createClass({
     showUserLoginLogsDialog(userId){
         this.getUserLoginLogsDialog().showDialog(userId);
     },
+    expandedRowRender(record){
+        return <span>简介 ：<p style={{margin: 0}}>{record.description}</p></span>;
+
+    },
     render: function () {
 
         const {echoData} = this.state.userEditDialog;
@@ -569,6 +573,7 @@ var UserTable = React.createClass({
                     locale={{emptyText: "暂无用户数据"}}
                     columns={columns}
                     rowSelection={rowSelection}
+                    expandedRowRender={this.expandedRowRender}
                     dataSource={data}
                     pagination={
                         {

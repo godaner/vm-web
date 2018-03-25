@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import "../../scss/movie/tag_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
-import MovieSrcVersionEditDialog from "./tag_edit_dialog";
+import MovieSrcVersionEditDialog from "./movie_src_version_edit_dialog";
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
 const SubMenu = Menu.SubMenu;
