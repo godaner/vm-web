@@ -119,8 +119,8 @@ var MovieSrcVersionEditDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "名称",
-                            id: "name",
+                            label: "清晰度",
+                            id: "sharpness",
                             config: {
                                 initialValue: echoData.sharpness,
                                 rules: [{required: true, message: '请输入清晰度!'}],
