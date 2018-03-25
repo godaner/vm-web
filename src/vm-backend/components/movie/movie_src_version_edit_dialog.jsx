@@ -127,8 +127,7 @@ var MovieSrcVersionEditDialog = React.createClass({
 
                             }
                             ,
-                            input: <Select placeholder="请输入清晰度"
-                                           style={{width: "65%", margin: 15}}>
+                            input: <Select placeholder="请输入清晰度" >
                                 {commons.getSharpnessOptions()}
                             </Select>
                         },
