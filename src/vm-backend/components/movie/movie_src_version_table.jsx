@@ -25,7 +25,7 @@ var MovieSrcVersionTable = React.createClass({
                 originalData: [],
                 echoData: {},
                 deletingTip: "正在删除",
-                delMovieSrcVersionUrl: "/tag/info"
+                delMovieSrcVersionUrl: "/movie/version/info"
 
             }
         }

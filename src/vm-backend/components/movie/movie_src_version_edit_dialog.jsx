@@ -16,7 +16,7 @@ var MovieSrcVersionEditDialog = React.createClass({
         return {
             width: 400,
             title: "修改电影资源信息",
-            editUrl: "/movie_src_version/info",
+            editUrl: "/movie/version/info",
             tipOfEditing: '正在保存电影资源修改',
             echoData: {}
         };
