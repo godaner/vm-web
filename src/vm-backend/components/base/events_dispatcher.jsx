@@ -25,6 +25,9 @@ window.EventsDispatcher = {
     },
     onLoginSuccess(result) {
         this.event.emit('onLoginSuccess',result);
+    },
+    updateMenus(menus) {
+        this.event.emit('updateMenus',menus);
     }
 };
 const eventsDispatcher = window.EventsDispatcher;

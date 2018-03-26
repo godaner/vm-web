@@ -28,6 +28,7 @@ var Head = React.createClass({
         window.eventEmitter.on('onLoginSuccess', (result) => {
 
             this.onLoginSuccess(result);
+            window.EventsDispatcher.updateMenus(result.data.admin.menus);
 
         });
     },
@@ -50,6 +51,7 @@ var Head = React.createClass({
                     window.EventsDispatcher.showLoginDialog();
                 } else {
                     this.updateAdmin(admin);
+                    window.EventsDispatcher.updateMenus(admin.menus);
                 }
 
 
