@@ -1,10 +1,10 @@
 import React from "react";
-import {Form, Icon, Input, Layout, Menu} from "antd";
+import {Form, Icon, Input, Layout, Menu,message} from "antd";
 import EditDialogTemple from "../base/edit_dialog_temple";
 
 import "../base/events_dispatcher";
 
-
+import {commons,ajax} from "../base/vm_util";
 import "antd/dist/antd.css";
 import "../../scss/index/login_dialog.scss";
 const {Header, Content, Footer, Sider} = Layout;
@@ -17,7 +17,9 @@ var LoginDialog = React.createClass({
         return {
             width: 350,
             title: "登录",
-            closable: false
+            closable: false,
+            loginUrl:"/admin/login",
+            tipOfLogining:"正在登录"
         };
     },
     updateStateOnLoginSuccess(onLoginSuccess){
@@ -34,7 +36,6 @@ var LoginDialog = React.createClass({
     registEvents(){
         window.eventEmitter.on('showLoginDialog', (args) => {
 
-            c("aaaaaaaaaaaaaaaaaaaaaaaa");
             this.showLoginDialog();
 
             if (!isUndefined(args)) {
@@ -52,18 +53,47 @@ var LoginDialog = React.createClass({
 
     },
     showLoginDialog(){
-        this.getUserLoginDialog().showDialog();
+        this.getAdminLoginDialog().showDialog();
     },
-    getUserLoginDialog() {
+    getAdminLoginDialog() {
         return this.refs.login_dialog;
     },
     handleCancel () {
         c("handleCancel");
     },
-    handleSubmit(val){
+    handleSubmit(values){
+        const {loginUrl,tipOfLogining} = this.state;
+        const {onLoginSuccess} = this.props;
 
-        c("handleSubmit");
-        c(val);
+        const hideMessage = message.loading(tipOfLogining);
+
+
+        const data = $.extend(values, getVisitInfoObj());
+        ajax.post({
+            url: loginUrl,
+            data: data,
+            success: function (result) {
+
+                message.success(result.msg);
+
+                this.getAdminLoginDialog().closeDialog();
+
+                //callback
+                !isUndefined(onLoginSuccess) ? onLoginSuccess(result.data.admin) : undefined;
+
+                //clear form
+                this.getAdminLoginDialog().clearForm();
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            },
+            complete: function () {
+                hideMessage();
+                this.getAdminLoginDialog().formLeaveLoading();
+            }.bind(this)
+        });
     },
     render: function () {
         var formRows = [

@@ -46,6 +46,15 @@ var ajax = {
         if (isUndefined(args.enctype)) {
             args.enctype = "text/plain";
         }
+
+
+        //get token
+        var accessToken = localStorage.getItem(vm_config.key_of_access_token);
+
+        //set token header
+        var headers = {};
+        headers[vm_config.key_of_access_token] = accessToken;
+
         c("Request args is : ");
         c(args);
         c("Request url is : ");
