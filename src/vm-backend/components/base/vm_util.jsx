@@ -116,6 +116,16 @@ var ajax = {
 
 
 var commons = {
+    getImmutableStrByIndex(args){
+        const {index} = args
+
+        const data = commons.getImmutableStrs();
+
+        return data[index - 1];
+    },
+    getImmutableStrs(){
+        return [<span style={{color:"red"}}>内置对象</span>, <span style={{color:"green"}}>非内置对象</span>];
+    },
     getSharpnessStrByIndex(args){
         const {index} = args
 

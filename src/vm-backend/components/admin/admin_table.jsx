@@ -190,6 +190,15 @@ var AdminTable = React.createClass({
 
             },
             {
+                title: '内置对象',
+                width: 100,
+                dataIndex: 'immutable',
+                render: (text) => {
+                    return commons.getImmutableStrByIndex({index: text});
+                },
+
+            },
+            {
                 title: '密码',
                 width: 120,
                 dataIndex: 'password'
@@ -247,13 +256,16 @@ var AdminTable = React.createClass({
 
                         </Menu>
                     );
+                    // c(record.immutable);
                     return <div>
+                        {
+                            record.immutable == 1?<div>不可操作内置对象</div>:<Dropdown overlay={menu}>
+                                <a href="javascript:void(0);">
+                                    操作 <Icon type="down"/>
+                                </a>
+                            </Dropdown>
+                        }
 
-                        <Dropdown overlay={menu}>
-                            <a href="javascript:void(0);">
-                                操作 <Icon type="down"/>
-                            </a>
-                        </Dropdown>
 
 
                     </div>
@@ -293,6 +305,7 @@ var AdminTable = React.createClass({
                 key: item.id,
                 id: item.id,
                 username: item.username,
+                immutable: item.immutable,
                 password: item.password,
                 description: item.description,
                 create_time: item.createTime,
