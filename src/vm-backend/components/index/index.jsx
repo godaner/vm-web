@@ -33,6 +33,10 @@ var Index = React.createClass({
 
         return (
             <div id="index">
+
+                {/*登录框*/}
+                <LoginDialog ref="login_dialog"/>
+
                 <HashRouter>
 
                     <Layout style={{minHeight: '100vh'}}>
@@ -68,8 +72,6 @@ var Index = React.createClass({
 
 
                 </HashRouter>
-                {/*登录框*/}
-                <LoginDialog ref="login_dialog"/>
             </div>
         );
     }

@@ -1,25 +1,26 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import {Layout, Menu, Breadcrumb, Icon, Form, Input, Button, Checkbox} from 'antd';
-const FormItem = Form.Item;
-const {Header, Content, Footer, Sider} = Layout;
-const SubMenu = Menu.SubMenu;
-import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
+import React from "react";
+import {Form, Layout, Menu} from "antd";
 
 
 import "antd/dist/antd.css";
-import '../../scss/index/head.scss';
+import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
-import {ajax,commons} from "../base/vm_util";
+const FormItem = Form.Item;
+const {Header, Content, Footer, Sider} = Layout;
+const SubMenu = Menu.SubMenu;
 
 var Head = React.createClass({
     getInitialState: function () {
         return {};
     },
-    showLoginDialog(){
+    checkOnlineAdmin(){
         window.EventsDispatcher.showLoginDialog();
     },
-    render: function () {
+
+    componentDidMount(){
+        this.checkOnlineAdmin();
+    },
+    render () {
         //set now page's props
         return (
 
@@ -28,10 +29,10 @@ var Head = React.createClass({
                     VM后台管理系统
                 </div>
                 <div style={{color: '#22B9FF', float: 'right'}}>
-                    <span onClick={this.showLoginDialog}
-                          style={{cursor: 'pointer'}}>
-                        登录
-                    </span>
+                    {/*<span onClick={this.showLoginDialog}*/}
+                    {/*style={{cursor: 'pointer'}}>*/}
+                    {/*登录*/}
+                    {/*</span>*/}
                 </div>
             </div>
         );

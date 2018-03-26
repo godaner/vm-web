@@ -34,6 +34,7 @@ var LoginDialog = React.createClass({
     registEvents(){
         window.eventEmitter.on('showLoginDialog', (args) => {
 
+            c("aaaaaaaaaaaaaaaaaaaaaaaa");
             this.showLoginDialog();
 
             if (!isUndefined(args)) {
@@ -51,9 +52,9 @@ var LoginDialog = React.createClass({
 
     },
     showLoginDialog(){
-        this.getUserAddDialog().showDialog();
+        this.getUserLoginDialog().showDialog();
     },
-    getUserAddDialog() {
+    getUserLoginDialog() {
         return this.refs.login_dialog;
     },
     handleCancel () {
