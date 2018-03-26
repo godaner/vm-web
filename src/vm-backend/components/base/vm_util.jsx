@@ -127,6 +127,11 @@ var ajax = {
 
 
 var commons = {
+    //生成[0,max]的随机数
+    rand (args){
+        const {max} = args;
+        return ( Math.floor(Math.random() * max) );
+    },
     getImmutableStrByIndex(args){
         const {index} = args
 
@@ -135,7 +140,7 @@ var commons = {
         return data[index - 1];
     },
     getImmutableStrs(){
-        return [<span style={{color:"red"}}>内置对象</span>, <span style={{color:"green"}}>非内置对象</span>];
+        return [<span style={{color: "red"}}>内置对象</span>, <span style={{color: "green"}}>非内置对象</span>];
     },
     getSharpnessStrByIndex(args){
         const {index} = args
@@ -186,7 +191,7 @@ var commons = {
         return commons.getOptions({data: data});
     },
     getStatusStrs(){
-        return [<span style={{color:"green"}}>正常</span>, <span style={{color:"red"}}>冻结</span>];
+        return [<span style={{color: "green"}}>正常</span>, <span style={{color: "red"}}>冻结</span>];
     },
     getSexStrs(){
         return ['男', '女', '未知'];

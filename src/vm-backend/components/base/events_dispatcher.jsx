@@ -22,6 +22,9 @@ window.EventsDispatcher = {
     },
     loadMovieSrcVersionTableData() {
         this.event.emit('loadMovieSrcVersionTableData');
+    },
+    onLoginSuccess(result) {
+        this.event.emit('onLoginSuccess',result);
     }
 };
 const eventsDispatcher = window.EventsDispatcher;

@@ -19,20 +19,10 @@ var LoginDialog = React.createClass({
             title: "登录",
             closable: false,
             loginUrl: "/admin/login",
-            tipOfLogining: "正在登录"
+            tipOfLogining: "正在登录",
         };
     },
-    updateStateOnLoginSuccess(onLoginSuccess){
-        var state = this.state;
-        state.onLoginSuccess = onLoginSuccess;
-        this.setState(state);
-    },
-    updateStateOnLoginFailure(onLoginFailure){
 
-        var state = this.state;
-        state.onLoginFailure = onLoginFailure;
-        this.setState(state);
-    },
     registEvents(){
         window.eventEmitter.on('showLoginDialog', (args) => {
 
@@ -40,9 +30,9 @@ var LoginDialog = React.createClass({
 
             if (!isUndefined(args)) {
 
-                this.updateStateOnLoginSuccess(args.onLoginSuccess);
+                this.updateOnLoginSuccess(args.onLoginSuccess);
 
-                this.updateStateOnLoginFailure(args.onLoginFailure);
+                this.updateOnLoginFailure(args.onLoginFailure);
             }
 
         });
@@ -63,7 +53,6 @@ var LoginDialog = React.createClass({
     },
     handleSubmit(values){
         const {loginUrl, tipOfLogining} = this.state;
-        const {onLoginSuccess} = this.props;
 
         const hideMessage = message.loading(tipOfLogining, 0);
 
@@ -76,14 +65,14 @@ var LoginDialog = React.createClass({
 
                 let admin = result.data.admin;
 
-                localStorage.setItem(vm_config.key_of_access_token,admin.token);
+                localStorage.setItem(vm_config.key_of_access_token, admin.token);
 
                 message.success(result.msg);
 
                 this.getAdminLoginDialog().closeDialog();
 
                 //callback
-                !isUndefined(onLoginSuccess) ? onLoginSuccess(admin) : undefined;
+                window.EventsDispatcher.onLoginSuccess(result);
 
                 //clear form
                 this.getAdminLoginDialog().clearForm();
@@ -91,7 +80,6 @@ var LoginDialog = React.createClass({
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
-
             },
             complete: function () {
                 hideMessage();

@@ -1,22 +1,41 @@
 import React from "react";
-import {Form, Layout, Menu, message} from "antd";
+import {Avatar, Dropdown, Form, Layout, Menu, message} from "antd";
 
 
 import "antd/dist/antd.css";
 import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
+import {ajax, commons} from "../base/vm_util";
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 
-import {ajax} from "../base/vm_util";
 var Head = React.createClass({
     getInitialState: function () {
         return {
             checkUrl: "/admin/online",
             logoutUrl: "/admin/logout",
-            tipOfLogouting: "正在登出"
+            tipOfLogouting: "正在登出",
+            admin: {},
+            colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae']
         };
+    },
+    componentDidMount(){
+        this.checkOnlineAdmin();
+        this.registEvents();
+    },
+    registEvents(){
+        window.eventEmitter.on('onLoginSuccess', (result) => {
+
+            this.onLoginSuccess(result);
+
+        });
+    },
+    updateAdmin(admin){
+        this.setState({admin});
+    },
+    onLoginSuccess:function (result) {
+        this.updateAdmin(result.data.admin);
     },
     checkOnlineAdmin(){
 
@@ -25,9 +44,12 @@ var Head = React.createClass({
         ajax.get({
             url: checkUrl,
             success: function (result) {
-                if (isUndefined(result.data.admin)) {
+                const {admin} = result.data;
+                if (isUndefined(admin)) {
 
                     window.EventsDispatcher.showLoginDialog();
+                } else {
+                    this.updateAdmin(admin);
                 }
 
 
@@ -53,6 +75,8 @@ var Head = React.createClass({
 
                 window.EventsDispatcher.showLoginDialog();
 
+                this.updateAdmin({});
+
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
@@ -62,10 +86,20 @@ var Head = React.createClass({
             }.bind(this)
         });
     },
-    componentDidMount(){
-        this.checkOnlineAdmin();
-    },
     render () {
+        const {admin, colorList} = this.state;
+        const username = admin.username;
+        const color = colorList[commons.rand({max: colorList.length})];
+
+
+        const menu = (
+            <Menu>
+                <Menu.Item>
+                    <a onClick={this.logout}>注销</a>
+                </Menu.Item>
+
+            </Menu>
+        );
         //set now page's props
         return (
 
@@ -74,10 +108,14 @@ var Head = React.createClass({
                     VM后台管理系统
                 </div>
                 <div style={{color: '#22B9FF', float: 'right'}}>
-                    <span onClick={this.logout}
-                          style={{cursor: 'pointer'}}>
-                    注销
-                    </span>
+
+
+                    <Dropdown overlay={menu}>
+                        <Avatar style={{cursor:"pointer",backgroundColor: color, verticalAlign: 'middle'}} size="large">
+                            {username}
+                        </Avatar>
+
+                    </Dropdown>
                 </div>
             </div>
         );
