@@ -1,10 +1,10 @@
 import React from "react";
-import {Form, Icon, Input, Layout, Menu,message} from "antd";
+import {Form, Icon, Input, Layout, Menu, message} from "antd";
 import EditDialogTemple from "../base/edit_dialog_temple";
 
 import "../base/events_dispatcher";
 
-import {commons,ajax} from "../base/vm_util";
+import {ajax} from "../base/vm_util";
 import "antd/dist/antd.css";
 import "../../scss/index/login_dialog.scss";
 const {Header, Content, Footer, Sider} = Layout;
@@ -18,8 +18,8 @@ var LoginDialog = React.createClass({
             width: 350,
             title: "登录",
             closable: false,
-            loginUrl:"/admin/login",
-            tipOfLogining:"正在登录"
+            loginUrl: "/admin/login",
+            tipOfLogining: "正在登录"
         };
     },
     updateStateOnLoginSuccess(onLoginSuccess){
@@ -62,10 +62,10 @@ var LoginDialog = React.createClass({
         c("handleCancel");
     },
     handleSubmit(values){
-        const {loginUrl,tipOfLogining} = this.state;
+        const {loginUrl, tipOfLogining} = this.state;
         const {onLoginSuccess} = this.props;
 
-        const hideMessage = message.loading(tipOfLogining);
+        const hideMessage = message.loading(tipOfLogining, 0);
 
 
         const data = $.extend(values, getVisitInfoObj());
@@ -74,12 +74,16 @@ var LoginDialog = React.createClass({
             data: data,
             success: function (result) {
 
+                let admin = result.data.admin;
+
+                localStorage.setItem(vm_config.key_of_access_token,admin.token);
+
                 message.success(result.msg);
 
                 this.getAdminLoginDialog().closeDialog();
 
                 //callback
-                !isUndefined(onLoginSuccess) ? onLoginSuccess(result.data.admin) : undefined;
+                !isUndefined(onLoginSuccess) ? onLoginSuccess(admin) : undefined;
 
                 //clear form
                 this.getAdminLoginDialog().clearForm();
@@ -129,7 +133,6 @@ var LoginDialog = React.createClass({
                                       placeholder="请输入您的密码"/>
                     }]
             }
-
 
 
         ];

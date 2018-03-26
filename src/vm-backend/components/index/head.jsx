@@ -1,5 +1,5 @@
 import React from "react";
-import {Form, Layout, Menu} from "antd";
+import {Form, Layout, Menu,message} from "antd";
 
 
 import "antd/dist/antd.css";
@@ -9,12 +9,34 @@ const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 
+import {ajax} from "../base/vm_util";
 var Head = React.createClass({
     getInitialState: function () {
-        return {};
+        return {
+            checkUrl:"/admin/online"
+        };
     },
     checkOnlineAdmin(){
-        window.EventsDispatcher.showLoginDialog();
+
+        const {checkUrl} = this.state;
+
+        ajax.get({
+            url: checkUrl,
+            success: function (result) {
+                if(isUndefined(result.data.admin)){
+
+                    window.EventsDispatcher.showLoginDialog();
+                }
+
+
+
+            }.bind(this),
+            failure: function (result) {
+
+            },
+            complete: function () {
+            }.bind(this)
+        });
     },
 
     componentDidMount(){

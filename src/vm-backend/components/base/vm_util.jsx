@@ -54,7 +54,9 @@ var ajax = {
         //set token header
         var headers = {};
         headers[vm_config.key_of_access_token] = accessToken;
-
+        $.ajaxSetup({
+            headers: headers
+        });
         c("Request args is : ");
         c(args);
         c("Request url is : ");
