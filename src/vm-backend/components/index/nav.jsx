@@ -110,8 +110,8 @@ var Nav = React.createClass({
                         onTitleClick={this.onSubMenuClick}
                         title={<span><Icon type="lock"/><span>管理员管理</span></span>}
                     >
-                        <Menu.Item key="3">信息管理</Menu.Item>
-                        <Menu.Item key="4">登录记录</Menu.Item>
+                        <Menu.Item key="/admin">管理员管理</Menu.Item>
+                        <Menu.Item key="/admin/login/logs">登录记录</Menu.Item>
                     </SubMenu>
 
                     {/*<Menu.Item key="2">*/}

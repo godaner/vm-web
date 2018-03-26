@@ -12,6 +12,7 @@ import UserLoginLogsPage from "../user/user_login_logs_page";
 import MoviePage from "../movie/movie_page";
 import FilmmakerPage from "../movie/filmmaker_page";
 import TagGroupPage from "../movie/tagGroup_page";
+import AdminPage from "../admin/admin_page";
 
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
@@ -76,6 +77,24 @@ var Routes = React.createClass({
                        render={() => {
                            window.EventsDispatcher.onRouteEnter({
                                pathname: "/movie/tagGroup"
+                           })
+                           return <TagGroupPage />;
+                       }
+
+                       }/>
+                <Route exact path='/admin'
+                       render={() => {
+                           window.EventsDispatcher.onRouteEnter({
+                               pathname: "/admin"
+                           })
+                           return <AdminPage />;
+                       }
+
+                       }/>
+                <Route exact path='/admin/login/logs'
+                       render={() => {
+                           window.EventsDispatcher.onRouteEnter({
+                               pathname: "/admin/login/logs"
                            })
                            return <TagGroupPage />;
                        }
