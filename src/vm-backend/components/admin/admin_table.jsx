@@ -46,7 +46,7 @@ var AdminTable = React.createClass({
                     total: 0
                 },
                 query: {
-                    name: ""
+                    username: ""
                 },
                 columns: [],
                 deletingTip: "正在删除"
@@ -56,7 +56,7 @@ var AdminTable = React.createClass({
     onSearchAdminname(newAdminnameQuery)
     {
         this.updateNameOfQuery(newAdminnameQuery);
-        if (!isEmptyString(this.state.adminTable.query.name)) {
+        if (!isEmptyString(this.state.adminTable.query.username)) {
             this.updateAdminTableHaveSearchAdminname(true);
         } else {
 
@@ -92,7 +92,7 @@ var AdminTable = React.createClass({
     updateNameOfQuery(name)
     {
         var state = this.state;
-        state.adminTable.query.name = name;
+        state.adminTable.query.username = name;
         this.setState(state);
     },
     updateAdminTableData(data)
@@ -166,38 +166,19 @@ var AdminTable = React.createClass({
                 dataIndex: 'id',
                 sorter: true
             },
-            {
-                title: '图片',
-                width: 90,
-                dataIndex: 'imgUrl',
-                render: (text, record) => {
-                    const imageUrl = commons.generateImgUrl({
-                        imgUrl: text,
-                        width: 50
-                    });
-
-
-                    return <img onClick={() => this.showAdminImgUploaderDialog(record)} style={{
-                        width: 50,
-                        height: 50,
-                        cursor: "pointer"
-                    }} src={imageUrl} alt="暂无"/>
-
-                }
-            },
 
             {
                 title: '名称',
                 width: 120,
-                dataIndex: 'name',
+                dataIndex: 'username',
                 render: (text, record) => {
-                    return commons.highLight(text, this.state.adminTable.query.name);
+                    return commons.highLight(text, this.state.adminTable.query.username);
                 },
                 sorter: true,
                 filterDropdown: (
                     <div className="custom-filter-dropdown">
                         <Search
-                            placeholder="搜索电影名"
+                            placeholder="搜索管理员名称"
                             onSearch={this.onSearchAdminname}
                             style={{width: 200}}
                         />
@@ -208,75 +189,12 @@ var AdminTable = React.createClass({
                 // filterDropdownVisible: this.state.adminTable.adminnameDropdownVisible,
 
             },
-
-
             {
-                title: '别名',
-                width: 80,
-                dataIndex: 'alias',
-                sorter: true
-
+                title: '密码',
+                width: 120,
+                dataIndex: 'password'
 
             },
-
-            {
-                title: '国家',
-                width: 80,
-                dataIndex: 'country',
-                sorter: true
-            },
-
-            {
-                title: '职业',
-                width: 80,
-                dataIndex: 'profession',
-                sorter: true,
-                render: (text) => {
-                    return commons.makeTipSpan(text, 10);
-                },
-            },
-
-            {
-                title: '血型',
-                width: 80,
-                dataIndex: 'blood_type',
-                sorter: true,
-                render: (text, record) => {
-                    return commons.getBloodTypeStrByIndex({index: text});
-                },
-
-            },
-
-            {
-                title: '生日',
-                width: 80,
-                dataIndex: 'birthday',
-                sorter: true,
-
-                render: (text, record) => {
-                    return timeFormatter.formatDate(timeFormatter.int2Long(text));
-                },
-            },
-
-            {
-                title: '性别',
-                width: 80,
-                dataIndex: 'sex',
-                sorter: true,
-                render: (text) => {
-                    return commons.getSexStrByIndex({index: text});
-                },
-            },
-
-            // {
-            //     title: '简介',
-            //     width: 150,
-            //     dataIndex: 'description',
-            //     sorter: true,
-            //     render: (text) => {
-            //         return commons.makeTipSpan(text, 19);
-            //     },
-            // },
             {
                 title: '状态',
                 width: 80,
@@ -374,18 +292,12 @@ var AdminTable = React.createClass({
             data.push({
                 key: item.id,
                 id: item.id,
-                imgUrl: item.imgUrl,
-                name: item.name,
-                alias: item.alias,
+                username: item.username,
+                password: item.password,
                 description: item.description,
                 create_time: item.createTime,
                 update_time: item.updateTime,
-                status: item.status,
-                profession: item.profession,
-                blood_type: item.bloodType,
-                sex: item.sex,
-                country: item.country,
-                birthday: item.birthday,
+                status: item.status
 
             });
         }.bind(this));
