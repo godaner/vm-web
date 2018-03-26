@@ -14,9 +14,9 @@ const TextArea = Input.TextArea;
 var AdminAddDialog = React.createClass({
     getInitialState() {
         return {
-            title:"添加电影人",
+            title:"添加管理员",
             addAdminUrl: "/admin/info",
-            tipOfAddingAdmin: "正在添加电影人"
+            tipOfAddingAdmin: "正在添加管理员"
         };
     },
     showDialog() {
@@ -31,7 +31,6 @@ var AdminAddDialog = React.createClass({
         const hideMessage = message.loading(tipOfAddingAdmin, 0);
         const {addAdminUrl} = this.state;
         var filterValues = function (values) {
-            values.birthday = timeFormatter.long2Int(values.birthday._d.getTime());
             return values;
         }
         values = filterValues(values);
@@ -83,33 +82,18 @@ var AdminAddDialog = React.createClass({
                         {
                             col: {span: 11},
                             label: "名称",
-                            id: "name",
+                            id: "username",
                             config: {
-                                rules: [{required: true, message: '请输入电影人名称!'}],
+                                rules: [{required: true, message: '请输入管理员名称!'}],
 
                             }
                             ,
-                            input: <Input placeholder="请输入电影人名称" name="name"/>
+                            input: <Input placeholder="请输入管理员名称"/>
                         },
                         {
                             col: {span: 2},
                             input: <div></div>
                         },
-                        {
-                            col: {span: 11},
-                            label: "别名",
-                            id: "alias",
-                            config: {
-                                rules: [{required: true, whitespace: true, message: '请输入电影人别名!'}],
-                            },
-                            input: <Input autoComplete="off"
-                                          placeholder="请输入电影人别名"/>
-                        }
-                    ]
-
-                },
-                {
-                    cols: [
                         {
                             col: {span: 11},
                             label: "状态",
@@ -123,98 +107,31 @@ var AdminAddDialog = React.createClass({
                                 <Option value="2">冻结</Option>
                             </Select>
                         }
+                    ]
+
+                },
+            {
+                cols: [
+
+
+                    {
+                        col: {span: 11},
+                        label: "密码",
+                        id: "password",
+                        config: {
+                            rules: [{required: true, message: '请输入管理员密码!'}],
+
+                        }
                         ,
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
-                            label: "性别",
-                            id: "sex",
-                            config: {
-                                rules: [{required: true, message: '请输入性别!'}],
-                            }
-                            ,
-                            input: <Select placeholder="请输入性别">
-                                {
-                                    commons.getSexOptions()
-                                }
-                            </Select>
-                        }
-                    ]
+                        input: <Input placeholder="请输入管理员密码"/>
+                    },
+                    {
+                        col: {span: 2},
+                        input: <div></div>
+                    }
+                ]
 
-
-                },
-                {
-                    cols: [
-
-                        {
-                            col: {span: 11},
-                            label: "生日",
-                            id: "birthday",
-                            config: {
-                                rules: [{type: 'object', required: true, whitespace: true, message: '请输入生日!'}],
-                            }
-                            ,
-                            input: <DatePicker autoComplete="off"
-                                               placeholder="请输入生日"/>
-                        },
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
-                            label: "职业",
-                            id: "profession",
-                            config: {
-                                rules: [{required: true, whitespace: true, message: '请输入职业!'}],
-                            }
-                            ,
-                            input: <Input placeholder="请输入职业"/>
-                        },
-
-                    ]
-
-
-                },
-                {
-                    cols: [
-
-                        {
-                            col: {span: 11},
-                            label: "血型",
-                            id: "bloodType",
-                            config: {
-                                rules: [{required: true, whitespace: true, message: '请输入血型!'}],
-                            }
-                            ,
-                            input: <Select placeholder="请输入请输入血型">
-                                {
-                                    commons.getBloodTypeOptions()
-                                }
-                            </Select>
-                        },
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
-                            label: "国家",
-                            id: "country",
-                            config: {
-                                rules: [{required: true, whitespace: true, message: '请输入国家!'}],
-                            }
-                            ,
-                            input: <Input placeholder="请输入国家"/>
-                        }
-
-                    ]
-
-
-                },
+            },
                 {
                     cols: [
                         {

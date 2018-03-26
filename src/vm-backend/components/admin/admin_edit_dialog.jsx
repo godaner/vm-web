@@ -18,9 +18,9 @@ var AdminEditDialog = React.createClass({
     getInitialState(){
 
         return {
-            title: "修改电影人信息",
+            title: "修改管理员信息",
             editAdminUrl: "/admin/info",
-            tipOfEditing: '正在保存电影人修改',
+            tipOfEditing: '正在保存管理员修改',
         };
     },
     componentWillReceiveProps(){
@@ -36,7 +36,6 @@ var AdminEditDialog = React.createClass({
         const {editAdminUrl, tipOfEditing} = this.state;
         const hideMessage = message.loading(tipOfEditing, 0);
         var filterValues = function (values) {
-            values.birthday = timeFormatter.long2Int(values.birthday._d.getTime());
             return values;
         }
         values = filterValues(values);
@@ -102,10 +101,7 @@ var AdminEditDialog = React.createClass({
                 echoData.updateTime = timeFormatter.formatTime(timeFormatter.int2Long(echoData.updateTime));
 
             }
-            if (!isUndefined(echoData.birthday)) {
-                echoData.birthday = moment(timeFormatter.int2Long(echoData.birthday));
-
-            }
+            
 
 
             return echoData;
@@ -137,14 +133,14 @@ var AdminEditDialog = React.createClass({
                         {
                             col: {span: 11},
                             label: "名称",
-                            id: "name",
+                            id: "username",
                             config: {
-                                initialValue: echoData.name,
-                                rules: [{required: true, message: '请输入电影人名称!'}],
+                                initialValue: echoData.username,
+                                rules: [{required: true, message: '请输入管理员名称!'}],
 
                             }
                             ,
-                            input: <Input placeholder="请输入电影人名称" name="name"/>
+                            input: <Input placeholder="请输入管理员名称" name="name"/>
                         }
                     ]
 
@@ -172,117 +168,20 @@ var AdminEditDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "别名",
-                            id: "alias",
+                            label: "密码",
+                            id: "password",
                             config: {
-                                initialValue: echoData.alias,
-                                rules: [{required: true, whitespace: true, message: '请输入别名!'}],
+                                initialValue: echoData.password,
+                                rules: [{required: true, whitespace: true, message: '请输入密码!'}],
                             },
                             input: <Input autoComplete="off"
-                                          placeholder="别名"/>
+                                          placeholder="密码"/>
                         }
                     ]
 
 
                 },
-                {
-                    cols: [
-                        {
-                            col: {span: 11},
-                            label: "生日",
-                            id: "birthday",
-                            config: {
-                                initialValue: echoData.birthday,
-                                rules: [{type: 'object', required: true, whitespace: true, message: '请输入生日!'}],
-                            }
-                            ,
-                            input: <DatePicker onChange={this.onBirthdayChange}
-                                               autoComplete="off"
-                                               placeholder="请输入生日"/>
-                        },
 
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
-                            label: "性别",
-                            id: "sex",
-                            config: {
-                                initialValue: echoData.sex,
-                                rules: [{required: true, message: '请输入性别!'}],
-                            }
-                            ,
-                            input: <Select placeholder="请输入性别">
-                                {
-                                    commons.getSexOptions()
-                                }
-                            </Select>
-                        }
-                    ]
-
-
-                },
-                {
-                    cols: [
-                        {
-                            col: {span: 11},
-                            label: "职业",
-                            id: "profession",
-                            config: {
-                                initialValue: echoData.profession,
-                                rules: [{required: true, whitespace: true, message: '请输入职业!'}],
-                            }
-                            ,
-                            input: <Input placeholder="请输入职业"/>
-                        },
-
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
-                            label: "血型",
-                            id: "bloodType",
-                            config: {
-                                initialValue: echoData.bloodType,
-                                rules: [{required: true, whitespace: true, message: '请输入血型!'}],
-                            }
-                            ,
-                            input: <Select placeholder="请输入请输入血型">
-                                {
-                                    commons.getBloodTypeOptions()
-                                }
-                            </Select>
-                        }
-                    ]
-
-
-                },
-                {
-                    cols: [
-                        {
-                            col: {span: 11},
-                            label: "国家",
-                            id: "country",
-                            config: {
-                                initialValue: echoData.country,
-                                rules: [{required: true, whitespace: true, message: '请输入国家!'}],
-                            }
-                            ,
-                            input: <Input placeholder="请输入国家"/>
-                        }
-                        ,
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        }
-                    ]
-
-
-                },
                 {
                     cols: [
                         {

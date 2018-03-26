@@ -27,56 +27,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="movie_src_version_edit_dialog.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_edit_dialog.jsx">
+      <file leaf-file-name="admin_edit_dialog.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_edit_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="121" column="39" lean-forward="false" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="93" column="42" lean-forward="false" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+            <state relative-caret-position="271">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_page.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_page.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="filmmaker_page.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_page.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="filmmaker_table.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_table.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="40" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -84,30 +42,8 @@
       <file leaf-file-name="admin_table.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="194" column="37" lean-forward="false" selection-start-line="194" selection-start-column="37" selection-end-line="194" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_page.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/scss/admin/admin_page.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_edit_dialog.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_edit_dialog.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1536">
-              <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+            <state relative-caret-position="-2403">
+              <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -116,9 +52,11 @@
       <file leaf-file-name="admin_add_dialog.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_add_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="-1995">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,7 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.map</find>
       <find>.map(</find>
       <find>操作</find>
       <find>tagIds</find>
@@ -157,9 +94,9 @@
       <find>Filmmaker</find>
       <find>query.name</find>
       <find>username</find>
+      <find>电影人</find>
     </findStrings>
     <replaceStrings>
-      <replace>UserLoginLogs</replace>
       <replace>userLoginLogsTable</replace>
       <replace>width: 100</replace>
       <replace>username</replace>
@@ -189,6 +126,7 @@
       <replace>admin</replace>
       <replace>Admin</replace>
       <replace>query.username</replace>
+      <replace>管理员</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\zk\vm-web\src\backend</dir>
@@ -261,9 +199,9 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/filmmaker_page.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_add_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_edit_dialog.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" />
       </list>
     </option>
   </component>
@@ -1123,7 +1061,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="343906000" />
+    <option name="totallyTimeSpent" value="345779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1537,7 +1475,7 @@
         <state relative-caret-position="408">
           <caret line="93" column="42" lean-forward="false" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1563,7 +1501,7 @@
         <state relative-caret-position="621">
           <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1572,22 +1510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_add_dialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_edit_dialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1536">
-          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1608,13 +1530,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_add_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="194" column="37" lean-forward="false" selection-start-line="194" selection-start-column="37" selection-end-line="194" selection-end-column="37" />
+        <state relative-caret-position="-1995">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_edit_dialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2403">
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
