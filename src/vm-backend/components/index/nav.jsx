@@ -14,7 +14,7 @@ var Nav = React.createClass({
         var pathname = this.props.location.pathname;
         return {
             selectedKeys: [pathname],
-            openKeys: ["homeMenu", "userMenu", "adminMenu", "movieMenu"],
+            openKeys: [],
             menuTheme: "dark",//dark,light
             menus: []
         };
@@ -34,7 +34,14 @@ var Nav = React.createClass({
         });
         window.eventEmitter.on('updateMenus', (menus) => {//当地址栏url变化时，回显nav
 
-            this.updateMenus(menus)
+            this.updateMenus(menus);
+
+            //open all submenu
+            const openKeys = [];
+            for(var i= 0;i<menus.length;i++){
+                openKeys.push(menus[i].key);
+            }
+            this.updateOpenKeys(openKeys);
         });
     },
     updateSelectKeys(selectedKeys){
