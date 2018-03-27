@@ -24,16 +24,9 @@ var LoginDialog = React.createClass({
     },
 
     registEvents(){
-        window.eventEmitter.on('showLoginDialog', (args) => {
+        window.eventEmitter.on('showLoginDialog', () => {
 
             this.showLoginDialog();
-
-            if (!isUndefined(args)) {
-
-                this.updateOnLoginSuccess(args.onLoginSuccess);
-
-                this.updateOnLoginFailure(args.onLoginFailure);
-            }
 
         });
     },
@@ -72,7 +65,7 @@ var LoginDialog = React.createClass({
                 this.getAdminLoginDialog().closeDialog();
 
                 //callback
-                window.EventsDispatcher.onLoginSuccess(result);
+                window.EventsDispatcher.updateLoginAdminInfo(result);
 
                 //clear form
                 this.getAdminLoginDialog().clearForm();

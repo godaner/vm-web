@@ -5,8 +5,8 @@ window.eventEmitter = new EventEmitter();
 //项目前端事件分发器
 window.EventsDispatcher = {
     event: window.eventEmitter,
-    showLoginDialog(args) {
-        this.event.emit('showLoginDialog', args);
+    showLoginDialog() {
+        this.event.emit('showLoginDialog');
     },
     onRouteEnter (args) {
         this.event.emit('onRouteEnter', args);
@@ -23,11 +23,8 @@ window.EventsDispatcher = {
     loadMovieSrcVersionTableData() {
         this.event.emit('loadMovieSrcVersionTableData');
     },
-    onLoginSuccess(result) {
-        this.event.emit('onLoginSuccess',result);
-    },
-    updateMenus(menus) {
-        this.event.emit('updateMenus',menus);
+    updateLoginAdminInfo(admin) {
+        this.event.emit('updateLoginAdminInfo',admin);
     }
 };
 const eventsDispatcher = window.EventsDispatcher;

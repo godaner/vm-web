@@ -25,18 +25,14 @@ var Head = React.createClass({
         this.registEvents();
     },
     registEvents(){
-        window.eventEmitter.on('onLoginSuccess', (result) => {
+        window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
 
-            this.onLoginSuccess(result);
-            window.EventsDispatcher.updateMenus(result.data.admin.menus);
+            this.updateAdmin(result.data.admin);
 
         });
     },
     updateAdmin(admin){
         this.setState({admin});
-    },
-    onLoginSuccess:function (result) {
-        this.updateAdmin(result.data.admin);
     },
     checkOnlineAdmin(){
 
@@ -50,8 +46,9 @@ var Head = React.createClass({
 
                     window.EventsDispatcher.showLoginDialog();
                 } else {
-                    this.updateAdmin(admin);
-                    window.EventsDispatcher.updateMenus(admin.menus);
+
+
+                    window.EventsDispatcher.updateLoginAdminInfo(admin);
                 }
 
 

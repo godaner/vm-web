@@ -23,6 +23,13 @@ var Nav = React.createClass({
         this.registEvents();
     },
     updateMenus(menus){
+        //open all submenu
+        const openKeys = [];
+        for (var i = 0; i < menus.length; i++) {
+            openKeys.push(menus[i].key);
+        }
+        this.updateOpenKeys(openKeys);
+
         this.setState({menus});
     },
     registEvents(){
@@ -32,18 +39,13 @@ var Nav = React.createClass({
                 this.updateSelectKeys([pathname]);
             }.bind(this), 1);
         });
-        window.eventEmitter.on('updateMenus', (menus) => {//当地址栏url变化时，回显nav
 
-            this.updateMenus(menus);
+        window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
 
-            //open all submenu
-            const openKeys = [];
-            for(var i= 0;i<menus.length;i++){
-                openKeys.push(menus[i].key);
-            }
-            this.updateOpenKeys(openKeys);
+
         });
     },
+
     updateSelectKeys(selectedKeys){
         var state = this.state;
         state.selectedKeys = selectedKeys;
