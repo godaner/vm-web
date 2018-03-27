@@ -1,7 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
-import moment from 'moment';
-import {withRouter} from "react-router-dom";
+import {Input, Layout, Menu, message, Select} from "antd";
 import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
@@ -22,13 +20,17 @@ var RoleEditDialog = React.createClass({
             editRoleUrl: "/admin/role/info",
             tipOfEditing: '正在保存角色修改',
             auths: [],
-            selectAuthIds:[],
+            selectAuthIds: [],
             authUrl: "/admin/auth/info/all",
-            selectAuthUrl: "/admin/auth/info/byAdminId/"
+            selectAuthUrl: "/admin/auth/id/list/byRoleId/"
         };
     },
     updateAuths(auths){
         this.setState({auths});
+    },
+    updateSelectAuthIds(selectAuthIds){
+
+        this.setState({selectAuthIds});
     },
     loadAuthsData (args) {
         const {onSuccess} = args;
@@ -43,35 +45,38 @@ var RoleEditDialog = React.createClass({
             failure: function (result) {
                 message.error(result.msg);
 
-                isUndefined(onSuccess)?undefined:onSuccess(result);
+                isUndefined(onSuccess) ? undefined : onSuccess(result);
             }.bind(this),
             complete: function () {
 
             }.bind(this)
         });
     },
-    loadSelectAuthsData () {
+    loadSelectAuthsData (roleId) {
         const {selectAuthUrl} = this.state;
         ajax.get({
-            url: selectAuthUrl+,
+            url: selectAuthUrl + roleId,
             success: function (result) {
 
-                this.updateAuths(result.data.list)
+                this.updateSelectAuthIds(result.data.list)
 
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
 
-                isUndefined(onSuccess)?undefined:onSuccess(result);
             }.bind(this),
             complete: function () {
 
             }.bind(this)
         });
     },
-    showDialog(){
+    showDialog(record){
+
+        const {id} = record;
         this.getRoleEditDialog().showDialog();
-        this.loadAuthsData();
+        this.loadAuthsData({
+            onSuccess: this.loadSelectAuthsData(id)
+        });
     }
     ,
     getRoleEditDialog(){
@@ -121,8 +126,9 @@ var RoleEditDialog = React.createClass({
     render(){
         var {echoData} = this.props;
 
-        const {title, auths} = this.state;
+        const {title, auths, selectAuthIds} = this.state;
 
+        echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
         // filterEchoData
         var filterEchoData = function (echoData) {
             if (isUndefined(echoData)) {
@@ -148,7 +154,7 @@ var RoleEditDialog = React.createClass({
         if (!isUndefined(auths) && auths.length >= 1) {
             authOptions = auths.map(function (item, i) {
                 const val = item.id + '';
-                const title = "权限：" + item.authName +  "\r\n简介:" + item.description;
+                const title = "权限：" + item.authName + "\r\n简介:" + item.description;
                 return <Option title={title} key={item.id} value={val}>{item.authName}</Option>;
             }.bind(this));
         }
@@ -243,13 +249,20 @@ var RoleEditDialog = React.createClass({
                             col: {span: 2},
                             input: <div></div>
                         },
+
+                    ]
+
+
+                },
+                {
+                    cols: [
                         {
-                            col: {span: 11},
+                            col: {span: 24},
                             label: "权限",
                             id: "authIds",
                             config: {
                                 initialValue: commons.toStrArr(selectAuthIds),
-                                rules: [{required: true, message: '请选择权限!'}],
+                                rules: [{required: false, message: '请选择权限!'}],
                             }
                             ,
                             input: <Select
@@ -264,9 +277,8 @@ var RoleEditDialog = React.createClass({
                             </Select>
                         }
                     ]
-
-
-                },
+                }
+                ,
                 {
                     cols: [
                         {

@@ -367,7 +367,7 @@ var RoleTable = React.createClass({
 
         this.updateRoleEditDialogEchoData(record)
 
-        this.getRoleEditDialog().showDialog();
+        this.getRoleEditDialog().showDialog(record);
 
     },
     deleteRecord(ids)
