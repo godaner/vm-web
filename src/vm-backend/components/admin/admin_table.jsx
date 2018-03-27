@@ -251,30 +251,37 @@ var AdminTable = React.createClass({
                             <Menu.Item>
                                 <a onClick={() => this.showAdminLoginLogsDialog(record.id)} href="javascript:void(0);">查看登录日志</a>
                             </Menu.Item>
-                            <Menu.Item>
-                                <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
-                            </Menu.Item>
-                            <Menu.Item>
-                                <Popconfirm title="确认删除 ? "
-                                            okText="删除"
-                                            cancelText="取消"
-                                            onConfirm={() => this.deleteRecord([record.id])}>
-                                    <a href="javascript:void(0)">删除</a>
-                                </Popconfirm>
-                            </Menu.Item>
+                            {
+                                record.immutable == 1 ? <Menu.Item></Menu.Item>:
+                                    <Menu.Item>
+                                        <a onClick={() => this.showEditDialog(record)}
+                                           href="javascript:void(0);">编辑</a>
+                                    </Menu.Item>
+                            }
+
+                            {
+                                record.immutable == 1 ? <Menu.Item></Menu.Item> :
+                                    <Menu.Item>
+                                        <Popconfirm title="确认删除 ? "
+                                                    okText="删除"
+                                                    cancelText="取消"
+                                                    onConfirm={() => this.deleteRecord([record.id])}>
+                                            <a href="javascript:void(0)">删除</a>
+                                        </Popconfirm>
+                                    </Menu.Item>
+                            }
 
                         </Menu>
                     );
                     // c(record.immutable);
                     return <div>
                         {
-                            record.immutable == 1?<div>不可操作内置对象</div>:<Dropdown overlay={menu}>
+                            <Dropdown overlay={menu}>
                                 <a href="javascript:void(0);">
                                     操作 <Icon type="down"/>
                                 </a>
                             </Dropdown>
                         }
-
 
 
                     </div>
@@ -559,10 +566,10 @@ var AdminTable = React.createClass({
                     scroll={scroll}/>
 
                 <AdminEditDialog ref="admin_edit_dialog"
-                                     echoData={echoData}
-                                     onEditSuccess={this.onEditSuccess}/>
+                                 echoData={echoData}
+                                 onEditSuccess={this.onEditSuccess}/>
                 <AdminAddDialog ref="admin_add_dialog"
-                                    onAddSuccess={this.onAddSuccess}/>
+                                onAddSuccess={this.onAddSuccess}/>
 
                 <AdminLoginLogsDialog
                     ref="admin_login_logs_dialog"/>
