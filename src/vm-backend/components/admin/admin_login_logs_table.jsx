@@ -36,7 +36,7 @@ var AdminLoginLogsTable = React.createClass({
                     total: 0
                 },
                 query: {
-                    adminname: "",
+                    username: "",
                     adminId: null
                 },
                 columns: [],
@@ -56,7 +56,7 @@ var AdminLoginLogsTable = React.createClass({
     onSearchAdminname(adminname)
     {
         this.updateAdminnameOfQuery(adminname);
-        if (!isEmptyString(this.state.adminLoginLogsTable.query.adminname)) {
+        if (!isEmptyString(this.state.adminLoginLogsTable.query.username)) {
             this.updateHaveSearchAdminname(true);
         } else {
 
@@ -73,7 +73,7 @@ var AdminLoginLogsTable = React.createClass({
     updateAdminnameOfQuery(adminname)
     {
         var state = this.state;
-        state.adminLoginLogsTable.query.adminname = adminname;
+        state.adminLoginLogsTable.query.username = adminname;
         this.setState(state);
     },
     updateAdminLoginLogsTableData(data)
@@ -150,20 +150,20 @@ var AdminLoginLogsTable = React.createClass({
             //     sorter: true
             // },
             {
-                title: '用户名',
+                title: '管理员',
                 width: 100,
-                dataIndex: 'adminname',
+                dataIndex: 'username',
                 render: (text, record) => {
                     if (isUndefined(text)) {
                         return "未知";
                     }
-                    return commons.highLight(text, query.adminname);
+                    return commons.highLight(text, query.username);
                 },
                 sorter: true,
                 filterDropdown: (
                     <div className="custom-filter-dropdown">
                         <Search
-                            placeholder="搜索用户名"
+                            placeholder="搜索管理员"
                             onSearch={this.onSearchAdminname}
                             style={{width: 200}}
                         />
@@ -264,7 +264,7 @@ var AdminLoginLogsTable = React.createClass({
             data.push({
                 key: i,
                 id: item.id,
-                adminname: item.adminname,
+                username: item.username,
                 create_time: item.createTime,
                 update_time: item.updateTime,
                 admin_id: item.adminId,
