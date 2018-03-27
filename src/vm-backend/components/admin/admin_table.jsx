@@ -7,7 +7,7 @@ import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import AdminEditDialog from "./admin_edit_dialog";
 import AdminAddDialog from "./admin_add_dialog";
-
+import AdminLoginLogsDialog from "./admin_login_logs_dialog";
 
 const Option = Select.Option;
 const {Header, Content, Footer, Slider} = Layout;
@@ -52,6 +52,12 @@ var AdminTable = React.createClass({
                 deletingTip: "正在删除"
             }
         }
+    },
+    showAdminLoginLogsDialog(userId){
+        this.getAdminLoginLogsDialog().showDialog(userId);
+    },
+    getAdminLoginLogsDialog(){
+        return this.refs.admin_login_logs_dialog;
     },
     onSearchAdminname(newAdminnameQuery)
     {
@@ -242,6 +248,9 @@ var AdminTable = React.createClass({
 
                     const menu = (
                         <Menu>
+                            <Menu.Item>
+                                <a onClick={() => this.showAdminLoginLogsDialog(record.id)} href="javascript:void(0);">查看登录日志</a>
+                            </Menu.Item>
                             <Menu.Item>
                                 <a onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
                             </Menu.Item>
@@ -554,14 +563,9 @@ var AdminTable = React.createClass({
                                      onEditSuccess={this.onEditSuccess}/>
                 <AdminAddDialog ref="admin_add_dialog"
                                     onAddSuccess={this.onAddSuccess}/>
-                {/*<ImgUploaderDialogTemplate*/}
-                    {/*ref="admin_img_uploader_dialog"*/}
-                    {/*config={imgUploaderDialog.config}*/}
-                    {/*title={imgUploaderDialog.title}*/}
-                    {/*width={imgUploaderDialog.width}*/}
-                    {/*onUpdateImgSuccess={this.onUpdateImgSuccess}*/}
-                    {/*onUploadTempImgSuccess={this.onUploadTempImgSuccess}/>*/}
 
+                <AdminLoginLogsDialog
+                    ref="admin_login_logs_dialog"/>
             </div>
         );
     }
