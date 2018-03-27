@@ -21,13 +21,65 @@ var AdminEditDialog = React.createClass({
             title: "修改管理员信息",
             editAdminUrl: "/admin/info",
             tipOfEditing: '正在保存管理员修改',
+            roles: [],
+            selectRoleIds: [],
+            roleUrl: "/admin/role/info/all",
+            selectRoleUrl: "/admin/role/id/list/byAdminId/",
         };
     },
-    componentWillReceiveProps(){
-
+    updateRoles(roles){
+        this.setState({roles});
     },
-    showDialog(){
+    updateSelectRoleIds(selectRoleIds){
+
+        this.setState({selectRoleIds});
+    },
+    loadRolesData (args) {
+        const {onSuccess} = args;
+        const {roleUrl} = this.state;
+        ajax.get({
+            url: roleUrl,
+            success: function (result) {
+
+                this.updateRoles(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+                isUndefined(onSuccess) ? undefined : onSuccess(result);
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
+    loadSelectAuthIdsData (adminId) {
+        const {selectRoleUrl} = this.state;
+        ajax.get({
+            url: selectRoleUrl + adminId,
+            success: function (result) {
+
+                this.updateSelectRoleIds(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
+    showDialog(record){
         this.getAdminEditDialog().showDialog();
+
+        this.loadRolesData({
+            onSuccess:function () {
+                this.loadSelectAuthIdsData(record.id)
+            }.bind(this)
+        })
     },
     getAdminEditDialog(){
         return this.refs.admin_edit_dialog;
@@ -87,7 +139,7 @@ var AdminEditDialog = React.createClass({
     render(){
         var {echoData} = this.props;
 
-        const {title} = this.state;
+        const {title,roles,selectRoleIds} = this.state;
 
         echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
 
@@ -110,6 +162,15 @@ var AdminEditDialog = React.createClass({
         }.bind(this)
 
         echoData = filterEchoData(echoData);
+
+        var roleOptions = [];
+        if (!isUndefined(roles) && roles.length >= 1) {
+            roleOptions = roles.map(function (item, i) {
+                const val = item.id + '';
+                const title = "角色：" + item.roleName + "\r\n简介:" + item.description;
+                return <Option title={title} key={item.id} value={val}>{item.roleName}</Option>;
+            }.bind(this));
+        }
 
 
         var formLayout = "horizontal";
@@ -215,6 +276,34 @@ var AdminEditDialog = React.createClass({
 
 
                 },
+            {
+                cols: [
+                    {
+                        col: {span: 24},
+                        label: "角色",
+                        id: "roleIds",
+                        config: {
+                            initialValue: commons.toStrArr(selectRoleIds),
+                            rules: [{required: false, message: '请选择角色!'}],
+                        }
+                        ,
+                        input: <Select
+                            showSearch
+                            mode="multiple"
+                            optionFilterProp="children"
+                            notFoundContent="无相关角色"
+                            placeholder="请选择角色"
+                            style={{width: '100%'}}
+                        >
+                            {roleOptions}
+                        </Select>
+                    }
+
+
+                ]
+
+
+            },
                 {
                     cols: [
                         {
