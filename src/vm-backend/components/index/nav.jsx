@@ -57,7 +57,7 @@ var Nav = React.createClass({
 
                     message.success(result.msg);
 
-                    this.updateMenus(result.data.list);
+                    this.updateMenus(result.data.tree);
 
                 }.bind(this),
                 failure: function (result) {

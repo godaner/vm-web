@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="nav.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+            <state relative-caret-position="378">
+              <caret line="59" column="53" lean-forward="false" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="53" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -1007,12 +1008,12 @@
       <workItem from="1521813706578" duration="876000" />
       <workItem from="1521818249325" duration="145000" />
       <workItem from="1521867953570" duration="5140000" />
-      <workItem from="1522049346069" duration="11594000" />
+      <workItem from="1522049346069" duration="11925000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359954000" />
+    <option name="totallyTimeSpent" value="360285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1509,8 +1510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        <state relative-caret-position="378">
+          <caret line="59" column="53" lean-forward="false" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="53" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
