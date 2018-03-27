@@ -375,7 +375,7 @@ var AdminTable = React.createClass({
 
         this.updateAdminEditDialogEchoData(record)
 
-        this.getAdminEditDialog().showDialog();
+        this.getAdminEditDialog().showDialog(record);
 
     },
     deleteRecord(ids)

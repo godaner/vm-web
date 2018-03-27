@@ -1,7 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
-import moment from 'moment';
-import {withRouter} from "react-router-dom";
+import {Input, Layout, Menu, message, Select} from "antd";
 import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
@@ -41,13 +39,14 @@ var AdminEditDialog = React.createClass({
             url: roleUrl,
             success: function (result) {
 
-                this.updateRoles(result.data.list)
+                this.updateRoles(result.data.list);
+
+                isUndefined(onSuccess) ? undefined : onSuccess(result);
 
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
 
-                isUndefined(onSuccess) ? undefined : onSuccess(result);
             }.bind(this),
             complete: function () {
 
@@ -74,9 +73,8 @@ var AdminEditDialog = React.createClass({
     },
     showDialog(record){
         this.getAdminEditDialog().showDialog();
-
         this.loadRolesData({
-            onSuccess:function () {
+            onSuccess: function () {
                 this.loadSelectAuthIdsData(record.id)
             }.bind(this)
         })
@@ -140,7 +138,7 @@ var AdminEditDialog = React.createClass({
     render(){
         var {echoData} = this.props;
 
-        const {title,roles,selectRoleIds} = this.state;
+        const {title, roles, selectRoleIds} = this.state;
 
         echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
 
@@ -156,7 +154,6 @@ var AdminEditDialog = React.createClass({
                 echoData.updateTime = timeFormatter.formatTime(timeFormatter.int2Long(echoData.updateTime));
 
             }
-            
 
 
             return echoData;
@@ -277,34 +274,34 @@ var AdminEditDialog = React.createClass({
 
 
                 },
-            {
-                cols: [
-                    {
-                        col: {span: 24},
-                        label: "角色",
-                        id: "roleIds",
-                        config: {
-                            initialValue: commons.toStrArr(selectRoleIds),
-                            rules: [{required: false, message: '请选择角色!'}],
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "角色",
+                            id: "roleIds",
+                            config: {
+                                initialValue: commons.toStrArr(selectRoleIds),
+                                rules: [{required: false, message: '请选择角色!'}],
+                            }
+                            ,
+                            input: <Select
+                                showSearch
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关角色"
+                                placeholder="请选择角色"
+                                style={{width: '100%'}}
+                            >
+                                {roleOptions}
+                            </Select>
                         }
-                        ,
-                        input: <Select
-                            showSearch
-                            mode="multiple"
-                            optionFilterProp="children"
-                            notFoundContent="无相关角色"
-                            placeholder="请选择角色"
-                            style={{width: '100%'}}
-                        >
-                            {roleOptions}
-                        </Select>
-                    }
 
 
-                ]
+                    ]
 
 
-            },
+                },
                 {
                     cols: [
                         {
