@@ -14,6 +14,7 @@ import FilmmakerPage from "../movie/filmmaker_page";
 import TagGroupPage from "../movie/tagGroup_page";
 import AdminPage from "../admin/admin_page";
 import RolePage from "../admin/role_page";
+import AdminLoginLogsPage from "../admin/admin_login_logs_page";
 
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
@@ -97,7 +98,7 @@ var Routes = React.createClass({
                            window.EventsDispatcher.onRouteEnter({
                                pathname: "/admin/login/logs"
                            })
-                           return <TagGroupPage />;
+                           return <AdminLoginLogsPage />;
                        }
 
                        }/>
