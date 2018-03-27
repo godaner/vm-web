@@ -92,13 +92,13 @@ var Nav = React.createClass({
                     {
                         menus.map(function (subMenu) {
                             return <SubMenu
-                                key={subMenu.key}
+                                key={subMenu.keyProp}
                                 onTitleClick={this.onSubMenuClick}
                                 title={<span><Icon type={subMenu.icon}/><span>{subMenu.menuName}</span></span>}
                             >
                                 {
                                     subMenu.child.map(function (menu) {
-                                        return <Menu.Item key={menu.key}>
+                                        return <Menu.Item key={menu.keyProp}>
                                             {
                                                 menu.menuName
                                             }
