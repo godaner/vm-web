@@ -19,7 +19,7 @@ var RoleEditDialog = React.createClass({
 
         return {
             title: "修改角色信息",
-            editRoleUrl: "/role/info",
+            editRoleUrl: "/admin/role/info",
             tipOfEditing: '正在保存角色修改',
         };
     },
@@ -133,9 +133,9 @@ var RoleEditDialog = React.createClass({
                         {
                             col: {span: 11},
                             label: "名称",
-                            id: "username",
+                            id: "roleName",
                             config: {
-                                initialValue: echoData.username,
+                                initialValue: echoData.roleName,
                                 rules: [{required: true, message: '请输入角色名称!'}],
 
                             }
@@ -168,24 +168,6 @@ var RoleEditDialog = React.createClass({
                         },
                         {
                             col: {span: 11},
-                            label: "密码",
-                            id: "password",
-                            config: {
-                                initialValue: echoData.password,
-                                rules: [{required: true, whitespace: true, message: '请输入密码!'}],
-                            },
-                            input: <Input autoComplete="off"
-                                          placeholder="密码"/>
-                        }
-                    ]
-
-
-                },
-
-                {
-                    cols: [
-                        {
-                            col: {span: 11},
                             label: "创建时间",
                             id: "ignore_createTime",
                             config: {
@@ -195,10 +177,14 @@ var RoleEditDialog = React.createClass({
                             input: <Input disabled={true}/>
                         }
                         ,
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
+                    ]
+
+
+                },
+
+                {
+                    cols: [
+
                         {
                             col: {span: 11},
                             label: "最后更新时间",
