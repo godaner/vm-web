@@ -1,7 +1,8 @@
 import React from "react";
-import {Form, Icon, Layout, Menu} from "antd";
+import {Form, Icon, Layout, Menu, message} from "antd";
 import {withRouter} from "react-router-dom";
 
+import {commons,ajax} from "../base/vm_util";
 import "antd/dist/antd.css";
 import "../../scss/index/nav.scss";
 import "../base/events_dispatcher";
@@ -16,13 +17,18 @@ var Nav = React.createClass({
             selectedKeys: [pathname],
             openKeys: [],
             menuTheme: "dark",//dark,light
-            menus: []
+            menus: [],
+            menuUrl: "/admin/menu/info/byAdminId/",
+            tipOfLoadMenus: "正在加载菜单"
         };
     },
     componentDidMount(){
         this.registEvents();
     },
     updateMenus(menus){
+        if(isUndefined(menus)){
+            return;
+        }
         //open all submenu
         const openKeys = [];
         for (var i = 0; i < menus.length; i++) {
@@ -41,8 +47,24 @@ var Nav = React.createClass({
         });
 
         window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
+            const {menuUrl, tipOfLoadMenus} = this.state;
+            const hiddenMassage = message.loading(tipOfLoadMenus, 0);
+            ajax.get({
+                url: menuUrl + admin.id,
+                success: function (result) {
 
+                    message.success(result.msg);
 
+                    this.updateMenus(result.data.list);
+
+                }.bind(this),
+                failure: function (result) {
+                    message.success(result.msg);
+                },
+                complete: function () {
+                    hiddenMassage();
+                }.bind(this)
+            });
         });
     },
 

@@ -27,7 +27,7 @@ var Head = React.createClass({
     registEvents(){
         window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
 
-            this.updateAdmin(result.data.admin);
+            this.updateAdmin(admin);
 
         });
     },
