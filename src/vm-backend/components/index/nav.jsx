@@ -32,11 +32,13 @@ var Nav = React.createClass({
         //open all submenu
         const openKeys = [];
         for (var i = 0; i < menus.length; i++) {
-            openKeys.push(menus[i].key);
+            openKeys.push(menus[i].keyProp);
         }
-        this.updateOpenKeys(openKeys);
 
         this.setState({menus});
+
+
+        this.updateOpenKeys(openKeys);
     },
     registEvents(){
         window.eventEmitter.on('onRouteEnter', (args) => {//当地址栏url变化时，回显nav
@@ -121,7 +123,7 @@ var Nav = React.createClass({
                                 title={<span><Icon type={subMenu.icon}/><span>{subMenu.menuName}</span></span>}
                             >
                                 {
-                                    subMenu.child.map(function (menu) {
+                                    subMenu.child == null?<div></div>:subMenu.child.map(function (menu) {
                                         return <Menu.Item key={menu.keyProp}>
                                             {
                                                 menu.menuName
