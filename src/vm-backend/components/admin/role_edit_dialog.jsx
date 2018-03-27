@@ -139,6 +139,7 @@ var RoleEditDialog = React.createClass({
         const hideMessage = message.loading(tipOfEditing, 0);
         var filterValues = function (values) {
             values.authIds = values.authIds.join(",");
+            values.menuIds = values.menuIds.join(",");
             return values;
         }
         values = filterValues(values);
