@@ -449,7 +449,7 @@ function isJsObject(obj) {
  * @param list
  */
 function isEmptyList(list) {
-    return isEmpty(list) || list.length == 0;
+    return isUndefined(list) || list.length == 0;
 }
 
 /**

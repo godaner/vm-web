@@ -159,6 +159,9 @@ var commons = {
         return ['标清', '高清', '超清'];
     },
     toStrArr(notStrArr){
+        if(isEmptyList(notStrArr)){
+            return [];
+        }
         for (var i = 0; i < notStrArr.length; i++) {
             notStrArr[i] = notStrArr[i] + '';
         }

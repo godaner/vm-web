@@ -64,7 +64,7 @@ var Nav = React.createClass({
 
                     }.bind(this),
                     failure: function (result) {
-                        message.success(result.msg);
+                        message.error(result.msg);
                     },
                     complete: function () {
                         hiddenMassage();

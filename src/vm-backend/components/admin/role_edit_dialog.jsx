@@ -22,7 +22,11 @@ var RoleEditDialog = React.createClass({
             auths: [],
             selectAuthIds: [],
             authUrl: "/admin/auth/info/all",
-            selectAuthUrl: "/admin/auth/id/list/byRoleId/"
+            selectAuthUrl: "/admin/auth/id/list/byRoleId/",
+            menus:[],
+            selectMenuIds:[],
+            menuUrl: "/admin/menu/tree/all",
+            selectMenuUrl: "/admin/menu/id/list/byRoleId/",
         };
     },
     updateAuths(auths){
@@ -70,12 +74,61 @@ var RoleEditDialog = React.createClass({
             }.bind(this)
         });
     },
+    updateMenus(menus){
+        this.setState({menus});
+    },
+    updateSelectMenuIds(selectMenuIds){
+
+        this.setState({selectMenuIds});
+    },
+    loadMenusData (args) {
+        const {onSuccess} = args;
+        const {menuUrl} = this.state;
+        ajax.get({
+            url: menuUrl,
+            success: function (result) {
+
+                this.updateMenus(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+                isUndefined(onSuccess) ? undefined : onSuccess(result);
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
+    loadSelectMenusData (roleId) {
+        const {selectMenuUrl} = this.state;
+        ajax.get({
+            url: selectMenuUrl + roleId,
+            success: function (result) {
+c("result.data.tree");
+c(result);
+                this.updateSelectMenuIds(result.data.tree)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
     showDialog(record){
 
         const {id} = record;
         this.getRoleEditDialog().showDialog();
         this.loadAuthsData({
             onSuccess: this.loadSelectAuthsData(id)
+        });
+        this.loadMenusData({
+            onSuccess: this.loadSelectMenusData(id)
         });
     }
     ,
@@ -127,7 +180,7 @@ var RoleEditDialog = React.createClass({
     render(){
         var {echoData} = this.props;
 
-        const {title, auths, selectAuthIds} = this.state;
+        const {title, auths, selectAuthIds,menus,selectMenuIds} = this.state;
 
         echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
         // filterEchoData
@@ -157,6 +210,23 @@ var RoleEditDialog = React.createClass({
                 const val = item.id + '';
                 const title = "权限：" + item.authName + "\r\n简介:" + item.description;
                 return <Option title={title} key={item.id} value={val}>{item.authName}</Option>;
+            }.bind(this));
+        }
+        var menuOptions = [];
+        if(!isUndefined(menus) && menus.length >= 1){
+            // c("menus");
+            // c(menus);
+            menuOptions = menus.map(function (menu, i) {
+                return <OptGroup key={i} label={menu.menuName}>
+                    {
+                        menu.child.map(function (ch, i) {
+                            // c(tag);
+                            const v = ch.id + '';
+                            return <Option key={ch.id} value={v}>{ch.menuName}</Option>;
+                        })
+                    }
+                </OptGroup>
+
             }.bind(this));
         }
 
@@ -275,6 +345,30 @@ var RoleEditDialog = React.createClass({
                                 style={{width: '100%'}}
                             >
                                 {authOptions}
+                            </Select>
+                        }
+                    ]
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "菜单",
+                            id: "authIds",
+                            config: {
+                                initialValue: commons.toStrArr(selectMenuIds),
+                                rules: [{required: false, message: '请选择菜单!'}],
+                            }
+                            ,
+                            input: <Select
+                                showSearch
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关菜单"
+                                placeholder="请选择菜单"
+                                style={{width: '100%'}}
+                            >
+                                {menuOptions}
                             </Select>
                         }
                     ]
