@@ -20,8 +20,8 @@ var AdminEditDialog = React.createClass({
             editAdminUrl: "/admin/info",
             tipOfEditing: '正在保存管理员修改',
             roles: [],
-            selectRoleIds: [],
             roleUrl: "/admin/role/info/all",
+            selectRoleIds: [],
             selectRoleUrl: "/admin/role/id/list/byAdminId/",
         };
     },

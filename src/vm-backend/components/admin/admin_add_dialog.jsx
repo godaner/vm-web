@@ -14,13 +14,38 @@ const TextArea = Input.TextArea;
 var AdminAddDialog = React.createClass({
     getInitialState() {
         return {
-            title:"添加管理员",
+            title: "添加管理员",
             addAdminUrl: "/admin/info",
-            tipOfAddingAdmin: "正在添加管理员"
+            tipOfAddingAdmin: "正在添加管理员",
+            roles: [],
+            roleUrl: "/admin/role/info/all",
         };
+    },
+    updateRoles(roles){
+        this.setState({roles});
+    },
+    loadRolesData () {
+        const {roleUrl} = this.state;
+        ajax.get({
+            url: roleUrl,
+            success: function (result) {
+
+                this.updateRoles(result.data.list);
+
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
     },
     showDialog() {
         this.getAdminAddDialog().showDialog();
+        this.loadRolesData();
     }
     ,
     getAdminAddDialog() {
@@ -31,6 +56,7 @@ var AdminAddDialog = React.createClass({
         const hideMessage = message.loading(tipOfAddingAdmin, 0);
         const {addAdminUrl} = this.state;
         var filterValues = function (values) {
+            values.roleIds = values.roleIds.join(",");
             return values;
         }
         values = filterValues(values);
@@ -70,7 +96,16 @@ var AdminAddDialog = React.createClass({
     },
     render() {
 
-        const {title} = this.state;
+        const {title, roles} = this.state;
+
+        var roleOptions = [];
+        if (!isUndefined(roles) && roles.length >= 1) {
+            roleOptions = roles.map(function (item, i) {
+                const val = item.id + '';
+                const title = "角色：" + item.roleName + "\r\n简介:" + item.description;
+                return <Option title={title} key={item.id} value={val}>{item.roleName}</Option>;
+            }.bind(this));
+        }
 
         var formLayout = "horizontal";
 
@@ -110,28 +145,55 @@ var AdminAddDialog = React.createClass({
                     ]
 
                 },
-            {
-                cols: [
+                {
+                    cols: [
 
 
-                    {
-                        col: {span: 11},
-                        label: "密码",
-                        id: "password",
-                        config: {
-                            rules: [{required: true, message: '请输入管理员密码!'}],
+                        {
+                            col: {span: 11},
+                            label: "密码",
+                            id: "password",
+                            config: {
+                                rules: [{required: true, message: '请输入管理员密码!'}],
 
+                            }
+                            ,
+                            input: <Input placeholder="请输入管理员密码"/>
+                        },
+                        {
+                            col: {span: 2},
+                            input: <div></div>
                         }
-                        ,
-                        input: <Input placeholder="请输入管理员密码"/>
-                    },
-                    {
-                        col: {span: 2},
-                        input: <div></div>
-                    }
-                ]
+                    ]
 
-            },
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "角色",
+                            id: "roleIds",
+                            config: {
+                                rules: [{required: false, message: '请选择角色!'}],
+                            }
+                            ,
+                            input: <Select
+                                showSearch
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关角色"
+                                placeholder="请选择角色"
+                                style={{width: '100%'}}
+                            >
+                                {roleOptions}
+                            </Select>
+                        }
+
+
+                    ]
+
+
+                },
                 {
                     cols: [
                         {
