@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
-const Option = Select.Option;
+const {Option,OptGroup} = Select;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
@@ -26,7 +26,7 @@ var RoleEditDialog = React.createClass({
             menus:[],
             selectMenuIds:[],
             menuUrl: "/admin/menu/tree/all",
-            selectMenuUrl: "/admin/menu/id/list/byRoleId/",
+            selectMenuUrl: "/admin/menu/leaf/id/list/byRoleId/",
         };
     },
     updateAuths(auths){
@@ -56,7 +56,7 @@ var RoleEditDialog = React.createClass({
             }.bind(this)
         });
     },
-    loadSelectAuthsData (roleId) {
+    loadSelectAuthIdsData (roleId) {
         const {selectAuthUrl} = this.state;
         ajax.get({
             url: selectAuthUrl + roleId,
@@ -88,7 +88,7 @@ var RoleEditDialog = React.createClass({
             url: menuUrl,
             success: function (result) {
 
-                this.updateMenus(result.data.list)
+                this.updateMenus(result.data.tree)
 
             }.bind(this),
             failure: function (result) {
@@ -101,14 +101,13 @@ var RoleEditDialog = React.createClass({
             }.bind(this)
         });
     },
-    loadSelectMenusData (roleId) {
+    loadSelectMenuIdsData (roleId) {
         const {selectMenuUrl} = this.state;
         ajax.get({
             url: selectMenuUrl + roleId,
             success: function (result) {
-c("result.data.tree");
-c(result);
-                this.updateSelectMenuIds(result.data.tree)
+
+                this.updateSelectMenuIds(result.data.list)
 
             }.bind(this),
             failure: function (result) {
@@ -125,10 +124,10 @@ c(result);
         const {id} = record;
         this.getRoleEditDialog().showDialog();
         this.loadAuthsData({
-            onSuccess: this.loadSelectAuthsData(id)
+            onSuccess: this.loadSelectAuthIdsData(id)
         });
         this.loadMenusData({
-            onSuccess: this.loadSelectMenusData(id)
+            onSuccess: this.loadSelectMenuIdsData(id)
         });
     }
     ,
@@ -177,6 +176,9 @@ c(result);
     },
     componentDidMount(){
     },
+    handleMenuSelectChange(value){
+
+    },
     render(){
         var {echoData} = this.props;
 
@@ -217,7 +219,7 @@ c(result);
             // c("menus");
             // c(menus);
             menuOptions = menus.map(function (menu, i) {
-                return <OptGroup key={i} label={menu.menuName}>
+                return <OptGroup key={i} label={menu.menuName} value={menu.id}>
                     {
                         menu.child.map(function (ch, i) {
                             // c(tag);
@@ -354,7 +356,7 @@ c(result);
                         {
                             col: {span: 24},
                             label: "菜单",
-                            id: "authIds",
+                            id: "menuIds",
                             config: {
                                 initialValue: commons.toStrArr(selectMenuIds),
                                 rules: [{required: false, message: '请选择菜单!'}],
@@ -362,6 +364,8 @@ c(result);
                             ,
                             input: <Select
                                 showSearch
+                                labelInValue
+                                onChange={this.handleMenuSelectChange}
                                 mode="multiple"
                                 optionFilterProp="children"
                                 notFoundContent="无相关菜单"
