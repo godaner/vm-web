@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/../vm-engine/vm-provider-movie/src/main/java/com/vm/movie/service/inf/VmMoviesService.java" description="import com.vm.base.util.PageBean;&#10;import com.vm.mo..." line="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
-    </list>
+    <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1111,12 +1108,12 @@
       <workItem from="1521818249325" duration="145000" />
       <workItem from="1521867953570" duration="5140000" />
       <workItem from="1522049346069" duration="18309000" />
-      <workItem from="1522131708565" duration="2635000" />
+      <workItem from="1522131708565" duration="3117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="369304000" />
+    <option name="totallyTimeSpent" value="369786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
