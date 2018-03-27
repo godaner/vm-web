@@ -1,10 +1,8 @@
 import React from "react";
-import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
-import moment from 'moment';
-import {withRouter} from "react-router-dom";
+import {Input, Layout, Menu, message, Select} from "antd";
 import "antd/dist/antd.css";
 import "../base/events_dispatcher";
-import {ajax, commons} from "../base/vm_util";
+import {ajax} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
 const Option = Select.Option;
 const {Header, Content, Footer, Sider} = Layout;
@@ -14,8 +12,8 @@ const TextArea = Input.TextArea;
 var RoleAddDialog = React.createClass({
     getInitialState() {
         return {
-            title:"添加角色",
-            addRoleUrl: "/role/info",
+            title: "添加角色",
+            addRoleUrl: "/admin/role/info",
             tipOfAddingRole: "正在添加角色"
         };
     },
@@ -82,7 +80,7 @@ var RoleAddDialog = React.createClass({
                         {
                             col: {span: 11},
                             label: "名称",
-                            id: "username",
+                            id: "roleName",
                             config: {
                                 rules: [{required: true, message: '请输入角色名称!'}],
 
@@ -110,28 +108,7 @@ var RoleAddDialog = React.createClass({
                     ]
 
                 },
-            {
-                cols: [
 
-
-                    {
-                        col: {span: 11},
-                        label: "密码",
-                        id: "password",
-                        config: {
-                            rules: [{required: true, message: '请输入角色密码!'}],
-
-                        }
-                        ,
-                        input: <Input placeholder="请输入角色密码"/>
-                    },
-                    {
-                        col: {span: 2},
-                        input: <div></div>
-                    }
-                ]
-
-            },
                 {
                     cols: [
                         {

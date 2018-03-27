@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/role_page.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/role_page.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/role_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/role_table.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -61,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="role_table.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="role_table.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/role_table.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="514">
@@ -73,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="role_add_dialog.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="role_add_dialog.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3924">
-              <caret line="161" column="22" lean-forward="false" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
+            <state relative-caret-position="351">
+              <caret line="119" column="14" lean-forward="true" selection-start-line="119" selection-start-column="14" selection-end-line="119" selection-end-column="14" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -235,9 +232,9 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/role_page.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/role_table.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx" />
       </list>
     </option>
   </component>
@@ -1107,12 +1104,12 @@
       <workItem from="1521813706578" duration="876000" />
       <workItem from="1521818249325" duration="145000" />
       <workItem from="1521867953570" duration="5140000" />
-      <workItem from="1522049346069" duration="14835000" />
+      <workItem from="1522049346069" duration="15598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="363195000" />
+    <option name="totallyTimeSpent" value="363958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1560,7 +1557,7 @@
         <state relative-caret-position="178">
           <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1599,16 +1596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3924">
-          <caret line="161" column="22" lean-forward="false" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6588">
@@ -1623,6 +1610,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
           <caret line="300" column="22" lean-forward="false" selection-start-line="300" selection-start-column="22" selection-end-line="300" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="119" column="14" lean-forward="true" selection-start-line="119" selection-start-column="14" selection-end-line="119" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
