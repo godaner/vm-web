@@ -24,7 +24,7 @@ var AdminTable = React.createClass({
                 echoData: undefined
             },
             adminTable: {
-                title: "电影人列表",
+                title: "管理员列表",
                 dataSourceUrl: "/admin/info/list",
                 delAdminUrl: "/admin/info",
                 scroll: {x: true, y: 450},

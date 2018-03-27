@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Dropdown, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../scss/role/role_table.scss";
+import "../../scss/admin/role_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import RoleEditDialog from "./role_edit_dialog";
@@ -24,8 +24,8 @@ var RoleTable = React.createClass({
                 echoData: undefined
             },
             roleTable: {
-                title: "电影人列表",
-                dataSourceUrl: "/role/info/list",
+                title: "角色列表",
+                dataSourceUrl: "/admin/role/info/list",
                 delRoleUrl: "/role/info",
                 scroll: {x: true, y: 450},
                 editable: false,
@@ -46,7 +46,7 @@ var RoleTable = React.createClass({
                     total: 0
                 },
                 query: {
-                    username: ""
+                    roleName: ""
                 },
                 columns: [],
                 deletingTip: "正在删除"
@@ -56,7 +56,7 @@ var RoleTable = React.createClass({
     onSearchRolename(newRolenameQuery)
     {
         this.updateNameOfQuery(newRolenameQuery);
-        if (!isEmptyString(this.state.roleTable.query.username)) {
+        if (!isEmptyString(this.state.roleTable.query.roleName)) {
             this.updateRoleTableHaveSearchRolename(true);
         } else {
 
@@ -92,7 +92,7 @@ var RoleTable = React.createClass({
     updateNameOfQuery(name)
     {
         var state = this.state;
-        state.roleTable.query.username = name;
+        state.roleTable.query.roleName = name;
         this.setState(state);
     },
     updateRoleTableData(data)
@@ -170,15 +170,15 @@ var RoleTable = React.createClass({
             {
                 title: '名称',
                 width: 120,
-                dataIndex: 'username',
+                dataIndex: 'role_name',
                 render: (text, record) => {
-                    return commons.highLight(text, this.state.roleTable.query.username);
+                    return commons.highLight(text, this.state.roleTable.query.roleName);
                 },
                 sorter: true,
                 filterDropdown: (
                     <div className="custom-filter-dropdown">
                         <Search
-                            placeholder="搜索管理员名称"
+                            placeholder="搜索角色名称"
                             onSearch={this.onSearchRolename}
                             style={{width: 200}}
                         />
@@ -196,12 +196,6 @@ var RoleTable = React.createClass({
                 render: (text) => {
                     return commons.getImmutableStrByIndex({index: text});
                 },
-
-            },
-            {
-                title: '密码',
-                width: 120,
-                dataIndex: 'password'
 
             },
             {
@@ -304,9 +298,8 @@ var RoleTable = React.createClass({
             data.push({
                 key: item.id,
                 id: item.id,
-                username: item.username,
+                role_name: item.roleName,
                 immutable: item.immutable,
-                password: item.password,
                 description: item.description,
                 create_time: item.createTime,
                 update_time: item.updateTime,

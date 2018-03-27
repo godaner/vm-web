@@ -13,6 +13,7 @@ import MoviePage from "../movie/movie_page";
 import FilmmakerPage from "../movie/filmmaker_page";
 import TagGroupPage from "../movie/tagGroup_page";
 import AdminPage from "../admin/admin_page";
+import RolePage from "../admin/role_page";
 
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
