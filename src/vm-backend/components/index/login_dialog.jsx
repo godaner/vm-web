@@ -65,7 +65,7 @@ var LoginDialog = React.createClass({
                 this.getAdminLoginDialog().closeDialog();
 
                 //callback
-                window.EventsDispatcher.updateLoginAdminInfo(result);
+                window.EventsDispatcher.updateLoginAdminInfo(admin);
 
                 //clear form
                 this.getAdminLoginDialog().clearForm();

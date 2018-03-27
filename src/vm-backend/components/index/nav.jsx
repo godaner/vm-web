@@ -49,24 +49,29 @@ var Nav = React.createClass({
         });
 
         window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
-            const {menuUrl, tipOfLoadMenus} = this.state;
-            const hiddenMassage = message.loading(tipOfLoadMenus, 0);
-            ajax.get({
-                url: menuUrl + admin.id,
-                success: function (result) {
+            if(isUndefined(admin)){
+                this.updateMenus([]);
+            }else{
+                const {menuUrl, tipOfLoadMenus} = this.state;
+                const hiddenMassage = message.loading(tipOfLoadMenus, 0);
+                ajax.get({
+                    url: menuUrl + admin.id,
+                    success: function (result) {
 
-                    message.success(result.msg);
+                        message.success(result.msg);
 
-                    this.updateMenus(result.data.tree);
+                        this.updateMenus(result.data.tree);
 
-                }.bind(this),
-                failure: function (result) {
-                    message.success(result.msg);
-                },
-                complete: function () {
-                    hiddenMassage();
-                }.bind(this)
-            });
+                    }.bind(this),
+                    failure: function (result) {
+                        message.success(result.msg);
+                    },
+                    complete: function () {
+                        hiddenMassage();
+                    }.bind(this)
+                });
+            }
+
         });
     },
 

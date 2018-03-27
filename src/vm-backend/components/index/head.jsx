@@ -27,6 +27,9 @@ var Head = React.createClass({
     registEvents(){
         window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
 
+            if(isUndefined(admin)){
+                admin = {};
+            }
             this.updateAdmin(admin);
 
         });
@@ -45,6 +48,8 @@ var Head = React.createClass({
                 if (isUndefined(admin)) {
 
                     window.EventsDispatcher.showLoginDialog();
+
+
                 } else {
 
 
@@ -74,7 +79,8 @@ var Head = React.createClass({
 
                 window.EventsDispatcher.showLoginDialog();
 
-                this.updateAdmin({});
+                //callback
+                window.EventsDispatcher.updateLoginAdminInfo(undefined);
 
             }.bind(this),
             failure: function (result) {

@@ -100,6 +100,15 @@ var Routes = React.createClass({
                        }
 
                        }/>
+                <Route exact path='/admin/role'
+                       render={() => {
+                           window.EventsDispatcher.onRouteEnter({
+                               pathname: "/admin/role"
+                           })
+                           return <RolePage />;
+                       }
+
+                       }/>
             </div>
         );
     }
