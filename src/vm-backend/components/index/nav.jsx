@@ -18,7 +18,7 @@ var Nav = React.createClass({
             openKeys: [],
             menuTheme: "dark",//dark,light
             menus: [],
-            menuUrl: "/admin/menu/info/byAdminId/",
+            menuUrl: "/admin/menu/tree/byAdminId/",
             tipOfLoadMenus: "正在加载菜单"
         };
     },
