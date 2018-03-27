@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/admin_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/admin_edit_dialog.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/role_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/role_table.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,8 +31,8 @@
       <file leaf-file-name="role_edit_dialog.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="274" column="29" lean-forward="true" selection-start-line="274" selection-start-column="29" selection-end-line="274" selection-end-column="29" />
+            <state relative-caret-position="392">
+              <caret line="88" column="51" lean-forward="false" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -1113,12 +1111,12 @@
       <workItem from="1521818249325" duration="145000" />
       <workItem from="1521867953570" duration="5140000" />
       <workItem from="1522049346069" duration="18309000" />
-      <workItem from="1522131708565" duration="1935000" />
+      <workItem from="1522131708565" duration="2635000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368604000" />
+    <option name="totallyTimeSpent" value="369304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1450,7 +1448,7 @@
         <state relative-caret-position="271">
           <caret line="129" column="19" lean-forward="true" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1588,8 +1586,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="274" column="29" lean-forward="true" selection-start-line="274" selection-start-column="29" selection-end-line="274" selection-end-column="29" />
+        <state relative-caret-position="392">
+          <caret line="88" column="51" lean-forward="false" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
