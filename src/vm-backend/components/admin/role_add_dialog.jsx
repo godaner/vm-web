@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import {ajax} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
-const Option = Select.Option;
+const {Option,OptGroup} = Select;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
@@ -14,11 +14,59 @@ var RoleAddDialog = React.createClass({
         return {
             title: "添加角色",
             addRoleUrl: "/admin/role/info",
-            tipOfAddingRole: "正在添加角色"
+            tipOfAddingRole: "正在添加角色",
+            auths: [],
+            authUrl: "/admin/auth/info/all",
+            menus: [],
+            menuUrl: "/admin/menu/tree/all",
         };
+    },
+    updateAuths(auths){
+        this.setState({auths});
+    },
+    loadAuthsData () {
+        const {authUrl} = this.state;
+        ajax.get({
+            url: authUrl,
+            success: function (result) {
+
+                this.updateAuths(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
+    updateMenus(menus){
+        this.setState({menus});
+    },
+    loadMenusData () {
+        const {menuUrl} = this.state;
+        ajax.get({
+            url: menuUrl,
+            success: function (result) {
+
+                this.updateMenus(result.data.tree)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
     },
     showDialog() {
         this.getRoleAddDialog().showDialog();
+        this.loadAuthsData();
+        this.loadMenusData();
     }
     ,
     getRoleAddDialog() {
@@ -29,6 +77,8 @@ var RoleAddDialog = React.createClass({
         const hideMessage = message.loading(tipOfAddingRole, 0);
         const {addRoleUrl} = this.state;
         var filterValues = function (values) {
+            values.authIds = values.authIds.join(",");
+            values.menuIds = values.menuIds.join(",");
             return values;
         }
         values = filterValues(values);
@@ -68,7 +118,35 @@ var RoleAddDialog = React.createClass({
     },
     render() {
 
-        const {title} = this.state;
+
+        const {title,auths,menus} = this.state;
+
+        var authOptions = [];
+
+        if (!isUndefined(auths) && auths.length >= 1) {
+            authOptions = auths.map(function (item, i) {
+                const val = item.id + '';
+                const title = "权限：" + item.authName + "\r\n简介:" + item.description;
+                return <Option title={title} key={item.id} value={val}>{item.authName}</Option>;
+            }.bind(this));
+        }
+        var menuOptions = [];
+        if(!isUndefined(menus) && menus.length >= 1){
+            // c("menus");
+            // c(menus);
+            menuOptions = menus.map(function (menu, i) {
+                return <OptGroup key={i} label={menu.menuName}>
+                    {
+                        menu.child.map(function (ch, i) {
+                            // c(tag);
+                            const v = ch.id + '';
+                            return <Option key={ch.id} value={v}>{ch.menuName}</Option>;
+                        })
+                    }
+                </OptGroup>
+
+            }.bind(this));
+        }
 
         var formLayout = "horizontal";
 
@@ -108,7 +186,52 @@ var RoleAddDialog = React.createClass({
                     ]
 
                 },
-
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "权限",
+                            id: "authIds",
+                            config: {
+                                rules: [{required: false, message: '请选择权限!'}],
+                            }
+                            ,
+                            input: <Select
+                                showSearch
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关权限"
+                                placeholder="请选择权限"
+                                style={{width: '100%'}}
+                            >
+                                {authOptions}
+                            </Select>
+                        }
+                    ]
+                },
+                {
+                    cols: [
+                        {
+                            col: {span: 24},
+                            label: "菜单",
+                            id: "menuIds",
+                            config: {
+                                rules: [{required: false, message: '请选择菜单!'}],
+                            }
+                            ,
+                            input: <Select
+                                showSearch
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关菜单"
+                                placeholder="请选择菜单"
+                                style={{width: '100%'}}
+                            >
+                                {menuOptions}
+                            </Select>
+                        }
+                    ]
+                },
                 {
                     cols: [
                         {
