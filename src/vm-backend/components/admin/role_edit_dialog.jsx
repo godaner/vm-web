@@ -177,9 +177,6 @@ var RoleEditDialog = React.createClass({
     },
     componentDidMount(){
     },
-    handleMenuSelectChange(value){
-
-    },
     render(){
         var {echoData} = this.props;
 
@@ -220,7 +217,7 @@ var RoleEditDialog = React.createClass({
             // c("menus");
             // c(menus);
             menuOptions = menus.map(function (menu, i) {
-                return <OptGroup key={i} label={menu.menuName} value={menu.id}>
+                return <OptGroup key={i} label={menu.menuName}>
                     {
                         menu.child.map(function (ch, i) {
                             // c(tag);
@@ -365,8 +362,6 @@ var RoleEditDialog = React.createClass({
                             ,
                             input: <Select
                                 showSearch
-                                labelInValue
-                                onChange={this.handleMenuSelectChange}
                                 mode="multiple"
                                 optionFilterProp="children"
                                 notFoundContent="无相关菜单"
