@@ -21,14 +21,59 @@ var RoleEditDialog = React.createClass({
             title: "修改角色信息",
             editRoleUrl: "/admin/role/info",
             tipOfEditing: '正在保存角色修改',
+            auths: [],
+            selectAuthIds:[],
+            authUrl: "/admin/auth/info/all",
+            selectAuthUrl: "/admin/auth/info/byAdminId/"
         };
     },
-    componentWillReceiveProps(){
+    updateAuths(auths){
+        this.setState({auths});
+    },
+    loadAuthsData (args) {
+        const {onSuccess} = args;
+        const {authUrl} = this.state;
+        ajax.get({
+            url: authUrl,
+            success: function (result) {
 
+                this.updateAuths(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+                isUndefined(onSuccess)?undefined:onSuccess(result);
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
+    },
+    loadSelectAuthsData () {
+        const {selectAuthUrl} = this.state;
+        ajax.get({
+            url: selectAuthUrl+,
+            success: function (result) {
+
+                this.updateAuths(result.data.list)
+
+            }.bind(this),
+            failure: function (result) {
+                message.error(result.msg);
+
+                isUndefined(onSuccess)?undefined:onSuccess(result);
+            }.bind(this),
+            complete: function () {
+
+            }.bind(this)
+        });
     },
     showDialog(){
         this.getRoleEditDialog().showDialog();
-    },
+        this.loadAuthsData();
+    }
+    ,
     getRoleEditDialog(){
         return this.refs.role_edit_dialog;
     },
@@ -73,21 +118,10 @@ var RoleEditDialog = React.createClass({
     },
     componentDidMount(){
     },
-    updateConstellationObj(obj){
-        this.setState({
-            constellationObj: obj
-        });
-    },
-    onBirthdayChange(date, dateString){
-
-        var {echoData} = this.props;
-        echoData.constellation = commons.transConStrByDate(date._d)
-
-    },
     render(){
         var {echoData} = this.props;
 
-        const {title} = this.state;
+        const {title, auths} = this.state;
 
         // filterEchoData
         var filterEchoData = function (echoData) {
@@ -101,13 +135,23 @@ var RoleEditDialog = React.createClass({
                 echoData.updateTime = timeFormatter.formatTime(timeFormatter.int2Long(echoData.updateTime));
 
             }
-            
 
 
             return echoData;
         }.bind(this)
 
         echoData = filterEchoData(echoData);
+
+
+        var authOptions = [];
+
+        if (!isUndefined(auths) && auths.length >= 1) {
+            authOptions = auths.map(function (item, i) {
+                const val = item.id + '';
+                const title = "权限：" + item.authName +  "\r\n简介:" + item.description;
+                return <Option title={title} key={item.id} value={val}>{item.authName}</Option>;
+            }.bind(this));
+        }
 
 
         var formLayout = "horizontal";
@@ -194,6 +238,30 @@ var RoleEditDialog = React.createClass({
                             }
                             ,
                             input: <Input disabled={true}/>
+                        },
+                        {
+                            col: {span: 2},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 11},
+                            label: "权限",
+                            id: "authIds",
+                            config: {
+                                initialValue: commons.toStrArr(selectAuthIds),
+                                rules: [{required: true, message: '请选择权限!'}],
+                            }
+                            ,
+                            input: <Select
+                                showSearch
+                                mode="multiple"
+                                optionFilterProp="children"
+                                notFoundContent="无相关权限"
+                                placeholder="请选择权限"
+                                style={{width: '100%'}}
+                            >
+                                {authOptions}
+                            </Select>
                         }
                     ]
 

@@ -253,13 +253,12 @@ var RoleTable = React.createClass({
                     // c(record.immutable);
                     return <div>
                         {
-                            record.immutable == 1?<div>不可操作内置对象</div>:<Dropdown overlay={menu}>
+                            record.immutable == 1 ? <div>不可操作内置对象</div> : <Dropdown overlay={menu}>
                                 <a href="javascript:void(0);">
                                     操作 <Icon type="down"/>
                                 </a>
                             </Dropdown>
                         }
-
 
 
                     </div>
@@ -543,17 +542,17 @@ var RoleTable = React.createClass({
                     scroll={scroll}/>
 
                 <RoleEditDialog ref="role_edit_dialog"
-                                     echoData={echoData}
-                                     onEditSuccess={this.onEditSuccess}/>
+                                echoData={echoData}
+                                onEditSuccess={this.onEditSuccess}/>
                 <RoleAddDialog ref="role_add_dialog"
-                                    onAddSuccess={this.onAddSuccess}/>
+                               onAddSuccess={this.onAddSuccess}/>
                 {/*<ImgUploaderDialogTemplate*/}
-                    {/*ref="role_img_uploader_dialog"*/}
-                    {/*config={imgUploaderDialog.config}*/}
-                    {/*title={imgUploaderDialog.title}*/}
-                    {/*width={imgUploaderDialog.width}*/}
-                    {/*onUpdateImgSuccess={this.onUpdateImgSuccess}*/}
-                    {/*onUploadTempImgSuccess={this.onUploadTempImgSuccess}/>*/}
+                {/*ref="role_img_uploader_dialog"*/}
+                {/*config={imgUploaderDialog.config}*/}
+                {/*title={imgUploaderDialog.title}*/}
+                {/*width={imgUploaderDialog.width}*/}
+                {/*onUpdateImgSuccess={this.onUpdateImgSuccess}*/}
+                {/*onUploadTempImgSuccess={this.onUploadTempImgSuccess}/>*/}
 
             </div>
         );
