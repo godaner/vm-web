@@ -27,7 +27,7 @@ var Head = React.createClass({
     registEvents(){
         window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
 
-            if(isUndefined(admin)){
+            if (isUndefined(admin)) {
                 admin = {};
             }
             this.updateAdmin(admin);
@@ -117,7 +117,8 @@ var Head = React.createClass({
 
 
                     <Dropdown overlay={menu}>
-                        <Avatar style={{cursor:"pointer",backgroundColor: color, verticalAlign: 'middle'}} size="large">
+                        <Avatar style={{cursor: "pointer", backgroundColor: color, verticalAlign: 'middle'}}
+                                size="large">
                             {username}
                         </Avatar>
 

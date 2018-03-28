@@ -21,8 +21,7 @@ const SubMenu = Menu.SubMenu;
 var Routes = React.createClass({
     getInitialState: function () {
         return {
-
-            menuKeys: undefined
+            menuKeys: undefined//undefined说明未执行updateAdminMenuTree，反之已经执行
         };
     },
     componentDidMount(){
@@ -35,9 +34,9 @@ var Routes = React.createClass({
 
         window.eventEmitter.on('updateAdminMenuTree', (menuTree) => {//更新routes
             var menuKeys = [];
-            if(!isEmptyList(menuTree)){
-                $.each(menuTree, function (i,menu) {
-                    $.each(menu.child, function (j,ch) {
+            if (!isEmptyList(menuTree)) {
+                $.each(menuTree, function (i, menu) {
+                    $.each(menu.child, function (j, ch) {
                         menuKeys.push(ch.keyProp);
                     });
                 });
@@ -51,10 +50,10 @@ var Routes = React.createClass({
     render: function () {
         var {menuKeys} = this.state;
 
-        if(!isUndefined(menuKeys)&&!menuKeys.contains(this.props.location.pathname)){
+        if (!isUndefined(menuKeys) && !menuKeys.contains(this.props.location.pathname)) {//菜单key不包含当前路径，滚回主页去（防止误入）
             window.EventsDispatcher.backToHomePage();
         }
-        if(isUndefined(menuKeys)){
+        if (isUndefined(menuKeys)) {
             menuKeys = [];
         }
         return (

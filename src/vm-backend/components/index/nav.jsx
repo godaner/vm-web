@@ -44,7 +44,7 @@ var Nav = React.createClass({
     },
     backToHomePage(){
         message.destroy();//阻止显示msg
-        if(this.props.location.pathname!="/"){//不在主页
+        if (this.props.location.pathname != "/") {//不在主页
 
             this.stepPage("/");//返回主页
         }
@@ -61,15 +61,14 @@ var Nav = React.createClass({
             }, 1);
         });
         window.eventEmitter.on('updateAdminMenuTree', (menuTree) => {//当用户直接在地址栏输入url时，回显nav
-           this.updateMenus(menuTree);
+            this.updateMenus(menuTree);
         });
-        window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
+        window.eventEmitter.on('updateLoginAdminInfo', (admin) => {//当admin更新后，更具adminId获取新的menu列表，并且广播
             if (isUndefined(admin)) {
                 const menu = [];
 
                 this.updateMenus(menu);
 
-                // this.backToHomePage();//用户注销
                 window.EventsDispatcher.updateAdminMenuTree(menu);
 
                 // this.backToHomePage();//用户注销
