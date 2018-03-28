@@ -34,8 +34,13 @@ var Routes = React.createClass({
                        render={() => {
                            let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/"
-                           })
-                           return <HomePage />;
+                           });
+                           if (isUndefined(res) || res) {
+
+                               return <HomePage />;
+                           } else {
+                               return <div/>;
+                           }
                        }
 
                        }/>
@@ -148,6 +153,7 @@ var Routes = React.createClass({
                        }
 
                        }/>
+
             </div>
         );
     }

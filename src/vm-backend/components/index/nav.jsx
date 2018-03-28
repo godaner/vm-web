@@ -20,15 +20,15 @@ var Nav = React.createClass({
             menus: [],
             menuUrl: "/admin/menu/tree/byAdminId/",
             tipOfLoadMenus: "正在加载菜单",
-            pathname: undefined//当前pathname
+            // pathname: undefined//当前pathname
         };
     },
     componentDidMount(){
         this.registEvents();
     },
-    updatePathname(pathname){
-        this.setState({pathname});
-    },
+    // updatePathname(pathname){
+    //     this.setState({pathname});
+    // },
     updateMenus(menus){
         if (isUndefined(menus)) {
             menus = [];
@@ -39,39 +39,52 @@ var Nav = React.createClass({
             openKeys.push(menus[i].keyProp);
         }
         openKeys.push("homeMenu");
+
         this.setState({menus});
 
 
         this.updateOpenKeys(openKeys);
     },
-    checkSelectMenuIsRight(menus){//保护菜单不被无权限用户访问
-        let exitsMenu = false;
-        const {pathname} = this.state;
-        for (var i = 0; i < menus.length; i++) {
-            var ch = menus[i].child;
-
-
-            for (var j = 0; j < ch.length; j++) {
-                var cc = ch[j];
-                
-                if (cc.keyProp == pathname) {
-                    exitsMenu = true;
-                    break;
-                }
-            }
-        }
-        if (!exitsMenu && pathname != '/') {
-            this.props.history.replace("/");
-        }
-    },
+    // checkSelectMenuIsRight(menus){//保护菜单不被无权限用户访问
+    //     let exitsMenu = false;
+    //     const {pathname} = this.state;
+    //     for (var i = 0; i < menus.length; i++) {
+    //         var ch = menus[i].child;
+    //
+    //
+    //         for (var j = 0; j < ch.length; j++) {
+    //             var cc = ch[j];
+    //
+    //             if (cc.keyProp == pathname) {
+    //                 exitsMenu = true;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     if (!exitsMenu && pathname != '/') {
+    //         this.props.history.replace("/");
+    //         return false;
+    //     }
+    //     return true;
+    // },
     registEvents(){
         window.eventEmitter.on('onRouteEnter', (args) => {//当地址栏url变化时，回显nav
 
-            setTimeout(function () {//防止报错
+            // const {menus} = this.state;
+            setTimeout(() => {
+
                 const {pathname} = args;
                 this.updateSelectKeys([pathname]);
-                this.updatePathname(pathname);
-            }.bind(this), 1);
+            }, 1);
+
+            // this.updatePathname(pathname);
+            // if (!isEmptyList(menus)) {
+            //     let res = this.checkSelectMenuIsRight(menus);
+            //     if (!res) {
+            //         this.updatePathname('/');
+            //         return false;
+            //     }
+            // }
             return true;
         });
 
@@ -91,7 +104,7 @@ var Nav = React.createClass({
 
                         this.updateMenus(menu);
 
-                        this.checkSelectMenuIsRight(menu);
+                        // this.checkSelectMenuIsRight(menu);
 
                     }.bind(this),
                     failure: function (result) {
