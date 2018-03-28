@@ -43,8 +43,10 @@ var Nav = React.createClass({
     registEvents(){
         window.eventEmitter.on('onRouteEnter', (args) => {//当地址栏url变化时，回显nav
 
-            const {pathname} = args;
-            this.updateSelectKeys([pathname]);
+            setTimeout(function () {//防止报错
+                const {pathname} = args;
+                this.updateSelectKeys([pathname]);
+            }.bind(this),1);
             return true;
         });
 
