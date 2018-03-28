@@ -25,9 +25,15 @@ var Routes = React.createClass({
         return {};
     },
     componentDidMount(){
+        this.registEvents();
+    },
+    registEvents(){
+
 
     },
     render: function () {
+
+
         return (
             <div style={{marginTop: 35, padding: 24, background: '#fff', minHeight: 360}}>
                 <Route exact path='/'
@@ -48,7 +54,7 @@ var Routes = React.createClass({
                        render={() => {
                            let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/user"
-                           })
+                           });
                            if (isUndefined(res) || res) {
 
                                return <UserPage />;
@@ -62,7 +68,7 @@ var Routes = React.createClass({
                        render={() => {
                            window.EventsDispatcher.onRouteEnter({
                                pathname: "/user/login/logs"
-                           })
+                           });
                            return <UserLoginLogsPage />;
                        }
 
