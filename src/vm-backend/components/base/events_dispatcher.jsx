@@ -9,7 +9,7 @@ window.EventsDispatcher = {
         this.event.emit('showLoginDialog');
     },
     onRouteEnter (args) {
-        this.event.emit('onRouteEnter', args);
+        return this.event.emit('onRouteEnter', args);
     },
     onTagAddSuccess (record) {
         this.event.emit('onTagAddSuccess', record);
@@ -25,7 +25,10 @@ window.EventsDispatcher = {
     },
     updateLoginAdminInfo(admin) {
         this.event.emit('updateLoginAdminInfo',admin);
-    }
+    },
+    updateAdminMenuTree(menuTree) {
+    this.event.emit('updateAdminMenuTree',menuTree);
+}
 };
 const eventsDispatcher = window.EventsDispatcher;
 const EventsDispatcher = eventsDispatcher;

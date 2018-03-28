@@ -32,7 +32,7 @@ var Routes = React.createClass({
             <div style={{marginTop: 35, padding: 24, background: '#fff', minHeight: 360}}>
                 <Route exact path='/'
                        render={() => {
-                           window.EventsDispatcher.onRouteEnter({
+                           let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/"
                            })
                            return <HomePage />;
@@ -41,10 +41,15 @@ var Routes = React.createClass({
                        }/>
                 <Route exact path='/user'
                        render={() => {
-                           window.EventsDispatcher.onRouteEnter({
+                           let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/user"
                            })
-                           return <UserPage />;
+                           if (isUndefined(res) || res) {
+
+                               return <UserPage />;
+                           } else {
+                               return <div/>;
+                           }
                        }
 
                        }/>
@@ -59,55 +64,87 @@ var Routes = React.createClass({
                        }/>
                 <Route exact path='/movie'
                        render={() => {
-                           window.EventsDispatcher.onRouteEnter({
+                           let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/movie"
-                           })
-                           return <MoviePage />;
+                           });
+
+                           if (isUndefined(res) || res) {
+
+                               return <MoviePage />;
+                           } else {
+                               return <div/>;
+                           }
                        }
 
                        }/>
                 <Route exact path='/movie/filmmaker'
                        render={() => {
-                           window.EventsDispatcher.onRouteEnter({
+                           let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/movie/filmmaker"
-                           })
-                           return <FilmmakerPage />;
+                           });
+
+                           if (isUndefined(res) || res) {
+
+                               return <FilmmakerPage />;
+                           } else {
+                               return <div/>;
+                           }
                        }
 
                        }/>
                 <Route exact path='/movie/tagGroup'
                        render={() => {
-                           window.EventsDispatcher.onRouteEnter({
+                           let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/movie/tagGroup"
-                           })
-                           return <TagGroupPage />;
+                           });
+                           if (isUndefined(res) || res) {
+
+                               return <TagGroupPage />;
+                           } else {
+                               return <div/>;
+                           }
                        }
 
                        }/>
                 <Route exact path='/admin'
                        render={() => {
-                           window.EventsDispatcher.onRouteEnter({
+                           let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/admin"
-                           })
-                           return <AdminPage />;
+                           });
+                           if (isUndefined(res) || res) {
+
+                               return <AdminPage />;
+                           } else {
+                               return <div/>;
+                           }
                        }
 
                        }/>
                 <Route exact path='/admin/login/logs'
                        render={() => {
-                           window.EventsDispatcher.onRouteEnter({
+                           let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/admin/login/logs"
-                           })
-                           return <AdminLoginLogsPage />;
+                           });
+                           if (isUndefined(res) || res) {
+
+                               return <AdminLoginLogsPage />;
+                           } else {
+                               return <div/>;
+                           }
                        }
 
                        }/>
                 <Route exact path='/admin/role'
                        render={() => {
-                           window.EventsDispatcher.onRouteEnter({
+                           let res = window.EventsDispatcher.onRouteEnter({
                                pathname: "/admin/role"
-                           })
-                           return <RolePage />;
+                           });
+                           if (isUndefined(res) || res) {
+
+                               return <RolePage />;
+                           } else {
+                               return <div/>;
+                           }
                        }
 
                        }/>

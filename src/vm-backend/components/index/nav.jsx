@@ -2,7 +2,7 @@ import React from "react";
 import {Form, Icon, Layout, Menu, message} from "antd";
 import {withRouter} from "react-router-dom";
 
-import {commons,ajax} from "../base/vm_util";
+import {ajax} from "../base/vm_util";
 import "antd/dist/antd.css";
 import "../../scss/index/nav.scss";
 import "../base/events_dispatcher";
@@ -26,15 +26,15 @@ var Nav = React.createClass({
         this.registEvents();
     },
     updateMenus(menus){
-        if(isUndefined(menus)){
-            return;
+        if (isUndefined(menus)) {
+            menus = [];
         }
         //open all submenu
         const openKeys = [];
         for (var i = 0; i < menus.length; i++) {
             openKeys.push(menus[i].keyProp);
         }
-
+        openKeys.push("homeMenu");
         this.setState({menus});
 
 
@@ -42,16 +42,16 @@ var Nav = React.createClass({
     },
     registEvents(){
         window.eventEmitter.on('onRouteEnter', (args) => {//当地址栏url变化时，回显nav
-            setTimeout(function () {
-                var pathname = args.pathname;
-                this.updateSelectKeys([pathname]);
-            }.bind(this), 1);
+
+            const {pathname} = args;
+            this.updateSelectKeys([pathname]);
+            return true;
         });
 
         window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
-            if(isUndefined(admin)){
+            if (isUndefined(admin)) {
                 this.updateMenus([]);
-            }else{
+            } else {
                 const {menuUrl, tipOfLoadMenus} = this.state;
                 const hiddenMassage = message.loading(tipOfLoadMenus, 0);
                 ajax.get({
@@ -120,6 +120,15 @@ var Nav = React.createClass({
                       selectedKeys={selectedKeys}
                       onClick={this.onMenuItmClick}
                       mode="inline">
+                    <SubMenu
+                        key="homeMenu"
+                        onTitleClick={this.onSubMenuClick}
+                        title={<span><Icon type="home"/><span>主页</span></span>}
+                    >
+                        <Menu.Item key="/">
+                            主页
+                        </Menu.Item>
+                    </SubMenu>
                     {
                         menus.map(function (subMenu) {
                             return <SubMenu
@@ -128,7 +137,7 @@ var Nav = React.createClass({
                                 title={<span><Icon type={subMenu.icon}/><span>{subMenu.menuName}</span></span>}
                             >
                                 {
-                                    subMenu.child == null?<div></div>:subMenu.child.map(function (menu) {
+                                    subMenu.child == null ? <div></div> : subMenu.child.map(function (menu) {
                                         return <Menu.Item key={menu.keyProp}>
                                             {
                                                 menu.menuName
@@ -139,15 +148,7 @@ var Nav = React.createClass({
                             </SubMenu>
                         }.bind(this))
                     }
-                    {/*<SubMenu*/}
-                    {/*key="homeMenu"*/}
-                    {/*onTitleClick={this.onSubMenuClick}*/}
-                    {/*title={<span><Icon type="home"/><span>主页</span></span>}*/}
-                    {/*>*/}
-                    {/*<Menu.Item key="/">*/}
-                    {/*主页*/}
-                    {/*</Menu.Item>*/}
-                    {/*</SubMenu>*/}
+
                     {/*<SubMenu*/}
                     {/*key="userMenu"*/}
                     {/*onTitleClick={this.onSubMenuClick}*/}

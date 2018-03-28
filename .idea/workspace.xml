@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,24 +31,36 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user_table.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/user/user_table.jsx">
+      <file leaf-file-name="nav.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="605" column="74" lean-forward="true" selection-start-line="605" selection-start-column="74" selection-end-line="607" selection-end-column="50" />
-              <folding />
+            <state relative-caret-position="641">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_table.jsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx">
+      <file leaf-file-name="routes.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="254" column="79" lean-forward="false" selection-start-line="254" selection-start-column="79" selection-end-line="254" selection-end-column="79" />
+            <state relative-caret-position="462">
+              <caret line="138" column="64" lean-forward="false" selection-start-line="138" selection-start-column="64" selection-end-line="138" selection-end-column="64" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events_dispatcher.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,24 +69,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>“showLoginDialog</find>
-      <find>&quot;showLoginDialog</find>
-      <find>&quot;showLoginDialog&quot;</find>
-      <find>message.loading</find>
-      <find>showLoginDialog</find>
-      <find>onSubMenuClick</find>
-      <find>.map</find>
-      <find>(result.data.admin</find>
-      <find>Admin</find>
-      <find>query.username</find>
-      <find>管理员</find>
-      <find>admin</find>
-      <find>filmmakers</find>
-      <find>filmmakerOp</find>
-      <find>filmmakerOptions</find>
-      <find>loadFilmmakerData</find>
-      <find>mul</find>
-      <find>d</find>
       <find>//</find>
       <find>show</find>
       <find>isUndefined(echoData)</find>
@@ -84,6 +81,24 @@
       <find>user</find>
       <find>loadDataByAdminId</find>
       <find>menu</find>
+      <find>this</find>
+      <find>this.loca</find>
+      <find>this.loc</find>
+      <find>this.lo</find>
+      <find>this.</find>
+      <find>this.l</find>
+      <find>this.location</find>
+      <find>r</find>
+      <find>rel</find>
+      <find>replac</find>
+      <find>rep</find>
+      <find>replace</find>
+      <find>p</find>
+      <find>protec</find>
+      <find>protectU</find>
+      <find>protect</find>
+      <find>protectPage</find>
+      <find>updateSelectKeys</find>
     </findStrings>
     <replaceStrings>
       <replace>Moviename</replace>
@@ -174,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/vm-backend/view/index.html" />
         <option value="$PROJECT_DIR$/src/vm-backend/scss/index/head.scss" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/index.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/login_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/head.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/role_page.jsx" />
@@ -182,15 +196,16 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/js/util.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/role_edit_dialog.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_edit_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_add_dialog.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_login_logs_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_login_logs_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_login_logs_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
       </list>
     </option>
   </component>
@@ -1140,12 +1155,12 @@
       <workItem from="1521867953570" duration="5140000" />
       <workItem from="1522049346069" duration="18309000" />
       <workItem from="1522131708565" duration="10613000" />
-      <workItem from="1522152760370" duration="2629000" />
+      <workItem from="1522152760370" duration="5946000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379911000" />
+    <option name="totallyTimeSpent" value="383228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1165,8 +1180,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2585288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2585288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1180,7 +1196,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1248,27 +1263,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/movie_info_page.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="336" column="44" lean-forward="true" selection-start-line="336" selection-start-column="44" selection-end-line="336" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="32" column="56" lean-forward="false" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/movie/tag_table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="54" column="6" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="54" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1428,20 +1422,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/head.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="175" column="46" lean-forward="false" selection-start-line="175" selection-start-column="31" selection-end-line="175" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1463,13 +1444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
           <caret line="66" column="16" lean-forward="true" selection-start-line="66" selection-start-column="16" selection-end-line="67" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/head.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1523,13 +1497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="41" column="6" lean-forward="true" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/role_add_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1562,14 +1529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="62" lean-forward="false" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/scss/admin/admin_login_logs_table.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1583,7 +1542,7 @@
         <state relative-caret-position="675">
           <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1593,7 +1552,7 @@
         <state relative-caret-position="246">
           <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="59" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#0#33#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1603,7 +1562,7 @@
         <state relative-caret-position="317">
           <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1618,8 +1577,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="254" column="79" lean-forward="false" selection-start-line="254" selection-start-column="79" selection-end-line="254" selection-end-column="79" />
+        <state relative-caret-position="1019">
+          <caret line="263" column="45" lean-forward="false" selection-start-line="263" selection-start-column="45" selection-end-line="263" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/plugin/cropper/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="289">
+            <caret line="482" column="4" lean-forward="false" selection-start-line="482" selection-start-column="4" selection-end-line="482" selection-end-column="4" />
+            <folding>
+              <marker date="1517219861047" expanded="true" signature="2054:2098" ph="..." />
+              <marker date="1517219861047" expanded="true" signature="2172:2256" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="2288:2568" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="2333:2566" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="11562:11659" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="11585:11657" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="11726:11857" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="11768:11855" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="11774:11822" ph="//..." />
+              <marker date="1517219861047" expanded="true" signature="18059:18137" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="21846:22035" ph="{&quot;fillColor&quot;: '##fff'...}" />
+              <marker date="1517219861047" expanded="true" signature="22179:22519" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="22285:22515" ph="{&quot;method&quot;: &quot;POST&quot;...}" />
+              <marker date="1517219861047" expanded="true" signature="22400:22444" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="22469:22511" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="23959:24222" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="24191:24220" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="25458:25581" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="25502:25555" ph="{...}" />
+              <marker date="1517219861047" expanded="true" signature="25559:25579" ph="//..." />
+              <marker date="1517219861047" expanded="true" signature="25854:25959" ph="..." />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/events_dispatcher.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/dist/bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="8751" column="61" lean-forward="false" selection-start-line="8751" selection-start-column="50" selection-end-line="8751" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/head.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/components/head.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="165" column="52" lean-forward="true" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="138" column="64" lean-forward="false" selection-start-line="138" selection-start-column="64" selection-end-line="138" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
