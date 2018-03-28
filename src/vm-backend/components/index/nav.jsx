@@ -24,9 +24,7 @@ var Nav = React.createClass({
     },
     componentDidMount(){
         this.registEvents();
-    },
-    updatePathname(pathname){
-        this.setState({pathname});
+
     },
     updateMenus(menus){
         if (isUndefined(menus)) {
@@ -44,29 +42,31 @@ var Nav = React.createClass({
 
         this.updateOpenKeys(openKeys);
     },
+    backToHomePage(){
+        message.destroy();//阻止显示msg
+        if(this.props.location.pathname!="/"){//不在主页
+
+            this.stepPage("/");//返回主页
+        }
+    },
 
     registEvents(){
-        window.eventEmitter.on('onRouteEnter', (args) => {//当地址栏url变化时，回显nav
+        window.eventEmitter.on('onRouteEnter', (args) => {//当用户直接在地址栏输入url时，回显nav
             setTimeout(() => {
-
                 const {pathname} = args;
                 this.updateSelectKeys([pathname]);
             }, 1);
-
-            return true;
         });
-
+        window.eventEmitter.on('updateAdminMenuTree', (menuTree) => {//当用户直接在地址栏输入url时，回显nav
+           this.updateMenus(menuTree);
+        });
         window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
-
             if (isUndefined(admin)) {
                 const menu = [];
+
                 this.updateMenus(menu);
 
-                const {selectedKeys} = this.state;
-                if(!selectedKeys.contains("/")){//不在主页
-                    this.onMenuItmClick({key:"/"});//回到主页
-                }
-
+                this.backToHomePage();//用户注销
 
             } else {
                 const {menuUrl, tipOfLoadMenus} = this.state;
@@ -79,8 +79,9 @@ var Nav = React.createClass({
 
                         message.success(result.msg);
 
-                        this.updateMenus(menu);
+                        // this.updateMenus(menu);
 
+                        window.EventsDispatcher.updateAdminMenuTree(menu);
                     }.bind(this),
                     failure: function (result) {
                         message.error(result.msg);
@@ -106,6 +107,9 @@ var Nav = React.createClass({
         this.setState(state);
     },
     onMenuItmClick({item, key, keyPath}){
+        this.stepPage(key);
+    },
+    stepPage(key){
         //单选
         var selectedKeys = [];
         selectedKeys.push(key);

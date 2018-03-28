@@ -8,7 +8,7 @@ window.EventsDispatcher = {
         this.event.emit('showLoginDialog');
     },
     onRouteEnter (args) {
-        return this.event.emit('onRouteEnter', args);
+        this.event.emit('onRouteEnter', args);
     },
     onTagAddSuccess (record) {
         this.event.emit('onTagAddSuccess', record);
@@ -22,8 +22,11 @@ window.EventsDispatcher = {
     loadMovieSrcVersionTableData() {
         this.event.emit('loadMovieSrcVersionTableData');
     },
-    updateLoginAdminInfo(admin) {
+    updateLoginAdminInfo(admin) {//用户check，注销，登录调用
         this.event.emit('updateLoginAdminInfo', admin);
+    },
+    updateAdminMenuTree(menuTree) {
+        this.event.emit('updateAdminMenuTree', menuTree);
     }
 };
 const eventsDispatcher = window.EventsDispatcher;

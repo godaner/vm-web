@@ -1,8 +1,6 @@
 import React from "react";
 import {Form, Layout, Menu} from "antd";
 import {Route, withRouter} from "react-router-dom";
-
-
 import "antd/dist/antd.css";
 import "../../scss/base/routes.scss";
 import "../base/events_dispatcher";
@@ -22,143 +20,174 @@ const SubMenu = Menu.SubMenu;
 
 var Routes = React.createClass({
     getInitialState: function () {
-        return {};
+        return {
+
+            menuKeys: []
+        };
     },
     componentDidMount(){
         this.registEvents();
     },
+    updateMenuKeys(menuKeys){
+        this.setState({menuKeys});
+    },
     registEvents(){
 
+        window.eventEmitter.on('updateAdminMenuTree', (menuTree) => {//更新routes
+            const menuKeys = [];
+            $.each(menuTree, function (i,menu) {
+                $.each(menu.child, function (j,ch) {
+                    menuKeys.push(ch.keyProp);
+                });
+            });
+            this.updateMenuKeys(menuKeys);
+
+        });
 
     },
     render: function () {
-
-
+        const {menuKeys} = this.state;
         return (
             <div style={{marginTop: 35, padding: 24, background: '#fff', minHeight: 360}}>
                 <Route exact path='/'
                        render={() => {
-                           let res = window.EventsDispatcher.onRouteEnter({
+                           window.EventsDispatcher.onRouteEnter({
                                pathname: "/"
                            });
-                           if (isUndefined(res) || res) {
 
-                               return <HomePage />;
-                           } else {
-                               return <div/>;
-                           }
+
+                           return <HomePage />;
+
                        }
 
                        }/>
-                <Route exact path='/user'
-                       render={() => {
-                           let res = window.EventsDispatcher.onRouteEnter({
-                               pathname: "/user"
-                           });
-                           if (isUndefined(res) || res) {
 
-                               return <UserPage />;
-                           } else {
-                               return <div/>;
-                           }
-                       }
+                {
+                    menuKeys.contains("/user") ? <Route exact path='/user'
+                                                        render={() => {
+                                                            window.EventsDispatcher.onRouteEnter({
+                                                                pathname: "/user"
+                                                            });
 
-                       }/>
-                <Route exact path='/user/login/logs'
-                       render={() => {
-                           window.EventsDispatcher.onRouteEnter({
-                               pathname: "/user/login/logs"
-                           });
-                           return <UserLoginLogsPage />;
-                       }
 
-                       }/>
-                <Route exact path='/movie'
-                       render={() => {
-                           let res = window.EventsDispatcher.onRouteEnter({
-                               pathname: "/movie"
-                           });
+                                                            return <UserPage />;
 
-                           if (isUndefined(res) || res) {
+                                                        }
 
-                               return <MoviePage />;
-                           } else {
-                               return <div/>;
-                           }
-                       }
+                                                        }/> : <div></div>
 
-                       }/>
-                <Route exact path='/movie/filmmaker'
-                       render={() => {
-                           let res = window.EventsDispatcher.onRouteEnter({
-                               pathname: "/movie/filmmaker"
-                           });
+                }
+                {
+                    menuKeys.contains("/user/login/logs") ? <Route exact path='/user/login/logs'
+                                                                   render={() => {
+                                                                       window.EventsDispatcher.onRouteEnter({
+                                                                           pathname: "/user/login/logs"
+                                                                       });
+                                                                       return <UserLoginLogsPage />;
+                                                                   }
 
-                           if (isUndefined(res) || res) {
+                                                                   }/> : <div></div>
 
-                               return <FilmmakerPage />;
-                           } else {
-                               return <div/>;
-                           }
-                       }
+                }
+                {
+                    menuKeys.contains("/movie") ? <Route exact path='/movie'
+                                                         render={() => {
+                                                             window.EventsDispatcher.onRouteEnter({
+                                                                 pathname: "/movie"
+                                                             });
 
-                       }/>
-                <Route exact path='/movie/tagGroup'
-                       render={() => {
-                           let res = window.EventsDispatcher.onRouteEnter({
-                               pathname: "/movie/tagGroup"
-                           });
-                           if (isUndefined(res) || res) {
 
-                               return <TagGroupPage />;
-                           } else {
-                               return <div/>;
-                           }
-                       }
+                                                             return <MoviePage />;
 
-                       }/>
-                <Route exact path='/admin'
-                       render={() => {
-                           let res = window.EventsDispatcher.onRouteEnter({
-                               pathname: "/admin"
-                           });
-                           if (isUndefined(res) || res) {
+                                                         }
 
-                               return <AdminPage />;
-                           } else {
-                               return <div/>;
-                           }
-                       }
+                                                         }/> : <div></div>
 
-                       }/>
-                <Route exact path='/admin/login/logs'
-                       render={() => {
-                           let res = window.EventsDispatcher.onRouteEnter({
-                               pathname: "/admin/login/logs"
-                           });
-                           if (isUndefined(res) || res) {
+                }
+                {
+                    menuKeys.contains("/movie/filmmaker") ? <Route exact path='/movie/filmmaker'
+                                                                   render={() => {
+                                                                       window.EventsDispatcher.onRouteEnter({
+                                                                           pathname: "/movie/filmmaker"
+                                                                       });
 
-                               return <AdminLoginLogsPage />;
-                           } else {
-                               return <div/>;
-                           }
-                       }
 
-                       }/>
-                <Route exact path='/admin/role'
-                       render={() => {
-                           let res = window.EventsDispatcher.onRouteEnter({
-                               pathname: "/admin/role"
-                           });
-                           if (isUndefined(res) || res) {
+                                                                       return <FilmmakerPage />;
 
-                               return <RolePage />;
-                           } else {
-                               return <div/>;
-                           }
-                       }
+                                                                   }
 
-                       }/>
+                                                                   }/> : <div></div>
+
+                }
+
+                {
+                    menuKeys.contains("/movie/tagGroup") ? <Route exact path='/movie/tagGroup'
+                                                                  render={() => {
+                                                                      window.EventsDispatcher.onRouteEnter({
+                                                                          pathname: "/movie/tagGroup"
+                                                                      });
+
+
+                                                                      return <TagGroupPage />;
+
+                                                                  }
+
+                                                                  }/> : <div></div>
+
+                }
+                {
+                    menuKeys.contains("/admin") ? <Route exact path='/admin'
+                                                         render={() => {
+                                                             window.EventsDispatcher.onRouteEnter({
+                                                                 pathname: "/admin"
+                                                             });
+                                                             return <AdminPage />;
+                                                         }
+
+                                                         }/> : <div></div>
+
+                }
+                {
+                    menuKeys.contains("/admin/login/logs") ? <Route exact path='/admin/login/logs'
+                                                                    render={() => {
+                                                                        window.EventsDispatcher.onRouteEnter({
+                                                                            pathname: "/admin/login/logs"
+                                                                        });
+
+
+                                                                        return <AdminLoginLogsPage />;
+
+                                                                    }
+
+                                                                    }/> : <div></div>
+
+                }
+                {
+                    menuKeys.contains("/admin/role") ? <Route exact path='/admin/role'
+                                                              render={() => {
+                                                                  window.EventsDispatcher.onRouteEnter({
+                                                                      pathname: "/admin/role"
+                                                                  });
+
+
+                                                                  return <RolePage />;
+
+                                                              }
+
+                                                              }/> : <div></div>
+
+                }
+                {/*<Route render={() => {*/}
+                    {/*window.EventsDispatcher.onRouteEnter({*/}
+                        {/*pathname: "/"*/}
+                    {/*});*/}
+
+
+                    {/*return <HomePage />;*/}
+
+                {/*}*/}
+
+                {/*}/>*/}
 
             </div>
         );
