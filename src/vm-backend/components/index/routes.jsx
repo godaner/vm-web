@@ -22,7 +22,7 @@ var Routes = React.createClass({
     getInitialState: function () {
         return {
 
-            menuKeys: []
+            menuKeys: undefined
         };
     },
     componentDidMount(){
@@ -34,19 +34,29 @@ var Routes = React.createClass({
     registEvents(){
 
         window.eventEmitter.on('updateAdminMenuTree', (menuTree) => {//更新routes
-            const menuKeys = [];
-            $.each(menuTree, function (i,menu) {
-                $.each(menu.child, function (j,ch) {
-                    menuKeys.push(ch.keyProp);
+            var menuKeys = [];
+            if(!isEmptyList(menuTree)){
+                $.each(menuTree, function (i,menu) {
+                    $.each(menu.child, function (j,ch) {
+                        menuKeys.push(ch.keyProp);
+                    });
                 });
-            });
+            }
+
             this.updateMenuKeys(menuKeys);
 
         });
 
     },
     render: function () {
-        const {menuKeys} = this.state;
+        var {menuKeys} = this.state;
+
+        if(!isUndefined(menuKeys)&&!menuKeys.contains(this.props.location.pathname)){
+            window.EventsDispatcher.backToHomePage();
+        }
+        if(isUndefined(menuKeys)){
+            menuKeys = [];
+        }
         return (
             <div style={{marginTop: 35, padding: 24, background: '#fff', minHeight: 360}}>
                 <Route exact path='/'
@@ -177,17 +187,6 @@ var Routes = React.createClass({
                                                               }/> : <div></div>
 
                 }
-                {/*<Route render={() => {*/}
-                    {/*window.EventsDispatcher.onRouteEnter({*/}
-                        {/*pathname: "/"*/}
-                    {/*});*/}
-
-
-                    {/*return <HomePage />;*/}
-
-                {/*}*/}
-
-                {/*}/>*/}
 
             </div>
         );

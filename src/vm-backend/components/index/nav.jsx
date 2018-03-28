@@ -51,6 +51,9 @@ var Nav = React.createClass({
     },
 
     registEvents(){
+        window.eventEmitter.on('backToHomePage', () => {//当用户直接在地址栏输入url时，回显nav
+            this.backToHomePage();
+        });
         window.eventEmitter.on('onRouteEnter', (args) => {//当用户直接在地址栏输入url时，回显nav
             setTimeout(() => {
                 const {pathname} = args;
@@ -66,7 +69,10 @@ var Nav = React.createClass({
 
                 this.updateMenus(menu);
 
-                this.backToHomePage();//用户注销
+                // this.backToHomePage();//用户注销
+                window.EventsDispatcher.updateAdminMenuTree(menu);
+
+                // this.backToHomePage();//用户注销
 
             } else {
                 const {menuUrl, tipOfLoadMenus} = this.state;

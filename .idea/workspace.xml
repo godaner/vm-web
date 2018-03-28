@@ -31,21 +31,33 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="nav.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="head.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/head.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1755">
-              <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="83" selection-end-column="72" />
+            <state relative-caret-position="351">
+              <caret line="83" column="60" lean-forward="false" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="288">
+              <caret line="54" column="12" lean-forward="false" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -63,18 +75,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nav.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="66" column="39" lean-forward="true" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/js/util.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="events_dispatcher.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="events_dispatcher.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="44" />
+            <state relative-caret-position="570">
+              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -101,7 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selectAuthIds</find>
       <find>Op</find>
       <find>handleMenuSelectChange</find>
       <find>query.adminname</find>
@@ -130,6 +129,7 @@
       <find>updateOpenKeys</find>
       <find>selectedKeys</find>
       <find>backToHomePage</find>
+      <find>window.EventsDispatcher.backToHomePage</find>
       <find>updateIsLogin</find>
     </findStrings>
     <replaceStrings>
@@ -235,9 +235,9 @@
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_login_logs_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/head.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx" />
       </list>
     </option>
   </component>
@@ -1187,12 +1187,12 @@
       <workItem from="1521867953570" duration="5140000" />
       <workItem from="1522049346069" duration="18309000" />
       <workItem from="1522131708565" duration="10613000" />
-      <workItem from="1522152760370" duration="16794000" />
+      <workItem from="1522152760370" duration="18192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394076000" />
+    <option name="totallyTimeSpent" value="395474000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1669,22 +1669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/head.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="83" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -1693,23 +1677,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/head.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="66" column="39" lean-forward="true" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+        <state relative-caret-position="351">
+          <caret line="83" column="60" lean-forward="false" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="54" column="12" lean-forward="false" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/routes.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        <state relative-caret-position="540">
+          <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/events_dispatcher.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

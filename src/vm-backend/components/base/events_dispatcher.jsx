@@ -27,6 +27,10 @@ window.EventsDispatcher = {
     },
     updateAdminMenuTree(menuTree) {
         this.event.emit('updateAdminMenuTree', menuTree);
+    },
+    backToHomePage(){
+
+        this.event.emit('backToHomePage');
     }
 };
 const eventsDispatcher = window.EventsDispatcher;
