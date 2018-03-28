@@ -19,11 +19,15 @@ var Nav = React.createClass({
             menuTheme: "dark",//dark,light
             menus: [],
             menuUrl: "/admin/menu/tree/byAdminId/",
-            tipOfLoadMenus: "正在加载菜单"
+            tipOfLoadMenus: "正在加载菜单",
+            pathname: undefined//当前pathname
         };
     },
     componentDidMount(){
         this.registEvents();
+    },
+    updatePathname(pathname){
+        this.setState({pathname});
     },
     updateMenus(menus){
         if (isUndefined(menus)) {
@@ -40,13 +44,34 @@ var Nav = React.createClass({
 
         this.updateOpenKeys(openKeys);
     },
+    checkSelectMenuIsRight(menus){//保护菜单不被无权限用户访问
+        let exitsMenu = false;
+        const {pathname} = this.state;
+        for (var i = 0; i < menus.length; i++) {
+            var ch = menus[i].child;
+
+
+            for (var j = 0; j < ch.length; j++) {
+                var cc = ch[j];
+                
+                if (cc.keyProp == pathname) {
+                    exitsMenu = true;
+                    break;
+                }
+            }
+        }
+        if (!exitsMenu && pathname != '/') {
+            this.props.history.replace("/");
+        }
+    },
     registEvents(){
         window.eventEmitter.on('onRouteEnter', (args) => {//当地址栏url变化时，回显nav
 
             setTimeout(function () {//防止报错
                 const {pathname} = args;
                 this.updateSelectKeys([pathname]);
-            }.bind(this),1);
+                this.updatePathname(pathname);
+            }.bind(this), 1);
             return true;
         });
 
@@ -60,9 +85,13 @@ var Nav = React.createClass({
                     url: menuUrl + admin.id,
                     success: function (result) {
 
+                        const menu = result.data.tree;
+
                         message.success(result.msg);
 
-                        this.updateMenus(result.data.tree);
+                        this.updateMenus(menu);
+
+                        this.checkSelectMenuIsRight(menu);
 
                     }.bind(this),
                     failure: function (result) {
