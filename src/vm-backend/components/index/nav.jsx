@@ -57,12 +57,16 @@ var Nav = React.createClass({
         });
 
         window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
-            // c("updateLoginAdminInfo");
-
 
             if (isUndefined(admin)) {
                 const menu = [];
                 this.updateMenus(menu);
+
+                const {selectedKeys} = this.state;
+                if(!selectedKeys.contains("/")){//不在主页
+                    this.onMenuItmClick({key:"/"});//回到主页
+                }
+
 
             } else {
                 const {menuUrl, tipOfLoadMenus} = this.state;
@@ -107,7 +111,7 @@ var Nav = React.createClass({
         selectedKeys.push(key);
         this.updateSelectKeys(selectedKeys);
         //跳转,将key作为路由的pathname
-        this.props.history.push({
+        this.props.history.push({//!!!important
             pathname: key,
             query: {
                 param: "66"//demo

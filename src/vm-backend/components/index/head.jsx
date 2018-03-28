@@ -49,6 +49,7 @@ var Head = React.createClass({
 
                     window.EventsDispatcher.showLoginDialog();
 
+                    window.EventsDispatcher.updateLoginAdminInfo(undefined);
 
                 } else {
 

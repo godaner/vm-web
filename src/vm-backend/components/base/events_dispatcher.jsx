@@ -1,6 +1,5 @@
 import React from "react"; //引入react组件
 import {EventEmitter} from "events";
-import {ajax, commons} from "./vm_util";
 window.eventEmitter = new EventEmitter();
 //项目前端事件分发器
 window.EventsDispatcher = {
@@ -24,11 +23,8 @@ window.EventsDispatcher = {
         this.event.emit('loadMovieSrcVersionTableData');
     },
     updateLoginAdminInfo(admin) {
-        this.event.emit('updateLoginAdminInfo',admin);
-    },
-    updateAdminMenuTree(menuTree) {
-    this.event.emit('updateAdminMenuTree',menuTree);
-}
+        this.event.emit('updateLoginAdminInfo', admin);
+    }
 };
 const eventsDispatcher = window.EventsDispatcher;
 const EventsDispatcher = eventsDispatcher;
