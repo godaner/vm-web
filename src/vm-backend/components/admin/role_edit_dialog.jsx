@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
-const {Option,OptGroup} = Select;
+const {Option, OptGroup} = Select;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 const Search = Input.Search;
@@ -16,6 +16,7 @@ var RoleEditDialog = React.createClass({
     getInitialState(){
 
         return {
+            width: 666,
             title: "修改角色信息",
             editRoleUrl: "/admin/role/info",
             tipOfEditing: '正在保存角色修改',
@@ -23,8 +24,8 @@ var RoleEditDialog = React.createClass({
             selectAuthIds: [],
             authUrl: "/admin/auth/info/all",
             selectAuthUrl: "/admin/auth/id/list/byRoleId/",
-            menus:[],
-            selectMenuIds:[],
+            menus: [],
+            selectMenuIds: [],
             menuUrl: "/admin/menu/tree/all",
             selectMenuUrl: "/admin/menu/leaf/id/list/byRoleId/",
         };
@@ -180,7 +181,7 @@ var RoleEditDialog = React.createClass({
     render(){
         var {echoData} = this.props;
 
-        const {title, auths, selectAuthIds,menus,selectMenuIds} = this.state;
+        const {title, auths, selectAuthIds, menus, selectMenuIds, width} = this.state;
 
         echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
         // filterEchoData
@@ -213,7 +214,7 @@ var RoleEditDialog = React.createClass({
             }.bind(this));
         }
         var menuOptions = [];
-        if(!isUndefined(menus) && menus.length >= 1){
+        if (!isUndefined(menus) && menus.length >= 1) {
             // c("menus");
             // c(menus);
             menuOptions = menus.map(function (menu, i) {
@@ -237,7 +238,7 @@ var RoleEditDialog = React.createClass({
                 {
                     cols: [
                         {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "id",
                             id: "id",
                             config: {
@@ -248,11 +249,11 @@ var RoleEditDialog = React.createClass({
                                           disabled={true}/>
                         },
                         {
-                            col: {span: 2},
+                            col: {span: 1},
                             input: <div></div>
                         },
                         {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "名称",
                             id: "roleName",
                             config: {
@@ -262,14 +263,13 @@ var RoleEditDialog = React.createClass({
                             }
                             ,
                             input: <Input placeholder="请输入角色名称" name="name"/>
-                        }
-                    ]
-
-                },
-                {
-                    cols: [
+                        },
                         {
-                            col: {span: 11},
+                            col: {span: 1},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 7},
                             label: "状态",
                             id: "status",
                             config: {
@@ -282,13 +282,15 @@ var RoleEditDialog = React.createClass({
                                 <Option value="2">冻结</Option>
                             </Select>
                         }
-                        ,
+                    ]
+
+                },
+                {
+                    cols: [
+
+
                         {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-                        {
-                            col: {span: 11},
+                            col: {span: 7},
                             label: "创建时间",
                             id: "ignore_createTime",
                             config: {
@@ -296,18 +298,13 @@ var RoleEditDialog = React.createClass({
                             }
                             ,
                             input: <Input disabled={true}/>
-                        }
-                        ,
-                    ]
-
-
-                },
-
-                {
-                    cols: [
-
+                        },
                         {
-                            col: {span: 11},
+                            col: {span: 1},
+                            input: <div></div>
+                        },
+                        {
+                            col: {span: 7},
                             label: "最后更新时间",
                             id: "ignore_updateTime",
                             config: {
@@ -316,15 +313,11 @@ var RoleEditDialog = React.createClass({
                             ,
                             input: <Input disabled={true}/>
                         },
-                        {
-                            col: {span: 2},
-                            input: <div></div>
-                        },
-
                     ]
 
 
                 },
+
                 {
                     cols: [
                         {
@@ -399,6 +392,7 @@ var RoleEditDialog = React.createClass({
         ;
         return <EditDialogTemple
             title={title}
+            width={width}
             formRows={formRows}
             formLayout={formLayout}
             handleSubmit={this.handleSubmit}
