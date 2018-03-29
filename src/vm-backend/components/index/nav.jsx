@@ -51,6 +51,8 @@ var Nav = React.createClass({
     },
 
     registEvents(){
+
+
         window.eventEmitter.on('backToHomePage', () => {//当用户直接在地址栏输入url时，回显nav
             this.backToHomePage();
         });
@@ -75,24 +77,24 @@ var Nav = React.createClass({
 
             } else {
                 const {menuUrl, tipOfLoadMenus} = this.state;
-                const hiddenMassage = message.loading(tipOfLoadMenus, 0);
+                // const hiddenMassage = message.loading(tipOfLoadMenus, 0);
                 ajax.get({
                     url: menuUrl + admin.id,
                     success: function (result) {
 
                         const menu = result.data.tree;
 
-                        message.success(result.msg);
+                        // message.success(result.msg);
 
                         // this.updateMenus(menu);
 
                         window.EventsDispatcher.updateAdminMenuTree(menu);
                     }.bind(this),
                     failure: function (result) {
-                        message.error(result.msg);
+                        // message.error(result.msg);
                     },
                     complete: function () {
-                        hiddenMassage();
+                        // hiddenMassage();
                     }.bind(this)
                 });
             }

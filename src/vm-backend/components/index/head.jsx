@@ -5,7 +5,7 @@ import {Avatar, Dropdown, Form, Layout, Menu, message} from "antd";
 import "antd/dist/antd.css";
 import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
-import {ajax, commons} from "../base/vm_util";
+import {ajax} from "../base/vm_util";
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -17,15 +17,46 @@ var Head = React.createClass({
             logoutUrl: "/admin/logout",
             tipOfLogouting: "正在登出",
             admin: {},
-            colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae']
+            colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
+            pollingTimer: undefined,
+            pollingInterval: 5000
         };
     },
     componentDidMount(){
-        this.checkOnlineAdmin();
+        // this.checkOnlineAdmin();
+        this.startPollingCheckOnlineAdmin();
         this.registEvents();
+
+    },
+    startPollingCheckOnlineAdmin(){
+        let {pollingInterval, pollingTimer} = this.state;
+        if (!isUndefined(pollingTimer)) {
+            return;
+        }
+        this.checkOnlineAdmin();
+        pollingTimer = setInterval(function () {
+            this.checkOnlineAdmin();
+        }.bind(this), pollingInterval);
+        this.updatePollingTimer(pollingTimer);
+    },
+    stopPollingCheckOnlineAdmin(){
+        const {pollingTimer} = this.state;
+        clearInterval(pollingTimer);
+        this.updatePollingTimer(undefined);
+
+    },
+    updatePollingTimer(pollingTimer){
+        this.setState({pollingTimer});
     },
     registEvents(){
-        window.eventEmitter.on('updateLoginAdminInfo', (admin) => {
+        window.eventEmitter.on('stopPollingCheckOnlineAdmin', () => {//当用户直接在地址栏输入url时，回显nav
+            this.stopPollingCheckOnlineAdmin();
+        });
+        window.eventEmitter.on('startPollingCheckOnlineAdmin', () => {//当用户直接在地址栏输入url时，回显nav
+            this.startPollingCheckOnlineAdmin();
+        });
+
+        window.eventEmitter.on('updateLoginAdminInfo', (admin) => {//登录，注销等情况
 
             if (isUndefined(admin)) {
                 admin = {};
@@ -51,8 +82,9 @@ var Head = React.createClass({
 
                     window.EventsDispatcher.updateLoginAdminInfo(undefined);
 
-                } else {
+                    window.EventsDispatcher.stopPollingCheckOnlineAdmin();
 
+                } else {
 
                     window.EventsDispatcher.updateLoginAdminInfo(admin);
                 }
@@ -95,7 +127,7 @@ var Head = React.createClass({
     render () {
         const {admin, colorList} = this.state;
         const username = admin.username;
-        const color = colorList[commons.rand({max: colorList.length})];
+        const color = colorList[0];
 
 
         const menu = (

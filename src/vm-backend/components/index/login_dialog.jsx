@@ -70,6 +70,8 @@ var LoginDialog = React.createClass({
                 //clear form
                 this.getAdminLoginDialog().clearForm();
 
+                window.EventsDispatcher.startPollingCheckOnlineAdmin();
+
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);

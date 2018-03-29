@@ -31,6 +31,14 @@ window.EventsDispatcher = {
     backToHomePage(){
 
         this.event.emit('backToHomePage');
+    },
+    stopPollingCheckOnlineAdmin(){
+
+        this.event.emit('stopPollingCheckOnlineAdmin');
+    },
+    startPollingCheckOnlineAdmin(){
+
+        this.event.emit('startPollingCheckOnlineAdmin');
     }
 };
 const eventsDispatcher = window.EventsDispatcher;
