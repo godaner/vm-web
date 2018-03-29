@@ -26,7 +26,7 @@ var RoleTable = React.createClass({
             roleTable: {
                 title: "角色列表",
                 dataSourceUrl: "/admin/role/info/list",
-                delRoleUrl: "/role/info",
+                delRoleUrl: "/admin/role/info",
                 scroll: {x: true, y: 450},
                 editable: false,
                 haveSearchRolename: false,

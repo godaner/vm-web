@@ -56,6 +56,10 @@ var AdminAddDialog = React.createClass({
         const hideMessage = message.loading(tipOfAddingAdmin, 0);
         const {addAdminUrl} = this.state;
         var filterValues = function (values) {
+
+            if(isUndefined(values.roleIds)){
+                values.roleIds = [];
+            }
             values.roleIds = values.roleIds.join(",");
             return values;
         }

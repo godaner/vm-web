@@ -77,7 +77,14 @@ var RoleAddDialog = React.createClass({
         const hideMessage = message.loading(tipOfAddingRole, 0);
         const {addRoleUrl} = this.state;
         var filterValues = function (values) {
+            if(isUndefined(values.authIds)){
+                values.authIds = [];
+            }
             values.authIds = values.authIds.join(",");
+
+            if(isUndefined(values.menuIds)){
+                values.menuIds = [];
+            }
             values.menuIds = values.menuIds.join(",");
             return values;
         }

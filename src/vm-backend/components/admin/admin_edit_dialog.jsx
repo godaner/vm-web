@@ -86,7 +86,13 @@ var AdminEditDialog = React.createClass({
         const {editAdminUrl, tipOfEditing} = this.state;
         const hideMessage = message.loading(tipOfEditing, 0);
         var filterValues = function (values) {
+
+            if(isUndefined(values.roleIds)){
+                values.roleIds = [];
+            }
             values.roleIds = values.roleIds.join(",");
+
+
             return values;
         }
         values = filterValues(values);
