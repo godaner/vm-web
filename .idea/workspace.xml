@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/components/index/head.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/components/index/head.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
@@ -33,7 +32,7 @@
       <file leaf-file-name="nav.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
+            <state relative-caret-position="1269">
               <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
@@ -43,8 +42,8 @@
       <file leaf-file-name="head.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/head.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+            <state relative-caret-position="567">
+              <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -55,8 +54,8 @@
       <file leaf-file-name="vm_util.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="101" column="49" lean-forward="false" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
+            <state relative-caret-position="371">
+              <caret line="97" column="50" lean-forward="false" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -132,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Conver</find>
       <find>user</find>
       <find>loadDataByAdminId</find>
       <find>menu</find>
@@ -162,6 +160,7 @@
       <find>delete</find>
       <find>values</find>
       <find>/role</find>
+      <find>ajaxError</find>
     </findStrings>
     <replaceStrings>
       <replace>Moviename</replace>
@@ -1219,15 +1218,15 @@
       <workItem from="1522049346069" duration="18309000" />
       <workItem from="1522131708565" duration="10613000" />
       <workItem from="1522152760370" duration="18642000" />
-      <workItem from="1522239836930" duration="6513000" />
+      <workItem from="1522239836930" duration="7470000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402437000" />
+    <option name="totallyTimeSpent" value="403394000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1706,14 +1705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="101" column="49" lean-forward="false" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/login_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
@@ -1732,9 +1723,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/components/base/vm_util.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="97" column="50" lean-forward="false" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/nav.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="1269">
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
@@ -1742,8 +1741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/components/index/head.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+        <state relative-caret-position="567">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

@@ -19,7 +19,7 @@ var Head = React.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 5000
+            pollingInterval: 50000
         };
     },
     componentDidMount(){
