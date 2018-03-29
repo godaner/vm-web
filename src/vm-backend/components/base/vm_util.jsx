@@ -83,9 +83,10 @@ var ajax = {
                     args.success(result);
                 }
                 if (fail(result.code) && !isUndefined(args.failure)) {
-                    if(result.code == OFF_LINE_CODE){
+                    if (result.code == OFF_LINE_CODE) {
                         window.EventsDispatcher.showLoginDialog();
                         window.EventsDispatcher.stopPollingCheckOnlineAdmin();
+                        return;
                     }
                     args.failure(result);
                 }
@@ -94,7 +95,7 @@ var ajax = {
                 //tip
                 message.error(this.ajaxError);
 
-                if (!isUndefined(args.error)) {
+                if (!isUndefined(args.error) && args.ignoreAjaxError != true) {
                     args.error(args, XMLHttpRequest, textStatus, errorThrown);
                 }
             }.bind(this),
@@ -163,7 +164,7 @@ var commons = {
         return ['标清', '高清', '超清'];
     },
     toStrArr(notStrArr){
-        if(isEmptyList(notStrArr)){
+        if (isEmptyList(notStrArr)) {
             return [];
         }
         for (var i = 0; i < notStrArr.length; i++) {

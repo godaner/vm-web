@@ -74,6 +74,7 @@ var Head = React.createClass({
 
         ajax.get({
             url: checkUrl,
+            ignoreAjaxError:true,
             success: function (result) {
                 const {admin} = result.data;
                 if (isUndefined(admin)) {
