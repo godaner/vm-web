@@ -73,10 +73,15 @@ var EditDialogTemple = React.createClass({
     },
     formEnterLoading(){//进入handleSubmit后缀自动调用
         this.updateFormLoading(true);
+        this.updateClosable(false);
     },
     formLeaveLoading(){//结束handleSubmit后缀需要手动调用
         this.updateFormLoading(false);
+        this.updateClosable(true);
 
+    },
+    updateClosable(closable){
+        this.setState({closable});
     },
     updateFormLoading(loading){
         var state = this.state;
