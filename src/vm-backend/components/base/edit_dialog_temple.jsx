@@ -38,7 +38,8 @@ var EditDialogTemple = React.createClass({
             visible: false,
             closable: closable,
             maskClosable: maskClosable,
-            title: title
+            title: title,
+            closableCache: closable
 
         };
     },
@@ -76,8 +77,11 @@ var EditDialogTemple = React.createClass({
         this.updateClosable(false);
     },
     formLeaveLoading(){//结束handleSubmit后缀需要手动调用
+        const {closableCache} = this.state;
         this.updateFormLoading(false);
-        this.updateClosable(true);
+        if (closableCache) {
+            this.updateClosable(true);
+        }
 
     },
     updateClosable(closable){
