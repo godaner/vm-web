@@ -10,7 +10,7 @@ import "../base/events_dispatcher";
 import {Switch, BrowserRouter, HashRouter, Route, Link, withRouter} from 'react-router-dom';
 import {ajax, commons} from "../base/vm_util";
 import echarts from 'echarts';
-import {ReactEcharts} from 'echarts-for-react';
+import ReactEcharts from 'echarts-for-react';
 
 
 var HomePage = React.createClass({
@@ -32,7 +32,7 @@ var HomePage = React.createClass({
             data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
         }
 
-        option = {
+        let option = {
             tooltip: {
                 trigger: 'axis',
                 position: function (pt) {
@@ -80,9 +80,9 @@ var HomePage = React.createClass({
             }],
             series: [
                 {
-                    name:'模拟数据',
-                    type:'line',
-                    smooth:true,
+                    name: '模拟数据',
+                    type: 'line',
+                    smooth: true,
                     symbol: 'none',
                     sampling: 'average',
                     itemStyle: {
@@ -106,7 +106,7 @@ var HomePage = React.createClass({
             ]
         };
 
-        return options;
+        return option;
     },
     render: function () {
         //set now page's props
