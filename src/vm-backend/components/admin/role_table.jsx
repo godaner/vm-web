@@ -233,19 +233,18 @@ var RoleTable = React.createClass({
                 dataIndex: 'operation',
                 width: 80,
                 render: (text, record) => {
-                    const isImmutable = record.immutable ==1;
-                    const disabledStyle = isImmutable?{pointerEvents:"none"}:{};
+                    const isImmutable = record.immutable == 1;
+                    const disabledStyle = isImmutable ? {textDecoration: "line-through", color: "red"} : {};
                     const menu = (
                         <Menu>
                             <Menu.Item>
-                                <a disabled={isImmutable} style={disabledStyle} onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
+                                <a disabled={isImmutable} style={disabledStyle}
+                                   onClick={() => this.showEditDialog(record)} href="javascript:void(0);">编辑</a>
                             </Menu.Item>
                             <Menu.Item>
                                 <Popconfirm title="确认删除 ? "
                                             okText="删除"
                                             cancelText="取消"
-                                            disabled={isImmutable}
-                                            style={disabledStyle}
                                             onConfirm={() => this.deleteRecord([record.id])}>
                                     <a disabled={isImmutable} style={disabledStyle} href="javascript:void(0)">删除</a>
                                 </Popconfirm>
@@ -257,7 +256,7 @@ var RoleTable = React.createClass({
                     return <div>
                         {
                             <Dropdown overlay={menu}>
-                                <a disabled={isImmutable} style={disabledStyle}  href="javascript:void(0);">
+                                <a href="javascript:void(0);">
                                     操作 <Icon type="down"/>
                                 </a>
                             </Dropdown>

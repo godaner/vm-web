@@ -246,30 +246,27 @@ var AdminTable = React.createClass({
                 width: 80,
                 render: (text, record) => {
 
+                    const isImmutable = record.immutable == 1;
+                    const disabledStyle = isImmutable ? {textDecoration: "line-through", color: "red"} : {};
                     const menu = (
                         <Menu>
                             <Menu.Item>
                                 <a onClick={() => this.showAdminLoginLogsDialog(record.id)} href="javascript:void(0);">查看登录日志</a>
                             </Menu.Item>
-                            {
-                                record.immutable == 1 ? <Menu.Item></Menu.Item>:
-                                    <Menu.Item>
-                                        <a onClick={() => this.showEditDialog(record)}
-                                           href="javascript:void(0);">编辑</a>
-                                    </Menu.Item>
-                            }
+                            <Menu.Item>
+                                <a disabled={isImmutable} style={disabledStyle}
+                                   onClick={() => this.showEditDialog(record)}
+                                   href="javascript:void(0);">编辑</a>
+                            </Menu.Item>
 
-                            {
-                                record.immutable == 1 ? <Menu.Item></Menu.Item> :
-                                    <Menu.Item>
-                                        <Popconfirm title="确认删除 ? "
-                                                    okText="删除"
-                                                    cancelText="取消"
-                                                    onConfirm={() => this.deleteRecord([record.id])}>
-                                            <a href="javascript:void(0)">删除</a>
-                                        </Popconfirm>
-                                    </Menu.Item>
-                            }
+                            <Menu.Item>
+                                <Popconfirm title="确认删除 ? "
+                                            okText="删除"
+                                            cancelText="取消"
+                                            onConfirm={() => this.deleteRecord([record.id])}>
+                                    <a disabled={isImmutable} style={disabledStyle} href="javascript:void(0)">删除</a>
+                                </Popconfirm>
+                            </Menu.Item>
 
                         </Menu>
                     );
