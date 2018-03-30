@@ -9,7 +9,8 @@ import '../../scss/home/home_page.scss';
 import "../base/events_dispatcher";
 import {Switch, BrowserRouter, HashRouter, Route, Link, withRouter} from 'react-router-dom';
 import {ajax, commons} from "../base/vm_util";
-import ReactEcharts from 'echarts-for-react';
+import echarts from 'echarts';
+import {ReactEcharts} from 'echarts-for-react';
 
 
 var HomePage = React.createClass({
