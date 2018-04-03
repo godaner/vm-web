@@ -20,11 +20,6 @@ module.exports = {
                 warnings: false
             }
         }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-            },
-        }),
         new webpack.DllPlugin({
             path: path.join(__dirname, "dist/[name]-manifest.json"),
             name: library
