@@ -69,7 +69,11 @@ module.exports = {// 在开发模式下，可以在webpack下面找到js文件�
             threshold: 10240,
             minRatio: 0
         }),
-        new ExtractTextPlugin("bundle.css"),
+        new ExtractTextPlugin("bundle.css",
+            {
+                minimize: true
+            }
+        ),
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require("./dist/vendors-manifest.json")
