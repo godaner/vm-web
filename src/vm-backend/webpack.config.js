@@ -1,8 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {// 在开发模式下，可以在webpack下面找到js文件，在f12的时候，
     entry: './app/main/main.js',
