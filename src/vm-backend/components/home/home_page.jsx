@@ -13,6 +13,7 @@ import echarts from 'echarts';
 import ReactEcharts from 'echarts-for-react';
 import SexCount from "./sex_count";
 import MovieClsCount from "./movie_cls_count";
+import UserRegistNumCount from "./user_regist_num_count";
 
 
 var HomePage = React.createClass({
@@ -32,6 +33,9 @@ var HomePage = React.createClass({
                     </Col>
                     <Col span={6}>
                         <MovieClsCount/>
+                    </Col>
+                    <Col span={12}>
+                        <UserRegistNumCount/>
                     </Col>
                 </Row>
 

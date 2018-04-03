@@ -22,7 +22,7 @@ var MovieClsCount = React.createClass({
     getOption(){
         var option = {
             title: {
-                text: '电影累心分布',
+                text: '电影类型分布',
                 // subtext: '纯属虚构',
                 x: 'center'
             },

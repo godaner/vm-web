@@ -13,46 +13,40 @@ import echarts from 'echarts';
 import ReactEcharts from 'echarts-for-react';
 
 
-var SexCount = React.createClass({
+var UserRegistNumCount = React.createClass({
     getInitialState: function () {
         return {};
     },
     componentDidMount(){
     },
     getOption(){
-        var option = {
+
+        let option = {
             title: {
-                text: '用户性别分布',
+                text: '用户注册量',
                 // subtext: '纯属虚构',
                 x: 'center'
             },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
             },
-            legend: {
-                x: 'center',
-                y: 'bottom',
-                data: ['男', '女','未知']
+            yAxis: {
+                type: 'value'
             },
-            calculable: true,
-            series: [
+            series: [{
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line'
+            }]
 
-                {
+    };
 
-                    name:'半径模式',
-                    type:'pie',
-                    radius : [20, 110],
-                    // center : ['25%', '50%'],
-                    roseType : 'radius',
-                    data: [
-                        {value: 1110, name: '男'},
-                        {value: 501, name: '女'},
-                        {value: 500, name: '未知'}
-                    ]
-                }
-            ]
-        };
+
+
+
+
+
+
 
 
         return option;
@@ -65,4 +59,4 @@ var SexCount = React.createClass({
     }
 });
 
-export default (SexCount);   //将App组件导出
+export default (UserRegistNumCount);   //将App组件导出
