@@ -3,260 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/deploy.md" afterPath="$PROJECT_DIR$/doc/deploy.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/package.json" afterPath="$PROJECT_DIR$/src/vm-frontend/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" afterPath="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/actors_list.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/actors_list.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/dater.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/dater.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/director.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/director.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/events_dispatcher.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/filmmaker_info_page.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/filmmaker_info_page.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/filmmakers_details_area.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/filmmakers_details_area.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/flex_text.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/flex_text.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/head.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/img_uploader.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/index.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/index.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/inner_messager.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/inner_messager.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/loading.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/loading.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/login_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/login_dialog.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/movie_info_page.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/movie_info_page.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/movie_list_page.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/movie_list_page.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/movies_displayer.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/movies_displayer.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/movies_player.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/movies_player.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/msg_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/msg_dialog.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/pager.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/pager.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/plain_panel_title.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/plain_panel_title.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/regist_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/regist_dialog.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/tags_of_movie.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/tags_of_movie.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/tail.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/tail.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/user_basic_info_page.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/user_basic_info_page.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/user_head_page.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/user_head_page.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/components/user_page.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/user_page.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/filmmaker_img_loading.gif" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/filmmaker_img_loading.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/head.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/head.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/icon_zoom.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/icon_zoom.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/img_loading.gif.0" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/img_loading.gif.0" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/img_loading.gif.1" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/img_loading.gif.1" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/img_loading.gif.2" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/img_loading.gif.2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/loading.gif" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/loading.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/movie_img_loading.gif" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/movie_img_loading.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/movie_temple.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/movie_temple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/password.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/password.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/tail.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/tail.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/image/username.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/image/username.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/js/date_util.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/js/date_util.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/js/util.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/js/util.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/js/visit_record.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/js/visit_record.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/js/vm_config.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/js/vm_config.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/js/vm_constant.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/js/vm_constant.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/js/vm_util.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/js/vm_util.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/main/main.js" afterPath="$PROJECT_DIR$/src/vm-frontend/app/main/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/ckplayer/ckplayer.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/ckplayer/ckplayer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/ckplayer/ckplayer.min.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/ckplayer/ckplayer.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/ckplayer/ckplayer.swf" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/ckplayer/ckplayer.swf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/ckplayer/ckplayer.xml" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/ckplayer/ckplayer.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/ckplayer/language.xml" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/ckplayer/language.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/ckplayer/style.xml" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/ckplayer/style.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/crossdomain.xml" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/crossdomain.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/definition.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/definition.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/flashplayer.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/flashplayer.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/iframe.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/iframe.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/material/logo.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/material/logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/material/mydream_en1800_1010_01.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/material/mydream_en1800_1010_01.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/material/mydream_en1800_1010_02.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/material/mydream_en1800_1010_02.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/material/poster.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/material/poster.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/ckplayer/material/srt.srt" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/ckplayer/material/srt.srt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/.babelrc" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/.babelrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/.editorconfig" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/.editorconfig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/.eslintrc" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/.eslintrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/.gitattributes" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/.gitattributes" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/.gitignore" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/.travis.yml" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/.travis.yml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/CHANGELOG.md" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/CHANGELOG.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/CONTRIBUTING.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/ISSUE_TEMPLATE.md" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/ISSUE_TEMPLATE.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/LICENSE" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/LICENSE" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/README.md" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/dist/cropper.common.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/dist/cropper.common.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/dist/cropper.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/dist/cropper.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/dist/cropper.esm.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/dist/cropper.esm.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/dist/cropper.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/dist/cropper.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/dist/cropper.min.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/dist/cropper.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/dist/cropper.min.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/dist/cropper.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/apple-touch-icon.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/apple-touch-icon.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/css/cropper.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/css/cropper.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/css/main.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/favicon.ico" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/favicon.ico" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/images/data.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/images/data.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/images/layers.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/images/layers.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/images/picture-2.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/images/picture-2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/images/picture-3.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/images/picture-3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/images/picture.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/images/picture.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/js/cropper.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/js/cropper.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/js/main.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/css/cropper.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/css/cropper.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/css/cropper.min.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/css/cropper.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/css/main.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/img/picture-1.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/img/picture-1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/img/picture-2.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/img/picture-2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/js/cropper.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/js/cropper.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/js/cropper.min.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/js/cropper.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v0.7.9/js/main.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v0.7.9/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/css/cropper.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/css/cropper.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/css/cropper.min.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/css/cropper.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/css/main.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/img/picture-2.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/img/picture-2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/img/picture.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/img/picture.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/js/cropper.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/js/cropper.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/js/cropper.min.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/js/cropper.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v1.0.0/js/main.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v1.0.0/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/css/cropper.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/css/cropper.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/css/cropper.min.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/css/cropper.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/css/main.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/img/data.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/img/data.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/img/icons.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/img/icons.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/img/layers.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/img/layers.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/img/picture-2.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/img/picture-2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/img/picture-3.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/img/picture-3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/img/picture.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/img/picture.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/js/cropper.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/js/cropper.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/js/cropper.min.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/js/cropper.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/docs/v2.3.4/js/main.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/docs/v2.3.4/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/a-range-of-aspect-ratio.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/a-range-of-aspect-ratio.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-a-round-image.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-a-round-image.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-avatar/README.md" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-avatar/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-avatar/crop.php" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-avatar/crop.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-avatar/css/main.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-avatar/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-avatar/images/loading.gif" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-avatar/images/loading.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-avatar/images/picture.jpg" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-avatar/images/picture.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-avatar/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-avatar/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-avatar/js/main.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-avatar/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/crop-on-canvas.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/crop-on-canvas.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/cropper-in-modal.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/cropper-in-modal.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/customize-preview.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/customize-preview.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/fixed-crop-box.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/fixed-crop-box.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/full-crop-box.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/full-crop-box.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/multiple-croppers.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/multiple-croppers.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/examples/responsive-container.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/examples/responsive-container.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/package-lock.json" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/package-lock.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/package.json" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/package.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/postcss.config.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/postcss.config.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/rollup.config.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/rollup.config.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/css/cropper.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/css/cropper.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/images/bg.png" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/images/bg.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/change.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/change.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/constants.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/constants.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/cropper.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/cropper.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/defaults.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/defaults.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/events.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/events.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/handlers.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/handlers.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/index.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/methods.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/methods.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/preview.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/preview.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/render.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/render.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/template.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/template.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/src/js/utilities.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/src/js/utilities.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/css/main.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/events/crop.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/events/crop.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/events/cropend.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/events/cropend.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/events/cropmove.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/events/cropmove.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/events/cropstart.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/events/cropstart.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/events/ready.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/events/ready.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/events/zoom.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/events/zoom.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/js/main.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/clear.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/clear.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/crop.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/crop.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/destroy.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/destroy.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/disable.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/disable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/enable.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/enable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/getCanvasData.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/getCanvasData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/getContainerData.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/getContainerData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/getCropBoxData.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/getCropBoxData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/getCroppedCanvas.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/getCroppedCanvas.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/getData.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/getData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/getImageData.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/getImageData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/move.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/move.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/moveTo.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/moveTo.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/replace.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/replace.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/reset.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/reset.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/rotate.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/rotate.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/rotateTo.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/rotateTo.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/scale.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/scale.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/scaleX.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/scaleX.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/scaleY.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/scaleY.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/setAspectRatio.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/setAspectRatio.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/setCanvasData.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/setCanvasData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/setCropBoxData.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/setCropBoxData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/setData.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/setData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/setDragMode.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/setDragMode.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/zoom.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/zoom.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/methods/zoomTo.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/methods/zoomTo.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/aspectRatio.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/aspectRatio.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/autoCrop.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/autoCrop.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/background.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/background.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/center.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/center.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/checkCrossOrigin.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/checkCrossOrigin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/checkOrientation.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/checkOrientation.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/cropBoxMovable.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/cropBoxMovable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/cropBoxResizable.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/cropBoxResizable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/data.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/data.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/dragMode.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/dragMode.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/guides.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/guides.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/highlight.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/highlight.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/minCanvasHeight.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/minCanvasHeight.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/minCanvasWidth.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/minCanvasWidth.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/minContainerHeight.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/minContainerHeight.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/minContainerWidth.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/minContainerWidth.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/minCropBoxHeight.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/minCropBoxHeight.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/minCropBoxWidth.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/minCropBoxWidth.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/modal.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/modal.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/movable.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/movable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/rotatable.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/rotatable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/scalable.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/scalable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/toggleDragModeOnDblclick.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/toggleDragModeOnDblclick.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/viewMode.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/viewMode.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/zoomOnTouch.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/zoomOnTouch.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/zoomOnWheel.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/zoomOnWheel.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/cropper/test/options/zoomable.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/cropper/test/options/zoomable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/jquery/jquery-3.2.1.min.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/jquery/jquery-3.2.1.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/lazyload/jquery.lazyload.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/lazyload/jquery.lazyload.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/lazyload/jquery.lazyload.min.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/lazyload/jquery.lazyload.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/lazyload/jquery.scrollstop.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/lazyload/jquery.scrollstop.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/plugin/lazyload/jquery.scrollstop.min.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/plugin/lazyload/jquery.scrollstop.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/actors_list.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/actors_list.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/dater.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/dater.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/director.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/director.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/filmmaker_info_page.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/filmmaker_info_page.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/filmmakers_details_area.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/filmmakers_details_area.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/flex_text.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/flex_text.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/global.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/global.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/head.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/head.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/img_uploader.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/img_uploader.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/index.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/index.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/inner_messager.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/inner_messager.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/loading.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/loading.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/login_dialog.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/login_dialog.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/movie_info_page.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/movie_info_page.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/movie_list_page.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/movie_list_page.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/movie_player.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/movie_player.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/movies_displayer.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/movies_displayer.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/msg_dialog.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/msg_dialog.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/pager.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/pager.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/plain_panel_title.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/plain_panel_title.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/regist_dialog.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/regist_dialog.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/tags_of_movie.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/tags_of_movie.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/tail.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/tail.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/user_basic_info_page.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/user_basic_info_page.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/user_head_page.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/user_head_page.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/scss/user_page.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/user_page.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/static_server.js" afterPath="$PROJECT_DIR$/src/vm-frontend/server.config.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/vm-frontend/view/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -298,20 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_page.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/scss/home/home_page.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
+            <state relative-caret-position="-321">
               <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
               <folding />
             </state>
@@ -331,21 +68,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.config.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/server.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="21" column="56" lean-forward="false" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+            <state relative-caret-position="621">
+              <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="actors_list.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/actors_list.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#40#78#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="41" column="11" lean-forward="false" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+            <state relative-caret-position="432">
+              <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -520,9 +269,9 @@
         <option value="$PROJECT_DIR$/src/vm-backend/dist/uploadServer" />
         <option value="$PROJECT_DIR$/src/vm-frontend/package.json" />
         <option value="$PROJECT_DIR$/doc/deploy.md" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/dist/index.html" />
         <option value="$PROJECT_DIR$/src/vm-frontend/server.config.js" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" />
       </list>
     </option>
   </component>
@@ -617,7 +366,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -640,6 +389,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1157,7 +910,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="425629000" />
+    <option name="totallyTimeSpent" value="425867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
@@ -1284,13 +1037,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/scss/admin/role_page.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/admin/role_page.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1609,14 +1355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -1641,14 +1379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/server.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1668,14 +1398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="41" column="11" lean-forward="false" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -1684,10 +1406,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-321">
+          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/server.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/server.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="21" column="56" lean-forward="false" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+        <state relative-caret-position="621">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/actors_list.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
           <folding />
         </state>
       </provider>
