@@ -6,9 +6,11 @@
   "scripts": {
     "build": "webpack",
     "server": "nodemon ./server.config.js",
-    "dll": "webpack --progress --colors --config ./webpack.dll.config.js",
+    "package-dll": "webpack --progress --colors --config ./webpack.dll.config.js",
     "complier": "webpack --watch",
-    "run": "npm run dll | npm run complier | npm run server "
+    "package-bundle":"webpack --progress --colors --config ./webpack.config.js",
+    "package":"npm run package-dll | npm run package-bundle",
+    "run": "npm run package-dll | npm run package-bundle | npm run server "
   },
   "author": "zhangke",
   "license": "ISC",
