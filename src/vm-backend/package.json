@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "build": "webpack",
-    "server": "nodemon ./static_server.js",
+    "server": "nodemon ./server.config.js",
     "dll": "webpack --progress --colors --config ./webpack.dll.config.js",
     "complier": "webpack --watch",
     "run": "npm run dll | npm run complier | npm run server "

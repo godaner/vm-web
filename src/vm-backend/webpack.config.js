@@ -5,7 +5,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 
 module.exports = {
-    entry: './main/main.js',
+    entry: './app/main/main.js',
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'bundle.js'
@@ -14,7 +14,7 @@ module.exports = {
         extensions: ['.js', '.jsx'],
         // 别名，可以直接使用别名来代表设定的路径以及其他
         alias: {
-            components: path.join(__dirname, './components')
+            components: path.join(__dirname, './app/components')
         }
     },
     module: {
