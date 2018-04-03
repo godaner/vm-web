@@ -8,8 +8,8 @@
     "server": "nodemon ./server.config.js",
     "package-dll": "webpack --progress --colors --config ./webpack.dll.config.js",
     "complier": "webpack --watch",
-    "package-bundle":"webpack --progress --colors --config ./webpack.config.js",
-    "package":"npm run package-dll | npm run package-bundle",
+    "package-bundle": "webpack --progress --colors --config ./webpack.config.js",
+    "package": "npm run package-dll | npm run package-bundle",
     "run": "npm run package-dll | npm run package-bundle | npm run server "
   },
   "author": "zhangke",
@@ -30,6 +30,7 @@
     "ejs": "^2.5.7",
     "events": "^1.1.1",
     "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.2",
     "json-loader": "^0.5.4",
     "node-sass": "^4.7.2",
     "nodemon": "^1.14.11",
