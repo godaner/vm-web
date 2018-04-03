@@ -10742,7 +10742,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/yallist/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/yallist/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/yargs-parser/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/yargs-parser/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/yargs/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/yargs/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/webpack.config.js" afterPath="$PROJECT_DIR$/src/vm-backend/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -10799,7 +10798,7 @@
         <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
-              <caret line="9" column="57" lean-forward="false" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -11551,12 +11550,12 @@
       <workItem from="1522312445648" duration="1024000" />
       <workItem from="1522377630449" duration="729000" />
       <workItem from="1522385161609" duration="15113000" />
-      <workItem from="1522760681772" duration="4283000" />
+      <workItem from="1522760681772" duration="4390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="430369000" />
+    <option name="totallyTimeSpent" value="430476000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -12032,7 +12031,7 @@
     <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
-          <caret line="9" column="57" lean-forward="false" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -25,7 +25,6 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "babel-runtime": "^6.26.0",
-    "cross-env": "^5.1.4",
     "css-loader": "^0.26.1",
     "echarts": "^4.0.4",
     "echarts-for-react": "^2.0.8",
