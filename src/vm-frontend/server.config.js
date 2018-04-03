@@ -14,12 +14,12 @@ app.get('/', function (req, res) {
 });
 
 // 设置views路径和模板
-app.set('views', './view');
+app.set('views', './dist');
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
 // 静态文件配置
-app.use('/', express.static(path.join(__dirname, './')));
+app.use('/', express.static(path.join(__dirname, './dist')));
 
 // 启动一个服务，监听进入的所有连接请求
 var server = app.listen(3000, function(){

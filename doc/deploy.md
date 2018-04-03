@@ -1,4 +1,4 @@
-# express 服务器安装
+# 部署到静态服务器
     * 进入linux 
     * 安装npm
         yum install npm
@@ -10,5 +10,5 @@
     * 添加server到环境变量
         export PATH=/usr/lib/node_modules/serve/bin:$PATH
     *运行服务器
-        serve dist(或者build)
+        nohup serve -p 3999 dist>serve.out 2>&1 &(或者build)
     

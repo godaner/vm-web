@@ -32,14 +32,14 @@ module.exports = {
         }]
     },
     plugins: [
-        // new webpack.optimize.UglifyJsPlugin({
-        //     output: {
-        //         comments: false,  // remove all comments
-        //     },
-        //     compress: {
-        //         warnings: false
-        //     }
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false,  // remove all comments
+            },
+            compress: {
+                warnings: false
+            }
+        }),
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require("./dist/vendors-manifest.json")
