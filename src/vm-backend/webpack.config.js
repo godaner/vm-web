@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 
-module.exports = {
+module.exports = {// 在开发模式下，可以在webpack下面找到js文件，在f12的时候，
     entry: './app/main/main.js',
     output: {
         path: path.join(__dirname, '/dist'),

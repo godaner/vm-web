@@ -12,6 +12,14 @@ module.exports = {
         library
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false,  // remove all comments
+            },
+            compress: {
+                warnings: false
+            }
+        }),
         new webpack.DllPlugin({
             path: path.join(__dirname, "dist/[name]-manifest.json"),
             name: library
