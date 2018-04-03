@@ -11,7 +11,7 @@ module.exports = {// 在开发模式下，可以在webpack下面找到js文件�
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.scss', '.css'],
+        extensions: ['.js', '.jsx', '.sass', '.css'],
         // 别名，可以直接使用别名来代表设定的路径以及其他
         alias: {
             components: path.join(__dirname, './app/components')
@@ -28,7 +28,15 @@ module.exports = {// 在开发模式下，可以在webpack下面找到js文件�
             }
         }, {
             test: /\.(css|scss)$/,
-            loader: "style-loader!css-loader!sass-loader"
+            // loader: "style-loader!css-loader!sass-loader",
+
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    'css-loader',
+                    'sass-loader'
+                ]
+            })
         }]
     },
     plugins: [
