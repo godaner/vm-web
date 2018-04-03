@@ -3,7 +3,7 @@ import {Button, DatePicker, Icon, InputNumber, Input, Layout, Menu, message, Sel
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../../scss/movie/movie_page.scss";
+import "../../scss/movie/movie_page.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";

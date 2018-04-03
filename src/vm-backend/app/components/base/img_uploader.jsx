@@ -1,5 +1,5 @@
 import React from 'react';  //引入react组件
-import "../../../scss/base/img_uploader.scss";
+import "../../scss/base/img_uploader.scss";
 import {ajax, commons} from "../base/vm_util";
 import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
 /**

@@ -2,7 +2,7 @@ import React from "react";
 import {Input, Layout, Menu, Select} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../../scss/movie/movie_page.scss";
+import "../../scss/movie/movie_page.scss";
 import "../base/events_dispatcher";
 import MovieTable from "./movie_table";
 const Option = Select.Option;

@@ -2,7 +2,7 @@ import React from "react";
 import {Form, Layout, Menu} from "antd";
 import {Route, withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../../scss/base/routes.scss";
+import "../../scss/base/routes.scss";
 import "../base/events_dispatcher";
 import UserPage from "../user/user_page";
 import HomePage from "../home/home_page";

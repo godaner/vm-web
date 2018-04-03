@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Dropdown, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../../scss/movie/filmmaker_table.scss";
+import "../../scss/movie/filmmaker_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import FilmmakerEditDialog from "./filmmaker_edit_dialog";

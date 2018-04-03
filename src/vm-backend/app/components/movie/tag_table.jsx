@@ -1,7 +1,7 @@
 import React from "react";
 import {Dropdown, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table} from "antd";
 import "antd/dist/antd.css";
-import "../../../scss/movie/tag_table.scss";
+import "../../scss/movie/tag_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import TagEditDialog from "./tag_edit_dialog";

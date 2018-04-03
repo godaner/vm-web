@@ -3,7 +3,7 @@ import {Button, DatePicker, Icon, Input, Layout, Menu, message, Popconfirm, Sele
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 import "antd/dist/antd.css";
-import "../../../scss/user/user_page.scss";
+import "../../scss/user/user_page.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";
