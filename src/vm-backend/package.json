@@ -14,7 +14,7 @@
     "package-dll-prod": "cross-env NODE_ENV=production npm run package-dll ",
     "package-bundle-prod": "cross-env NODE_ENV=production npm run package-bundle",
     "package-prod": "npm run package-dll-prod | npm run package-bundle-prod",
-    "deploy": "scp -r ./dist/ root@47.106.119.0:/usr/local/src/vm-web/vm-backend/dist",
+    "deploy": "scp -r ./dist/ root@47.106.119.0:/usr/local/src/vm-web/vm-backend/",
     "package-prod-deploy": "npm run package-prod & npm run deploy"
   },
   "author": "zhangke",
