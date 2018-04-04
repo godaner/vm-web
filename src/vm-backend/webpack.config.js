@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {// 在开发模式下，可以在webpack下面找到js文件，在f12的时候，
+module.exports = {
+    devtool: false,
     entry: './app/main/main.js',
     output: {
         path: path.join(__dirname, '/dist'),
@@ -78,21 +78,22 @@ module.exports = {// 在开发模式下，可以在webpack下面找到js文件�
                 reduce_vars: true,
             }
         }),
-        //gzip 压缩
-        new CompressionPlugin({
-            asset: '[path].gz[query]',   // 目标文件名
-            algorithm: 'gzip',   // 使用gzip压缩
-            test: new RegExp(
-                '\\.(js|css)$'    // 压缩 js 与 css
-            ),
-            threshold: 10240,   // 资源文件大于10240B=10kB时会被压缩
-            minRatio: 0.8  // 最小压缩比达到0.8时才会被压缩
-        }),
-        new ExtractTextPlugin("bundle.css"),
+        //gzip 压缩,使用了express的gzip
+        // new CompressionPlugin({
+        //     asset: '[path].gz[query]',   // 目标文件名
+        //     algorithm: 'gzip',   // 使用gzip压缩
+        //     test: new RegExp(
+        //         '\\.(js|css)$'    // 压缩 js 与 css
+        //     ),
+        //     threshold: 10240,   // 资源文件大于10240B=10kB时会被压缩
+        //     minRatio: 1  // 最小压缩比达到0.8时才会被压缩
+        // }),
+        new ExtractTextPlugin("bundle.css"),//分离css资源
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require("./dist/vendors-manifest.json")
         }),
+
 
     ]
 }

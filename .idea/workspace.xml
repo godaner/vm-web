@@ -2,435 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/dist/vendors.dll.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/docs/images/bullets-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/docs/images/display.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/docs/images/usage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_big.js@3.2.0@big.js/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_big.js@3.2.0@big.js/LICENCE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_big.js@3.2.0@big.js/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_big.js@3.2.0@big.js/big.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_big.js@3.2.0@big.js/big.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_big.js@3.2.0@big.js/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_camel-case@3.0.0@camel-case/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_camel-case@3.0.0@camel-case/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_camel-case@3.0.0@camel-case/camel-case.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_camel-case@3.0.0@camel-case/camel-case.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_camel-case@3.0.0@camel-case/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/History.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/lib/clean.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/lib/optimizer/hack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/lib/optimizer/remove-unused.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_commander@2.15.1@commander/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_commander@2.15.1@commander/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_commander@2.15.1@commander/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_commander@2.15.1@commander/Readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_commander@2.15.1@commander/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_commander@2.15.1@commander/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_commander@2.15.1@commander/typings/index.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/.jscs.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_define-properties@1.1.2@define-properties/test/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_he@1.1.1@he/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_he@1.1.1@he/LICENSE-MIT.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_he@1.1.1@he/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_he@1.1.1@he/bin/he" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_he@1.1.1@he/he.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_he@1.1.1@he/man/he.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_he@1.1.1@he/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/cli.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/param-case/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/param-case/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/param-case/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/param-case/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/param-case/param-case.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/param-case/param-case.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/format.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/options.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/parse/host.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/parse/hrefInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/parse/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/parse/path.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/parse/port.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/parse/query.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/parse/urlstring.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/relate/absolutize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/relate/findRelation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/relate/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/relate/relativize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/util/devlog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/util/object.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/lib/util/path.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/license" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/node_modules/relateurl/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/sample-cli-config-file.conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/src/htmlminifier.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/src/htmlparser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/src/tokenchain.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/src/utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/default_index.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/lib/chunksorter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/lib/compiler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/lib/errors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/lib/loader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/.bin/json5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/.bin/json5.cmd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/big.js/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/big.js/LICENCE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/big.js/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/big.js/big.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/big.js/big.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/big.js/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/emojis-list/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/emojis-list/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/emojis-list/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/emojis-list/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/emojis-list/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/emojis-list/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/json5/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/json5/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/json5/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/json5/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/json5/lib/cli.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/json5/lib/json5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/json5/lib/require.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/json5/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/object-assign/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/object-assign/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/object-assign/license" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/object-assign/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/node_modules/object-assign/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/loader-utils/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/implementation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/polyfill.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/node_modules/util.promisify/shim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-webpack-plugin@3.2.0@html-webpack-plugin/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/.bin/json5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/.bin/json5.cmd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/big.js/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/big.js/LICENCE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/big.js/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/big.js/big.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/big.js/big.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/big.js/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/emojis-list/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/emojis-list/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/emojis-list/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/emojis-list/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/emojis-list/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/emojis-list/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/json5/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/json5/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/json5/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/json5/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/json5/lib/cli.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/json5/lib/json5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/json5/lib/require.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/json5/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/object-assign/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/object-assign/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/object-assign/license" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/object-assign/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/node_modules/object-assign/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_loader-utils@0.2.17@loader-utils/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_apply.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayAggregator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayEach.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayEachRight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayEvery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayIncludes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayIncludesWith.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayLikeKeys.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayMap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayPush.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayReduce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayReduceRight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arraySample.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arraySampleSize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arrayShuffle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_arraySome.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_asciiSize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_asciiToArray.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_asciiWords.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_assignMergeValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_assignValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_assocIndexOf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseAggregator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseAssign.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseAssignIn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseAssignValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseAt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseClamp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseClone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseConforms.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseConformsTo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseCreate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseDelay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseDifference.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseEach.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseEachRight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseEvery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseExtremum.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseFill.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseFindIndex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseFindKey.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseFlatten.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseFor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseForOwn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseForOwnRight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseForRight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseFunctions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseGet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseGetAllKeys.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseGetTag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseGt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseHas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseHasIn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseInRange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIndexOf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIndexOfWith.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIntersection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseInverter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseInvoke.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsArguments.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsArrayBuffer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsDate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsEqual.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsEqualDeep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsMap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsMatch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsNaN.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsNative.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsRegExp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsSet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIsTypedArray.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseIteratee.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseKeys.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseKeysIn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseLodash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseLt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseMap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseMatches.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseMatchesProperty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseMean.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseMerge.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseMergeDeep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseNth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseOrderBy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_basePick.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_basePickBy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseProperty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_basePropertyDeep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_basePropertyOf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_basePullAll.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_basePullAt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseRandom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseRange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseReduce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseRepeat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseRest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSample.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSampleSize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSetData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSetToString.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/.jscs.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/implementation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/polyfill.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/shim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/test/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/test/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/test/shimmed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_object.getownpropertydescriptors@2.0.3@object.getownpropertydescriptors/test/tests.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_param-case@2.1.1@param-case/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_param-case@2.1.1@param-case/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_param-case@2.1.1@param-case/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_param-case@2.1.1@param-case/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_param-case@2.1.1@param-case/param-case.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_param-case@2.1.1@param-case/param-case.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/index.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/lib/ParsedError.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/lib/PrettyError.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/lib/defaultStyle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/lib/nodePaths.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/src/ParsedError.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/src/PrettyError.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/src/defaultStyle.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/src/nodePaths.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/start.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/test/ParsedError.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/test/PrettyError.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_pretty-error@2.1.1@pretty-error/test/mocha.opts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/format.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/options.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/parse/host.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/parse/hrefInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/parse/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/parse/path.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/parse/port.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/parse/query.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/parse/urlstring.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/relate/absolutize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/relate/findRelation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/relate/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/relate/relativize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/util/devlog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/util/object.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/lib/util/path.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/license" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_relateurl@0.2.7@relateurl/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/lib/AnsiPainter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_renderkid@2.0.1@renderkid/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/AsyncParallelBailHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/AsyncParallelHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/AsyncSeriesBailHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/AsyncSeriesHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/AsyncSeriesLoopHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/AsyncSeriesWaterfallHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/Hook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/HookCodeFactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/HookMap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/MultiHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/SyncBailHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/SyncHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/SyncLoopHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/SyncWaterfallHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/Tapable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/AsyncParallelHooks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/AsyncSeriesHooks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/Hook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/HookCodeFactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/HookTester.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/MultiHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/SyncBailHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/SyncHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/SyncHooks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/Tapable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/__snapshots__/AsyncParallelHooks.js.snap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/__snapshots__/AsyncSeriesHooks.js.snap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/__snapshots__/HookCodeFactory.js.snap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/__tests__/__snapshots__/SyncHooks.js.snap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/lib/simpleAsyncCases.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_tapable@1.0.0@tapable/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/License" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/component.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/graph.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_toposort@1.0.6@toposort/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/bin/uglifyjs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/lib/ast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/lib/compress.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/.npminstall.done" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/implementation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/polyfill.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_util.promisify@1.0.0@util.promisify/shim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/lib/Emitter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/lib/_common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/lib/array.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/lib/classic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/lib/object.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/lib/string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/lib/utila.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/test/_prepare.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/test/array.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_utila@0.4.0@utila/test/object.coffee" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.css.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-backend/dist/vendors.dll.js.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-backend/package.bat" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/index.html" afterPath="$PROJECT_DIR$/src/vm-backend/dist/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/.npminstall.done" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/.npminstall.done" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/.recently_updates.txt" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/.recently_updates.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/lib/optimizer/remove-unused.js" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/lib/optimizer/remove-unused.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_clean-css@4.1.11@clean-css/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/src/utils.js" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_html-minifier@3.5.13@html-minifier/src/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseConforms.js" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseConforms.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseDifference.js" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseDifference.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseEach.js" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseEach.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSetData.js" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSetData.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSetToString.js" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/_baseSetToString.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_lodash@4.17.5@lodash/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/lib/compress.js" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/lib/compress.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/node_modules/_uglify-js@3.3.18@uglify-js/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/server.config.js" afterPath="$PROJECT_DIR$/src/vm-backend/server.config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/webpack.config.js" afterPath="$PROJECT_DIR$/src/vm-backend/webpack.config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js" afterPath="$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js" />
     </list>
@@ -453,12 +46,81 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="80" column="33" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/server.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.dll.config.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="655">
+              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/server.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload_server" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/upload_server">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="60" lean-forward="false" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>this.loc</find>
-      <find>this.lo</find>
       <find>this.</find>
       <find>this.l</find>
       <find>this.location</find>
@@ -487,6 +149,8 @@
       <find>./../../scss/home/home_page.scss</find>
       <find>../../../scss</find>
       <find>../../scss/home/home_page.scss</find>
+      <find>HtmlWebpackPlugin</find>
+      <find>.gz</find>
     </findStrings>
     <replaceStrings>
       <replace>poster</replace>
@@ -544,7 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vm-backend/components/user/user_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/movie/movie_src_version_add_dialog.jsx" />
@@ -580,7 +243,6 @@
         <option value="$PROJECT_DIR$/src/vm-backend/js/vm_config.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/js/vm_config.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/static_server.js" />
-        <option value="$PROJECT_DIR$/src/vm-backend/dist/server.config.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/admin/admin_login_logs_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/dist/uploadServer" />
         <option value="$PROJECT_DIR$/src/vm-frontend/package.json" />
@@ -592,9 +254,11 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/dist/upload_server" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/package.json" />
-        <option value="$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js" />
-        <option value="$PROJECT_DIR$/src/vm-backend/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/vm-backend/server.config.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/dist/index.html" />
+        <option value="$PROJECT_DIR$/src/vm-backend/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/vm-backend/dist/server.config.js" />
+        <option value="$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js" />
       </list>
     </option>
   </component>
@@ -638,7 +302,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -664,32 +327,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vm-frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -728,6 +365,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -747,8 +406,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -759,8 +419,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\zk\vm-web\src\vm-frontend\dist" />
       <recent name="E:\zk\vm-web\src\vm-backend\dist" />
+      <recent name="E:\zk\vm-web\src\vm-frontend\dist" />
       <recent name="E:\zk\vm-web\src\vm-backend\components\home" />
       <recent name="E:\zk\vm-web\src\vm-backend\components\admin" />
       <recent name="E:\zk\vm-web\src\vm-backend\scss\admin" />
@@ -1240,14 +900,18 @@
       <workItem from="1522377630449" duration="729000" />
       <workItem from="1522385161609" duration="15113000" />
       <workItem from="1522760681772" duration="10900000" />
+      <workItem from="1522811247918" duration="209000" />
+      <workItem from="1522811486268" duration="45000" />
+      <workItem from="1522812066941" duration="4404000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="436986000" />
+    <option name="totallyTimeSpent" value="441644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1263,7 +927,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2707889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27985075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1346,27 +1010,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/scss/admin/admin_login_logs_table.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/admin/admin_login_logs_dialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/admin/admin_login_logs_table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/user/user_table.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
@@ -1545,7 +1188,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1591,7 +1233,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/server.config.js" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1603,15 +1244,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/server.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1619,7 +1251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1627,9 +1258,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#78#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1637,7 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1645,6 +1272,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/dist/upload_server">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="46" lean-forward="true" selection-start-line="0" selection-start-column="46" selection-end-line="0" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/node_modules/webpack/lib/node/NodeMainTemplate.runtime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/deploy.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="324">
+            <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="49" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/node_modules/html-webpack-plugin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/node_modules/compression/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/server.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1657,69 +1346,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/dist/upload_server">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="46" lean-forward="true" selection-start-line="0" selection-start-column="46" selection-end-line="0" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/node_modules/webpack/lib/node/NodeMainTemplate.runtime.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/deploy.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="324">
-            <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="49" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="47" column="29" lean-forward="false" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="46" column="25" lean-forward="false" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+        <state relative-caret-position="467">
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="40" column="30" lean-forward="false" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+        <state relative-caret-position="655">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/server.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="80" column="33" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding />
         </state>
       </provider>

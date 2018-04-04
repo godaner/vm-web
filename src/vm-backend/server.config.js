@@ -2,11 +2,14 @@
 
 
 // 引入模块
-var express = require('express');
-var path = require('path');
-var ejs = require('ejs');
-
+const express = require('express');
+const path = require('path');
+const ejs = require('ejs');
+const compression = require('compression');
 var app = express();
+
+// 启用gzip
+app.use(compression());
 
 // 对所有(/)URL或路由返回index.html
 app.get('/', function (req, res) {
