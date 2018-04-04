@@ -5,17 +5,17 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
     entry: {
-        vendors: [
+        vendors:  [
             /** 这下面配置项目中用到的NPM依赖 **/
-            // 'react',
-            'echarts',
-            // 'react-dom',
-            // 'antd'
+            'react',
+            'antd'
+            // 'echarts',
         ]
     },
     output: {
         filename: "[name].dll.js",
-        path: __dirname + "/dist/"
+        path: __dirname+"/dist/",
+        library
     },
     plugins: [
         //编译环境
@@ -31,13 +31,8 @@ module.exports = {
         new webpack.optimize.DedupePlugin(),
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
-
         //代码混淆
         new webpack.optimize.UglifyJsPlugin({
-            //不移除的符号
-            // mangle: {
-            //     except: ['$super', '$', 'exports', 'require', 'module', '_']
-            // },
             // 最紧凑的输出
             beautify: false,
             // 删除所有的注释
@@ -48,7 +43,7 @@ module.exports = {
                 // 删除所有的 `console` 语句
                 // 还可以兼容ie浏览器
                 drop_console: true,
-                pure_funcs: ['console.info','console.error','console.warn'],
+                pure_funcs: ['c'],
                 // 内嵌定义了但是只用到一次的变量
                 collapse_vars: true,
                 // 提取出出现多次但是没有定义成变量去引用的静态值
@@ -60,7 +55,7 @@ module.exports = {
         new webpack.DllPlugin({
             path: path.join(__dirname, "dist/[name]-manifest.json"),
             name: library
-        }),
+        })
         //gzip 压缩,使用了express的gzip
         // new CompressionPlugin({
         //     asset: '[path].gz[query]',   // 目标文件名
@@ -71,8 +66,6 @@ module.exports = {
         //     threshold: 10240,   // 资源文件大于10240B=10kB时会被压缩
         //     minRatio: 1  // 最小压缩比达到0.8时才会被压缩
         // }),
-        //忽略
-        // new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
     ]
 }
-console.log("==>> webpack.dll.config.js#process.env.NODE_ENV is : " + process.env.NODE_ENV)
+console.log("==>> webpack.dll.config.js#process.env.NODE_ENV is : "+ process.env.NODE_ENV)

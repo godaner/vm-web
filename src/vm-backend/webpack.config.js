@@ -9,9 +9,6 @@ module.exports = {
     entry: {
         app: './app/main/main.js', //入口文件
     },
-    // externals : {
-    //     react: 'React'
-    // },
     //更具第三方库数组生成[name].bundle.js
     output: {
         path: path.join(__dirname, "/dist"),
@@ -30,11 +27,7 @@ module.exports = {
             loaders: 'babel-loader',
 
             query: {
-                presets: ['react', 'es2015'],
-                //取消注释后bundle会增大几百k
-                // plugins: [
-                //     ['import', [{ libraryName: "antd", style: 'css' }]],
-                // ]
+                presets: ['react', 'es2015']
             }
         }, {
             test: /\.(css|scss)$/,
@@ -61,11 +54,18 @@ module.exports = {
         }]
     },
     plugins: [
+
+
         //编译环境
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
             }
+        }),
+        //dll
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require("./dist/vendors-manifest.json")
         }),
         //去除错误
         new webpack.NoErrorsPlugin(),
@@ -75,13 +75,12 @@ module.exports = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         //分离css资源
         new ExtractTextPlugin("bundle.css"),
-
         //代码混淆
         new webpack.optimize.UglifyJsPlugin({
             //不移除的符号
-            // mangle: {
-            //     except: ['$super', '$', 'exports', 'require', 'module', '_']
-            // },
+            mangle: {
+                // except: ['$super', '$', 'exports', 'require', 'module', '_']
+            },
             // 最紧凑的输出
             beautify: false,
             // 删除所有的注释
@@ -92,7 +91,7 @@ module.exports = {
                 // 删除所有的 `console` 语句
                 // 还可以兼容ie浏览器
                 drop_console: true,
-                pure_funcs: ['console.info','console.error','console.warn',"c"],
+                pure_funcs: ['c'],
                 // 内嵌定义了但是只用到一次的变量
                 collapse_vars: true,
                 // 提取出出现多次但是没有定义成变量去引用的静态值
@@ -100,11 +99,7 @@ module.exports = {
             },
             sourceMap: false
         }),
-        //dll
-        new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: require("./dist/vendors-manifest.json")
-        }),
+
         //gzip 压缩,使用了express的gzip
         // new CompressionPlugin({
         //     asset: '[path].gz[query]',   // 目标文件名
@@ -116,8 +111,6 @@ module.exports = {
         //     minRatio: 1  // 最小压缩比达到0.8时才会被压缩
         // }),
         // new webpack.optimize.ModuleConcatenationPlugin(),
-        //忽略
-        // new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
 
 
     ]
