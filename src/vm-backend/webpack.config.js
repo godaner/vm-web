@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {// 在开发模式下，可以在webpack下面找到js文件，在f12的时候，
     entry: './app/main/main.js',
@@ -33,13 +34,28 @@ module.exports = {// 在开发模式下，可以在webpack下面找到js文件�
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: [
-                    'css-loader',
-                    'sass-loader'
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        }
+                    }
                 ]
             })
+
         }]
     },
     plugins: [
+        // 将代码中有重复的依赖包去重
+        new webpack.optimize.DedupePlugin(),
+        // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -62,18 +78,17 @@ module.exports = {// 在开发模式下，可以在webpack下面找到js文件�
                 reduce_vars: true,
             }
         }),
+        //gzip 压缩
         new CompressionPlugin({
-            asset: "[path].gz[query]",
-            algorithm: "gzip",
-            test: /\.js$|\.css$|\.html$/,
-            threshold: 10240,
-            minRatio: 0
+            asset: '[path].gz[query]',   // 目标文件名
+            algorithm: 'gzip',   // 使用gzip压缩
+            test: new RegExp(
+                '\\.(js|css)$'    // 压缩 js 与 css
+            ),
+            threshold: 10240,   // 资源文件大于10240B=10kB时会被压缩
+            minRatio: 0.8  // 最小压缩比达到0.8时才会被压缩
         }),
-        new ExtractTextPlugin("bundle.css",
-            {
-                minimize: true
-            }
-        ),
+        new ExtractTextPlugin("bundle.css"),
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require("./dist/vendors-manifest.json")
