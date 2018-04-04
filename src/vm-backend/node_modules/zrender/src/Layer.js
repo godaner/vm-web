@@ -26,17 +26,19 @@ function createDom(id, painter, dpr) {
     var height = painter.getHeight();
 
     var newDomStyle = newDom.style;
-    // 没append呢，请原谅我这样写，清晰~
-    newDomStyle.position = 'absolute';
-    newDomStyle.left = 0;
-    newDomStyle.top = 0;
-    newDomStyle.width = width + 'px';
-    newDomStyle.height = height + 'px';
+    if (newDomStyle) {  // In node or some other non-browser environment
+        newDomStyle.position = 'absolute';
+        newDomStyle.left = 0;
+        newDomStyle.top = 0;
+        newDomStyle.width = width + 'px';
+        newDomStyle.height = height + 'px';
+
+        newDom.setAttribute('data-zr-dom-id', id);
+    }
+
     newDom.width = width * dpr;
     newDom.height = height * dpr;
 
-    // id不作为索引用，避免可能造成的重名，定义为私有属性
-    newDom.setAttribute('data-zr-dom-id', id);
     return newDom;
 }
 
@@ -112,13 +114,22 @@ Layer.prototype = {
 
     constructor: Layer,
 
-    elCount: 0,
-
     __dirty: true,
+
+    __used: false,
+
+    __drawIndex: 0,
+    __startIndex: 0,
+    __endIndex: 0,
+
+    incremental: false,
+
+    getElementCount: function () {
+        return this.__endIndex - this.__startIndex;
+    },
 
     initContext: function () {
         this.ctx = this.dom.getContext('2d');
-        this.ctx.__currentValues = {};
         this.ctx.dpr = this.dpr;
     },
 
@@ -127,7 +138,6 @@ Layer.prototype = {
 
         this.domBack = createDom('back-' + this.id, this.painter, dpr);
         this.ctxBack = this.domBack.getContext('2d');
-        this.ctxBack.__currentValues = {};
 
         if (dpr != 1) {
             this.ctxBack.scale(dpr, dpr);
