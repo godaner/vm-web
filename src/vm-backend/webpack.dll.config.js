@@ -4,15 +4,19 @@ const path = require("path")
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
+    devtool: false,
     entry: {
         vendors: [
             /** 这下面配置项目中用到的NPM依赖 **/
-            // 'react',
-            'echarts',
+            'react',
+            // 'echarts',
             // 'react-dom',
-            // 'antd'
+            'antd'
         ]
     },
+    // externals : {
+    //     react: 'React'
+    // },
     output: {
         filename: "[name].dll.js",
         path: __dirname + "/dist/"

@@ -9,6 +9,9 @@ module.exports = {
     entry: {
         app: './app/main/main.js', //入口文件
     },
+    // externals : {
+    //     react: 'React'
+    // },
     //更具第三方库数组生成[name].bundle.js
     output: {
         path: path.join(__dirname, "/dist"),
@@ -19,9 +22,6 @@ module.exports = {
         alias: {
             components: path.join(__dirname, './app/components')// 别名，可以直接使用别名来代表设定的路径以及其他
         }
-    },
-    externals : {
-        react: 'window.React'
     },
     module: {
         loaders: [{   //引入babel模块处理ES6代码
