@@ -67,6 +67,12 @@ module.exports = {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
             }
         }),
+
+        //dll
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require("./dist/vendors-manifest.json")
+        }),
         //去除错误
         new webpack.NoErrorsPlugin(),
         // 将代码中有重复的依赖包去重
@@ -99,11 +105,6 @@ module.exports = {
                 reduce_vars: true,
             },
             sourceMap: false
-        }),
-        //dll
-        new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: require("./dist/vendors-manifest.json")
         }),
         //gzip 压缩,使用了express的gzip
         // new CompressionPlugin({
