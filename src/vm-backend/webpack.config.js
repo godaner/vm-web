@@ -52,7 +52,7 @@ module.exports = {
         }]
     },
     plugins: [
-        new webpack.optimize.ModuleConcatenationPlugin(),
+        // new webpack.optimize.ModuleConcatenationPlugin(),
         // 将代码中有重复的依赖包去重
         new webpack.optimize.DedupePlugin(),
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
@@ -98,7 +98,7 @@ module.exports = {
         //dll
         new webpack.DllReferencePlugin({
             context: __dirname,
-            manifest: require("../vm-backend/dist/vendors-manifest.json")
+            manifest: require("./dist/vendors-manifest.json")
         }),
 
 

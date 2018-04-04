@@ -20,11 +20,13 @@ module.exports = {
     plugins: [
         // 将代码中有重复的依赖包去重
         new webpack.optimize.DedupePlugin(),
+        //编译环境
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
             }
         }),
+        //代码混淆
         new webpack.optimize.UglifyJsPlugin({
             // 最紧凑的输出
             beautify: false,
@@ -54,6 +56,7 @@ module.exports = {
         //     threshold: 10240,   // 资源文件大于10240B=10kB时会被压缩
         //     minRatio: 1  // 最小压缩比达到0.8时才会被压缩
         // }),
+        //dll
         new webpack.DllPlugin({
             path: path.join(__dirname, "dist/[name]-manifest.json"),
             name: library

@@ -2,12 +2,15 @@
 
 
 // 引入模块
-var express = require('express');
-var path = require('path');
-var ejs = require('ejs');
-
+const express = require('express');
+const path = require('path');
+const ejs = require('ejs');
+// const compression = require('compression');
 var app = express();
 
+// 启用gzip
+// app.use(compression());
+//
 // 对所有(/)URL或路由返回index.html
 app.get('/', function (req, res) {
     res.render('index');
@@ -22,7 +25,7 @@ app.engine('html', ejs.renderFile);
 app.use('/', express.static(path.join(__dirname, './dist')));
 
 // 启动一个服务，监听进入的所有连接请求
-var server = app.listen(3000, function(){
+var server = app.listen(2000, function(){
     var host = server.address().address;
     var port = server.address().port;
     console.log('Listening at http://%s:%s', host, port);

@@ -74,6 +74,7 @@ var UserEditDialog = React.createClass({
 
         const {title} = this.state;
 
+        echoData = commons.clone(echoData);//!!!!!!!!!!!!!important
         // filterEchoData
         var filterEchoData = function (echoData) {
             if (isUndefined(echoData)) {
