@@ -2,12 +2,14 @@ const webpack = require("webpack")
 const library = '[name]_lib'
 const path = require("path")
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
+// const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
     entry: {
         vendors:  [
             /** 这下面配置项目中用到的NPM依赖 **/
             'react',
+            'react-dom',
+            'react-router',
             'echarts',
             'antd'
         ]
