@@ -9,7 +9,7 @@ import '../../scss/home/home_page.scss';
 import "../base/events_dispatcher";
 import {Switch, BrowserRouter, HashRouter, Route, Link, withRouter} from 'react-router-dom';
 import {ajax, commons} from "../base/vm_util";
-import echarts from 'echarts';
+// import echarts from 'echarts';
 import ReactEcharts from 'echarts-for-react';
 
 
