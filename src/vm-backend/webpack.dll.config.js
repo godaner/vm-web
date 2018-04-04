@@ -5,7 +5,12 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
     entry: {
-        vendors: ["react","antd","react-dom","react-router","react-router-dom"]
+        vendors:  [
+            /** 这下面配置项目中用到的NPM依赖 **/
+            'react',
+            'echarts',
+            'antd'
+        ]
     },
     output: {
         filename: "[name].dll.js",
@@ -13,7 +18,10 @@ module.exports = {
         library
     },
     plugins: [
-
+        // 将代码中有重复的依赖包去重
+        new webpack.optimize.DedupePlugin(),
+        // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),

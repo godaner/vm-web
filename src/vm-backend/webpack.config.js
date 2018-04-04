@@ -56,6 +56,7 @@ module.exports = {
         new webpack.optimize.DedupePlugin(),
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
+        new ExtractTextPlugin("bundle.css"),//分离css资源
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -88,7 +89,6 @@ module.exports = {
         //     threshold: 10240,   // 资源文件大于10240B=10kB时会被压缩
         //     minRatio: 1  // 最小压缩比达到0.8时才会被压缩
         // }),
-        new ExtractTextPlugin("bundle.css"),//分离css资源
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require("./dist/vendors-manifest.json")
