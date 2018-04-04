@@ -98,7 +98,7 @@ module.exports = {
         //dll
         new webpack.DllReferencePlugin({
             context: __dirname,
-            manifest: require("./dist/vendors-manifest.json")
+            manifest: require("../vm-backend/dist/vendors-manifest.json")
         }),
 
 
