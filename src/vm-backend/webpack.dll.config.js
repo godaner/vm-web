@@ -5,7 +5,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
     entry: {
-        vendors: ["react"]
+        vendors: ["react","antd","react-dom","react-router","react-router-dom"]
     },
     output: {
         filename: "[name].dll.js",

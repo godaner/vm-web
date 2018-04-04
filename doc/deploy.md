@@ -4,11 +4,8 @@
         yum install npm
     * 安装 cnpm: 
         cnpm install -g cnpm
-    * 安装npm server！！！注意是serve不是server
-        npm install -g serve
-        获取安装后的serve路径：/usr/lib/node_modules/serve/bin/serve.js
-    * 添加server到环境变量
-        export PATH=/usr/lib/node_modules/serve/bin:$PATH
+    * 安装express服务器和server.config.js的依赖，一般安装在dist文件内部
+        npm install express body-parser ejs path compression --save
     *运行服务器
-        nohup serve -p 3999 dist>serve.out 2>&1 &(或者build)
+        nohup node server.config.js>express.out 2>&1 &(或者build)
     
