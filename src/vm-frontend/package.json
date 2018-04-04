@@ -4,14 +4,19 @@
   "description": "vm-frontend-page",
   "main": "main.js",
   "scripts": {
+    "analyz": "cross-env NODE_ENV=production npm_config_report=true npm run deploy:prod",
     "build": "webpack",
     "server": "nodemon ./server.config.js",
     "complier": "webpack --watch",
+    "run": "npm run package-dll | npm run package-bundle | npm run server",
     "package-dll": "webpack --colors --config ./webpack.dll.config.js",
     "package-bundle": "webpack --colors --config ./webpack.config.js",
     "package": "npm run package-dll | npm run package-bundle",
-    "package-prod": "cross-env NODE_ENV=production npm run package-dll | cross-env NODE_ENV=production npm run package-bundle",
-    "run": "npm run package-dll | npm run package-bundle | npm run server "
+    "package-dll-prod": "cross-env NODE_ENV=production npm run package-dll ",
+    "package-bundle-prod": "cross-env NODE_ENV=production npm run package-bundle",
+    "package-prod": "npm run package-dll-prod | npm run package-bundle-prod",
+    "deploy": "scp -r ./dist/ root@47.106.119.0:/usr/local/src/vm-web/vm-frontend/dist",
+    "package-prod-deploy": "npm run package-prod & npm run deploy"
   },
   "author": "zhangke",
   "license": "ISC",

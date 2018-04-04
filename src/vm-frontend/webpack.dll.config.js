@@ -46,6 +46,11 @@ module.exports = {
             },
             sourceMap: false
         }),
+        //dll
+        new webpack.DllPlugin({
+            path: path.join(__dirname, "dist/[name]-manifest.json"),
+            name: library
+        })
         //gzip 压缩,使用了express的gzip
         // new CompressionPlugin({
         //     asset: '[path].gz[query]',   // 目标文件名
@@ -56,11 +61,14 @@ module.exports = {
         //     threshold: 10240,   // 资源文件大于10240B=10kB时会被压缩
         //     minRatio: 1  // 最小压缩比达到0.8时才会被压缩
         // }),
-        //dll
-        new webpack.DllPlugin({
-            path: path.join(__dirname, "dist/[name]-manifest.json"),
-            name: library
-        })
+        //忽略
+        // new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
+        //去除错误
+        // new webpack.NoErrorsPlugin(),
+        // 将代码中有重复的依赖包去重
+        // new webpack.optimize.DedupePlugin(),
+        // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+        // new webpack.optimize.OccurrenceOrderPlugin(),
     ]
 }
 console.log("==>> webpack.dll.config.js#process.env.NODE_ENV is : "+ process.env.NODE_ENV)

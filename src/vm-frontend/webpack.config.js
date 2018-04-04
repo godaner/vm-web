@@ -6,16 +6,18 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     devtool: false,
-    entry: './app/main/main.js',
+    entry: {
+        app: './app/main/main.js', //入口文件
+    },
+    //更具第三方库数组生成[name].bundle.js
     output: {
-        path: path.join(__dirname, '/dist'),
-        filename: 'bundle.js'
+        path: path.join(__dirname, "/dist"),
+        filename: "bundle.js"
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.sass', '.css'],
-        // 别名，可以直接使用别名来代表设定的路径以及其他
+        extensions: ['.js', '.jsx', '.sass', '.css'],//用于指明程序自动补全识别哪些后缀,
         alias: {
-            components: path.join(__dirname, './app/components')
+            components: path.join(__dirname, './app/components')// 别名，可以直接使用别名来代表设定的路径以及其他
         }
     },
     module: {
@@ -52,13 +54,6 @@ module.exports = {
         }]
     },
     plugins: [
-        // new webpack.optimize.ModuleConcatenationPlugin(),
-        // 将代码中有重复的依赖包去重
-        new webpack.optimize.DedupePlugin(),
-        // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        //分离css资源
-        new ExtractTextPlugin("bundle.css"),
         //编译环境
         new webpack.DefinePlugin({
             'process.env': {
@@ -67,6 +62,10 @@ module.exports = {
         }),
         //代码混淆
         new webpack.optimize.UglifyJsPlugin({
+            //不移除的符号
+            mangle: {
+                // except: ['$super', '$', 'exports', 'require', 'module', '_']
+            },
             // 最紧凑的输出
             beautify: false,
             // 删除所有的注释
@@ -85,6 +84,14 @@ module.exports = {
             },
             sourceMap: false
         }),
+
+        //dll
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require("./dist/vendors-manifest.json")
+        }),
+        //分离css资源
+        new ExtractTextPlugin("bundle.css"),
         //gzip 压缩,使用了express的gzip
         // new CompressionPlugin({
         //     asset: '[path].gz[query]',   // 目标文件名
@@ -95,12 +102,15 @@ module.exports = {
         //     threshold: 10240,   // 资源文件大于10240B=10kB时会被压缩
         //     minRatio: 1  // 最小压缩比达到0.8时才会被压缩
         // }),
-        //dll
-        new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: require("./dist/vendors-manifest.json")
-        }),
-
+        // new webpack.optimize.ModuleConcatenationPlugin(),
+        //忽略
+        // new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
+        //去除错误
+        // new webpack.NoErrorsPlugin(),
+        // 将代码中有重复的依赖包去重
+        // new webpack.optimize.DedupePlugin(),
+        // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+        // new webpack.optimize.OccurrenceOrderPlugin(),
 
 
     ]

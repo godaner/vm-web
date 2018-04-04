@@ -1,1 +1,0 @@
-scp -r ./dist/ root@47.106.119.0:/usr/local/src/vm-web/vm-backend/dist
