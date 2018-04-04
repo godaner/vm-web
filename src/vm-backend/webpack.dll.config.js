@@ -8,9 +8,7 @@ module.exports = {
         vendors:  [
             /** 这下面配置项目中用到的NPM依赖 **/
             'react',
-            'react-dom',
-            'react-router',
-            'echarts',
+            // 'echarts',
             'antd'
         ]
     },
@@ -22,8 +20,6 @@ module.exports = {
     plugins: [
         // 将代码中有重复的依赖包去重
         new webpack.optimize.DedupePlugin(),
-        // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
-        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -40,11 +36,13 @@ module.exports = {
                 // 删除所有的 `console` 语句
                 // 还可以兼容ie浏览器
                 drop_console: true,
+                pure_funcs: ['c'],
                 // 内嵌定义了但是只用到一次的变量
                 collapse_vars: true,
                 // 提取出出现多次但是没有定义成变量去引用的静态值
                 reduce_vars: true,
-            }
+            },
+            sourceMap: false
         }),
         //gzip 压缩,使用了express的gzip
         // new CompressionPlugin({
