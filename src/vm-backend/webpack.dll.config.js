@@ -3,15 +3,22 @@ const library = '[name]_lib'
 const path = require("path")
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CompressionPlugin = require('compression-webpack-plugin');
-module.exports = {
+module.exports = {//只能分离node_moudle下的依赖，无法分离与cdn相关依赖
     entry: {
         vendors:  [
-            /** 这下面配置项目中用到的NPM依赖 **/
-            'react',
-            'antd'
+            /** 请十分注意，这里不能依赖externals的选项 **/
+            // 'react',
+            // 'react-dom',
             // 'echarts',
+            'antd',
+            // "react-router",
+            // "react-router-dom"
+            // "node-sass"
+            // "moment",
+            // "events"
         ]
     },
+
     output: {
         filename: "[name].dll.js",
         path: __dirname+"/dist/",

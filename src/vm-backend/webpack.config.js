@@ -5,6 +5,14 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+    externals: {
+        'react': "React",
+        'react-dom': 'ReactDOM',
+        'react-router': 'ReactRouter',
+        'react-router-dom': 'ReactRouterDOM',
+        'echarts': 'echarts'
+        // 'antd': 'antd'
+    },
     devtool: false,
     entry: {
         app: './app/main/main.js', //入口文件

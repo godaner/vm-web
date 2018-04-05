@@ -23,8 +23,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.sass', '.css'],//用于指明程序自动补全识别哪些后缀,
         alias: {
-            components: path.join(__dirname, './app/components'),// 别名，可以直接使用别名来代表设定的路径以及其他
-            // 'react': path.join(__dirname, 'node_modules', 'react')
+            components: path.join(__dirname, './app/components')// 别名，可以直接使用别名来代表设定的路径以及其他
         }
     },
     module: {
