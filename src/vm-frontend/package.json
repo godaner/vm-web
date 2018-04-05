@@ -22,8 +22,6 @@
   "license": "ISC",
   "dependencies": {
     "animate.css": "^3.5.2",
-    "antd": "^3.2.3",
-    "async-limiter": "^1.0.0",
     "babel": "^6.22.1",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
