@@ -34,6 +34,7 @@
     "compression-webpack-plugin": "^1.1.11",
     "cross-env": "^5.1.4",
     "css-loader": "^0.26.1",
+    "echarts-for-react": "^2.0.8",
     "ejs": "^2.5.7",
     "events": "^1.1.1",
     "express": "^4.16.2",
