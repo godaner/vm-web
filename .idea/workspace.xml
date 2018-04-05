@@ -2,267 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/create-react-class.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/create-react-class.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/factory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/node_modules/.bin/loose-envify" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/node_modules/.bin/loose-envify.cmd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/create-react-class/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/dist/react-dom-server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/dist/react-dom-server.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/dist/react-dom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/dist/react-dom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ARIADOMPropertyConfig.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/AutoFocusUtils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/BeforeInputEventPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/CSSProperty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/CSSPropertyOperations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/CallbackQueue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ChangeEventPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/DOMChildrenOperations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/DOMLazyTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/DOMNamespaces.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/DOMProperty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/DOMPropertyOperations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/Danger.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/DefaultEventPluginOrder.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/EnterLeaveEventPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/EventConstants.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/EventPluginHub.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/EventPluginRegistry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/EventPluginUtils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/EventPropagators.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/FallbackCompositionState.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/HTMLDOMPropertyConfig.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/KeyEscapeUtils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/LinkedValueUtils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/PluginModuleType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/PooledClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactBrowserEventEmitter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactChildFiber.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactChildReconciler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactComponentBrowserEnvironment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactComponentEnvironment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactComponentTreeTestUtils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactCompositeComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactCoroutine.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOM.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMComponentFlags.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMComponentTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMContainerInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMEmptyComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMFeatureFlags.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMFiber.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMIDOperations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMInput.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMInvalidARIAHook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMNullInputValuePropHook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMOption.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMSelect.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMSelection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMServer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMServerUMDEntry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMTextComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMTextarea.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMTreeTraversal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMUMDEntry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDOMUnknownPropertyHook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDebugTool.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDefaultBatchingStrategy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactDefaultInjection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactElementSymbol.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactEmptyComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactErrorUtils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactEventEmitterMixin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactEventListener.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFeatureFlags.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFiber.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFiberBeginWork.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFiberCommitWork.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFiberCompleteWork.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFiberReconciler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFiberRoot.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFiberScheduler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactFiberUpdateQueue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactHostComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactHostOperationHistoryHook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactInjection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactInputSelection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactInstanceMap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactInstanceType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactInstrumentation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactInvalidSetStateWarningHook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactMarkupChecksum.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactMount.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactMultiChild.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactMultiChildUpdateTypes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactNodeTypes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactOwner.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactPerf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactPriorityLevel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactPropTypeLocationNames.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactPropTypeLocations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactPropTypesSecret.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactReconcileTransaction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactReconciler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactRef.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactReifiedYield.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactServerBatchingStrategy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactServerRendering.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactServerRenderingTransaction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactServerUpdateQueue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactShallowRenderer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactSimpleEmptyComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactSyntheticEventType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactTestReconcileTransaction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactTestUtils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactTypeOfWork.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactTypes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactUpdateQueue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactUpdates.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ReactVersion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ResponderEventPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ResponderSyntheticEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ResponderTouchHistoryStore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SVGDOMPropertyConfig.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SelectEventPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SimpleEventPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticAnimationEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticClipboardEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticCompositionEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticDragEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticFocusEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticInputEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticKeyboardEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticMouseEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticTouchEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticTransitionEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticUIEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/SyntheticWheelEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/TapEventPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/TouchHistoryMath.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/Transaction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/ViewportMetrics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/accumulate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/accumulateInto.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/adler32.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/canDefineProperty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/checkReactTypeSpec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/createMicrosoftUnsafeLocalFunction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/dangerousStyleValue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/deprecated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/escapeTextContentForBrowser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/findDOMNode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/flattenChildren.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/forEachAccumulated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getEventCharCode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getEventKey.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getEventModifierState.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getEventTarget.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getHostComponentFromComposite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getIteratorFn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getNodeForCharacterOffset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getTestDocument.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getTextContentAccessor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/getVendorPrefixedEventName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/inputValueTracking.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/instantiateReactComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/isEventSupported.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/isTextInputElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/lowPriorityWarning.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/quoteAttributeValueForBrowser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/reactComponentExpect.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/reactProdInvariant.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/renderSubtreeIntoContainer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/setInnerHTML.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/setTextContent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/shouldUpdateReactComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/traverseAllChildren.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/lib/validateDOMNesting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/node_modules/.bin/loose-envify" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/node_modules/.bin/loose-envify.cmd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react-dom/test-utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/dist/react-with-addons.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/dist/react-with-addons.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/dist/react.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/dist/react.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/KeyEscapeUtils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/LinkedStateMixin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/PooledClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/React.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactAddonsDOMDependencies.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactAddonsDOMDependenciesUMDShim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactBaseClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactCSSTransitionGroup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactCSSTransitionGroupChild.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactChildren.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactComponentTreeDevtool.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactComponentTreeHook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactComponentTreeHookUMDShim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactComponentWithPureRenderMixin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactCurrentOwner.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactCurrentOwnerUMDShim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactDOMFactories.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactElementSymbol.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactElementType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactElementValidator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactFragment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactLink.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactNoopUpdateQueue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactPropTypeLocationNames.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactPropTypeLocations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactPropTypes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactPropTypesSecret.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactStateSetters.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactTransitionChildMapping.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactTransitionEvents.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactTransitionGroup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactUMDEntry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactUMDShim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactVersion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactWithAddons.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/ReactWithAddonsUMDEntry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/canDefineProperty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/checkReactTypeSpec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/createClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/deprecated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/flattenChildren.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/getIteratorFn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/getNextDebugID.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/getNextDebugIDUMDShim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/lowPriorityWarning.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/onlyChild.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/reactProdInvariant.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/shallowCompare.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/sliceChildren.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/traverseAllChildren.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/lib/update.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/node_modules/.bin/loose-envify" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/node_modules/.bin/loose-envify.cmd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/react/react.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/vendors-manifest.json" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/vendors-manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/vendors.dll.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/vendors.dll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/node_modules/.yarn-integrity" afterPath="$PROJECT_DIR$/src/vm-frontend/node_modules/.yarn-integrity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/index.html" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/package.json" afterPath="$PROJECT_DIR$/src/vm-frontend/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" afterPath="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js" afterPath="$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/yarn.lock" afterPath="$PROJECT_DIR$/src/vm-frontend/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -287,8 +30,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="38" column="11" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="11" />
+            <state relative-caret-position="534">
+              <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -307,14 +50,14 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/dist/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+            <state relative-caret-position="486">
+              <caret line="18" column="82" lean-forward="false" selection-start-line="18" selection-start-column="82" selection-end-line="18" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.dll.config.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="webpack.dll.config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -328,17 +71,27 @@
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/actors_list.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="702">
-              <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+              <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="76" column="24" lean-forward="true" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+            <state relative-caret-position="270">
+              <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="head.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="1" column="48" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -482,10 +235,10 @@
         <option value="$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/dist/index.html" />
         <option value="$PROJECT_DIR$/src/vm-backend/package.json" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/dist/index.html" />
         <option value="$PROJECT_DIR$/src/vm-frontend/package.json" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.js" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/dist/index.html" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js" />
       </list>
     </option>
   </component>
@@ -1280,15 +1033,15 @@
       <workItem from="1522853682036" duration="2636000" />
       <workItem from="1522857099611" duration="1030000" />
       <workItem from="1522858862026" duration="597000" />
-      <workItem from="1522861402574" duration="10310000" />
+      <workItem from="1522861402574" duration="10666000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="473720000" />
+    <option name="totallyTimeSpent" value="474076000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1383,12 +1136,11 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="15" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/package-lock.json" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/scss/actors_list.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1682,7 +1434,7 @@
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/actors_list.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
-          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1695,34 +1447,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+        <state relative-caret-position="486">
+          <caret line="18" column="82" lean-forward="false" selection-start-line="18" selection-start-column="82" selection-end-line="18" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="38" column="11" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="11" />
+        <state relative-caret-position="534">
+          <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="48" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="76" column="24" lean-forward="true" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        <state relative-caret-position="270">
+          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
           <folding />
         </state>
       </provider>
