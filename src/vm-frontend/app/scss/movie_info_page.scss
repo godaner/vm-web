@@ -29,7 +29,7 @@
       #movie_text {
         overflow: hidden;
         text-overflow: ellipsis;
-        @include defaultSetPaddingLeft(20px);
+        @include defaultSetPaddingLeft(40px);
         //flex: 1;
         height: 100%;
         //background-color: black;

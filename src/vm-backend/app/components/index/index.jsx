@@ -17,52 +17,67 @@ import '../../scss/index/index.scss';
 
 var Index = React.createClass({
     getInitialState: function () {
+        const collapsed = false;
+        const collapsedWidth = 80;
+        const siderWidth = 200;
         return {
-            collapsed: false
+            collapsed: collapsed,
+            siderWidth: siderWidth,
+            collapsedWidth: collapsedWidth,
+            siderCurrtWidth: collapsed ? collapsedWidth : siderWidth
         };
     },
-    onCollapse(collapsed){
+    onCollapse(collapsed, type){
         // console.log(collapsed);
+        const {siderWidth, collapsedWidth} = this.state;
         this.setState({collapsed});
+        let newSiderWidth = collapsedWidth;
+        if (!collapsed) {
+            newSiderWidth = siderWidth;
+        }
+        this.updateSiderCurrtWidth(newSiderWidth);
     },
-
+    updateSiderCurrtWidth(siderCurrtWidth){
+        this.setState({siderCurrtWidth});
+    },
     render: function () {
         //set now page's props
-        // const {collapsed} = this.state;
-
+        const {collapsed, siderCurrtWidth, collapsedWidth} = this.state;
 
         return (
 
             <HashRouter>
                 <Layout
-                    style={{minHeight: '100vh'}}
                 >
 
                     {/*登录框*/}
                     <LoginDialog ref="login_dialog"/>
                     <Sider
                         collapsible
-                        collapsed={this.state.collapsed}
+                        collapsed={collapsed}
                         onCollapse={this.onCollapse}
+                        width={siderCurrtWidth}
+                        collapsedWidth={collapsedWidth}
+                        style={{overflow: 'auto', height: '100vh', zIndex:"999",position: 'fixed', left: 0}}
                     >
 
 
                         {/*nav*/}
                         <Nav/>
                     </Sider>
-                    <Layout >
+                    <Layout style={{marginLeft: siderCurrtWidth}}>
                         <Header style={{background: '#fff', padding: 0}}>
                             {/*head*/}
                             <Head/>
                         </Header>
 
-                        <Content style={{margin: '0 16px'}}>
+                        <Content style={{margin: '0 16px', overflow: 'initial'}}>
                             <Breadcrumb style={{margin: '16px 0'}}>
                                 <Breadcrumb.Item>User</Breadcrumb.Item>
                                 <Breadcrumb.Item>Bill</Breadcrumb.Item>
                             </Breadcrumb>
 
-                            <div style={{paddingLeft: 24, paddingRight: 24, background: '#fff', minHeight: 360}}>
+                            <div style={{paddingLeft: 24, paddingRight: 24, background: '#fff'}}>
                                 <Routes/>
                             </div>
                         </Content>
