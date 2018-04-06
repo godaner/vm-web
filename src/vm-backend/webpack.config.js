@@ -11,6 +11,7 @@ module.exports = {
         'react-router': 'ReactRouter',
         'react-router-dom': 'ReactRouterDOM',
         'echarts': 'echarts',
+        'moment': 'moment',
         'antd': 'antd'
     },
     devtool: false,
@@ -29,37 +30,40 @@ module.exports = {
         }
     },
     module: {
-        loaders: [{   //引入babel模块处理ES6代码
-            test: /\.js|jsx$/,
-            exclude: /node_modules/,
-            loaders: 'babel-loader',
+        loaders: [
+            {   //引入babel模块处理ES6代码
+                test: /\.js|jsx$/,
+                exclude: /node_modules/,
+                loaders: 'babel-loader',
 
-            query: {
-                presets: ['react', 'es2015']
+                query: {
+                    presets: ['react', 'es2015']
+                }
+            },
+            {
+                test: /\.(css|scss)$/,
+                // loader: "style-loader!css-loader!sass-loader",
+
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true,
+                            }
+                        }
+                    ]
+                })
+
             }
-        }, {
-            test: /\.(css|scss)$/,
-            // loader: "style-loader!css-loader!sass-loader",
-
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                        }
-                    }
-                ]
-            })
-
-        }]
+        ]
     },
     plugins: [
 
