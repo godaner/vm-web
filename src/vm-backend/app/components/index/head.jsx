@@ -5,7 +5,7 @@ import {Avatar, Dropdown, Form, Layout, Menu, message} from "antd";
 //import "antd/dist/antd.css";
 import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
-import {ajax} from "../base/vm_util";
+import {ajax,commons} from "../base/vm_util";
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -73,7 +73,10 @@ var Head = React.createClass({
         const {checkUrl} = this.state;
 
         ajax.get({
-            url: checkUrl,
+            url: commons.addUrlParam({
+                url:checkUrl,
+                obj:{unix:new Date().getTime()}
+            }),
             ignoreAjaxError:true,
             success: function (result) {
                 const {admin} = result.data;

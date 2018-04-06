@@ -74,7 +74,7 @@ var LoginDialog = React.createClass({
 
                     window.EventsDispatcher.startPollingCheckOnlineAdmin();
 
-                },5000);
+                },0);
 
             }.bind(this),
             failure: function (result) {

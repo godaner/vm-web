@@ -2,7 +2,7 @@ import React from "react";
 import {Form, Icon, Layout, Menu, message} from "antd";
 import {withRouter} from "react-router-dom";
 
-import {ajax} from "../base/vm_util";
+import {ajax, commons} from "../base/vm_util";
 //import "antd/dist/antd.css";
 import "../../scss/index/nav.scss";
 import "../base/events_dispatcher";
@@ -79,7 +79,10 @@ var Nav = React.createClass({
                 const {menuUrl, tipOfLoadMenus} = this.state;
                 // const hiddenMassage = message.loading(tipOfLoadMenus, 0);
                 ajax.get({
-                    url: menuUrl + admin.id,
+                    url: commons.addUrlParam({
+                        url: menuUrl + admin.id,
+                        obj: {unix: new Date().getTime()}
+                    }),
                     success: function (result) {
 
                         const menu = result.data.tree;
