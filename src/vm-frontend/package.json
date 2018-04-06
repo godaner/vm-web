@@ -14,7 +14,7 @@
     "package-dll-prod": "webpack --colors --config ./webpack.dll.config.prod.js",
     "package-bundle-prod": "webpack --colors --config ./webpack.config.prod.js",
     "package-prod": "npm run package-dll-prod | npm run package-bundle-prod",
-    "package-prod-deploy": "npm run package-prod & npm run deploy",
+    "package-deploy": "npm run package-prod & npm run deploy",
     "deploy": "scp -r ./dist/ root@47.106.119.0:/usr/local/src/vm-web/vm-frontend/"
   },
   "author": "zhangke",
