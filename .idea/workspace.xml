@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/index.html" afterPath="$PROJECT_DIR$/src/vm-backend/dist/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/package.json" afterPath="$PROJECT_DIR$/src/vm-backend/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/package.json" afterPath="$PROJECT_DIR$/src/vm-frontend/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +29,65 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-frontend/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-108">
-              <caret line="11" column="90" lean-forward="false" selection-start-line="11" selection-start-column="90" selection-end-line="11" selection-end-column="90" />
+            <state relative-caret-position="162">
+              <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_form.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/login_form.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_dialog.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1000">
+              <caret line="76" column="19" lean-forward="false" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events_dispatcher.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="489">
+              <caret line="38" column="22" lean-forward="false" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -41,7 +96,7 @@
       <file leaf-file-name="nav.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/nav.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
+            <state relative-caret-position="1942">
               <caret line="144" column="16" lean-forward="false" selection-start-line="144" selection-start-column="16" selection-end-line="144" selection-end-column="16" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -50,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="48" column="68" lean-forward="false" selection-start-line="48" selection-start-column="68" selection-end-line="48" selection-end-column="68" />
+            <state relative-caret-position="1431">
+              <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -153,7 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vm-backend/components/admin/admin_table.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/home/movie_cls_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/home/sex_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/components/home/home_page.jsx" />
@@ -183,7 +237,6 @@
         <option value="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/webpack.dll.config.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/webpack.config.js" />
-        <option value="$PROJECT_DIR$/src/vm-backend/package.json" />
         <option value="$PROJECT_DIR$/src/vm-backend/webpack.dll.config.prod.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/webpack.dll.config.dev.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/webpack.config.prod.js" />
@@ -192,7 +245,6 @@
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_regist_num_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/sex_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/movie_cls_count.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/package.json" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.dev.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.prod.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.dev.js" />
@@ -202,8 +254,11 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/index/nav.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/dist/index.html" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/dist/index.html" />
+        <option value="$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/package.json" />
+        <option value="$PROJECT_DIR$/src/vm-backend/package.json" />
       </list>
     </option>
   </component>
@@ -271,6 +326,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-frontend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -361,6 +420,36 @@
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -419,6 +508,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -940,12 +1073,12 @@
       <workItem from="1522853682036" duration="2636000" />
       <workItem from="1522857099611" duration="1030000" />
       <workItem from="1522858862026" duration="597000" />
-      <workItem from="1522861402574" duration="29745000" />
+      <workItem from="1522861402574" duration="30884000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="493155000" />
+    <option name="totallyTimeSpent" value="494294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -959,7 +1092,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1048,23 +1181,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/node_modules/antd/lib/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/node_modules/react/react.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -1329,22 +1445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="67" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="16" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="83" lean-forward="false" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
@@ -1451,17 +1551,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        <state relative-caret-position="1431">
+          <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/login_form.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/nav.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
+        <state relative-caret-position="1942">
           <caret line="144" column="16" lean-forward="false" selection-start-line="144" selection-start-column="16" selection-end-line="144" selection-end-column="16" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1469,21 +1589,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/index.html">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="11" column="90" lean-forward="false" selection-start-line="11" selection-start-column="90" selection-end-line="11" selection-end-column="90" />
+        <state relative-caret-position="489">
+          <caret line="38" column="22" lean-forward="false" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="48" column="68" lean-forward="false" selection-start-line="48" selection-start-column="68" selection-end-line="48" selection-end-column="68" />
+        <state relative-caret-position="1000">
+          <caret line="76" column="19" lean-forward="false" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>

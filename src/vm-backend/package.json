@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack",
     "server": "nodemon ./server.config.js",
-    "complier": "webpack --watch",
-    "run": "npm run package-dll-dev | npm run package-bundle-dev | npm run server",
+    "dynamic-complier-bundle": "webpack --watch --colors --config ./webpack.dll.config.dev.js",
+    "run": " npm run server | npm run package-dll-dev |npm run dynamic-complier-bundle ",
     "package-dll-dev": "webpack --colors --config ./webpack.dll.config.dev.js",
     "package-bundle-dev": "webpack --colors --config ./webpack.config.dev.js",
     "package-dev": "npm run package-dll-dev | npm run package-bundle-dev",

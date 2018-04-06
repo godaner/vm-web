@@ -2718,7 +2718,10 @@ var LoginDialog = _react2.default.createClass({
                 //clear form
                 this.getAdminLoginDialog().clearForm();
 
-                window.EventsDispatcher.startPollingCheckOnlineAdmin();
+                setTimeout(function () {
+
+                    window.EventsDispatcher.startPollingCheckOnlineAdmin();
+                }, 5000);
             }.bind(this),
             failure: function failure(result) {
                 _antd.message.error(result.msg);
