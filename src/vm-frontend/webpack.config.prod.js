@@ -4,6 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+const env = "production";
 module.exports = {
     externals: {
         'react': "React",
@@ -65,7 +66,7 @@ module.exports = {
         //编译环境
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+                NODE_ENV: JSON.stringify(env),
             }
         }),
         //dll
@@ -122,4 +123,5 @@ module.exports = {
     ]
 }
 
-console.log("==>> webpack.config.dev.js#process.env.NODE_ENV is : " + process.env.NODE_ENV)
+
+console.log("====>> webpack.dll.config env is : "+env+" <<====");

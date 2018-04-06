@@ -3,6 +3,7 @@ const library = '[name]_lib'
 const path = require("path")
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CompressionPlugin = require('compression-webpack-plugin');
+const env = "development";
 module.exports = {//只能分离node_moudle下的依赖，无法分离与cdn相关依赖
     entry: {
         vendors:  [
@@ -27,7 +28,7 @@ module.exports = {//只能分离node_moudle下的依赖，无法分离与cdn相�
         //编译环境
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+                NODE_ENV: JSON.stringify(env),
             }
         }),
 
@@ -74,4 +75,5 @@ module.exports = {//只能分离node_moudle下的依赖，无法分离与cdn相�
         // }),
     ]
 }
-console.log("==>> webpack.dll.config.js#process.env.NODE_ENV is : "+ process.env.NODE_ENV)
+
+console.log("====>> webpack.dll.config env is : "+env+" <<====");
