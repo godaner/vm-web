@@ -1,7 +1,7 @@
 import React from "react";
 import {Input, Layout, Menu, Select} from "antd";
 import {withRouter} from "react-router-dom";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/admin/admin_page.scss";
 import "../base/events_dispatcher";
 import AdminTable from "./admin_table";

@@ -3,7 +3,7 @@ import {Form, Icon, Layout, Menu, message} from "antd";
 import {withRouter} from "react-router-dom";
 
 import {ajax} from "../base/vm_util";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/index/nav.scss";
 import "../base/events_dispatcher";
 const FormItem = Form.Item;

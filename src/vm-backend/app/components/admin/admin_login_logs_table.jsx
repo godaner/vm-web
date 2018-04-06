@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Icon, Input, Layout, Menu, message, Select, Table} from "antd";
 import {withRouter} from "react-router-dom";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import "../../scss/admin/admin_login_logs_table.scss";
 import {ajax, commons} from "../base/vm_util";

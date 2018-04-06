@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Input, Layout, Menu, Modal, Select, Upload, Icon, message} from "antd";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import "../../scss/movie/movie_video_upload_dialog.scss";
 import {ajax, commons} from "../base/vm_util";

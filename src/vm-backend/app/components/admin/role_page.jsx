@@ -1,7 +1,7 @@
 import React from "react";
 import {Input, Layout, Menu, Select} from "antd";
 import {withRouter} from "react-router-dom";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/admin/role_page.scss";
 import "../base/events_dispatcher";
 import RoleTable from "./role_table";

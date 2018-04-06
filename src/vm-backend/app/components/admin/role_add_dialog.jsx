@@ -1,6 +1,6 @@
 import React from "react";
 import {Input, Layout, Menu, message, Select} from "antd";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import {ajax} from "../base/vm_util";
 import EditDialogTemple from "../base/edit_dialog_temple";

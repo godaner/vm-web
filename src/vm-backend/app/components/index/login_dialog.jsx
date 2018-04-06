@@ -5,7 +5,7 @@ import EditDialogTemple from "../base/edit_dialog_temple";
 import "../base/events_dispatcher";
 
 import {ajax} from "../base/vm_util";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/index/login_dialog.scss";
 const {Header, Content, Footer, Sider} = Layout;
 const FormItem = Form.Item;

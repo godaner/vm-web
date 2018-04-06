@@ -2,7 +2,7 @@ import React from "react";
 import {Avatar, Dropdown, Form, Layout, Menu, message} from "antd";
 
 
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
 import {ajax} from "../base/vm_util";

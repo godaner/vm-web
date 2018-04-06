@@ -10,8 +10,8 @@ module.exports = {
         'react-dom': 'ReactDOM',
         'react-router': 'ReactRouter',
         'react-router-dom': 'ReactRouterDOM',
-        'echarts': 'echarts'
-        // 'antd': 'antd'
+        'echarts': 'echarts',
+        'antd': 'antd'
     },
     devtool: false,
     entry: {

@@ -10,7 +10,7 @@ import EditFormTemple from "./edit_form_temple";
 import "./events_dispatcher";
 
 
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import '../../scss/base/edit_dialog.scss';
 
 import {ajax, commons} from "../base/vm_util";

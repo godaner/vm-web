@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Icon, Input, Layout, Menu, message, Popconfirm, Select, Table, Dropdown, Badge} from "antd";
 import {withRouter} from "react-router-dom";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/movie/tagGroup_table.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";

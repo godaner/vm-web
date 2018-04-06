@@ -12,7 +12,7 @@ import Nav from "./nav";
 import Routes from "./routes";
 import {ajax, commons} from "../base/vm_util";
 
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import '../../scss/index/index.scss';
 
 var Index = React.createClass({

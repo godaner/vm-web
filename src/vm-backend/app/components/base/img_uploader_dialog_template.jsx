@@ -4,7 +4,7 @@ import {Form, Layout, Menu, Modal} from "antd";
 import "./events_dispatcher";
 
 
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/base/edit_dialog.scss";
 import ImgUploader from "./img_uploader";
 const {Header, Content, Footer, Sider} = Layout;

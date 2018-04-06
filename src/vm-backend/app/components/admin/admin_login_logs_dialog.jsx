@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import {Modal} from "antd";
 import {withRouter} from "react-router-dom";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../base/events_dispatcher";
 import AdminLoginLogsTable from "./admin_login_logs_table";
 var AdminLoginLogsDialog = React.createClass({

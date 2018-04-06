@@ -5,7 +5,7 @@ import EditFormTemple from "./edit_form_temple";
 import "./events_dispatcher";
 
 
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/base/edit_dialog.scss";
 const {Header, Content, Footer, Sider} = Layout;
 const FormItem = Form.Item;

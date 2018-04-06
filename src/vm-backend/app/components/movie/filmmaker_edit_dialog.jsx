@@ -2,7 +2,7 @@ import React from "react";
 import {Button, DatePicker, Icon, Input, Layout, Menu, message, Select, Table, Upload} from "antd";
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/movie/filmmaker_page.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";

@@ -9,7 +9,7 @@ import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
 import "../base/events_dispatcher";
 
 
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import '../../scss/index/login_form.scss';
 import {ajax,commons} from "../base/vm_util";
 

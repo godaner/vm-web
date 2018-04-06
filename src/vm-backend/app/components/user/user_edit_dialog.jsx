@@ -1,7 +1,7 @@
 import React from "react";
 import {DatePicker, Input, Layout, Menu, message, Select} from "antd";
 import moment from "moment";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import "../../scss/user/user_page.scss";
 import "../base/events_dispatcher";
 import {ajax, commons} from "../base/vm_util";
