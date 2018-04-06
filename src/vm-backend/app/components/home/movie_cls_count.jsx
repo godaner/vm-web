@@ -9,7 +9,7 @@ import '../../scss/home/home_page.scss';
 import "../base/events_dispatcher";
 import {Switch, BrowserRouter, HashRouter, Route, Link, withRouter} from 'react-router-dom';
 import {ajax, commons} from "../base/vm_util";
-// import echarts from 'echarts';
+import echarts from 'echarts';
 // import ReactEcharts from 'echarts-for-react';
 
 var MovieClsCount = React.createClass({
@@ -19,7 +19,9 @@ var MovieClsCount = React.createClass({
 
     componentDidMount(){
 
-        let myChart = echarts.init($(this.refs.chartContainer));
+
+        c($(this.refs.chartContainer));
+        let myChart = echarts.init($(this.refs.chartContainer).get(0));
 
         myChart.setOption(this.getOption(),true)
     },
@@ -63,7 +65,7 @@ var MovieClsCount = React.createClass({
     },
     render: function () {
         return (
-            <div ref="chartContainer"/>
+            <div ref="chartContainer" style={{width:"100%",height:"300"}}></div>
         );
     }
 });

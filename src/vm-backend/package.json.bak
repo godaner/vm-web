@@ -9,7 +9,7 @@
     "complier": "webpack --watch",
     "run": "npm run package-dll | npm run package-bundle | npm run server",
     "package-dll": "webpack --colors --config ./webpack.dll.config.js",
-    "package-bundle": "webpack --colors --config ./webpack.config.js",
+    "package-bundle": "webpack --colors --config ./webpack.config.dev.js",
     "package": "npm run package-dll | npm run package-bundle",
     "package-dll-prod": "cross-env NODE_ENV=production npm run package-dll ",
     "package-bundle-prod": "cross-env NODE_ENV=production npm run package-bundle",

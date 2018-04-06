@@ -10,14 +10,21 @@ import "../base/events_dispatcher";
 import {Switch, BrowserRouter, HashRouter, Route, Link, withRouter} from 'react-router-dom';
 import {ajax, commons} from "../base/vm_util";
 import echarts from 'echarts';
-import ReactEcharts from 'echarts-for-react';
+// import ReactEcharts from 'echarts-for-react';
 
 
 var SexCount = React.createClass({
     getInitialState: function () {
         return {};
     },
+
     componentDidMount(){
+
+
+        c($(this.refs.chartContainer));
+        let myChart = echarts.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(this.getOption(),true)
     },
     getOption(){
         var option = {
@@ -58,9 +65,9 @@ var SexCount = React.createClass({
         return option;
     },
     render: function () {
-        //set now page's props
+
         return (
-            <ReactEcharts option={this.getOption()}/>
+            <div ref="chartContainer" style={{width:"100%",height:"300"}}></div>
         );
     }
 });
