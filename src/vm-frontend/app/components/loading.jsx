@@ -23,10 +23,10 @@ var Loading = React.createClass({
 
     },
     registEvents:function () {
-        window.event.on('showLoading',(msg)=>{
+        window.eventEmit.on('showLoading',(msg)=>{
             this.showLoading(msg);
         })
-        window.event.on('closeLoading',()=>{
+        window.eventEmit.on('closeLoading',()=>{
             this.closeLoading();
         })
     },

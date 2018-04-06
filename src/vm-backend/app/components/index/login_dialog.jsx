@@ -24,7 +24,7 @@ var LoginDialog = React.createClass({
     },
 
     registEvents(){
-        window.eventEmitter.on('showLoginDialog', () => {
+        window.eventEmitEmitter.on('showLoginDialog', () => {
 
             this.showLoginDialog();
 

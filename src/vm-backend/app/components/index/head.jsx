@@ -49,14 +49,14 @@ var Head = React.createClass({
         this.setState({pollingTimer});
     },
     registEvents(){
-        window.eventEmitter.on('stopPollingCheckOnlineAdmin', () => {//当用户直接在地址栏输入url时，回显nav
+        window.eventEmitEmitter.on('stopPollingCheckOnlineAdmin', () => {//当用户直接在地址栏输入url时，回显nav
             this.stopPollingCheckOnlineAdmin();
         });
-        window.eventEmitter.on('startPollingCheckOnlineAdmin', () => {//当用户直接在地址栏输入url时，回显nav
+        window.eventEmitEmitter.on('startPollingCheckOnlineAdmin', () => {//当用户直接在地址栏输入url时，回显nav
             this.startPollingCheckOnlineAdmin();
         });
 
-        window.eventEmitter.on('updateLoginAdminInfo', (admin) => {//登录，注销等情况
+        window.eventEmitEmitter.on('updateLoginAdminInfo', (admin) => {//登录，注销等情况
 
             if (isUndefined(admin)) {
                 admin = {};

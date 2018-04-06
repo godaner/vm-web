@@ -85,12 +85,12 @@ var Head = React.createClass({
     },
     registEvents: function () {
         //注册更新头像事件
-        window.event.on('updateHeadComponentUser', (newUser) => {
+        window.eventEmit.on('updateHeadComponentUser', (newUser) => {
             this.updateStateUser(newUser);
         });
 
         //检测用户是否有在线
-        window.event.on('feelerOnlineUser', (args) => {
+        window.eventEmit.on('feelerOnlineUser', (args) => {
             const url = "/user/feelerOnlineUser";
             ajax.get({
                 url: url,
@@ -123,7 +123,7 @@ var Head = React.createClass({
 
         });
         //获取用户是否有在线
-        window.event.on('getOnlineUser', (args) => {
+        window.eventEmit.on('getOnlineUser', (args) => {
 
             const url = "/user/online";
             ajax.get({
@@ -157,7 +157,7 @@ var Head = React.createClass({
         });
 
         //保护页面的职责
-        window.event.on('protectPage', () => {
+        window.eventEmit.on('protectPage', () => {
             c("protectPage");
             for (var i = 0; i < vm_config.protectedUserPageLists.length; i++) {
                 var protectedPage = vm_config.protectedUserPageLists[i];

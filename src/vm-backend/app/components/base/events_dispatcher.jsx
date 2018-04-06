@@ -1,9 +1,9 @@
 import React from "react"; //引入react组件
 import {EventEmitter} from "events";
-window.eventEmitter = new EventEmitter();
+window.eventEmitEmitter = new EventEmitter();
 //项目前端事件分发器
 window.EventsDispatcher = {
-    event: window.eventEmitter,
+    event: window.eventEmitEmitter,
     showLoginDialog() {
         this.event.emit('showLoginDialog');
     },

@@ -2491,7 +2491,7 @@ function ckplayerConfig() {
 				}
 			}
 			this.PD.oncontextmenu = function(event) {
-				var eve = event || window.event;
+				var eve = event || window.eventEmit;
 				var client = thisTemp.client(event);
 				if(eve.button == 2) {
 					eve.returnvalue = false;
@@ -6423,7 +6423,7 @@ function ckplayerConfig() {
 			获取clientX和clientY
 		*/
 		client: function(event) {
-			var eve = event || window.event;
+			var eve = event || window.eventEmit;
 			if(this.isUndefined(eve)) {
 				eve = {
 					clientX: 0,

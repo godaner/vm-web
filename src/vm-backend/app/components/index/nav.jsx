@@ -53,19 +53,19 @@ var Nav = React.createClass({
     registEvents(){
 
 
-        window.eventEmitter.on('backToHomePage', () => {//当用户直接在地址栏输入url时，回显nav
+        window.eventEmitEmitter.on('backToHomePage', () => {//当用户直接在地址栏输入url时，回显nav
             this.backToHomePage();
         });
-        window.eventEmitter.on('onRouteEnter', (args) => {//当用户直接在地址栏输入url时，回显nav
+        window.eventEmitEmitter.on('onRouteEnter', (args) => {//当用户直接在地址栏输入url时，回显nav
             setTimeout(() => {
                 const {pathname} = args;
                 this.updateSelectKeys([pathname]);
             }, 1);
         });
-        window.eventEmitter.on('updateAdminMenuTree', (menuTree) => {//当用户直接在地址栏输入url时，回显nav
+        window.eventEmitEmitter.on('updateAdminMenuTree', (menuTree) => {//当用户直接在地址栏输入url时，回显nav
             this.updateMenus(menuTree);
         });
-        window.eventEmitter.on('updateLoginAdminInfo', (admin) => {//当admin更新后，更具adminId获取新的menu列表，并且广播
+        window.eventEmitEmitter.on('updateLoginAdminInfo', (admin) => {//当admin更新后，更具adminId获取新的menu列表，并且广播
             if (isUndefined(admin)) {
                 const menu = [];
 

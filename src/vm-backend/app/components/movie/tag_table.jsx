@@ -40,14 +40,14 @@ var TagTable = React.createClass({
     },
     registEvents(){
         const {tagGroupId} = this.props;
-        window.eventEmitter.on('onTagAddSuccess', (record) => {
+        window.eventEmitEmitter.on('onTagAddSuccess', (record) => {
 
             if (record.tagGroupId == tagGroupId) {
                 this.loadData();
             }
 
         });
-        window.eventEmitter.on('loadTagTableData', () => {
+        window.eventEmitEmitter.on('loadTagTableData', () => {
 
             this.loadData();
 

@@ -27,7 +27,7 @@ var MsgDialog = React.createClass({
 
     },
     registEvents: function () {
-        window.event.on('showMsgDialog', (msg, onCloseCallfun) => {
+        window.eventEmit.on('showMsgDialog', (msg, onCloseCallfun) => {
             //set onCloseCallfun to state
             var state = this.state;
             state.onCloseCallfun = onCloseCallfun;
@@ -36,7 +36,7 @@ var MsgDialog = React.createClass({
 
             this.showMsg(msg);
         })
-        window.event.on('closeMsgDialog', () => {
+        window.eventEmit.on('closeMsgDialog', () => {
             this.close();
         })
     },

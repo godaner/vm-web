@@ -32,7 +32,7 @@ var Routes = React.createClass({
     },
     registEvents(){
 
-        window.eventEmitter.on('updateAdminMenuTree', (menuTree) => {//更新routes
+        window.eventEmitEmitter.on('updateAdminMenuTree', (menuTree) => {//更新routes
             var menuKeys = [];
             if (!isEmptyList(menuTree)) {
                 $.each(menuTree, function (i, menu) {

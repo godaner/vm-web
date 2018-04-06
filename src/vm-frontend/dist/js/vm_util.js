@@ -6,7 +6,7 @@ function generateImgUrl(args) {
 }
 function generateUrl(args) {
 
-    return vm_config.http_url_prefix + args.url ;
+    return vm_config.http_url_prefix + args.url;
 }
 function fail(code) {
     return code < 0;
@@ -34,7 +34,7 @@ function lazyLoad() {
 var ajax = {
     ajaxError: "网络不佳,请稍后重试",
     offline: "您已离线",
-    startResponse(args, result){
+    startResponse: function (args, result) {
         window.EventsDispatcher.closeLoading();
         if (!isUndefined(args)) {
             if (!isUndefined(args.onResponseStart)) {
@@ -42,7 +42,7 @@ var ajax = {
             }
         }
     },
-    endResponse(args, result){
+    endResponse: function (args, result) {
         if (!isUndefined(args)) {
             if (!isUndefined(args.onResponseEnd)) {
                 args.onResponseEnd();

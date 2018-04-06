@@ -40,14 +40,14 @@ var MovieSrcVersionTable = React.createClass({
     },
     registEvents(){
         const {movieId} = this.props;
-        window.eventEmitter.on('onMovieSrcVersionAddSuccess', (record) => {
+        window.eventEmitEmitter.on('onMovieSrcVersionAddSuccess', (record) => {
 
             if (record.movieId == movieId) {
                 this.loadData();
             }
 
         });
-        window.eventEmitter.on('loadMovieSrcVersionTableData', () => {
+        window.eventEmitEmitter.on('loadMovieSrcVersionTableData', () => {
 
             this.loadData();
 
