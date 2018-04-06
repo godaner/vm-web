@@ -39,16 +39,19 @@ var Index = React.createClass({
 
                 <HashRouter>
 
-                    <Layout style={{minHeight: '100vh'}}>
+                    <Layout
+                        style={{minHeight: '100vh'}}
+                            >
                         <Sider
                             collapsible
                             collapsed={this.state.collapsed}
                             onCollapse={this.onCollapse}
+                            style={{minHeight: '100vh',height:"100%"}}
                         >
                             {/*nav*/}
                             <Nav/>
                         </Sider>
-                        <Layout>
+                        <Layout >
                             <Header style={{background: '#fff', padding: 0}}>
                                 {/*head*/}
                                 <Head/>

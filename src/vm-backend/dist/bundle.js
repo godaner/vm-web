@@ -2046,13 +2046,16 @@ var Index = _react2.default.createClass({
                 null,
                 _react2.default.createElement(
                     _antd.Layout,
-                    { style: { minHeight: '100vh' } },
+                    {
+                        style: { minHeight: '100vh' }
+                    },
                     _react2.default.createElement(
                         Sider,
                         {
                             collapsible: true,
                             collapsed: this.state.collapsed,
-                            onCollapse: this.onCollapse
+                            onCollapse: this.onCollapse,
+                            style: { minHeight: '100vh', height: "100%" }
                         },
                         _react2.default.createElement(_nav2.default, null)
                     ),
