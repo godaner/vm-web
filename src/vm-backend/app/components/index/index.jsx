@@ -32,51 +32,50 @@ var Index = React.createClass({
 
 
         return (
-            <div id="index">
 
-                {/*登录框*/}
-                <LoginDialog ref="login_dialog"/>
+            <HashRouter>
+                <Layout
+                    style={{minHeight: '100vh'}}
+                >
 
-                <HashRouter>
+                    {/*登录框*/}
+                    <LoginDialog ref="login_dialog"/>
+                    <Sider
+                        collapsible
+                        collapsed={this.state.collapsed}
+                        onCollapse={this.onCollapse}
+                    >
 
-                    <Layout
-                        style={{minHeight: '100vh'}}
-                            >
-                        <Sider
-                            collapsible
-                            collapsed={this.state.collapsed}
-                            onCollapse={this.onCollapse}
-                            style={{minHeight: '100vh',height:"100%"}}
-                        >
-                            {/*nav*/}
-                            <Nav/>
-                        </Sider>
-                        <Layout >
-                            <Header style={{background: '#fff', padding: 0}}>
-                                {/*head*/}
-                                <Head/>
-                            </Header>
 
-                            <Content style={{margin: '0 16px'}}>
-                                <Breadcrumb style={{margin: '16px 0'}}>
-                                    <Breadcrumb.Item>User</Breadcrumb.Item>
-                                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                                </Breadcrumb>
+                        {/*nav*/}
+                        <Nav/>
+                    </Sider>
+                    <Layout >
+                        <Header style={{background: '#fff', padding: 0}}>
+                            {/*head*/}
+                            <Head/>
+                        </Header>
 
-                                <div style={{paddingLeft: 24, paddingRight: 24, background: '#fff', minHeight: 360}}>
-                                    <Routes/>
-                                </div>
-                            </Content>
-                            <Footer style={{textAlign: 'center'}}>
-                                Vm backend ©2016 Created by Zhangke
-                            </Footer>
-                        </Layout>
+                        <Content style={{margin: '0 16px'}}>
+                            <Breadcrumb style={{margin: '16px 0'}}>
+                                <Breadcrumb.Item>User</Breadcrumb.Item>
+                                <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                            </Breadcrumb>
+
+                            <div style={{paddingLeft: 24, paddingRight: 24, background: '#fff', minHeight: 360}}>
+                                <Routes/>
+                            </div>
+                        </Content>
+                        <Footer style={{textAlign: 'center'}}>
+                            Vm backend ©2016 Created by Zhangke
+                        </Footer>
                     </Layout>
+                </Layout>
 
+            </HashRouter>
 
-                </HashRouter>
-            </div>
-        );
+        )
+            ;
     }
 });
 

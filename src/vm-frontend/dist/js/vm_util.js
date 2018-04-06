@@ -133,7 +133,12 @@ var ajax = {
             headers: headers
         });
         $.ajax({
-            url: vm_config.http_url_prefix + args.url,
+            url: addUrlParam({
+                url:vm_config.http_url_prefix + args.url,
+                obj:{
+                    unix:new Date().getTime()
+                }
+            }),
             //配合@requestBody
             data: args.data,
             async: args.async,

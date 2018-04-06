@@ -64,7 +64,10 @@ var ajax = {
         c("Request data is : ");
         c(args.data);
         $.ajax({
-            url: vm_config.http_url_prefix + args.url,
+            url: commons.addUrlParam({
+                url: vm_config.http_url_prefix + args.url,
+                obj: {unix: new Date().getTime()}
+            }),
             //配合@requestBody
             data: args.data,
             async: args.async,
@@ -83,17 +86,17 @@ var ajax = {
                     args.success(result);
                 }
                 if (fail(result.code) && !isUndefined(args.failure)) {
-                    if(result.code == OFF_LINE_CODE){
+                    if (result.code == OFF_LINE_CODE) {
                         window.EventsDispatcher.showLoginDialog();
                         window.EventsDispatcher.stopPollingCheckOnlineAdmin();
-                        return ;
+                        return;
                     }
                     args.failure(result);
                 }
             }.bind(this),
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 //tip
-                if(args.ignoreAjaxError != true){
+                if (args.ignoreAjaxError != true) {
 
                     message.error(this.ajaxError);
                 }
@@ -167,7 +170,7 @@ var commons = {
         return ['标清', '高清', '超清'];
     },
     toStrArr(notStrArr){
-        if(isEmptyList(notStrArr)){
+        if (isEmptyList(notStrArr)) {
             return [];
         }
         for (var i = 0; i < notStrArr.length; i++) {

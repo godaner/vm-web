@@ -73,10 +73,7 @@ var Head = React.createClass({
         const {checkUrl} = this.state;
 
         ajax.get({
-            url: commons.addUrlParam({
-                url:checkUrl,
-                obj:{unix:new Date().getTime()}
-            }),
+            url:checkUrl,
             ignoreAjaxError:true,
             success: function (result) {
                 const {admin} = result.data;

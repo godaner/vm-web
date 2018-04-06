@@ -70,11 +70,7 @@ var LoginDialog = React.createClass({
                 //clear form
                 this.getAdminLoginDialog().clearForm();
 
-                setTimeout(()=>{
-
-                    window.EventsDispatcher.startPollingCheckOnlineAdmin();
-
-                },0);
+                window.EventsDispatcher.startPollingCheckOnlineAdmin();
 
             }.bind(this),
             failure: function (result) {

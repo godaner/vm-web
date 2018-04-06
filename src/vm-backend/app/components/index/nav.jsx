@@ -79,10 +79,7 @@ var Nav = React.createClass({
                 const {menuUrl, tipOfLoadMenus} = this.state;
                 // const hiddenMassage = message.loading(tipOfLoadMenus, 0);
                 ajax.get({
-                    url: commons.addUrlParam({
-                        url: menuUrl + admin.id,
-                        obj: {unix: new Date().getTime()}
-                    }),
+                    url: menuUrl + admin.id,
                     success: function (result) {
 
                         const menu = result.data.tree;
