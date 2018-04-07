@@ -20,11 +20,11 @@ var UserTable = React.createClass({
         return {
             userImgUploaderDialog: {
                 title: "头像上传",
+                width: 700,
                 config: {
-                    width: 700,
                     aspectRatio: 1 / 1,
                     fileTypes: ["jpg", "png"],
-                    fileMaxsize: 1024 * 1024 * 2,//2M
+                    fileMaxsize: 1024 * 1024 * 1,//2M
                     saveImgUrl: "/user/img",
                     uploadTempImgUrl: "/src/img",
                     extraInfo: {}

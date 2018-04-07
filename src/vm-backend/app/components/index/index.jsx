@@ -55,6 +55,7 @@ var Index = React.createClass({
                     <Sider
                         collapsible
                         collapsed={collapsed}
+
                         onCollapse={this.onCollapse}
                         width={siderCurrtWidth}
                         collapsedWidth={collapsedWidth}
