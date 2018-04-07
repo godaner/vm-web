@@ -1,4 +1,5 @@
-import React from "react"; //引入react组件
+import React from "react";
+import {ajax,commons} from "vm_util"; //引入react组件
 import {Link} from 'react-router-dom';
 import InnerMessager from "./inner_messager";
 import "../scss/filmmakers_details_area.scss";
@@ -104,7 +105,7 @@ var FilmmakersDetailsArea = React.createClass({
                 //imgUrl
                 // var imgUrl = vm_config.http_url_prefix + filmmaker.imgUrl;
 
-                var imgUrl = generateImgUrl({imgUrl: filmmaker.imgUrl, width: 50});
+                var imgUrl = commons.generateImgUrl({imgUrl: filmmaker.imgUrl, width: 50});
                 res.push(
                     <li key={filmmaker.id} title={filmmaker.name}>
                         <Link title={filmmaker.name} to={location}>

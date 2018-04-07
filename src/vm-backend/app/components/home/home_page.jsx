@@ -22,9 +22,6 @@ var HomePage = React.createClass({
     componentDidMount(){
     },
     render: function () {
-        c("====================================");
-        // c(ENV);
-        c("====================================");
         //set now page's props
         return (
             <div>

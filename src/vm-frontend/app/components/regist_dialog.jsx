@@ -1,4 +1,5 @@
-import React from 'react';  //引入react组件
+import React from 'react';
+import {ajax,commons} from 'vm_util';  //引入react组件
 import {Link} from 'react-router-dom';
 import "../scss/regist_dialog.scss";
 /*注册框*/
@@ -98,7 +99,7 @@ var RegistDialog = React.createClass({
                 this.closeRegistDialog();
 
                 //keep token
-                localStorage.setItem(KEY_OF_ACCESS_TOKEN,result.data.user.token);
+                localStorage.setItem(vm_config.key_of_access_token,result.data.user.token);
 
                 //show msg dialog
                 window.VmFrontendEventsDispatcher.showMsgDialog(this.state.registSuccess);

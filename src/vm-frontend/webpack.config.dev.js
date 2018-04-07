@@ -66,7 +66,8 @@ module.exports = {
 
         // 使用ProvidePlugin加载的模块在使用时将不再需要import和require进行引入
         new webpack.ProvidePlugin({
-            ENV: "./env/" + env
+            ENV:path.join(__dirname, "./env/" + env),
+            vm_config:path.join(__dirname, "./app/config/vm_config")
         }),
         //编译环境
         new webpack.DefinePlugin({

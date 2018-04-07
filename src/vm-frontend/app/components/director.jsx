@@ -1,4 +1,5 @@
-import React from 'react';  //引入react组件
+import React from 'react';
+import {ajax,commons} from 'vm_util';  //引入react组件
 import {Link} from 'react-router-dom';
 import "../scss/director.scss";
 /*导演展示*/

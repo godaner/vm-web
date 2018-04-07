@@ -1,3 +1,10 @@
+
+//开始懒加载，依赖jquery.lazyload.js
+function lazyLoad() {
+    // c($("img"));
+    $("img").lazyload({effect: "fadeIn"});
+}
+
 /**
  * 对url添加时间戳
  * @param url

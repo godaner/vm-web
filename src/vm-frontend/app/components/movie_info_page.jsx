@@ -1,4 +1,5 @@
-import React from 'react';  //引入react组件
+import React from 'react';
+import {ajax,commons} from 'vm_util';  //引入react组件
 import '../scss/movie_info_page.scss';
 import ActorsList from './actors_list';
 import InnerMessager from './inner_messager';
@@ -280,7 +281,7 @@ var MovieInfoPage = React.createClass({
         //format releaseTime
         var releaseTime = timeFormatter.formatDate(this.state.movie.releaseTime);
         //imgUrl
-        var imgUrl = generateImgUrl({imgUrl: this.state.movie.imgUrl, width: 300});
+        var imgUrl = commons.generateImgUrl({imgUrl: this.state.movie.imgUrl, width: 300});
         return (
             <div id="movie_info_content">
                 <div id="basic_info">

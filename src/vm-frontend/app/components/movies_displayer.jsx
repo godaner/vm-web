@@ -1,4 +1,5 @@
-import React from 'react';  //引入react组件
+import React from 'react';
+import {ajax,commons} from 'vm_util';  //引入react组件
 import {Link} from 'react-router-dom';
 import InnerMessager from "./inner_messager";
 import ActorsList from './actors_list';
@@ -44,7 +45,7 @@ var MoviesDisplayer = React.createClass({
             }
 
             //imgUrl
-            var imgUrl = generateImgUrl({
+            var imgUrl = commons.generateImgUrl({
                 imgUrl: item.imgUrl,
                 width: 300
             });

@@ -5,10 +5,10 @@
   "main": "main.js",
   "scripts": {
     "build": "webpack",
-    "server": "nodemon ./server.config.js",
+    "server": "nodemon ./server.vm_config.js",
     "complier": "webpack --watch",
     "run": "npm run package-dll | npm run package-bundle | npm run server",
-    "package-dll": "webpack --colors --config ./webpack.dll.config.js",
+    "package-dll": "webpack --colors --config ./webpack.dll.vm_config.js",
     "package-bundle": "webpack --colors --config ./webpack.config.development.js",
     "package": "npm run package-dll | npm run package-bundle",
     "package-dll-prod": "cross-env NODE_ENV=production npm run package-dll ",

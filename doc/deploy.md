@@ -14,7 +14,7 @@
     *运行服务器
         
         启动：
-            forever start server.config.js 自动后台运行
+            forever start server.vm_config.js 自动后台运行
         停止：
-            forever stop server.config.js
+            forever stop server.vm_config.js
     

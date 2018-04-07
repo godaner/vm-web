@@ -1,4 +1,5 @@
-import React from 'react';  //引入react组件
+import React from 'react';
+import {ajax,commons} from 'vm_util';  //引入react组件
 import "../scss/movie_player.scss";
 import InnerMessager from './inner_messager';
 import PlainPanelTitle from "./plain_panel_title";
@@ -75,12 +76,12 @@ var MoviePlayer = React.createClass({
                 var videos = [];
                 for (var i = 0; i < versionsInfo.length; i++) {
                     var version = versionsInfo[i];
-                    videos.push([generateUrl({url:version.srcUrl}), 'video/mp4', this.movieSharpness(version.sharpness), version.weight]);
+                    videos.push([commons.generateUrl({url:version.srcUrl}), 'video/mp4', this.movieSharpness(version.sharpness), version.weight]);
                 }
                 videos.push(['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4','video/mp4','1080',1080])
                 //init movie player
                 var options = {};
-                const posterUrl = generateImgUrl({
+                const posterUrl = commons.generateImgUrl({
                     imgUrl: this.props.movie.posterUrl,
                     obj: {
                         width: 600

@@ -33,7 +33,7 @@ module.exports = {//只能分离node_moudle下的依赖，无法分离与cdn相�
         }),
 
         //去除错误
-        new webpack.NoErrorsPlugin(),
+        // new webpack.NoErrorsPlugin(),
         // 将代码中有重复的依赖包去重
         new webpack.optimize.DedupePlugin(),
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID

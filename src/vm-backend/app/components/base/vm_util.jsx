@@ -8,7 +8,9 @@ function fail(code) {
 function success(code) {
     return code > 0;
 }
-const OFF_LINE_CODE = -9999;
+function offline(code){
+    return code == vm_config.offline_code;
+}
 
 /**
  * json用data传递-后台使用@RequestBody;<br/>
@@ -86,7 +88,7 @@ var ajax = {
                     args.success(result);
                 }
                 if (fail(result.code) && !isUndefined(args.failure)) {
-                    if (result.code == OFF_LINE_CODE) {
+                    if (offline(result.code)) {
                         window.EventsDispatcher.showLoginDialog();
                         window.EventsDispatcher.stopPollingCheckOnlineAdmin();
                         return;

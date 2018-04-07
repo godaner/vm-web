@@ -1,4 +1,5 @@
-import React from "react"; //引入react组件
+import React from "react";
+import {ajax,commons} from "vm_util"; //引入react组件
 import {BrowserRouter, HashRouter, Link, Route, Switch} from "react-router-dom";
 import Dater from "./dater";
 import "../scss/user_basic_info_page.scss";

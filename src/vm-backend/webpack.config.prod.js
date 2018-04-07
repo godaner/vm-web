@@ -29,7 +29,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.sass', '.css'],//用于指明程序自动补全识别哪些后缀,
         alias: {
-            components: path.join(__dirname, './app/components')// 别名，可以直接使用别名来代表设定的路径以及其他
+            components: path.join(__dirname, './app/components'),// 别名，可以直接使用别名来代表设定的路径以及其他
+            ENV: ENV// 别名，可以直接使用别名来代表设定的路径以及其他
         }
     },
     module: {
@@ -72,9 +73,9 @@ module.exports = {
 
         // 使用ProvidePlugin加载的模块在使用时将不再需要import和require进行引入
         new webpack.ProvidePlugin({
-            ENV: "./env/" + env
+            ENV:path.join(__dirname, "./env/" + env),
+            vm_config:path.join(__dirname, "./app/config/vm_config")
         }),
-
         //编译环境
         new webpack.DefinePlugin({
             'process.env': {

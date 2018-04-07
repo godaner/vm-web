@@ -1,4 +1,5 @@
-import React from 'react';  //引入react组件
+import React from 'react';
+import {ajax,commons} from 'vm_util';  //引入react组件
 import {Link} from 'react-router-dom';
 import "../scss/login_dialog.scss";
 /*登录框*/
@@ -98,7 +99,7 @@ var LoginDialog = React.createClass({
 
                     // c(result);
                     //keep token
-                    localStorage.setItem(KEY_OF_ACCESS_TOKEN, result.data.user.token);
+                    localStorage.setItem(vm_config.key_of_access_token, result.data.user.token);
 
                     //login success,hide login dialog
                     this.closeLoginDialog();

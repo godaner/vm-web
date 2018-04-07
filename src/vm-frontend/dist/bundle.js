@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -90,7 +90,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(20);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(22);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -222,7 +224,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(25);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -259,7 +263,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _events = __webpack_require__(14);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _events = __webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -302,6 +308,22 @@ var EventsDispatcher = eventsDispatcher;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(ENV) {
+
+module.exports = {
+    http_url_prefix: ENV.http_url_prefix,
+    key_of_access_token: "accessToken",
+    //受保护的页面
+    protectedUserPageLists: ["/user/[0-9/_-a-zA-Z]*"],
+    offline_code: -5
+};
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)))
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -312,7 +334,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(28);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(30);
 
 __webpack_require__(4);
 
@@ -320,7 +344,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //引入react组件
 var MsgDialog = _react2.default.createClass({
-    displayName: "MsgDialog",
+    displayName: 'MsgDialog',
 
     getInitialState: function getInitialState() {
         var closeText = "确认";
@@ -425,33 +449,33 @@ var MsgDialog = _react2.default.createClass({
     },
     render: function render() {
         return _react2.default.createElement(
-            "div",
-            { id: "fragment_msg_dialog_content",
-                ref: "content" },
+            'div',
+            { id: 'fragment_msg_dialog_content',
+                ref: 'content' },
             _react2.default.createElement(
-                "div",
-                { id: "dialog",
+                'div',
+                { id: 'dialog',
                     className: this.state.dialogClassName,
-                    ref: "dialog" },
+                    ref: 'dialog' },
                 _react2.default.createElement(
-                    "div",
-                    { id: "body" },
+                    'div',
+                    { id: 'body' },
                     _react2.default.createElement(
-                        "span",
-                        { id: "msg_p",
-                            ref: "msg_p" },
+                        'span',
+                        { id: 'msg_p',
+                            ref: 'msg_p' },
                         this.props.msg
                     ),
                     _react2.default.createElement(
-                        "span",
-                        { id: "split" },
-                        "|"
+                        'span',
+                        { id: 'split' },
+                        '|'
                     ),
                     _react2.default.createElement(
-                        "a",
-                        { id: "close_btn",
-                            ref: "close_btn",
-                            href: "javascript:void(0);",
+                        'a',
+                        { id: 'close_btn',
+                            ref: 'close_btn',
+                            href: 'javascript:void(0);',
                             onClick: this.close,
                             onKeyUp: this.handleCloseBtnKeyUp },
                         this.state.closeText
@@ -465,7 +489,7 @@ var MsgDialog = _react2.default.createClass({
 exports.default = MsgDialog; //将App组件导出
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -479,9 +503,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
-__webpack_require__(19);
+__webpack_require__(21);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -550,7 +576,7 @@ var ActorsList = _react2.default.createClass({
 exports.default = ActorsList;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -564,9 +590,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
-__webpack_require__(21);
+__webpack_require__(23);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -616,7 +644,7 @@ var Director = _react2.default.createClass({
 exports.default = Director;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -630,21 +658,23 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
 var _inner_messager = __webpack_require__(2);
 
 var _inner_messager2 = _interopRequireDefault(_inner_messager);
 
-var _actors_list = __webpack_require__(6);
+var _actors_list = __webpack_require__(7);
 
 var _actors_list2 = _interopRequireDefault(_actors_list);
 
-var _director = __webpack_require__(7);
+var _director = __webpack_require__(8);
 
 var _director2 = _interopRequireDefault(_director);
 
-__webpack_require__(27);
+__webpack_require__(29);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -690,7 +720,7 @@ var MoviesDisplayer = _react2.default.createClass({
                 state: { fromDashboard: true }
 
                 //imgUrl
-            };var imgUrl = generateImgUrl({
+            };var imgUrl = _vm_util.commons.generateImgUrl({
                 imgUrl: item.imgUrl,
                 width: 300
             });
@@ -757,13 +787,13 @@ var MoviesDisplayer = _react2.default.createClass({
 exports.default = MoviesDisplayer;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = ReactDOM;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -777,7 +807,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(22);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(24);
 
 var _inner_messager = __webpack_require__(2);
 
@@ -804,7 +836,7 @@ var TagsOfMovie = _react2.default.createClass({
     },
     getTagsOfMovie: function getTagsOfMovie(callfun) {
         var url = "/tag/byMovieId/" + this.state.movieId;
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {}.bind(this),
             onResponseStart: function () {
@@ -887,7 +919,7 @@ var TagsOfMovie = _react2.default.createClass({
 exports.default = TagsOfMovie;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -901,13 +933,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(23);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(25);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /*弹性文本展示*/
 var FlexText = _react2.default.createClass({
-    displayName: "FlexText",
+    displayName: 'FlexText',
 
     getInitialState: function getInitialState() {
         //set maxTextLength
@@ -931,8 +965,8 @@ var FlexText = _react2.default.createClass({
             shortText = allText.substring(0, maxTextLength) + "...";
         }
         return _react2.default.createElement(
-            "div",
-            { id: "flex_text_content", title: allText },
+            'div',
+            { id: 'flex_text_content', title: allText },
             this.props.title,
             shortText
         );
@@ -941,7 +975,7 @@ var FlexText = _react2.default.createClass({
 exports.default = FlexText;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -955,13 +989,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
 var _inner_messager = __webpack_require__(2);
 
 var _inner_messager2 = _interopRequireDefault(_inner_messager);
 
-__webpack_require__(24);
+__webpack_require__(26);
 
 var _plain_panel_title = __webpack_require__(3);
 
@@ -997,7 +1033,7 @@ var FilmmakersDetailsArea = _react2.default.createClass({
     getFilmmakers: function getFilmmakers() {
         var url = "/filmmaker/byMovieId/" + this.props.movieId;
 
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {}.bind(this),
             onResponseStart: function () {
@@ -1065,7 +1101,7 @@ var FilmmakersDetailsArea = _react2.default.createClass({
                     //imgUrl
                     // var imgUrl = vm_config.http_url_prefix + filmmaker.imgUrl;
 
-                };var imgUrl = generateImgUrl({ imgUrl: filmmaker.imgUrl, width: 50 });
+                };var imgUrl = _vm_util.commons.generateImgUrl({ imgUrl: filmmaker.imgUrl, width: 50 });
                 res.push(_react2.default.createElement(
                     "li",
                     { key: filmmaker.id, title: filmmaker.name },
@@ -1100,7 +1136,7 @@ var FilmmakersDetailsArea = _react2.default.createClass({
 exports.default = FilmmakersDetailsArea;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1114,7 +1150,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(26);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(28);
 
 var _inner_messager = __webpack_require__(2);
 
@@ -1184,7 +1222,7 @@ var MoviePlayer = _react2.default.createClass({
     },
     getMovieSrcVersion: function getMovieSrcVersion(callfun) {
         var url = "/movie/version/" + this.props.movie.id + "?orderBy=weight&orderType=desc";
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {}.bind(this),
             onResponseStart: function () {
@@ -1196,12 +1234,12 @@ var MoviePlayer = _react2.default.createClass({
                 var videos = [];
                 for (var i = 0; i < versionsInfo.length; i++) {
                     var version = versionsInfo[i];
-                    videos.push([generateUrl({ url: version.srcUrl }), 'video/mp4', this.movieSharpness(version.sharpness), version.weight]);
+                    videos.push([_vm_util.commons.generateUrl({ url: version.srcUrl }), 'video/mp4', this.movieSharpness(version.sharpness), version.weight]);
                 }
                 videos.push(['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '1080', 1080]);
                 //init movie player
                 var options = {};
-                var posterUrl = generateImgUrl({
+                var posterUrl = _vm_util.commons.generateImgUrl({
                     imgUrl: this.props.movie.posterUrl,
                     obj: {
                         width: 600
@@ -1264,19 +1302,19 @@ var MoviePlayer = _react2.default.createClass({
 exports.default = MoviePlayer;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(29))(1);
+module.exports = (__webpack_require__(31))(1);
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _reactDom = __webpack_require__(9);
+var _reactDom = __webpack_require__(10);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -1284,7 +1322,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _index = __webpack_require__(16);
+var _index = __webpack_require__(17);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -1294,7 +1332,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_index2.default, null), document.getElementById('react_dom_index')); /*!!记得导入*/
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1304,7 +1342,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactDom = __webpack_require__(9);
+var _reactDom = __webpack_require__(10);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -1312,41 +1350,43 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
-var _filmmaker_info_page = __webpack_require__(17);
+var _filmmaker_info_page = __webpack_require__(18);
 
 var _filmmaker_info_page2 = _interopRequireDefault(_filmmaker_info_page);
 
-var _events = __webpack_require__(14);
+var _events = __webpack_require__(15);
 
-__webpack_require__(30);
+__webpack_require__(32);
 
-var _movie_list_page = __webpack_require__(31);
+var _movie_list_page = __webpack_require__(33);
 
 var _movie_list_page2 = _interopRequireDefault(_movie_list_page);
 
-var _movie_info_page = __webpack_require__(36);
+var _movie_info_page = __webpack_require__(38);
 
 var _movie_info_page2 = _interopRequireDefault(_movie_info_page);
 
-var _head = __webpack_require__(38);
+var _head = __webpack_require__(40);
 
 var _head2 = _interopRequireDefault(_head);
 
-var _tail = __webpack_require__(44);
+var _tail = __webpack_require__(46);
 
 var _tail2 = _interopRequireDefault(_tail);
 
-var _msg_dialog = __webpack_require__(5);
+var _msg_dialog = __webpack_require__(6);
 
 var _msg_dialog2 = _interopRequireDefault(_msg_dialog);
 
-var _loading = __webpack_require__(46);
+var _loading = __webpack_require__(48);
 
 var _loading2 = _interopRequireDefault(_loading);
 
-var _user_page = __webpack_require__(48);
+var _user_page = __webpack_require__(50);
 
 var _user_page2 = _interopRequireDefault(_user_page);
 
@@ -1401,11 +1441,11 @@ var Index = _react2.default.createClass({
 exports.default = Index; //将App组件导出
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(vm_config) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1415,9 +1455,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(18);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-var _actors_list = __webpack_require__(6);
+__webpack_require__(20);
+
+var _actors_list = __webpack_require__(7);
 
 var _actors_list2 = _interopRequireDefault(_actors_list);
 
@@ -1425,31 +1467,31 @@ var _inner_messager = __webpack_require__(2);
 
 var _inner_messager2 = _interopRequireDefault(_inner_messager);
 
-var _director = __webpack_require__(7);
+var _director = __webpack_require__(8);
 
 var _director2 = _interopRequireDefault(_director);
 
-var _tags_of_movie = __webpack_require__(10);
+var _tags_of_movie = __webpack_require__(11);
 
 var _tags_of_movie2 = _interopRequireDefault(_tags_of_movie);
 
-var _flex_text = __webpack_require__(11);
+var _flex_text = __webpack_require__(12);
 
 var _flex_text2 = _interopRequireDefault(_flex_text);
 
-var _filmmakers_details_area = __webpack_require__(12);
+var _filmmakers_details_area = __webpack_require__(13);
 
 var _filmmakers_details_area2 = _interopRequireDefault(_filmmakers_details_area);
 
-var _movies_player = __webpack_require__(13);
+var _movies_player = __webpack_require__(14);
 
 var _movies_player2 = _interopRequireDefault(_movies_player);
 
-var _movies_displayer = __webpack_require__(8);
+var _movies_displayer = __webpack_require__(9);
 
 var _movies_displayer2 = _interopRequireDefault(_movies_displayer);
 
-var _msg_dialog = __webpack_require__(5);
+var _msg_dialog = __webpack_require__(6);
 
 var _msg_dialog2 = _interopRequireDefault(_msg_dialog);
 
@@ -1530,7 +1572,7 @@ var FilmmakerInfoPage = _react2.default.createClass({
         //get movie info
         var url = this.state.filmmakerUrl;
 
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {
                 //show tip
@@ -1595,7 +1637,7 @@ var FilmmakerInfoPage = _react2.default.createClass({
         var url = "/movie/about/filmmaker?orderBy=" + orderBy + "&orderType=" + orderType + "&size=" + size + "&start=" + start;
         url = contactUrlWithArray(url, "filmmakerIds", ids);
 
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {
 
@@ -1758,18 +1800,16 @@ var FilmmakerInfoPage = _react2.default.createClass({
 });
 
 exports.default = FilmmakerInfoPage;
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
 /* 19 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+
+
+module.exports = { http_url_prefix: 'http://192.168.0.122:5551' };
 
 /***/ }),
 /* 20 */
@@ -1829,7 +1869,7 @@ exports.default = FilmmakerInfoPage;
 /* 29 */
 /***/ (function(module, exports) {
 
-module.exports = vendors_lib;
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 30 */
@@ -1839,6 +1879,18 @@ module.exports = vendors_lib;
 
 /***/ }),
 /* 31 */
+/***/ (function(module, exports) {
+
+module.exports = vendors_lib;
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1852,7 +1904,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _msg_dialog = __webpack_require__(5);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _msg_dialog = __webpack_require__(6);
 
 var _msg_dialog2 = _interopRequireDefault(_msg_dialog);
 
@@ -1860,17 +1914,17 @@ var _inner_messager = __webpack_require__(2);
 
 var _inner_messager2 = _interopRequireDefault(_inner_messager);
 
-var _movies_displayer = __webpack_require__(8);
+var _movies_displayer = __webpack_require__(9);
 
 var _movies_displayer2 = _interopRequireDefault(_movies_displayer);
 
-var _pager = __webpack_require__(32);
+var _pager = __webpack_require__(34);
 
 var _pager2 = _interopRequireDefault(_pager);
 
-__webpack_require__(34);
+__webpack_require__(36);
 
-__webpack_require__(35);
+__webpack_require__(37);
 
 __webpack_require__(4);
 
@@ -2090,7 +2144,7 @@ var MovieListPage = _react2.default.createClass({
 
         var url = this.state.movieSource + "?page=" + page + "&start=" + start + "&size=" + size + "&orderBy=" + orderBy + "&orderType=" + orderType + "&keyword=" + keyword;
         url = contactUrlWithArray(url, "tagIds", tagIds);
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {
                 //set tip
@@ -2146,7 +2200,7 @@ var MovieListPage = _react2.default.createClass({
 
         {/*获取电影标签分组*/
         }
-        ajax.get({
+        _vm_util.ajax.get({
             url: this.state.tagGroupSource,
             onBeforeRequest: function () {
                 //set tip
@@ -2437,7 +2491,7 @@ var MovieListPage = _react2.default.createClass({
 exports.default = MovieListPage; //将App组件导出
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2451,52 +2505,54 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(33);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Pager = _react2.default.createClass({
-    displayName: "Pager",
+    displayName: 'Pager',
 
 
     render: function render() {
         var _this = this;
 
         return _react2.default.createElement(
-            "div",
-            { id: "movie_list_pager_div" },
+            'div',
+            { id: 'movie_list_pager_div' },
             _react2.default.createElement(
-                "ul",
-                { id: "movie_list_pager_ul" },
+                'ul',
+                { id: 'movie_list_pager_ul' },
                 _react2.default.createElement(
-                    "li",
-                    { className: "pager_li" },
+                    'li',
+                    { className: 'pager_li' },
                     _react2.default.createElement(
-                        "a",
-                        { href: "javascript:void(0);", onClick: function onClick() {
+                        'a',
+                        { href: 'javascript:void(0);', onClick: function onClick() {
                                 _this.props.handlePageChange(-1);
                             } },
-                        "\u4E0A\u4E00\u9875"
+                        '\u4E0A\u4E00\u9875'
                     )
                 ),
                 _react2.default.createElement(
-                    "li",
-                    { className: "pager_li currt" },
+                    'li',
+                    { className: 'pager_li currt' },
                     _react2.default.createElement(
-                        "a",
-                        { href: "javascript:void(0);" },
+                        'a',
+                        { href: 'javascript:void(0);' },
                         this.props.page
                     )
                 ),
                 _react2.default.createElement(
-                    "li",
-                    { className: "pager_li" },
+                    'li',
+                    { className: 'pager_li' },
                     _react2.default.createElement(
-                        "a",
-                        { href: "javascript:void(0);", onClick: function onClick() {
+                        'a',
+                        { href: 'javascript:void(0);', onClick: function onClick() {
                                 _this.props.handlePageChange(1);
                             } },
-                        "\u4E0B\u4E00\u9875"
+                        '\u4E0B\u4E00\u9875'
                     )
                 )
             )
@@ -2506,18 +2562,6 @@ var Pager = _react2.default.createClass({
 exports.default = Pager; //将App组件导出
 
 /***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 35 */
 /***/ (function(module, exports) {
 
@@ -2525,6 +2569,18 @@ exports.default = Pager; //将App组件导出
 
 /***/ }),
 /* 36 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2538,9 +2594,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(37);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-var _actors_list = __webpack_require__(6);
+__webpack_require__(39);
+
+var _actors_list = __webpack_require__(7);
 
 var _actors_list2 = _interopRequireDefault(_actors_list);
 
@@ -2548,31 +2606,31 @@ var _inner_messager = __webpack_require__(2);
 
 var _inner_messager2 = _interopRequireDefault(_inner_messager);
 
-var _director = __webpack_require__(7);
+var _director = __webpack_require__(8);
 
 var _director2 = _interopRequireDefault(_director);
 
-var _tags_of_movie = __webpack_require__(10);
+var _tags_of_movie = __webpack_require__(11);
 
 var _tags_of_movie2 = _interopRequireDefault(_tags_of_movie);
 
-var _flex_text = __webpack_require__(11);
+var _flex_text = __webpack_require__(12);
 
 var _flex_text2 = _interopRequireDefault(_flex_text);
 
-var _filmmakers_details_area = __webpack_require__(12);
+var _filmmakers_details_area = __webpack_require__(13);
 
 var _filmmakers_details_area2 = _interopRequireDefault(_filmmakers_details_area);
 
-var _movies_player = __webpack_require__(13);
+var _movies_player = __webpack_require__(14);
 
 var _movies_player2 = _interopRequireDefault(_movies_player);
 
-var _movies_displayer = __webpack_require__(8);
+var _movies_displayer = __webpack_require__(9);
 
 var _movies_displayer2 = _interopRequireDefault(_movies_displayer);
 
-var _msg_dialog = __webpack_require__(5);
+var _msg_dialog = __webpack_require__(6);
 
 var _msg_dialog2 = _interopRequireDefault(_msg_dialog);
 
@@ -2670,7 +2728,7 @@ var MovieInfoPage = _react2.default.createClass({
         //get movie info
         var url = this.state.movieUrl;
 
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {
                 //show tip
@@ -2737,7 +2795,7 @@ var MovieInfoPage = _react2.default.createClass({
 
         var url = "/movie/about/tag?orderBy=" + orderBy + "&orderType=" + orderType + "&size=" + size + "&start=" + start + "&excludeMovieId=" + this.state.targetMovieId;
         url = contactUrlWithArray(url, "tagIds", tagIds);
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {
                 //show tip
@@ -2800,7 +2858,7 @@ var MovieInfoPage = _react2.default.createClass({
         var url = "/movie/about/filmmaker?orderBy=" + orderBy + "&orderType=" + orderType + "&size=" + size + "&start=" + start + "&excludeMovieId=" + this.state.targetMovieId;
         url = contactUrlWithArray(url, "filmmakerIds", ids);
 
-        ajax.get({
+        _vm_util.ajax.get({
             url: url,
             onBeforeRequest: function () {
                 //show tip
@@ -2834,7 +2892,7 @@ var MovieInfoPage = _react2.default.createClass({
         //format releaseTime
         var releaseTime = timeFormatter.formatDate(this.state.movie.releaseTime);
         //imgUrl
-        var imgUrl = generateImgUrl({ imgUrl: this.state.movie.imgUrl, width: 300 });
+        var imgUrl = _vm_util.commons.generateImgUrl({ imgUrl: this.state.movie.imgUrl, width: 300 });
         return _react2.default.createElement(
             'div',
             { id: 'movie_info_content' },
@@ -2987,17 +3045,17 @@ var MovieInfoPage = _react2.default.createClass({
 exports.default = MovieInfoPage;
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(vm_config) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -3007,17 +3065,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
-var _login_dialog = __webpack_require__(39);
+var _login_dialog = __webpack_require__(41);
 
 var _login_dialog2 = _interopRequireDefault(_login_dialog);
 
-var _regist_dialog = __webpack_require__(41);
+var _regist_dialog = __webpack_require__(43);
 
 var _regist_dialog2 = _interopRequireDefault(_regist_dialog);
 
-__webpack_require__(43);
+__webpack_require__(45);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3113,7 +3173,7 @@ var Head = _react2.default.createClass({
         //检测用户是否有在线
         window.eventEmit.on('feelerOnlineUser', function (args) {
             var url = "/user/feelerOnlineUser";
-            ajax.get({
+            _vm_util.ajax.get({
                 url: url,
                 ignoreAjaxError: true,
                 onBeforeRequest: function () {}.bind(_this),
@@ -3141,7 +3201,7 @@ var Head = _react2.default.createClass({
         window.eventEmit.on('getOnlineUser', function (args) {
 
             var url = "/user/online";
-            ajax.get({
+            _vm_util.ajax.get({
                 url: url,
                 onBeforeRequest: function () {}.bind(_this),
                 onResponseStart: function () {}.bind(_this),
@@ -3219,7 +3279,7 @@ var Head = _react2.default.createClass({
 
         var url = "/user/logout";
 
-        ajax.put({
+        _vm_util.ajax.put({
             url: url,
             onBeforeRequest: function () {}.bind(this),
             onResponseStart: function () {
@@ -3254,7 +3314,7 @@ var Head = _react2.default.createClass({
                 pathname: this.state.onlineUserBasicInfoUrl
             };
             //imgUrl
-            var headImgUrl = generateImgUrl({
+            var headImgUrl = _vm_util.commons.generateImgUrl({
                 imgUrl: this.state.user.imgUrl,
                 width: 50
             });
@@ -3363,13 +3423,14 @@ var Head = _react2.default.createClass({
 });
 
 exports.default = (0, _reactRouterDom.withRouter)(Head); //将App组件导出
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(vm_config) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -3379,9 +3440,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
-__webpack_require__(40);
+__webpack_require__(42);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3463,7 +3526,7 @@ var LoginDialog = _react2.default.createClass({
             username: username,
             password: password
         }, getVisitInfoObj());
-        ajax.put({
+        _vm_util.ajax.put({
             url: url,
             data: data,
             onBeforeRequest: function () {
@@ -3480,7 +3543,7 @@ var LoginDialog = _react2.default.createClass({
 
                 // c(result);
                 //keep token
-                localStorage.setItem(KEY_OF_ACCESS_TOKEN, result.data.user.token);
+                localStorage.setItem(vm_config.key_of_access_token, result.data.user.token);
 
                 //login success,hide login dialog
                 this.closeLoginDialog();
@@ -3566,19 +3629,20 @@ var LoginDialog = _react2.default.createClass({
     }
 });
 exports.default = LoginDialog;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(vm_config) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -3588,9 +3652,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
-__webpack_require__(42);
+__webpack_require__(44);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3669,7 +3735,7 @@ var RegistDialog = _react2.default.createClass({
         var password = $(this.refs.password).val();
         var url = "/user/regist?username=" + username + "&password=" + password;
 
-        ajax.put({
+        _vm_util.ajax.put({
             url: url,
             onBeforeRequest: function () {
 
@@ -3688,7 +3754,7 @@ var RegistDialog = _react2.default.createClass({
                 this.closeRegistDialog();
 
                 //keep token
-                localStorage.setItem(KEY_OF_ACCESS_TOKEN, result.data.user.token);
+                localStorage.setItem(vm_config.key_of_access_token, result.data.user.token);
 
                 //show msg dialog
                 window.VmFrontendEventsDispatcher.showMsgDialog(this.state.registSuccess);
@@ -3771,51 +3837,13 @@ var RegistDialog = _react2.default.createClass({
     }
 });
 exports.default = RegistDialog;
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
 /* 44 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-__webpack_require__(45);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Tail = _react2.default.createClass({
-    displayName: 'Tail',
-
-
-    render: function render() {
-        return _react2.default.createElement(
-            'div',
-            { id: 'fragment_tail_content' },
-            _react2.default.createElement('img', { src: '/image/tail.png' })
-        );
-    }
-}); //引入react组件
-exports.default = Tail; //将App组件导出
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 45 */
@@ -3838,9 +3866,52 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(1);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 __webpack_require__(47);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Tail = _react2.default.createClass({
+    displayName: 'Tail',
+
+
+    render: function render() {
+        return _react2.default.createElement(
+            'div',
+            { id: 'fragment_tail_content' },
+            _react2.default.createElement('img', { src: '/image/tail.png' })
+        );
+    }
+}); //引入react组件
+exports.default = Tail; //将App组件导出
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _reactRouterDom = __webpack_require__(1);
+
+__webpack_require__(49);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3961,13 +4032,13 @@ var Loading = _react2.default.createClass({
 exports.default = Loading;
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3981,21 +4052,23 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
 var _plain_panel_title = __webpack_require__(3);
 
 var _plain_panel_title2 = _interopRequireDefault(_plain_panel_title);
 
-var _user_basic_info_page = __webpack_require__(49);
+var _user_basic_info_page = __webpack_require__(51);
 
 var _user_basic_info_page2 = _interopRequireDefault(_user_basic_info_page);
 
-var _user_head_page = __webpack_require__(53);
+var _user_head_page = __webpack_require__(55);
 
 var _user_head_page2 = _interopRequireDefault(_user_head_page);
 
-__webpack_require__(57);
+__webpack_require__(59);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4070,7 +4143,7 @@ var UserPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(UserPage);
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4084,13 +4157,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRouterDom = __webpack_require__(1);
 
-var _dater = __webpack_require__(50);
+var _dater = __webpack_require__(52);
 
 var _dater2 = _interopRequireDefault(_dater);
 
-__webpack_require__(52);
+__webpack_require__(54);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4142,7 +4217,7 @@ var UserBasicInfoPage = _react2.default.createClass({
     updateUserBasicInfo: function updateUserBasicInfo(callfun) {
         window.EventsDispatcher.showLoading(this.state.updatingUserBasicInfo);
         var url = "/user/online";
-        ajax.put({
+        _vm_util.ajax.put({
             url: url,
             data: this.state.user,
             onBeforeRequest: function () {}.bind(this),
@@ -4331,7 +4406,7 @@ var UserBasicInfoPage = _react2.default.createClass({
 exports.default = UserBasicInfoPage;
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4345,13 +4420,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(51);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(53);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /*日期插件*/
 var Dater = _react2.default.createClass({
-    displayName: "Dater",
+    displayName: 'Dater',
 
     getInitialState: function getInitialState() {
         //init default value
@@ -4421,7 +4498,7 @@ var Dater = _react2.default.createClass({
             var value = values[i];
 
             res.push(_react2.default.createElement(
-                "option",
+                'option',
                 { key: value,
                     value: value },
                 value
@@ -4445,55 +4522,55 @@ var Dater = _react2.default.createClass({
         // c("render");
         // c(date);
         return _react2.default.createElement(
-            "span",
-            { id: "date_content" },
+            'span',
+            { id: 'date_content' },
             _react2.default.createElement(
-                "span",
+                'span',
                 null,
                 _react2.default.createElement(
-                    "select",
-                    { id: "year",
-                        ref: "year",
-                        defaultValue: "",
+                    'select',
+                    { id: 'year',
+                        ref: 'year',
+                        defaultValue: '',
                         value: date.year,
                         onChange: function onChange() {
                             _this.props.onDateChange(_this.getDate());
                         } },
                     this.generateOptions(this.state.years)
                 ),
-                "\u5E74"
+                '\u5E74'
             ),
             _react2.default.createElement(
-                "span",
+                'span',
                 null,
                 _react2.default.createElement(
-                    "select",
-                    { id: "month",
-                        ref: "month",
-                        defaultValue: "",
+                    'select',
+                    { id: 'month',
+                        ref: 'month',
+                        defaultValue: '',
                         value: date.month,
                         onChange: function onChange() {
                             _this.props.onDateChange(_this.getDate());
                         } },
                     this.generateOptions(this.state.months)
                 ),
-                "\u6708"
+                '\u6708'
             ),
             _react2.default.createElement(
-                "span",
+                'span',
                 null,
                 _react2.default.createElement(
-                    "select",
-                    { id: "day",
-                        ref: "day",
-                        defaultValue: "",
+                    'select',
+                    { id: 'day',
+                        ref: 'day',
+                        defaultValue: '',
                         value: date.day,
                         onChange: function onChange() {
                             _this.props.onDateChange(_this.getDate());
                         } },
                     this.generateOptions(this.state.days)
                 ),
-                "\u65E5"
+                '\u65E5'
             )
         );
     }
@@ -4501,19 +4578,19 @@ var Dater = _react2.default.createClass({
 exports.default = Dater;
 
 /***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 53 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4527,9 +4604,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(54);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-var _img_uploader = __webpack_require__(55);
+__webpack_require__(56);
+
+var _img_uploader = __webpack_require__(57);
 
 var _img_uploader2 = _interopRequireDefault(_img_uploader);
 
@@ -4559,7 +4638,7 @@ var UserHeadPage = _react2.default.createClass({
     componentDidMount: function componentDidMount() {
         window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser: function (u) {
-                var imgUrl = generateImgUrl({
+                var imgUrl = _vm_util.commons.generateImgUrl({
                     imgUrl: u.imgUrl,
                     width: this.state.userHeadRequestWidth
                 });
@@ -4575,7 +4654,7 @@ var UserHeadPage = _react2.default.createClass({
         this.getUserHeadUploader().previewImg(imgUrl);
     },
     onUpdateImgSuccess: function onUpdateImgSuccess(result) {
-        this.getUserHeadUploader().previewImg(generateImgUrl({
+        this.getUserHeadUploader().previewImg(_vm_util.commons.generateImgUrl({
             imgUrl: result.data.imgUrl,
             width: 300
         }));
@@ -4583,7 +4662,7 @@ var UserHeadPage = _react2.default.createClass({
     },
     onUploadTempImgSuccess: function onUploadTempImgSuccess(result) {
 
-        this.getUserHeadUploader().previewImg(generateImgUrl({
+        this.getUserHeadUploader().previewImg(_vm_util.commons.generateImgUrl({
             imgUrl: result.data.imgUrl
         }));
     },
@@ -4615,13 +4694,13 @@ var UserHeadPage = _react2.default.createClass({
 exports.default = UserHeadPage;
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4635,7 +4714,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(56);
+var _vm_util = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vm_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(58);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4643,7 +4724,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 图片上传组件
  */
 var ImgUpload = _react2.default.createClass({
-    displayName: "ImgUpload",
+    displayName: 'ImgUpload',
 
     getInitialState: function getInitialState() {
 
@@ -4825,7 +4906,7 @@ var ImgUpload = _react2.default.createClass({
         formData.append("file", imgFile);
         // var userId = this.state.user.id;
         var url = this.state.config.uploadTempImgUrl;
-        ajax.post({
+        _vm_util.ajax.post({
             url: url,
             data: formData,
             enctype: 'multipart/form-data',
@@ -4875,7 +4956,7 @@ var ImgUpload = _react2.default.createClass({
         var url = this.state.config.saveImgUrl;
         var data = this.state.willUpdatedImgInfo;
         // data.serverCacheFileName = this.state.serverTempImgFileName;
-        ajax.put({
+        _vm_util.ajax.put({
             url: url,
             data: data,
             loadingMsg: this.state.saveImg,
@@ -4909,76 +4990,76 @@ var ImgUpload = _react2.default.createClass({
         var _this = this;
 
         return _react2.default.createElement(
-            "div",
-            { id: "img_uploader", className: "clearfix" },
+            'div',
+            { id: 'img_uploader', className: 'clearfix' },
             _react2.default.createElement(
-                "div",
-                { id: "img_upload" },
+                'div',
+                { id: 'img_upload' },
                 _react2.default.createElement(
-                    "div",
-                    { id: "img_upload_to_middle_div" },
+                    'div',
+                    { id: 'img_upload_to_middle_div' },
                     _react2.default.createElement(
-                        "div",
-                        { id: "imgPreviewWrapper",
-                            ref: "imgPreviewWrapper" },
-                        _react2.default.createElement("img", { src: "",
-                            id: "imgPreview",
-                            ref: "imgPreview" })
+                        'div',
+                        { id: 'imgPreviewWrapper',
+                            ref: 'imgPreviewWrapper' },
+                        _react2.default.createElement('img', { src: '',
+                            id: 'imgPreview',
+                            ref: 'imgPreview' })
                     ),
                     _react2.default.createElement(
-                        "div",
-                        { id: "btns_div" },
-                        _react2.default.createElement("input", { type: "file",
-                            ref: "imgInput",
-                            name: "img",
-                            id: "imgInput",
+                        'div',
+                        { id: 'btns_div' },
+                        _react2.default.createElement('input', { type: 'file',
+                            ref: 'imgInput',
+                            name: 'img',
+                            id: 'imgInput',
                             onChange: function onChange() {
                                 _this.uploadTempImg();
                             } }),
-                        _react2.default.createElement("input", { type: "button",
-                            className: "operateBtn",
-                            id: "uploadTempImgBtn",
-                            value: "\u9009\u62E9\u56FE\u7247",
+                        _react2.default.createElement('input', { type: 'button',
+                            className: 'operateBtn',
+                            id: 'uploadTempImgBtn',
+                            value: '\u9009\u62E9\u56FE\u7247',
                             onClick: function onClick() {
                                 _this.refs.imgInput.click();
                             } }),
-                        _react2.default.createElement("input", { type: "button",
-                            className: "operateBtn",
-                            id: "imgSaveBtn",
-                            ref: "imgSaveBtn",
+                        _react2.default.createElement('input', { type: 'button',
+                            className: 'operateBtn',
+                            id: 'imgSaveBtn',
+                            ref: 'imgSaveBtn',
                             onClick: function onClick() {
                                 _this.saveImg();
                             },
-                            value: "\u4FDD\u5B58"
+                            value: '\u4FDD\u5B58'
                         })
                     )
                 )
             ),
             _react2.default.createElement(
-                "div",
-                { id: "head_preview" },
+                'div',
+                { id: 'head_preview' },
                 _react2.default.createElement(
-                    "p",
+                    'p',
                     null,
-                    "\u9884\u89C8 : "
+                    '\u9884\u89C8 : '
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { id: "imgPreview0" },
-                    _react2.default.createElement("div", { className: "preview" }),
-                    "80x"
+                    'div',
+                    { id: 'imgPreview0' },
+                    _react2.default.createElement('div', { className: 'preview' }),
+                    '80x'
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { id: "imgPreview1" },
-                    _react2.default.createElement("div", { className: "preview" }),
-                    "50x"
+                    'div',
+                    { id: 'imgPreview1' },
+                    _react2.default.createElement('div', { className: 'preview' }),
+                    '50x'
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { id: "imgPreview2" },
-                    _react2.default.createElement("div", { className: "preview" }),
-                    "30x"
+                    'div',
+                    { id: 'imgPreview2' },
+                    _react2.default.createElement('div', { className: 'preview' }),
+                    '30x'
                 )
             )
         );
@@ -4987,13 +5068,13 @@ var ImgUpload = _react2.default.createClass({
 exports.default = ImgUpload;
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

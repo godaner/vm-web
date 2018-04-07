@@ -1,4 +1,5 @@
-import React from 'react';  //引入react组件
+import React from 'react';
+import {ajax,commons} from 'vm_util';  //引入react组件
 import '../scss/plain_panel_title.scss';
 var PlainPanelTitle = React.createClass({
     getInitialState: function () {

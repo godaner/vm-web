@@ -1,4 +1,5 @@
-import React from "react"; //引入react组件
+import React from "react";
+import {ajax,commons} from "vm_util"; //引入react组件
 import "../scss/user_head_page.scss";
 import ImgUploader from "./img_uploader";
 
@@ -24,7 +25,7 @@ var UserHeadPage = React.createClass({
     componentDidMount(){
         window.VmFrontendEventsDispatcher.getOnlineUser({
             onGetOnlineUser: function (u) {
-                const imgUrl = generateImgUrl({
+                const imgUrl = commons.generateImgUrl({
                     imgUrl: u.imgUrl,
                     width: this.state.userHeadRequestWidth
                 });
@@ -43,7 +44,7 @@ var UserHeadPage = React.createClass({
         this.getUserHeadUploader().previewImg(imgUrl);
     },
     onUpdateImgSuccess(result){
-        this.getUserHeadUploader().previewImg(generateImgUrl({
+        this.getUserHeadUploader().previewImg(commons.generateImgUrl({
             imgUrl: result.data.imgUrl,
             width: 300
         }));
@@ -51,7 +52,7 @@ var UserHeadPage = React.createClass({
     },
     onUploadTempImgSuccess(result){
 
-        this.getUserHeadUploader().previewImg(generateImgUrl({
+        this.getUserHeadUploader().previewImg(commons.generateImgUrl({
             imgUrl: result.data.imgUrl
         }));
     },

@@ -1,13 +1,5 @@
-function generateImgUrl(args) {
-    if (isUndefined(args.width)) {
-        return vm_config.http_url_prefix + args.imgUrl;
-    }
-    return vm_config.http_url_prefix + args.imgUrl + "/" + args.width;
-}
-function generateUrl(args) {
 
-    return vm_config.http_url_prefix + args.url;
-}
+
 function fail(code) {
     return code < 0;
 }
@@ -16,15 +8,9 @@ function success(code) {
     return code > 0;
 }
 function offline(code) {
-    return code == HTTP_RESPONSE_CODE_USER_IS_OFFLINE;
+    return code == vm_config.offline_code;
 }
 
-
-//开始懒加载，依赖jquery.lazyload.js
-function lazyLoad() {
-    // c($("img"));
-    $("img").lazyload({effect: "fadeIn"});
-}
 
 /**
  * json用data传递-后台使用@RequestBody;<br/>
@@ -124,19 +110,19 @@ var ajax = {
 
 
         //get token
-        var accessToken = localStorage.getItem(KEY_OF_ACCESS_TOKEN);
+        var accessToken = localStorage.getItem(vm_config.key_of_access_token);
 
         //set token header
         var headers = {};
-        headers[KEY_OF_ACCESS_TOKEN] = accessToken;
+        headers[vm_config.key_of_access_token] = accessToken;
         $.ajaxSetup({
             headers: headers
         });
         $.ajax({
             url: addUrlParam({
-                url:vm_config.http_url_prefix + args.url,
-                obj:{
-                    unix:new Date().getTime()
+                url: vm_config.http_url_prefix + args.url,
+                obj: {
+                    unix: new Date().getTime()
                 }
             }),
             //配合@requestBody
@@ -178,3 +164,17 @@ var ajax = {
 };
 
 
+var commons = {
+    generateImgUrl: function (args) {
+        if (isUndefined(args.width)) {
+            return vm_config.http_url_prefix + args.imgUrl;
+        }
+        return vm_config.http_url_prefix + args.imgUrl + "/" + args.width;
+    },
+    generateUrl: function (args) {
+        return vm_config.http_url_prefix + args.url;
+    }
+};
+
+exports.commons = commons;
+exports.ajax = ajax;
