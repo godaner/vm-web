@@ -1,5 +1,5 @@
 import React from 'react';
-import {ajax,commons} from 'vm_util';  //引入react组件
+import {ajax,commons} from './vm_util';  //引入react组件
 import "../scss/movie_player.scss";
 import InnerMessager from './inner_messager';
 import PlainPanelTitle from "./plain_panel_title";

@@ -1,5 +1,5 @@
 import React from 'react';
-import {ajax,commons} from 'vm_util';  //引入react组件
+import {ajax,commons} from './vm_util';  //引入react组件
 import '../scss/inner_messager.scss';
 /*内部信息显示*/
 var InnerMessager = React.createClass({

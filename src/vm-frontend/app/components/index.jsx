@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {ajax,commons} from 'vm_util';
+import {ajax,commons} from './vm_util';
 import {Switch, BrowserRouter, HashRouter, Route} from 'react-router-dom';
 import FilmmakerInfoPage from "./filmmaker_info_page";
 import {EventEmitter} from 'events';

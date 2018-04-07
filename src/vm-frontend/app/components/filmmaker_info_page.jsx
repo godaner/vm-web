@@ -1,5 +1,5 @@
 import React from 'react';
-import {ajax,commons} from 'vm_util';  //引入react组件
+import {ajax,commons} from './vm_util';  //引入react组件
 import '../scss/filmmaker_info_page.scss';
 import ActorsList from './actors_list';
 import InnerMessager from './inner_messager';

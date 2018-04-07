@@ -1,5 +1,5 @@
 import React from 'react';
-import {ajax,commons} from 'vm_util';  //引入react组件
+import {ajax,commons} from './vm_util';  //引入react组件
 import "../scss/dater.scss";
 /*日期插件*/
 var Dater = React.createClass({

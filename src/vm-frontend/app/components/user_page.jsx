@@ -1,5 +1,5 @@
 import React from "react";
-import {ajax,commons} from "vm_util"; //引入react组件
+import {ajax,commons} from './vm_util'; //引入react组件
 import {HashRouter, NavLink, Route, Switch, withRouter} from "react-router-dom";
 import PlainPanelTitle from "./plain_panel_title";
 import UserBasicInfoPage from "./user_basic_info_page";

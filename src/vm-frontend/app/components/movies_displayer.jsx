@@ -1,5 +1,5 @@
 import React from 'react';
-import {ajax,commons} from 'vm_util';  //引入react组件
+import {ajax,commons} from './vm_util';  //引入react组件
 import {Link} from 'react-router-dom';
 import InnerMessager from "./inner_messager";
 import ActorsList from './actors_list';

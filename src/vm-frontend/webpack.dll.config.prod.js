@@ -14,7 +14,7 @@ module.exports = {//只能分离node_moudle下的依赖，无法分离与cdn相�
             // 'antd',
             // "react-router",
             // "react-router-dom"
-            // "node-sass"
+            // "node-sass",
             "events"
         ]
     },

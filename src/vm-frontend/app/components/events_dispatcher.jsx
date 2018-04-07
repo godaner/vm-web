@@ -1,5 +1,5 @@
 import React from "react";
-import {ajax,commons} from "vm_util"; //引入react组件
+import {ajax,commons} from './vm_util'; //引入react组件
 import {EventEmitter} from "events";
 window.eventEmit = new EventEmitter();
 //项目前端事件分发器

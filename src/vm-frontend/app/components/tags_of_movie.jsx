@@ -1,5 +1,5 @@
 import React from 'react';
-import {ajax,commons} from 'vm_util';  //引入react组件
+import {ajax,commons} from './vm_util';  //引入react组件
 import "../scss/tags_of_movie.scss";
 import InnerMessager from './inner_messager';
 /*标签展示*/

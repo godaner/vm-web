@@ -1,5 +1,5 @@
 import React from "react";
-import {ajax,commons} from "vm_util"; //引入react组件
+import {ajax,commons} from './vm_util'; //引入react组件
 import {Link, withRouter} from "react-router-dom";
 import LoginDialog from "./login_dialog";
 import RegistDialog from "./regist_dialog";
