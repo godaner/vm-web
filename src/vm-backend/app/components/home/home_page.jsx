@@ -14,6 +14,7 @@ import MovieClsCount from "./movie_cls_count";
 import UserRegistNumCount from "./user_regist_num_count";
 
 
+
 var HomePage = React.createClass({
     getInitialState: function () {
         return {};
@@ -21,6 +22,9 @@ var HomePage = React.createClass({
     componentDidMount(){
     },
     render: function () {
+        c("====================================");
+        // c(ENV);
+        c("====================================");
         //set now page's props
         return (
             <div>

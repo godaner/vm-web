@@ -652,7 +652,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _edit_form_temple = __webpack_require__(30);
+var _edit_form_temple = __webpack_require__(31);
 
 var _edit_form_temple2 = _interopRequireDefault(_edit_form_temple);
 
@@ -854,7 +854,7 @@ module.exports = ReactDOM;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(23))(1);
+module.exports = (__webpack_require__(24))(1);
 
 /***/ }),
 /* 9 */
@@ -903,7 +903,7 @@ __webpack_require__(2);
 
 __webpack_require__(16);
 
-var _img_uploader = __webpack_require__(42);
+var _img_uploader = __webpack_require__(43);
 
 var _img_uploader2 = _interopRequireDefault(_img_uploader);
 
@@ -1081,15 +1081,15 @@ var _reactRouterDom = __webpack_require__(4);
 
 var _vm_util = __webpack_require__(3);
 
-var _sex_count = __webpack_require__(24);
+var _sex_count = __webpack_require__(25);
 
 var _sex_count2 = _interopRequireDefault(_sex_count);
 
-var _movie_cls_count = __webpack_require__(25);
+var _movie_cls_count = __webpack_require__(26);
 
 var _movie_cls_count2 = _interopRequireDefault(_movie_cls_count);
 
-var _user_regist_num_count = __webpack_require__(26);
+var _user_regist_num_count = __webpack_require__(27);
 
 var _user_regist_num_count2 = _interopRequireDefault(_user_regist_num_count);
 
@@ -1113,6 +1113,9 @@ var HomePage = _react2.default.createClass({
     componentDidMount: function componentDidMount() {},
 
     render: function render() {
+        c("====================================");
+        // c(ENV);
+        c("====================================");
         //set now page's props
         return _react2.default.createElement(
             'div',
@@ -1169,7 +1172,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 __webpack_require__(2);
 
-__webpack_require__(45);
+__webpack_require__(46);
 
 var _vm_util = __webpack_require__(3);
 
@@ -1569,7 +1572,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 __webpack_require__(2);
 
-__webpack_require__(75);
+__webpack_require__(76);
 
 var _vm_util = __webpack_require__(3);
 
@@ -1989,25 +1992,25 @@ var _reactRouterDom = __webpack_require__(4);
 
 __webpack_require__(2);
 
-var _head = __webpack_require__(27);
+var _head = __webpack_require__(28);
 
 var _head2 = _interopRequireDefault(_head);
 
-var _login_dialog = __webpack_require__(29);
+var _login_dialog = __webpack_require__(30);
 
 var _login_dialog2 = _interopRequireDefault(_login_dialog);
 
-var _nav = __webpack_require__(33);
+var _nav = __webpack_require__(34);
 
 var _nav2 = _interopRequireDefault(_nav);
 
-var _routes = __webpack_require__(35);
+var _routes = __webpack_require__(36);
 
 var _routes2 = _interopRequireDefault(_routes);
 
 var _vm_util = __webpack_require__(3);
 
-__webpack_require__(83);
+__webpack_require__(84);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2125,13 +2128,14 @@ var Index = _react2.default.createClass({
 exports.default = Index; //将App组件导出
 
 /***/ }),
-/* 23 */
+/* 23 */,
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = vendors_lib;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2232,7 +2236,7 @@ var SexCount = _react2.default.createClass({
 exports.default = SexCount; //将App组件导出
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2331,7 +2335,7 @@ var MovieClsCount = _react2.default.createClass({
 exports.default = MovieClsCount; //将App组件导出
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2426,7 +2430,7 @@ var UserRegistNumCount = _react2.default.createClass({
 exports.default = UserRegistNumCount; //将App组件导出
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2442,7 +2446,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-__webpack_require__(28);
+__webpack_require__(29);
 
 __webpack_require__(2);
 
@@ -2633,13 +2637,13 @@ var Head = _react2.default.createClass({
 exports.default = Head; //将App组件导出
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2663,7 +2667,7 @@ __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-__webpack_require__(32);
+__webpack_require__(33);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2800,7 +2804,7 @@ var LoginDialog = _react2.default.createClass({
 exports.default = LoginDialog; //将App组件导出
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2826,7 +2830,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 __webpack_require__(2);
 
-__webpack_require__(31);
+__webpack_require__(32);
 
 var _vm_util = __webpack_require__(3);
 
@@ -2990,12 +2994,6 @@ var EditFormTemple = _antd.Form.create({})(EditFormTempleWrapper);
 exports.default = EditFormTemple; //将App组件导出
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 32 */
 /***/ (function(module, exports) {
 
@@ -3003,6 +3001,12 @@ exports.default = EditFormTemple; //将App组件导出
 
 /***/ }),
 /* 33 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3022,7 +3026,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 var _vm_util = __webpack_require__(3);
 
-__webpack_require__(34);
+__webpack_require__(35);
 
 __webpack_require__(2);
 
@@ -3265,13 +3269,13 @@ var Nav = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(Nav); //将App组件导出
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3289,11 +3293,11 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(36);
+__webpack_require__(37);
 
 __webpack_require__(2);
 
-var _user_page = __webpack_require__(37);
+var _user_page = __webpack_require__(38);
 
 var _user_page2 = _interopRequireDefault(_user_page);
 
@@ -3301,31 +3305,31 @@ var _home_page = __webpack_require__(15);
 
 var _home_page2 = _interopRequireDefault(_home_page);
 
-var _user_login_logs_page = __webpack_require__(46);
+var _user_login_logs_page = __webpack_require__(47);
 
 var _user_login_logs_page2 = _interopRequireDefault(_user_login_logs_page);
 
-var _movie_page = __webpack_require__(47);
+var _movie_page = __webpack_require__(48);
 
 var _movie_page2 = _interopRequireDefault(_movie_page);
 
-var _filmmaker_page = __webpack_require__(56);
+var _filmmaker_page = __webpack_require__(57);
 
 var _filmmaker_page2 = _interopRequireDefault(_filmmaker_page);
 
-var _tagGroup_page = __webpack_require__(61);
+var _tagGroup_page = __webpack_require__(62);
 
 var _tagGroup_page2 = _interopRequireDefault(_tagGroup_page);
 
-var _admin_page = __webpack_require__(69);
+var _admin_page = __webpack_require__(70);
 
 var _admin_page2 = _interopRequireDefault(_admin_page);
 
-var _role_page = __webpack_require__(76);
+var _role_page = __webpack_require__(77);
 
 var _role_page2 = _interopRequireDefault(_role_page);
 
-var _admin_login_logs_page = __webpack_require__(82);
+var _admin_login_logs_page = __webpack_require__(83);
 
 var _admin_login_logs_page2 = _interopRequireDefault(_admin_login_logs_page);
 
@@ -3463,13 +3467,13 @@ var Routes = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(Routes); //将App组件导出
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3491,7 +3495,7 @@ __webpack_require__(11);
 
 __webpack_require__(2);
 
-var _user_table = __webpack_require__(38);
+var _user_table = __webpack_require__(39);
 
 var _user_table2 = _interopRequireDefault(_user_table);
 
@@ -3528,7 +3532,7 @@ var UserPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(UserPage); //将App组件导出
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3546,17 +3550,17 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(39);
+__webpack_require__(40);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _user_edit_dialog = __webpack_require__(40);
+var _user_edit_dialog = __webpack_require__(41);
 
 var _user_edit_dialog2 = _interopRequireDefault(_user_edit_dialog);
 
-var _user_add_dialog = __webpack_require__(41);
+var _user_add_dialog = __webpack_require__(42);
 
 var _user_add_dialog2 = _interopRequireDefault(_user_add_dialog);
 
@@ -3564,7 +3568,7 @@ var _img_uploader_dialog_template = __webpack_require__(13);
 
 var _img_uploader_dialog_template2 = _interopRequireDefault(_img_uploader_dialog_template);
 
-var _user_login_logs_dialog = __webpack_require__(44);
+var _user_login_logs_dialog = __webpack_require__(45);
 
 var _user_login_logs_dialog2 = _interopRequireDefault(_user_login_logs_dialog);
 
@@ -4200,13 +4204,13 @@ var UserTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(UserTable); //将App组件导出
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4478,7 +4482,7 @@ var UserEditDialog = _react2.default.createClass({
 exports.default = UserEditDialog; //将App组件导出
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4670,7 +4674,7 @@ var UserAddDialog = _react2.default.createClass({
 exports.default = UserAddDialog; //将App组件导出
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4684,7 +4688,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(43);
+__webpack_require__(44);
 
 var _vm_util = __webpack_require__(3);
 
@@ -5045,13 +5049,13 @@ var ImgUpload = _react2.default.createClass({
 exports.default = ImgUpload;
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5134,13 +5138,13 @@ var UserLoginLogsDialog = _react2.default.createClass({
 exports.default = UserLoginLogsDialog; //将App组件导出
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5216,7 +5220,7 @@ var UserLoginLogsPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(UserLoginLogsPage); //将App组件导出
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5238,7 +5242,7 @@ __webpack_require__(9);
 
 __webpack_require__(2);
 
-var _movie_table = __webpack_require__(48);
+var _movie_table = __webpack_require__(49);
 
 var _movie_table2 = _interopRequireDefault(_movie_table);
 
@@ -5275,7 +5279,7 @@ var MoviePage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(MoviePage); //将App组件导出
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5293,17 +5297,17 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(49);
+__webpack_require__(50);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _movie_edit_dialog = __webpack_require__(50);
+var _movie_edit_dialog = __webpack_require__(51);
 
 var _movie_edit_dialog2 = _interopRequireDefault(_movie_edit_dialog);
 
-var _movie_add_dialog = __webpack_require__(51);
+var _movie_add_dialog = __webpack_require__(52);
 
 var _movie_add_dialog2 = _interopRequireDefault(_movie_add_dialog);
 
@@ -5311,11 +5315,11 @@ var _img_uploader_dialog_template = __webpack_require__(13);
 
 var _img_uploader_dialog_template2 = _interopRequireDefault(_img_uploader_dialog_template);
 
-var _movie_src_version_add_dialog = __webpack_require__(52);
+var _movie_src_version_add_dialog = __webpack_require__(53);
 
 var _movie_src_version_add_dialog2 = _interopRequireDefault(_movie_src_version_add_dialog);
 
-var _movie_src_version_table = __webpack_require__(54);
+var _movie_src_version_table = __webpack_require__(55);
 
 var _movie_src_version_table2 = _interopRequireDefault(_movie_src_version_table);
 
@@ -5343,7 +5347,7 @@ var MovieTable = _react2.default.createClass({
                 config: {
                     aspectRatio: 1.5 / 1,
                     fileTypes: ["jpg", "png"],
-                    fileMaxsize: 1024 * 1024 * 1, //2M
+                    fileMaxsize: 1024 * 1024 * 2, //2M
                     saveImgUrl: "/movie/poster",
                     uploadTempImgUrl: "/src/img",
                     server_url_prefix: vm_config.http_url_prefix,
@@ -5356,7 +5360,7 @@ var MovieTable = _react2.default.createClass({
                 config: {
                     aspectRatio: 1 / 1.5,
                     fileTypes: ["jpg", "png"],
-                    fileMaxsize: 1024 * 1024 * 1, //2M
+                    fileMaxsize: 1024 * 1024 * 2, //2M
                     saveImgUrl: "/movie/img",
                     uploadTempImgUrl: "/src/img",
                     server_url_prefix: vm_config.http_url_prefix,
@@ -6050,13 +6054,13 @@ var MovieTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(MovieTable); //将App组件导出
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6574,7 +6578,7 @@ var MovieEditDialog = _react2.default.createClass({
 exports.default = MovieEditDialog; //将App组件导出
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6923,7 +6927,7 @@ var MovieAddDialog = _react2.default.createClass({
 exports.default = MovieAddDialog; //将App组件导出
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6941,7 +6945,7 @@ var _antd = __webpack_require__(1);
 
 __webpack_require__(2);
 
-__webpack_require__(53);
+__webpack_require__(54);
 
 var _vm_util = __webpack_require__(3);
 
@@ -7142,13 +7146,13 @@ var MovieSrcVersionAddDialog = _react2.default.createClass({
 exports.default = MovieSrcVersionAddDialog; //将App组件导出
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7170,7 +7174,7 @@ __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _movie_src_version_edit_dialog = __webpack_require__(55);
+var _movie_src_version_edit_dialog = __webpack_require__(56);
 
 var _movie_src_version_edit_dialog2 = _interopRequireDefault(_movie_src_version_edit_dialog);
 
@@ -7474,7 +7478,7 @@ var MovieSrcVersionTable = _react2.default.createClass({
 exports.default = MovieSrcVersionTable; //将App组件导出
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7688,7 +7692,7 @@ var MovieSrcVersionEditDialog = _react2.default.createClass({
 exports.default = MovieSrcVersionEditDialog; //将App组件导出
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7710,7 +7714,7 @@ __webpack_require__(14);
 
 __webpack_require__(2);
 
-var _filmmaker_table = __webpack_require__(57);
+var _filmmaker_table = __webpack_require__(58);
 
 var _filmmaker_table2 = _interopRequireDefault(_filmmaker_table);
 
@@ -7747,7 +7751,7 @@ var FilmmakerPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(FilmmakerPage); //将App组件导出
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7765,17 +7769,17 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(58);
+__webpack_require__(59);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _filmmaker_edit_dialog = __webpack_require__(59);
+var _filmmaker_edit_dialog = __webpack_require__(60);
 
 var _filmmaker_edit_dialog2 = _interopRequireDefault(_filmmaker_edit_dialog);
 
-var _filmmaker_add_dialog = __webpack_require__(60);
+var _filmmaker_add_dialog = __webpack_require__(61);
 
 var _filmmaker_add_dialog2 = _interopRequireDefault(_filmmaker_add_dialog);
 
@@ -8436,13 +8440,13 @@ var FilmmakerTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(FilmmakerTable); //将App组件导出
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8778,7 +8782,7 @@ var FilmmakerEditDialog = _react2.default.createClass({
 exports.default = FilmmakerEditDialog; //将App组件导出
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9028,7 +9032,7 @@ var FilmmakerAddDialog = _react2.default.createClass({
 exports.default = FilmmakerAddDialog; //将App组件导出
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9050,7 +9054,7 @@ __webpack_require__(9);
 
 __webpack_require__(2);
 
-var _tagGroup_table = __webpack_require__(62);
+var _tagGroup_table = __webpack_require__(63);
 
 var _tagGroup_table2 = _interopRequireDefault(_tagGroup_table);
 
@@ -9087,7 +9091,7 @@ var TagGroupPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(TagGroupPage); //将App组件导出
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9105,25 +9109,25 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(63);
+__webpack_require__(64);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _tag_table = __webpack_require__(64);
+var _tag_table = __webpack_require__(65);
 
 var _tag_table2 = _interopRequireDefault(_tag_table);
 
-var _tagGroup_edit_dialog = __webpack_require__(66);
+var _tagGroup_edit_dialog = __webpack_require__(67);
 
 var _tagGroup_edit_dialog2 = _interopRequireDefault(_tagGroup_edit_dialog);
 
-var _tagGroup_add_dialog = __webpack_require__(67);
+var _tagGroup_add_dialog = __webpack_require__(68);
 
 var _tagGroup_add_dialog2 = _interopRequireDefault(_tagGroup_add_dialog);
 
-var _tag_add_dialog = __webpack_require__(68);
+var _tag_add_dialog = __webpack_require__(69);
 
 var _tag_add_dialog2 = _interopRequireDefault(_tag_add_dialog);
 
@@ -9652,13 +9656,13 @@ var TagGroupTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(TagGroupTable); //将App组件导出
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9680,7 +9684,7 @@ __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _tag_edit_dialog = __webpack_require__(65);
+var _tag_edit_dialog = __webpack_require__(66);
 
 var _tag_edit_dialog2 = _interopRequireDefault(_tag_edit_dialog);
 
@@ -9981,7 +9985,7 @@ var TagTable = _react2.default.createClass({
 exports.default = TagTable; //将App组件导出
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10191,7 +10195,7 @@ var TagEditDialog = _react2.default.createClass({
 exports.default = TagEditDialog; //将App组件导出
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10406,7 +10410,7 @@ var TagGroupEditDialog = _react2.default.createClass({
 exports.default = TagGroupEditDialog; //将App组件导出
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10551,7 +10555,7 @@ var TagGroupAddDialog = _react2.default.createClass({
 exports.default = TagGroupAddDialog; //将App组件导出
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10732,7 +10736,7 @@ var TagAddDialog = _react2.default.createClass({
 exports.default = TagAddDialog; //将App组件导出
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10754,7 +10758,7 @@ __webpack_require__(19);
 
 __webpack_require__(2);
 
-var _admin_table = __webpack_require__(70);
+var _admin_table = __webpack_require__(71);
 
 var _admin_table2 = _interopRequireDefault(_admin_table);
 
@@ -10791,7 +10795,7 @@ var AdminPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(AdminPage); //将App组件导出
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10809,21 +10813,21 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(71);
+__webpack_require__(72);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _admin_edit_dialog = __webpack_require__(72);
+var _admin_edit_dialog = __webpack_require__(73);
 
 var _admin_edit_dialog2 = _interopRequireDefault(_admin_edit_dialog);
 
-var _admin_add_dialog = __webpack_require__(73);
+var _admin_add_dialog = __webpack_require__(74);
 
 var _admin_add_dialog2 = _interopRequireDefault(_admin_add_dialog);
 
-var _admin_login_logs_dialog = __webpack_require__(74);
+var _admin_login_logs_dialog = __webpack_require__(75);
 
 var _admin_login_logs_dialog2 = _interopRequireDefault(_admin_login_logs_dialog);
 
@@ -11421,13 +11425,13 @@ var AdminTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(AdminTable); //将App组件导出
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11768,7 +11772,7 @@ var AdminEditDialog = _react2.default.createClass({
 exports.default = AdminEditDialog; //将App组件导出
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12014,7 +12018,7 @@ var AdminAddDialog = _react2.default.createClass({
 exports.default = AdminAddDialog; //将App组件导出
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12097,13 +12101,13 @@ var AdminLoginLogsDialog = _react2.default.createClass({
 exports.default = AdminLoginLogsDialog; //将App组件导出
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12121,11 +12125,11 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(77);
+__webpack_require__(78);
 
 __webpack_require__(2);
 
-var _role_table = __webpack_require__(78);
+var _role_table = __webpack_require__(79);
 
 var _role_table2 = _interopRequireDefault(_role_table);
 
@@ -12162,13 +12166,13 @@ var RolePage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(RolePage); //将App组件导出
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12186,17 +12190,17 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(79);
+__webpack_require__(80);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _role_edit_dialog = __webpack_require__(80);
+var _role_edit_dialog = __webpack_require__(81);
 
 var _role_edit_dialog2 = _interopRequireDefault(_role_edit_dialog);
 
-var _role_add_dialog = __webpack_require__(81);
+var _role_add_dialog = __webpack_require__(82);
 
 var _role_add_dialog2 = _interopRequireDefault(_role_add_dialog);
 
@@ -12767,13 +12771,13 @@ var RoleTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(RoleTable); //将App组件导出
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13191,7 +13195,7 @@ var RoleEditDialog = _react2.default.createClass({
 exports.default = RoleEditDialog; //将App组件导出
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13485,7 +13489,7 @@ var RoleAddDialog = _react2.default.createClass({
 exports.default = RoleAddDialog; //将App组件导出
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13561,7 +13565,7 @@ var AdminLoginLogsPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(AdminLoginLogsPage); //将App组件导出
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

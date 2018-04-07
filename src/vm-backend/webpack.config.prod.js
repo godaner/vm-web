@@ -4,7 +4,9 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+
 const env = "production";
+
 module.exports = {
     externals: {
         'react': "React",
@@ -68,6 +70,10 @@ module.exports = {
     },
     plugins: [
 
+        // 使用ProvidePlugin加载的模块在使用时将不再需要import和require进行引入
+        new webpack.ProvidePlugin({
+            ENV: "./env/" + env
+        }),
 
         //编译环境
         new webpack.DefinePlugin({

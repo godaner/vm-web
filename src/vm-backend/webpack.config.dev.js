@@ -1,9 +1,9 @@
+
 const path = require('path');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 const env = "development";
 module.exports = {
     externals: {
@@ -67,8 +67,10 @@ module.exports = {
         ]
     },
     plugins: [
-
-
+        // 使用ProvidePlugin加载的模块在使用时将不再需要import和require进行引入
+        new webpack.ProvidePlugin({
+            ENV: "./env/" + env
+        }),
         //编译环境
         new webpack.DefinePlugin({
             'process.env': {
@@ -81,7 +83,7 @@ module.exports = {
             manifest: require("./dist/vendors-manifest.json")
         }),
         //去除错误
-        new webpack.NoErrorsPlugin(),
+        // new webpack.NoErrorsPlugin(),
         // 将代码中有重复的依赖包去重
         new webpack.optimize.DedupePlugin(),
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
@@ -129,4 +131,5 @@ module.exports = {
     ]
 }
 
-console.log("====>> webpack.dll.config env is : "+env+" <<====");
+console.log("====>> webpack.dll.config env is : " + env + " <<====");
+console.log(ENV);
