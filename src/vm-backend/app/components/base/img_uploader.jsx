@@ -171,6 +171,9 @@ var ImgUpload = React.createClass({
     },
     uploadTempImg(callfun){
 
+        const {onUploadTempImgSuccess, onUploadTempImgStart, onUploadTempImgEnd} = this.props;
+
+        onUploadTempImgStart();
 
         var imgInput = this.getImgInput();
         var imgFile = this.getImgFile();
@@ -183,6 +186,7 @@ var ImgUpload = React.createClass({
 
 
             message.error(e);
+            onUploadTempImgEnd();
             // clear input #file
             // this.clearImgInput();
             //back self original img
@@ -211,7 +215,7 @@ var ImgUpload = React.createClass({
                 this.updateTempFileId(result.data.fileId);
 
                 // this.initCropper();
-                this.props.onUploadTempImgSuccess(result);
+                onUploadTempImgSuccess(result);
 
 
             }.bind(this),
@@ -225,6 +229,7 @@ var ImgUpload = React.createClass({
                     callfun()
                 }
                 hideMessage();
+                onUploadTempImgEnd();
             }.bind(this),
 
         })
@@ -242,11 +247,13 @@ var ImgUpload = React.createClass({
         this.getImgInput().val("");
     },
     saveImg(callfun){
-
+        const {onUpdateImgSuccess, onUpdateImgStart, onUpdateImgEnd} = this.props;
+        onUpdateImgStart();
         try {
             this.validateImgFileOnSubmit();
         } catch (e) {
             message.error(e);
+            onUpdateImgEnd();
             return;
         }
 
@@ -276,20 +283,22 @@ var ImgUpload = React.createClass({
 
                 message.success(result.msg);
 
-                this.props.onUpdateImgSuccess(result);
+                onUpdateImgSuccess(result);
 
                 this.clearSelectFileInfo();
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
-
+                onUpdateImgEnd();
             }.bind(this)
         })
 
 
     },
     render: function () {
-        const {fileTypes,fileMaxsize} = this.state.config;
+        const {loading} = this.props;
+        const {config} = this.state;
+        const {fileTypes, fileMaxsize} = config;
         return (
             <div id="img_uploader" className="clearfix">
 
@@ -305,12 +314,13 @@ var ImgUpload = React.createClass({
                                  ref="imgPreview"/>
                         </div>
 
-                        <div>图片限制:允许格式：{fileTypes.join(",")} ；允许最大图片：{fileMaxsize/1024/1024} m</div>
+                        <div>图片限制:允许格式：{fileTypes.join(",")} ；允许最大图片：{fileMaxsize / 1024 / 1024} m</div>
                         <div id="btns_div">
                             <input type="file"
                                    ref="imgInput"
                                    name="img"
                                    id="imgInput"
+                                   disabled={loading}
                                    onChange={() => {
                                        this.uploadTempImg()
                                    }}/>
@@ -318,6 +328,7 @@ var ImgUpload = React.createClass({
                                    className="operateBtn"
                                    id="uploadTempImgBtn"
                                    value="选择图片"
+                                   disabled={loading}
                                    onClick={() => {
                                        this.refs.imgInput.click();
                                    }}/>
@@ -325,6 +336,7 @@ var ImgUpload = React.createClass({
                                    className="operateBtn"
                                    id="imgSaveBtn"
                                    ref="imgSaveBtn"
+                                   disabled={loading}
                                    onClick={() => {
                                        this.saveImg()
                                    }}

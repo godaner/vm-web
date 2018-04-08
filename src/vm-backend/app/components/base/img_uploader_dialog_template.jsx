@@ -20,6 +20,8 @@ var ImgUploaderDialogTemplate = React.createClass({
         }
         return {
             // modelWidth: "350px",
+            loading: false,
+            maskClosable: false,
             width: width,
             visible: false,
             title: title,
@@ -94,11 +96,32 @@ var ImgUploaderDialogTemplate = React.createClass({
         const {onUpdateImgSuccess} = this.props;
         onUpdateImgSuccess(result);
     },
+    onUpdateImgStart(){
+
+        this.updateLoading(true);
+
+    },
+    onUpdateImgEnd(result){
+
+
+        this.updateLoading(false);
+    },
     onUploadTempImgSuccess(result){
 
         //callback
         const {onUploadTempImgSuccess} = this.props;
         onUploadTempImgSuccess(result);
+    },
+    onUploadTempImgStart(){
+
+        this.updateLoading(true);
+
+    },
+    onUploadTempImgEnd(){
+        this.updateLoading(false);
+    },
+    updateLoading(loading){
+        this.setState({loading});
     },
     render: function () {
 
@@ -106,7 +129,7 @@ var ImgUploaderDialogTemplate = React.createClass({
         const {title} = this.props;
 
         //get state
-        const {width, visible, config} = this.state;
+        const {width, visible, config, maskClosable, loading} = this.state;
         return (
             <Modal
                 className='extra'
@@ -115,13 +138,20 @@ var ImgUploaderDialogTemplate = React.createClass({
                 onCancel={this.handleCancel}
                 afterClose={this.afterClose}
                 width={width}
+                closable={!loading}
+                maskClosable={maskClosable}
                 footer={null}
             >
                 <ImgUploader
                     ref="img_uploader"
                     onUpdateImgSuccess={this.onUpdateImgSuccess}
+                    onUpdateImgStart={this.onUpdateImgStart}
+                    onUpdateImgEnd={this.onUpdateImgEnd}
                     onUploadTempImgSuccess={this.onUploadTempImgSuccess}
-                    config={config}/>
+                    onUploadTempImgStart={this.onUploadTempImgStart}
+                    onUploadTempImgEnd={this.onUploadTempImgEnd}
+                    config={config}
+                    loading={loading}/>
 
             </Modal>
         );
