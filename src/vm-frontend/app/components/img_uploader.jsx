@@ -9,7 +9,7 @@ var ImgUpload = React.createClass({
 
         // var config = {
         //     fileTypes: ["jpg", "png"],
-        //     fileMaxsize: 1024 * 1024 * 2,//1M
+        //     fileMaxsize: 1024 * 1024 * 1,//1M
         //     saveImgUrl:"/online/img",//服务器接受x,y,w,h,fileId等参数,返回newImgUrl
         //     uploadTempImgUrl:"/online/img/temp",//服务器接受imgFile,返回tempImgUrl和fileId
         //      server_url_prefix:""

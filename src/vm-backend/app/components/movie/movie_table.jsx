@@ -26,7 +26,7 @@ var MovieTable = React.createClass({
                 config: {
                     aspectRatio: 1.5 / 1,
                     fileTypes: ["jpg", "png"],
-                    fileMaxsize: 1024 * 1024 * 2,//2M
+                    fileMaxsize: 1024 * 1024 * 1,//2M
                     saveImgUrl: "/movie/poster",
                     uploadTempImgUrl: "/src/img",
                     server_url_prefix: vm_config.http_url_prefix,
@@ -39,7 +39,7 @@ var MovieTable = React.createClass({
                 config: {
                     aspectRatio: 1 / 1.5,
                     fileTypes: ["jpg", "png"],
-                    fileMaxsize: 1024 * 1024 * 2,//2M
+                    fileMaxsize: 1024 * 1024 * 1,//2M
                     saveImgUrl: "/movie/img",
                     uploadTempImgUrl: "/src/img",
                     server_url_prefix: vm_config.http_url_prefix,
