@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $# = 0 ];then
+    echo "Error : hostname is empty !
+Input like : root@47.106.119.0 ! "
+else
+    scp -r ./dist/ $1:/usr/local/src/vm-web/vm-frontend/
+fi
+

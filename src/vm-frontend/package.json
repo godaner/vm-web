@@ -18,8 +18,8 @@
     "pack-bundle-prod": "webpack --colors --config ./webpack.config.prod.js",
     "pack-dev": "npm run pack-dll-dev | npm run pack-bundle-dev",
     "pack-prod": "npm run pack-dll-prod | npm run pack-bundle-prod",
-    "pack-dep": "npm run pack-prod & npm run dep",
-    "dep": "scp -r ./dist/ root@47.106.119.0:/usr/local/src/vm-web/vm-frontend/"
+    "dep": "npm run pack-prod & npm run upload",
+    "upload": "sh ./sh/upload root@47.106.119.0"
   },
   "author": "zhangke",
   "license": "ISC",
