@@ -280,6 +280,7 @@ var ImgUpload = React.createClass({
                     callfun()
                 }
                 hideLoading();
+                onUpdateImgEnd();
 
             }.bind(this),
             success: function (result) {
@@ -292,7 +293,6 @@ var ImgUpload = React.createClass({
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
-                onUpdateImgEnd();
             }.bind(this)
         })
 

@@ -101,8 +101,7 @@ var ImgUploaderDialogTemplate = React.createClass({
         this.updateLoading(true);
 
     },
-    onUpdateImgEnd(result){
-
+    onUpdateImgEnd(){
 
         this.updateLoading(false);
     },
