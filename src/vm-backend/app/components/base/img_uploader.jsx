@@ -223,6 +223,9 @@ var ImgUpload = React.createClass({
                 message.error(result.msg);
 
             }.bind(this),
+            error:function () {
+                this.clearSelectFileInfo();
+            }.bind(this),
             complete: function () {
                 //callfun
                 if (callfun != undefined) {
@@ -320,7 +323,6 @@ var ImgUpload = React.createClass({
                                    ref="imgInput"
                                    name="img"
                                    id="imgInput"
-                                   disabled={loading}
                                    onChange={() => {
                                        this.uploadTempImg()
                                    }}/>
@@ -329,6 +331,7 @@ var ImgUpload = React.createClass({
                                    id="uploadTempImgBtn"
                                    value="选择图片"
                                    disabled={loading}
+                                   style={{display:loading?"none":"block"}}
                                    onClick={() => {
                                        this.refs.imgInput.click();
                                    }}/>
@@ -337,6 +340,7 @@ var ImgUpload = React.createClass({
                                    id="imgSaveBtn"
                                    ref="imgSaveBtn"
                                    disabled={loading}
+                                   style={{display:loading?"none":"block"}}
                                    onClick={() => {
                                        this.saveImg()
                                    }}

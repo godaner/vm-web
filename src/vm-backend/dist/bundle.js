@@ -91307,6 +91307,9 @@ var ImgUpload = _react2.default.createClass({
             failure: function (result) {
                 _antd.message.error(result.msg);
             }.bind(this),
+            error: function () {
+                this.clearSelectFileInfo();
+            }.bind(this),
             complete: function () {
                 //callfun
                 if (callfun != undefined) {
@@ -91421,7 +91424,6 @@ var ImgUpload = _react2.default.createClass({
                             ref: "imgInput",
                             name: "img",
                             id: "imgInput",
-                            disabled: loading,
                             onChange: function onChange() {
                                 _this.uploadTempImg();
                             } }),
@@ -91430,6 +91432,7 @@ var ImgUpload = _react2.default.createClass({
                             id: "uploadTempImgBtn",
                             value: "\u9009\u62E9\u56FE\u7247",
                             disabled: loading,
+                            style: { display: loading ? "none" : "block" },
                             onClick: function onClick() {
                                 _this.refs.imgInput.click();
                             } }),
@@ -91438,6 +91441,7 @@ var ImgUpload = _react2.default.createClass({
                             id: "imgSaveBtn",
                             ref: "imgSaveBtn",
                             disabled: loading,
+                            style: { display: loading ? "none" : "block" },
                             onClick: function onClick() {
                                 _this.saveImg();
                             },
