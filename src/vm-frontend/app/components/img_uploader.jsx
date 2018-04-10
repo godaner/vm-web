@@ -1,5 +1,5 @@
 import React from 'react';
-import {ajax,commons} from './vm_util';  //引入react组件
+import {ajax, commons} from './vm_util';  //引入react组件
 import "../scss/img_uploader.scss";
 /**
  * 图片上传组件
@@ -40,11 +40,15 @@ var ImgUpload = React.createClass({
         }
     },
     registEvents: function () {
-        //注册更新头像事件
+
+        //上传框更新事件
         window.eventEmit.on('updateImgUploaderImgUrl', (imgUrl) => {
-            this.previewImg(commons.generateImgUrl({
-                imgUrl:imgUrl
-            }));
+            const fileId = this.state.willUpdatedImgInfo.fileId;
+            if (!isUndefined(fileId)) {
+                this.previewImg(commons.generateImgUrl({
+                    imgUrl: imgUrl
+                }));
+            }
         });
 
     },
@@ -173,7 +177,7 @@ var ImgUpload = React.createClass({
         }
         // a(this.state.config.server_url_prefix + imgUrl);
 
-        this.state.$imgPreview.cropper("replace",  imgUrl);
+        this.state.$imgPreview.cropper("replace", imgUrl);
 
     },
     uploadTempImg(callfun){
@@ -339,7 +343,7 @@ var ImgUpload = React.createClass({
                                    id="uploadTempImgBtn"
                                    value="选择图片"
                                    disabled={loading}
-                                   style={{display:loading?"none":"block"}}
+                                   style={{display: loading ? "none" : "block"}}
                                    onClick={() => {
                                        this.refs.imgInput.click();
                                    }}/>
@@ -348,7 +352,7 @@ var ImgUpload = React.createClass({
                                    id="imgSaveBtn"
                                    ref="imgSaveBtn"
                                    disabled={loading}
-                                   style={{display:loading?"none":"block"}}
+                                   style={{display: loading ? "none" : "block"}}
                                    onClick={() => {
                                        this.saveImg()
                                    }}
