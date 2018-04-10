@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/app/components/home/user_sex_count.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/app/components/home/user_sex_count.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/vendors-manifest.json" afterPath="$PROJECT_DIR$/src/vm-backend/dist/vendors-manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/vendors.dll.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/vendors.dll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/env/development.js" afterPath="$PROJECT_DIR$/src/vm-backend/env/development.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/app/components/home/user_login_area_count.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/app/components/home/user_login_area_count.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,15 +24,35 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user_sex_count.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_sex_count.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_sex_count.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="84" column="20" lean-forward="true" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+            <state relative-caret-position="624">
+              <caret line="109" column="5" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="109" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#130#170#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_login_area_count.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_login_area_count.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_age_count.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_age_count.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="624">
+              <caret line="71" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="71" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -56,7 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>1024 * 1</find>
       <find>1024</find>
       <find>1024 *</find>
       <find>1024 *2</find>
@@ -86,9 +100,9 @@
       <find>updateImgUploaderImgUrl</find>
       <find>HomePage</find>
       <find>ajax.get</find>
+      <find>性别</find>
     </findStrings>
     <replaceStrings>
-      <replace>标签</replace>
       <replace>Tag</replace>
       <replace>MovieVideoUploadDialog</replace>
       <replace>movie</replace>
@@ -118,6 +132,7 @@
       <replace>commons.generateUrl</replace>
       <replace>from './vm_util';</replace>
       <replace>1024 * 1</replace>
+      <replace>登录地区</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\zk\vm-web\src\backend</dir>
@@ -189,12 +204,12 @@
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/sex_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_age_count.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_login_area_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_login_system_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/home_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_regist_num_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/env/development.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_sex_count.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_login_area_count.jsx" />
       </list>
     </option>
   </component>
@@ -1011,15 +1026,15 @@
       <workItem from="1523176962109" duration="8225000" />
       <workItem from="1523261952864" duration="110000" />
       <workItem from="1523265415128" duration="928000" />
-      <workItem from="1523328013148" duration="12033000" />
+      <workItem from="1523328013148" duration="12798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="548967000" />
+    <option name="totallyTimeSpent" value="549732000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1310,17 +1325,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_age_count.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-            <element signature="e#272#312#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_regist_num_count.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -1336,16 +1340,8 @@
         <state relative-caret-position="378">
           <caret line="81" column="37" lean-forward="false" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#0#33#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_login_area_count.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="43" column="37" lean-forward="false" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1416,14 +1412,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_age_count.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="71" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="71" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_sex_count.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="84" column="20" lean-forward="true" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+        <state relative-caret-position="624">
+          <caret line="109" column="5" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="109" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#130#170#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/home/user_login_area_count.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

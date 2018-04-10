@@ -2700,21 +2700,51 @@ var UserLoginAreaCount = _react2.default.createClass({
     displayName: 'UserLoginAreaCount',
 
     getInitialState: function getInitialState() {
-        return {};
+        return {
+            url: "/user/count/login_area"
+        };
     },
 
     componentDidMount: function componentDidMount() {
 
-        c($(this.refs.chartContainer));
+        this.loadData();
+    },
+    initEcharts: function initEcharts(option) {
         var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
 
-        myChart.setOption(this.getOption(), true);
+        myChart.setOption(option, true);
     },
-    getOption: function getOption() {
+    loadData: function loadData() {
+        var url = this.state.url;
+        //ajax
 
+        _vm_util.ajax.get({
+            url: url,
+            success: function (result) {
+                var option = this.getOption(result);
+                this.initEcharts(option);
+            }.bind(this),
+            failure: function (result) {}.bind(this),
+            error: function () {}.bind(this),
+            complete: function () {}.bind(this)
+        });
+    },
+    getOption: function getOption(result) {
+
+        //sexStrs
+        var codes = _vm_util.commons.getFieldListByKey(result.data.list, "area");
+
+        //data
+        var data = [];
+        $.each(result.data.list, function (i, item) {
+
+            data.push({
+                value: item.number, name: item.area
+            });
+        });
         var option = {
             title: {
-                text: '用户登录地点',
+                text: '用户登录地区分布',
                 // subtext: '纯属虚构',
                 x: 'center'
             },
@@ -2725,17 +2755,17 @@ var UserLoginAreaCount = _react2.default.createClass({
             legend: {
                 x: 'center',
                 y: 'bottom',
-                data: ['四川', '眉山', '未知']
+                data: codes
             },
             calculable: true,
             series: [{
 
-                name: '用户登录地点',
+                name: '用户登录地区分布',
                 type: 'pie',
                 radius: [20, 110],
                 // center : ['25%', '50%'],
                 roseType: 'area',
-                data: [{ value: 1110, name: '四川' }, { value: 501, name: '眉山' }, { value: 500, name: '未知' }]
+                data: data
             }]
         };
 
