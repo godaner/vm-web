@@ -43,8 +43,11 @@ var ImgUpload = React.createClass({
 
         //上传框更新事件
         window.eventEmit.on('updateImgUploaderImgUrl', (imgUrl) => {
+
+
             const fileId = this.state.willUpdatedImgInfo.fileId;
-            if (!isUndefined(fileId)) {
+
+            if (isUndefined(fileId)) {
                 this.previewImg(commons.generateImgUrl({
                     imgUrl: imgUrl
                 }));
