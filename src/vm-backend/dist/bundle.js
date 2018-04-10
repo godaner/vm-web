@@ -628,7 +628,7 @@ var commons = {
 
 exports.commons = commons;
 exports.ajax = _ajax;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
 /* 4 */
@@ -655,7 +655,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _edit_form_temple = __webpack_require__(31);
+var _edit_form_temple = __webpack_require__(35);
 
 var _edit_form_temple2 = _interopRequireDefault(_edit_form_temple);
 
@@ -845,324 +845,34 @@ exports.default = EditDialogTemple; //将App组件导出
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = moment;
+module.exports = ReactDOM;
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = ReactDOM;
+module.exports = moment;
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-function EventEmitter() {
-  this._events = this._events || {};
-  this._maxListeners = this._maxListeners || undefined;
-}
-module.exports = EventEmitter;
-
-// Backwards-compat with node 0.10.x
-EventEmitter.EventEmitter = EventEmitter;
-
-EventEmitter.prototype._events = undefined;
-EventEmitter.prototype._maxListeners = undefined;
-
-// By default EventEmitters will print a warning if more than 10 listeners are
-// added to it. This is a useful default which helps finding memory leaks.
-EventEmitter.defaultMaxListeners = 10;
-
-// Obviously not all Emitters should be limited to 10. This function allows
-// that to be increased. Set to zero for unlimited.
-EventEmitter.prototype.setMaxListeners = function(n) {
-  if (!isNumber(n) || n < 0 || isNaN(n))
-    throw TypeError('n must be a positive number');
-  this._maxListeners = n;
-  return this;
-};
-
-EventEmitter.prototype.emit = function(type) {
-  var er, handler, len, args, i, listeners;
-
-  if (!this._events)
-    this._events = {};
-
-  // If there is no 'error' event listener then throw.
-  if (type === 'error') {
-    if (!this._events.error ||
-        (isObject(this._events.error) && !this._events.error.length)) {
-      er = arguments[1];
-      if (er instanceof Error) {
-        throw er; // Unhandled 'error' event
-      } else {
-        // At least give some kind of context to the user
-        var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
-        err.context = er;
-        throw err;
-      }
-    }
-  }
-
-  handler = this._events[type];
-
-  if (isUndefined(handler))
-    return false;
-
-  if (isFunction(handler)) {
-    switch (arguments.length) {
-      // fast cases
-      case 1:
-        handler.call(this);
-        break;
-      case 2:
-        handler.call(this, arguments[1]);
-        break;
-      case 3:
-        handler.call(this, arguments[1], arguments[2]);
-        break;
-      // slower
-      default:
-        args = Array.prototype.slice.call(arguments, 1);
-        handler.apply(this, args);
-    }
-  } else if (isObject(handler)) {
-    args = Array.prototype.slice.call(arguments, 1);
-    listeners = handler.slice();
-    len = listeners.length;
-    for (i = 0; i < len; i++)
-      listeners[i].apply(this, args);
-  }
-
-  return true;
-};
-
-EventEmitter.prototype.addListener = function(type, listener) {
-  var m;
-
-  if (!isFunction(listener))
-    throw TypeError('listener must be a function');
-
-  if (!this._events)
-    this._events = {};
-
-  // To avoid recursion in the case that type === "newListener"! Before
-  // adding it to the listeners, first emit "newListener".
-  if (this._events.newListener)
-    this.emit('newListener', type,
-              isFunction(listener.listener) ?
-              listener.listener : listener);
-
-  if (!this._events[type])
-    // Optimize the case of one listener. Don't need the extra array object.
-    this._events[type] = listener;
-  else if (isObject(this._events[type]))
-    // If we've already got an array, just append.
-    this._events[type].push(listener);
-  else
-    // Adding the second element, need to change to array.
-    this._events[type] = [this._events[type], listener];
-
-  // Check for listener leak
-  if (isObject(this._events[type]) && !this._events[type].warned) {
-    if (!isUndefined(this._maxListeners)) {
-      m = this._maxListeners;
-    } else {
-      m = EventEmitter.defaultMaxListeners;
-    }
-
-    if (m && m > 0 && this._events[type].length > m) {
-      this._events[type].warned = true;
-      console.error('(node) warning: possible EventEmitter memory ' +
-                    'leak detected. %d listeners added. ' +
-                    'Use emitter.setMaxListeners() to increase limit.',
-                    this._events[type].length);
-      if (typeof console.trace === 'function') {
-        // not supported in IE 10
-        console.trace();
-      }
-    }
-  }
-
-  return this;
-};
-
-EventEmitter.prototype.on = EventEmitter.prototype.addListener;
-
-EventEmitter.prototype.once = function(type, listener) {
-  if (!isFunction(listener))
-    throw TypeError('listener must be a function');
-
-  var fired = false;
-
-  function g() {
-    this.removeListener(type, g);
-
-    if (!fired) {
-      fired = true;
-      listener.apply(this, arguments);
-    }
-  }
-
-  g.listener = listener;
-  this.on(type, g);
-
-  return this;
-};
-
-// emits a 'removeListener' event iff the listener was removed
-EventEmitter.prototype.removeListener = function(type, listener) {
-  var list, position, length, i;
-
-  if (!isFunction(listener))
-    throw TypeError('listener must be a function');
-
-  if (!this._events || !this._events[type])
-    return this;
-
-  list = this._events[type];
-  length = list.length;
-  position = -1;
-
-  if (list === listener ||
-      (isFunction(list.listener) && list.listener === listener)) {
-    delete this._events[type];
-    if (this._events.removeListener)
-      this.emit('removeListener', type, listener);
-
-  } else if (isObject(list)) {
-    for (i = length; i-- > 0;) {
-      if (list[i] === listener ||
-          (list[i].listener && list[i].listener === listener)) {
-        position = i;
-        break;
-      }
-    }
-
-    if (position < 0)
-      return this;
-
-    if (list.length === 1) {
-      list.length = 0;
-      delete this._events[type];
-    } else {
-      list.splice(position, 1);
-    }
-
-    if (this._events.removeListener)
-      this.emit('removeListener', type, listener);
-  }
-
-  return this;
-};
-
-EventEmitter.prototype.removeAllListeners = function(type) {
-  var key, listeners;
-
-  if (!this._events)
-    return this;
-
-  // not listening for removeListener, no need to emit
-  if (!this._events.removeListener) {
-    if (arguments.length === 0)
-      this._events = {};
-    else if (this._events[type])
-      delete this._events[type];
-    return this;
-  }
-
-  // emit removeListener for all listeners on all events
-  if (arguments.length === 0) {
-    for (key in this._events) {
-      if (key === 'removeListener') continue;
-      this.removeAllListeners(key);
-    }
-    this.removeAllListeners('removeListener');
-    this._events = {};
-    return this;
-  }
-
-  listeners = this._events[type];
-
-  if (isFunction(listeners)) {
-    this.removeListener(type, listeners);
-  } else if (listeners) {
-    // LIFO order
-    while (listeners.length)
-      this.removeListener(type, listeners[listeners.length - 1]);
-  }
-  delete this._events[type];
-
-  return this;
-};
-
-EventEmitter.prototype.listeners = function(type) {
-  var ret;
-  if (!this._events || !this._events[type])
-    ret = [];
-  else if (isFunction(this._events[type]))
-    ret = [this._events[type]];
-  else
-    ret = this._events[type].slice();
-  return ret;
-};
-
-EventEmitter.prototype.listenerCount = function(type) {
-  if (this._events) {
-    var evlistener = this._events[type];
-
-    if (isFunction(evlistener))
-      return 1;
-    else if (evlistener)
-      return evlistener.length;
-  }
-  return 0;
-};
-
-EventEmitter.listenerCount = function(emitter, type) {
-  return emitter.listenerCount(type);
-};
-
-function isFunction(arg) {
-  return typeof arg === 'function';
-}
-
-function isNumber(arg) {
-  return typeof arg === 'number';
-}
-
-function isObject(arg) {
-  return typeof arg === 'object' && arg !== null;
-}
-
-function isUndefined(arg) {
-  return arg === void 0;
-}
-
+module.exports = (__webpack_require__(24))(1);
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = echarts;
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1173,19 +883,7 @@ module.exports = {
     key_of_access_token: "accessToken",
     offline_code: -9999
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24)))
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(25)))
 
 /***/ }),
 /* 12 */
@@ -1197,7 +895,7 @@ module.exports = {
 /* 13 */
 /***/ (function(module, exports) {
 
-module.exports = echarts;
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 14 */
@@ -1222,7 +920,7 @@ __webpack_require__(2);
 
 __webpack_require__(17);
 
-var _img_uploader = __webpack_require__(43);
+var _img_uploader = __webpack_require__(47);
 
 var _img_uploader2 = _interopRequireDefault(_img_uploader);
 
@@ -1404,7 +1102,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactDom = __webpack_require__(7);
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -1416,7 +1114,7 @@ var _antd = __webpack_require__(1);
 
 var _events = __webpack_require__(8);
 
-__webpack_require__(11);
+__webpack_require__(9);
 
 __webpack_require__(2);
 
@@ -1424,27 +1122,27 @@ var _reactRouterDom = __webpack_require__(4);
 
 var _vm_util = __webpack_require__(3);
 
-var _user_sex_count = __webpack_require__(112);
+var _user_sex_count = __webpack_require__(26);
 
 var _user_sex_count2 = _interopRequireDefault(_user_sex_count);
 
-var _movie_cls_count = __webpack_require__(26);
+var _movie_cls_count = __webpack_require__(27);
 
 var _movie_cls_count2 = _interopRequireDefault(_movie_cls_count);
 
-var _user_regist_num_count = __webpack_require__(27);
+var _user_regist_num_count = __webpack_require__(28);
 
 var _user_regist_num_count2 = _interopRequireDefault(_user_regist_num_count);
 
-var _user_age_count = __webpack_require__(113);
+var _user_age_count = __webpack_require__(29);
 
 var _user_age_count2 = _interopRequireDefault(_user_age_count);
 
-var _user_login_area_count = __webpack_require__(114);
+var _user_login_area_count = __webpack_require__(30);
 
 var _user_login_area_count2 = _interopRequireDefault(_user_login_area_count);
 
-var _user_login_system_count = __webpack_require__(115);
+var _user_login_system_count = __webpack_require__(31);
 
 var _user_login_system_count2 = _interopRequireDefault(_user_login_system_count);
 
@@ -1543,7 +1241,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 __webpack_require__(2);
 
-__webpack_require__(46);
+__webpack_require__(50);
 
 var _vm_util = __webpack_require__(3);
 
@@ -1943,7 +1641,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 __webpack_require__(2);
 
-__webpack_require__(76);
+__webpack_require__(80);
 
 var _vm_util = __webpack_require__(3);
 
@@ -2317,7 +2015,7 @@ exports.default = AdminLoginLogsTable; //将App组件导出
 "use strict";
 
 
-var _reactDom = __webpack_require__(7);
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -2345,7 +2043,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactDom = __webpack_require__(7);
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -2363,25 +2061,25 @@ var _reactRouterDom = __webpack_require__(4);
 
 __webpack_require__(2);
 
-var _head = __webpack_require__(28);
+var _head = __webpack_require__(32);
 
 var _head2 = _interopRequireDefault(_head);
 
-var _login_dialog = __webpack_require__(30);
+var _login_dialog = __webpack_require__(34);
 
 var _login_dialog2 = _interopRequireDefault(_login_dialog);
 
-var _nav = __webpack_require__(34);
+var _nav = __webpack_require__(38);
 
 var _nav2 = _interopRequireDefault(_nav);
 
-var _routes = __webpack_require__(36);
+var _routes = __webpack_require__(40);
 
 var _routes2 = _interopRequireDefault(_routes);
 
 var _vm_util = __webpack_require__(3);
 
-__webpack_require__(84);
+__webpack_require__(88);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2500,15 +2198,21 @@ exports.default = Index; //将App组件导出
 
 /***/ }),
 /* 24 */
+/***/ (function(module, exports) {
+
+module.exports = vendors_lib;
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = { http_url_prefix: 'http://192.168.11.222:5551' };
+module.exports = { http_url_prefix: 'http://47.106.119.0:5551' };
+// module.exports = { http_url_prefix: 'http://192.168.11.222:5551' };
 
 /***/ }),
-/* 25 */,
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2519,7 +2223,144 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactDom = __webpack_require__(7);
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(9);
+
+__webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+var _vm_util = __webpack_require__(3);
+
+var _echarts = __webpack_require__(10);
+
+var _echarts2 = _interopRequireDefault(_echarts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+//import "antd/dist/antd.css";
+
+var SubMenu = _antd.Menu.SubMenu;
+// import ReactEcharts from 'echarts-for-react';
+
+
+var UserSexCount = _react2.default.createClass({
+    displayName: "UserSexCount",
+
+    getInitialState: function getInitialState() {
+        return {
+            url: "/user/count/sex"
+        };
+    },
+
+    componentDidMount: function componentDidMount() {
+
+        this.loadData();
+    },
+    initEcharts: function initEcharts(option) {
+        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(option, true);
+    },
+    loadData: function loadData() {
+        var url = this.state.url;
+        //ajax
+
+        _vm_util.ajax.get({
+            url: url,
+            success: function (result) {
+                var option = this.getOption(result);
+                this.initEcharts(option);
+            }.bind(this),
+            failure: function (result) {}.bind(this),
+            error: function () {}.bind(this),
+            complete: function () {}.bind(this)
+        });
+    },
+    getOption: function getOption(result) {
+
+        //sexStrs
+        var sexCodes = _vm_util.commons.getFieldListByKey(result.data.list, "sex");
+
+        var sexStrs = [];
+
+        $.each(sexCodes, function (i, item) {
+            sexStrs.push(_vm_util.commons.getSexStrByIndex({
+                index: item
+            }));
+        });
+        //data
+        var data = [];
+        $.each(result.data.list, function (i, item) {
+
+            var str = _vm_util.commons.getSexStrByIndex({
+                index: item.sex
+            });
+            data.push({
+                value: item.number, name: str
+            });
+        });
+        var option = {
+            title: {
+                text: '用户性别分布',
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: sexStrs
+            },
+            calculable: true,
+            series: [{
+
+                name: '用户性别分布',
+                type: 'pie',
+                radius: [20, 110],
+                // center : ['25%', '50%'],
+                roseType: 'area',
+                data: data
+            }]
+        };
+
+        return option;
+    },
+
+    render: function render() {
+
+        return _react2.default.createElement("div", { ref: "chartContainer", style: { width: "100%", height: "300" } });
+    }
+});
+
+exports.default = UserSexCount; //将App组件导出
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -2531,7 +2372,7 @@ var _antd = __webpack_require__(1);
 
 var _events = __webpack_require__(8);
 
-__webpack_require__(11);
+__webpack_require__(9);
 
 __webpack_require__(2);
 
@@ -2539,7 +2380,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 var _vm_util = __webpack_require__(3);
 
-var _echarts = __webpack_require__(13);
+var _echarts = __webpack_require__(10);
 
 var _echarts2 = _interopRequireDefault(_echarts);
 
@@ -2608,7 +2449,7 @@ var MovieClsCount = _react2.default.createClass({
 exports.default = MovieClsCount; //将App组件导出
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2618,7 +2459,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactDom = __webpack_require__(7);
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -2630,7 +2471,7 @@ var _antd = __webpack_require__(1);
 
 var _events = __webpack_require__(8);
 
-__webpack_require__(11);
+__webpack_require__(9);
 
 __webpack_require__(2);
 
@@ -2638,7 +2479,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 var _vm_util = __webpack_require__(3);
 
-var _echarts = __webpack_require__(13);
+var _echarts = __webpack_require__(10);
 
 var _echarts2 = _interopRequireDefault(_echarts);
 
@@ -2708,7 +2549,311 @@ var UserRegistNumCount = _react2.default.createClass({
 exports.default = UserRegistNumCount; //将App组件导出
 
 /***/ }),
-/* 28 */
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(9);
+
+__webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+var _vm_util = __webpack_require__(3);
+
+var _echarts = __webpack_require__(10);
+
+var _echarts2 = _interopRequireDefault(_echarts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+
+var SubMenu = _antd.Menu.SubMenu;
+//import "antd/dist/antd.css";
+
+// import ReactEcharts from 'echarts-for-react';
+
+
+var UserAgeCount = _react2.default.createClass({
+    displayName: 'UserAgeCount',
+
+    getInitialState: function getInitialState() {
+        return {};
+    },
+
+    componentDidMount: function componentDidMount() {
+
+        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(this.getOption(), true);
+    },
+    getOption: function getOption() {
+        var option = {
+            title: {
+                text: '用户年龄分布',
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: ['80后', '90后', '00后', '10后']
+            },
+            calculable: true,
+            series: [{
+
+                name: '用户年龄分布',
+                type: 'pie',
+                radius: [20, 110],
+                // center : ['25%', '50%'],
+                roseType: 'area',
+                data: [{ value: 1110, name: '80后' }, { value: 501, name: '90后' }, { value: 501, name: '00后' }, { value: 500, name: '10后' }]
+            }]
+        };
+
+        return option;
+    },
+
+    render: function render() {
+
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
+    }
+});
+
+exports.default = UserAgeCount; //将App组件导出
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(9);
+
+__webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+var _vm_util = __webpack_require__(3);
+
+var _echarts = __webpack_require__(10);
+
+var _echarts2 = _interopRequireDefault(_echarts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+
+var SubMenu = _antd.Menu.SubMenu;
+//import "antd/dist/antd.css";
+
+// import ReactEcharts from 'echarts-for-react';
+
+
+var UserLoginAreaCount = _react2.default.createClass({
+    displayName: 'UserLoginAreaCount',
+
+    getInitialState: function getInitialState() {
+        return {};
+    },
+
+    componentDidMount: function componentDidMount() {
+
+        c($(this.refs.chartContainer));
+        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(this.getOption(), true);
+    },
+    getOption: function getOption() {
+
+        var option = {
+            title: {
+                text: '用户登录地点',
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: ['四川', '眉山', '未知']
+            },
+            calculable: true,
+            series: [{
+
+                name: '用户登录地点',
+                type: 'pie',
+                radius: [20, 110],
+                // center : ['25%', '50%'],
+                roseType: 'area',
+                data: [{ value: 1110, name: '四川' }, { value: 501, name: '眉山' }, { value: 500, name: '未知' }]
+            }]
+        };
+
+        return option;
+    },
+
+    render: function render() {
+
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
+    }
+});
+
+exports.default = UserLoginAreaCount; //将App组件导出
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(9);
+
+__webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+var _vm_util = __webpack_require__(3);
+
+var _echarts = __webpack_require__(10);
+
+var _echarts2 = _interopRequireDefault(_echarts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+
+var SubMenu = _antd.Menu.SubMenu;
+//import "antd/dist/antd.css";
+
+// import ReactEcharts from 'echarts-for-react';
+
+
+var UserLoginSystemCount = _react2.default.createClass({
+    displayName: 'UserLoginSystemCount',
+
+    getInitialState: function getInitialState() {
+        return {};
+    },
+
+    componentDidMount: function componentDidMount() {
+
+        c($(this.refs.chartContainer));
+        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(this.getOption(), true);
+    },
+    getOption: function getOption() {
+
+        var option = {
+            title: {
+                text: '用户登录平台',
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: ['四川', '眉山', '未知']
+            },
+            calculable: true,
+            series: [{
+
+                name: '用户登录平台',
+                type: 'pie',
+                radius: [20, 110],
+                // center : ['25%', '50%'],
+                roseType: 'area',
+                data: [{ value: 1110, name: '四川' }, { value: 501, name: '眉山' }, { value: 500, name: '未知' }]
+            }]
+        };
+
+        return option;
+    },
+
+    render: function render() {
+
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
+    }
+});
+
+exports.default = UserLoginSystemCount; //将App组件导出
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2724,7 +2869,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-__webpack_require__(29);
+__webpack_require__(33);
 
 __webpack_require__(2);
 
@@ -2915,13 +3060,13 @@ var Head = _react2.default.createClass({
 exports.default = Head; //将App组件导出
 
 /***/ }),
-/* 29 */
+/* 33 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2945,7 +3090,7 @@ __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-__webpack_require__(33);
+__webpack_require__(37);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3080,10 +3225,10 @@ var LoginDialog = _react2.default.createClass({
     }
 });
 exports.default = LoginDialog; //将App组件导出
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3095,7 +3240,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _reactDom = __webpack_require__(7);
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -3109,7 +3254,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 __webpack_require__(2);
 
-__webpack_require__(32);
+__webpack_require__(36);
 
 var _vm_util = __webpack_require__(3);
 
@@ -3273,19 +3418,19 @@ var EditFormTemple = _antd.Form.create({})(EditFormTempleWrapper);
 exports.default = EditFormTemple; //将App组件导出
 
 /***/ }),
-/* 32 */
+/* 36 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 33 */
+/* 37 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 34 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3305,7 +3450,7 @@ var _reactRouterDom = __webpack_require__(4);
 
 var _vm_util = __webpack_require__(3);
 
-__webpack_require__(35);
+__webpack_require__(39);
 
 __webpack_require__(2);
 
@@ -3548,13 +3693,13 @@ var Nav = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(Nav); //将App组件导出
 
 /***/ }),
-/* 35 */
+/* 39 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3572,11 +3717,11 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(37);
+__webpack_require__(41);
 
 __webpack_require__(2);
 
-var _user_page = __webpack_require__(38);
+var _user_page = __webpack_require__(42);
 
 var _user_page2 = _interopRequireDefault(_user_page);
 
@@ -3584,31 +3729,31 @@ var _home_page = __webpack_require__(16);
 
 var _home_page2 = _interopRequireDefault(_home_page);
 
-var _user_login_logs_page = __webpack_require__(47);
+var _user_login_logs_page = __webpack_require__(51);
 
 var _user_login_logs_page2 = _interopRequireDefault(_user_login_logs_page);
 
-var _movie_page = __webpack_require__(48);
+var _movie_page = __webpack_require__(52);
 
 var _movie_page2 = _interopRequireDefault(_movie_page);
 
-var _filmmaker_page = __webpack_require__(57);
+var _filmmaker_page = __webpack_require__(61);
 
 var _filmmaker_page2 = _interopRequireDefault(_filmmaker_page);
 
-var _tagGroup_page = __webpack_require__(62);
+var _tagGroup_page = __webpack_require__(66);
 
 var _tagGroup_page2 = _interopRequireDefault(_tagGroup_page);
 
-var _admin_page = __webpack_require__(70);
+var _admin_page = __webpack_require__(74);
 
 var _admin_page2 = _interopRequireDefault(_admin_page);
 
-var _role_page = __webpack_require__(77);
+var _role_page = __webpack_require__(81);
 
 var _role_page2 = _interopRequireDefault(_role_page);
 
-var _admin_login_logs_page = __webpack_require__(83);
+var _admin_login_logs_page = __webpack_require__(87);
 
 var _admin_login_logs_page2 = _interopRequireDefault(_admin_login_logs_page);
 
@@ -3746,13 +3891,13 @@ var Routes = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(Routes); //将App组件导出
 
 /***/ }),
-/* 37 */
+/* 41 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 38 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3770,11 +3915,11 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(12);
+__webpack_require__(13);
 
 __webpack_require__(2);
 
-var _user_table = __webpack_require__(39);
+var _user_table = __webpack_require__(43);
 
 var _user_table2 = _interopRequireDefault(_user_table);
 
@@ -3811,7 +3956,7 @@ var UserPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(UserPage); //将App组件导出
 
 /***/ }),
-/* 39 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3829,17 +3974,17 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(40);
+__webpack_require__(44);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _user_edit_dialog = __webpack_require__(41);
+var _user_edit_dialog = __webpack_require__(45);
 
 var _user_edit_dialog2 = _interopRequireDefault(_user_edit_dialog);
 
-var _user_add_dialog = __webpack_require__(42);
+var _user_add_dialog = __webpack_require__(46);
 
 var _user_add_dialog2 = _interopRequireDefault(_user_add_dialog);
 
@@ -3847,7 +3992,7 @@ var _img_uploader_dialog_template = __webpack_require__(14);
 
 var _img_uploader_dialog_template2 = _interopRequireDefault(_img_uploader_dialog_template);
 
-var _user_login_logs_dialog = __webpack_require__(45);
+var _user_login_logs_dialog = __webpack_require__(49);
 
 var _user_login_logs_dialog2 = _interopRequireDefault(_user_login_logs_dialog);
 
@@ -4481,16 +4626,16 @@ var UserTable = _react2.default.createClass({
 });
 
 exports.default = (0, _reactRouterDom.withRouter)(UserTable); //将App组件导出
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 40 */
+/* 44 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 41 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4506,11 +4651,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-__webpack_require__(12);
+__webpack_require__(13);
 
 __webpack_require__(2);
 
@@ -4762,7 +4907,7 @@ var UserEditDialog = _react2.default.createClass({
 exports.default = UserEditDialog; //将App组件导出
 
 /***/ }),
-/* 42 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4778,7 +4923,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-__webpack_require__(12);
+__webpack_require__(13);
 
 __webpack_require__(2);
 
@@ -4954,7 +5099,7 @@ var UserAddDialog = _react2.default.createClass({
 exports.default = UserAddDialog; //将App组件导出
 
 /***/ }),
-/* 43 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4968,7 +5113,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(44);
+__webpack_require__(48);
 
 var _vm_util = __webpack_require__(3);
 
@@ -5353,13 +5498,13 @@ var ImgUpload = _react2.default.createClass({
 exports.default = ImgUpload;
 
 /***/ }),
-/* 44 */
+/* 48 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 45 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5369,7 +5514,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactDom = __webpack_require__(7);
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -5442,13 +5587,13 @@ var UserLoginLogsDialog = _react2.default.createClass({
 exports.default = UserLoginLogsDialog; //将App组件导出
 
 /***/ }),
-/* 46 */
+/* 50 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 47 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5464,13 +5609,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(12);
+__webpack_require__(13);
 
 __webpack_require__(2);
 
@@ -5524,7 +5669,7 @@ var UserLoginLogsPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(UserLoginLogsPage); //将App组件导出
 
 /***/ }),
-/* 48 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5542,11 +5687,11 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(10);
+__webpack_require__(12);
 
 __webpack_require__(2);
 
-var _movie_table = __webpack_require__(49);
+var _movie_table = __webpack_require__(53);
 
 var _movie_table2 = _interopRequireDefault(_movie_table);
 
@@ -5583,7 +5728,7 @@ var MoviePage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(MoviePage); //将App组件导出
 
 /***/ }),
-/* 49 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5601,17 +5746,17 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(50);
+__webpack_require__(54);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _movie_edit_dialog = __webpack_require__(51);
+var _movie_edit_dialog = __webpack_require__(55);
 
 var _movie_edit_dialog2 = _interopRequireDefault(_movie_edit_dialog);
 
-var _movie_add_dialog = __webpack_require__(52);
+var _movie_add_dialog = __webpack_require__(56);
 
 var _movie_add_dialog2 = _interopRequireDefault(_movie_add_dialog);
 
@@ -5619,11 +5764,11 @@ var _img_uploader_dialog_template = __webpack_require__(14);
 
 var _img_uploader_dialog_template2 = _interopRequireDefault(_img_uploader_dialog_template);
 
-var _movie_src_version_add_dialog = __webpack_require__(53);
+var _movie_src_version_add_dialog = __webpack_require__(57);
 
 var _movie_src_version_add_dialog2 = _interopRequireDefault(_movie_src_version_add_dialog);
 
-var _movie_src_version_table = __webpack_require__(55);
+var _movie_src_version_table = __webpack_require__(59);
 
 var _movie_src_version_table2 = _interopRequireDefault(_movie_src_version_table);
 
@@ -6356,16 +6501,16 @@ var MovieTable = _react2.default.createClass({
 });
 
 exports.default = (0, _reactRouterDom.withRouter)(MovieTable); //将App组件导出
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 50 */
+/* 54 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 51 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6381,13 +6526,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(10);
+__webpack_require__(12);
 
 __webpack_require__(2);
 
@@ -6883,7 +7028,7 @@ var MovieEditDialog = _react2.default.createClass({
 exports.default = MovieEditDialog; //将App组件导出
 
 /***/ }),
-/* 52 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6899,13 +7044,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(10);
+__webpack_require__(12);
 
 __webpack_require__(2);
 
@@ -7232,7 +7377,7 @@ var MovieAddDialog = _react2.default.createClass({
 exports.default = MovieAddDialog; //将App组件导出
 
 /***/ }),
-/* 53 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7250,7 +7395,7 @@ var _antd = __webpack_require__(1);
 
 __webpack_require__(2);
 
-__webpack_require__(54);
+__webpack_require__(58);
 
 var _vm_util = __webpack_require__(3);
 
@@ -7451,13 +7596,13 @@ var MovieSrcVersionAddDialog = _react2.default.createClass({
 exports.default = MovieSrcVersionAddDialog; //将App组件导出
 
 /***/ }),
-/* 54 */
+/* 58 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 55 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7479,7 +7624,7 @@ __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _movie_src_version_edit_dialog = __webpack_require__(56);
+var _movie_src_version_edit_dialog = __webpack_require__(60);
 
 var _movie_src_version_edit_dialog2 = _interopRequireDefault(_movie_src_version_edit_dialog);
 
@@ -7783,7 +7928,7 @@ var MovieSrcVersionTable = _react2.default.createClass({
 exports.default = MovieSrcVersionTable; //将App组件导出
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7997,7 +8142,7 @@ var MovieSrcVersionEditDialog = _react2.default.createClass({
 exports.default = MovieSrcVersionEditDialog; //将App组件导出
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8019,7 +8164,7 @@ __webpack_require__(15);
 
 __webpack_require__(2);
 
-var _filmmaker_table = __webpack_require__(58);
+var _filmmaker_table = __webpack_require__(62);
 
 var _filmmaker_table2 = _interopRequireDefault(_filmmaker_table);
 
@@ -8056,7 +8201,7 @@ var FilmmakerPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(FilmmakerPage); //将App组件导出
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8074,17 +8219,17 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(59);
+__webpack_require__(63);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _filmmaker_edit_dialog = __webpack_require__(60);
+var _filmmaker_edit_dialog = __webpack_require__(64);
 
 var _filmmaker_edit_dialog2 = _interopRequireDefault(_filmmaker_edit_dialog);
 
-var _filmmaker_add_dialog = __webpack_require__(61);
+var _filmmaker_add_dialog = __webpack_require__(65);
 
 var _filmmaker_add_dialog2 = _interopRequireDefault(_filmmaker_add_dialog);
 
@@ -8743,16 +8888,16 @@ var FilmmakerTable = _react2.default.createClass({
 });
 
 exports.default = (0, _reactRouterDom.withRouter)(FilmmakerTable); //将App组件导出
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8768,7 +8913,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
@@ -9088,7 +9233,7 @@ var FilmmakerEditDialog = _react2.default.createClass({
 exports.default = FilmmakerEditDialog; //将App组件导出
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9104,7 +9249,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
@@ -9338,7 +9483,7 @@ var FilmmakerAddDialog = _react2.default.createClass({
 exports.default = FilmmakerAddDialog; //将App组件导出
 
 /***/ }),
-/* 62 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9356,11 +9501,11 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(10);
+__webpack_require__(12);
 
 __webpack_require__(2);
 
-var _tagGroup_table = __webpack_require__(63);
+var _tagGroup_table = __webpack_require__(67);
 
 var _tagGroup_table2 = _interopRequireDefault(_tagGroup_table);
 
@@ -9397,7 +9542,7 @@ var TagGroupPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(TagGroupPage); //将App组件导出
 
 /***/ }),
-/* 63 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9415,25 +9560,25 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(64);
+__webpack_require__(68);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _tag_table = __webpack_require__(65);
+var _tag_table = __webpack_require__(69);
 
 var _tag_table2 = _interopRequireDefault(_tag_table);
 
-var _tagGroup_edit_dialog = __webpack_require__(67);
+var _tagGroup_edit_dialog = __webpack_require__(71);
 
 var _tagGroup_edit_dialog2 = _interopRequireDefault(_tagGroup_edit_dialog);
 
-var _tagGroup_add_dialog = __webpack_require__(68);
+var _tagGroup_add_dialog = __webpack_require__(72);
 
 var _tagGroup_add_dialog2 = _interopRequireDefault(_tagGroup_add_dialog);
 
-var _tag_add_dialog = __webpack_require__(69);
+var _tag_add_dialog = __webpack_require__(73);
 
 var _tag_add_dialog2 = _interopRequireDefault(_tag_add_dialog);
 
@@ -9962,13 +10107,13 @@ var TagGroupTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(TagGroupTable); //将App组件导出
 
 /***/ }),
-/* 64 */
+/* 68 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 65 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9990,7 +10135,7 @@ __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _tag_edit_dialog = __webpack_require__(66);
+var _tag_edit_dialog = __webpack_require__(70);
 
 var _tag_edit_dialog2 = _interopRequireDefault(_tag_edit_dialog);
 
@@ -10291,7 +10436,7 @@ var TagTable = _react2.default.createClass({
 exports.default = TagTable; //将App组件导出
 
 /***/ }),
-/* 66 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10501,7 +10646,7 @@ var TagEditDialog = _react2.default.createClass({
 exports.default = TagEditDialog; //将App组件导出
 
 /***/ }),
-/* 67 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10517,13 +10662,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(10);
+__webpack_require__(12);
 
 __webpack_require__(2);
 
@@ -10716,7 +10861,7 @@ var TagGroupEditDialog = _react2.default.createClass({
 exports.default = TagGroupEditDialog; //将App组件导出
 
 /***/ }),
-/* 68 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10732,7 +10877,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
@@ -10861,7 +11006,7 @@ var TagGroupAddDialog = _react2.default.createClass({
 exports.default = TagGroupAddDialog; //将App组件导出
 
 /***/ }),
-/* 69 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10877,7 +11022,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
@@ -11042,7 +11187,7 @@ var TagAddDialog = _react2.default.createClass({
 exports.default = TagAddDialog; //将App组件导出
 
 /***/ }),
-/* 70 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11064,7 +11209,7 @@ __webpack_require__(20);
 
 __webpack_require__(2);
 
-var _admin_table = __webpack_require__(71);
+var _admin_table = __webpack_require__(75);
 
 var _admin_table2 = _interopRequireDefault(_admin_table);
 
@@ -11101,7 +11246,7 @@ var AdminPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(AdminPage); //将App组件导出
 
 /***/ }),
-/* 71 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11119,21 +11264,21 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(72);
+__webpack_require__(76);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _admin_edit_dialog = __webpack_require__(73);
+var _admin_edit_dialog = __webpack_require__(77);
 
 var _admin_edit_dialog2 = _interopRequireDefault(_admin_edit_dialog);
 
-var _admin_add_dialog = __webpack_require__(74);
+var _admin_add_dialog = __webpack_require__(78);
 
 var _admin_add_dialog2 = _interopRequireDefault(_admin_add_dialog);
 
-var _admin_login_logs_dialog = __webpack_require__(75);
+var _admin_login_logs_dialog = __webpack_require__(79);
 
 var _admin_login_logs_dialog2 = _interopRequireDefault(_admin_login_logs_dialog);
 
@@ -11731,13 +11876,13 @@ var AdminTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(AdminTable); //将App组件导出
 
 /***/ }),
-/* 72 */
+/* 76 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 73 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12078,7 +12223,7 @@ var AdminEditDialog = _react2.default.createClass({
 exports.default = AdminEditDialog; //将App组件导出
 
 /***/ }),
-/* 74 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12094,7 +12239,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
@@ -12324,7 +12469,7 @@ var AdminAddDialog = _react2.default.createClass({
 exports.default = AdminAddDialog; //将App组件导出
 
 /***/ }),
-/* 75 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12334,7 +12479,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactDom = __webpack_require__(7);
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -12407,13 +12552,13 @@ var AdminLoginLogsDialog = _react2.default.createClass({
 exports.default = AdminLoginLogsDialog; //将App组件导出
 
 /***/ }),
-/* 76 */
+/* 80 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 77 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12431,11 +12576,11 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(78);
+__webpack_require__(82);
 
 __webpack_require__(2);
 
-var _role_table = __webpack_require__(79);
+var _role_table = __webpack_require__(83);
 
 var _role_table2 = _interopRequireDefault(_role_table);
 
@@ -12472,13 +12617,13 @@ var RolePage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(RolePage); //将App组件导出
 
 /***/ }),
-/* 78 */
+/* 82 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 79 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12496,17 +12641,17 @@ var _antd = __webpack_require__(1);
 
 var _reactRouterDom = __webpack_require__(4);
 
-__webpack_require__(80);
+__webpack_require__(84);
 
 __webpack_require__(2);
 
 var _vm_util = __webpack_require__(3);
 
-var _role_edit_dialog = __webpack_require__(81);
+var _role_edit_dialog = __webpack_require__(85);
 
 var _role_edit_dialog2 = _interopRequireDefault(_role_edit_dialog);
 
-var _role_add_dialog = __webpack_require__(82);
+var _role_add_dialog = __webpack_require__(86);
 
 var _role_add_dialog2 = _interopRequireDefault(_role_add_dialog);
 
@@ -13077,13 +13222,13 @@ var RoleTable = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(RoleTable); //将App组件导出
 
 /***/ }),
-/* 80 */
+/* 84 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 81 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13501,7 +13646,7 @@ var RoleEditDialog = _react2.default.createClass({
 exports.default = RoleEditDialog; //将App组件导出
 
 /***/ }),
-/* 82 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13795,7 +13940,7 @@ var RoleAddDialog = _react2.default.createClass({
 exports.default = RoleAddDialog; //将App组件导出
 
 /***/ }),
-/* 83 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13811,7 +13956,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = __webpack_require__(1);
 
-var _moment = __webpack_require__(6);
+var _moment = __webpack_require__(7);
 
 var _moment2 = _interopRequireDefault(_moment);
 
@@ -13871,441 +14016,10 @@ var AdminLoginLogsPage = _react2.default.createClass({
 exports.default = (0, _reactRouterDom.withRouter)(AdminLoginLogsPage); //将App组件导出
 
 /***/ }),
-/* 84 */
+/* 88 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _reactDom = __webpack_require__(7);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _antd = __webpack_require__(1);
-
-var _events = __webpack_require__(8);
-
-__webpack_require__(11);
-
-__webpack_require__(2);
-
-var _reactRouterDom = __webpack_require__(4);
-
-var _vm_util = __webpack_require__(3);
-
-var _echarts = __webpack_require__(13);
-
-var _echarts2 = _interopRequireDefault(_echarts);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = _antd.Layout.Header,
-    Content = _antd.Layout.Content,
-    Footer = _antd.Layout.Footer,
-    Sider = _antd.Layout.Sider;
-
-var SubMenu = _antd.Menu.SubMenu;
-//import "antd/dist/antd.css";
-
-// import ReactEcharts from 'echarts-for-react';
-
-
-var UserSexCount = _react2.default.createClass({
-    displayName: 'UserSexCount',
-
-    getInitialState: function getInitialState() {
-        return {};
-    },
-
-    componentDidMount: function componentDidMount() {
-
-        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
-
-        myChart.setOption(this.getOption(), true);
-    },
-    getOption: function getOption() {
-        var option = {
-            title: {
-                text: '用户性别分布',
-                // subtext: '纯属虚构',
-                x: 'center'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                x: 'center',
-                y: 'bottom',
-                data: ['男', '女', '未知']
-            },
-            calculable: true,
-            series: [{
-
-                name: '用户性别分布',
-                type: 'pie',
-                radius: [20, 110],
-                // center : ['25%', '50%'],
-                roseType: 'area',
-                data: [{ value: 1110, name: '男' }, { value: 501, name: '女' }, { value: 500, name: '未知' }]
-            }]
-        };
-
-        return option;
-    },
-
-    render: function render() {
-
-        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
-    }
-});
-
-exports.default = UserSexCount; //将App组件导出
-
-/***/ }),
-/* 113 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _reactDom = __webpack_require__(7);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _antd = __webpack_require__(1);
-
-var _events = __webpack_require__(8);
-
-__webpack_require__(11);
-
-__webpack_require__(2);
-
-var _reactRouterDom = __webpack_require__(4);
-
-var _vm_util = __webpack_require__(3);
-
-var _echarts = __webpack_require__(13);
-
-var _echarts2 = _interopRequireDefault(_echarts);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = _antd.Layout.Header,
-    Content = _antd.Layout.Content,
-    Footer = _antd.Layout.Footer,
-    Sider = _antd.Layout.Sider;
-
-var SubMenu = _antd.Menu.SubMenu;
-//import "antd/dist/antd.css";
-
-// import ReactEcharts from 'echarts-for-react';
-
-
-var UserAgeCount = _react2.default.createClass({
-    displayName: 'UserAgeCount',
-
-    getInitialState: function getInitialState() {
-        return {};
-    },
-
-    componentDidMount: function componentDidMount() {
-
-        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
-
-        myChart.setOption(this.getOption(), true);
-    },
-    getOption: function getOption() {
-        var option = {
-            title: {
-                text: '用户年龄分布',
-                // subtext: '纯属虚构',
-                x: 'center'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                x: 'center',
-                y: 'bottom',
-                data: ['80后', '90后', '00后', '10后']
-            },
-            calculable: true,
-            series: [{
-
-                name: '用户年龄分布',
-                type: 'pie',
-                radius: [20, 110],
-                // center : ['25%', '50%'],
-                roseType: 'area',
-                data: [{ value: 1110, name: '80后' }, { value: 501, name: '90后' }, { value: 501, name: '00后' }, { value: 500, name: '10后' }]
-            }]
-        };
-
-        return option;
-    },
-
-    render: function render() {
-
-        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
-    }
-});
-
-exports.default = UserAgeCount; //将App组件导出
-
-/***/ }),
-/* 114 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _reactDom = __webpack_require__(7);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _antd = __webpack_require__(1);
-
-var _events = __webpack_require__(8);
-
-__webpack_require__(11);
-
-__webpack_require__(2);
-
-var _reactRouterDom = __webpack_require__(4);
-
-var _vm_util = __webpack_require__(3);
-
-var _echarts = __webpack_require__(13);
-
-var _echarts2 = _interopRequireDefault(_echarts);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = _antd.Layout.Header,
-    Content = _antd.Layout.Content,
-    Footer = _antd.Layout.Footer,
-    Sider = _antd.Layout.Sider;
-
-var SubMenu = _antd.Menu.SubMenu;
-//import "antd/dist/antd.css";
-
-// import ReactEcharts from 'echarts-for-react';
-
-
-var UserLoginAreaCount = _react2.default.createClass({
-    displayName: 'UserLoginAreaCount',
-
-    getInitialState: function getInitialState() {
-        return {};
-    },
-
-    componentDidMount: function componentDidMount() {
-
-        c($(this.refs.chartContainer));
-        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
-
-        myChart.setOption(this.getOption(), true);
-    },
-    getOption: function getOption() {
-
-        var option = {
-            title: {
-                text: '用户登录地点',
-                // subtext: '纯属虚构',
-                x: 'center'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                x: 'center',
-                y: 'bottom',
-                data: ['四川', '眉山', '未知']
-            },
-            calculable: true,
-            series: [{
-
-                name: '用户登录地点',
-                type: 'pie',
-                radius: [20, 110],
-                // center : ['25%', '50%'],
-                roseType: 'area',
-                data: [{ value: 1110, name: '四川' }, { value: 501, name: '眉山' }, { value: 500, name: '未知' }]
-            }]
-        };
-
-        return option;
-    },
-
-    render: function render() {
-
-        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
-    }
-});
-
-exports.default = UserLoginAreaCount; //将App组件导出
-
-/***/ }),
-/* 115 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _reactDom = __webpack_require__(7);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _antd = __webpack_require__(1);
-
-var _events = __webpack_require__(8);
-
-__webpack_require__(11);
-
-__webpack_require__(2);
-
-var _reactRouterDom = __webpack_require__(4);
-
-var _vm_util = __webpack_require__(3);
-
-var _echarts = __webpack_require__(13);
-
-var _echarts2 = _interopRequireDefault(_echarts);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = _antd.Layout.Header,
-    Content = _antd.Layout.Content,
-    Footer = _antd.Layout.Footer,
-    Sider = _antd.Layout.Sider;
-
-var SubMenu = _antd.Menu.SubMenu;
-//import "antd/dist/antd.css";
-
-// import ReactEcharts from 'echarts-for-react';
-
-
-var UserLoginSystemCount = _react2.default.createClass({
-    displayName: 'UserLoginSystemCount',
-
-    getInitialState: function getInitialState() {
-        return {};
-    },
-
-    componentDidMount: function componentDidMount() {
-
-        c($(this.refs.chartContainer));
-        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
-
-        myChart.setOption(this.getOption(), true);
-    },
-    getOption: function getOption() {
-
-        var option = {
-            title: {
-                text: '用户登录平台',
-                // subtext: '纯属虚构',
-                x: 'center'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                x: 'center',
-                y: 'bottom',
-                data: ['四川', '眉山', '未知']
-            },
-            calculable: true,
-            series: [{
-
-                name: '用户登录平台',
-                type: 'pie',
-                radius: [20, 110],
-                // center : ['25%', '50%'],
-                roseType: 'area',
-                data: [{ value: 1110, name: '四川' }, { value: 501, name: '眉山' }, { value: 500, name: '未知' }]
-            }]
-        };
-
-        return option;
-    },
-
-    render: function render() {
-
-        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
-    }
-});
-
-exports.default = UserLoginSystemCount; //将App组件导出
 
 /***/ })
 /******/ ]);

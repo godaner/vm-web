@@ -1,31 +1,74 @@
-import  ReactDOM from 'react-dom';
-import React from 'react';
-import {Layout, Menu, Breadcrumb, Icon,Row ,Col} from 'antd';
+import React from "react";
+import {Layout, Menu} from "antd";
+import {EventEmitter} from "events";
+//import "antd/dist/antd.css";
+import "../../scss/home/home_page.scss";
+import "../base/events_dispatcher";
+import {BrowserRouter, HashRouter, Link, Route, Switch, withRouter} from "react-router-dom";
+import {ajax, commons} from "../base/vm_util";
+import echarts from "echarts";
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
-import {EventEmitter} from 'events';
-//import "antd/dist/antd.css";
-import '../../scss/home/home_page.scss';
-import "../base/events_dispatcher";
-import {Switch, BrowserRouter, HashRouter, Route, Link, withRouter} from 'react-router-dom';
-import {ajax, commons} from "../base/vm_util";
-import echarts from 'echarts';
 // import ReactEcharts from 'echarts-for-react';
 
 
 var UserSexCount = React.createClass({
     getInitialState: function () {
-        return {};
+        return {
+            url: "/user/count/sex"
+        };
     },
 
     componentDidMount(){
 
-
+        this.loadData();
+    },
+    initEcharts(option){
         let myChart = echarts.init($(this.refs.chartContainer).get(0));
 
-        myChart.setOption(this.getOption(),true)
+        myChart.setOption(option, true)
     },
-    getOption(){
+    loadData(){
+        const {url} = this.state;
+        //ajax
+        ajax.get({
+            url: url,
+            success: function (result) {
+                let option = this.getOption(result);
+                this.initEcharts(option);
+
+            }.bind(this),
+            failure: function (result) {
+            }.bind(this),
+            error: function () {
+            }.bind(this),
+            complete: function () {
+            }.bind(this)
+        });
+    },
+    getOption(result){
+
+        //sexStrs
+        let sexCodes = commons.getFieldListByKey(result.data.list, "sex");
+
+        let sexStrs = [];
+
+        $.each(sexCodes, function (i, item) {
+            sexStrs.push(commons.getSexStrByIndex({
+                index: item
+            }));
+        });
+        //data
+        var data = [];
+        $.each(result.data.list, function (i, item) {
+
+            let str = commons.getSexStrByIndex({
+                index: item.sex
+            });
+            data.push({
+                value: item.number, name: str
+            });
+        });
         var option = {
             title: {
                 text: '用户性别分布',
@@ -39,23 +82,19 @@ var UserSexCount = React.createClass({
             legend: {
                 x: 'center',
                 y: 'bottom',
-                data: ['男', '女','未知']
+                data: sexStrs
             },
             calculable: true,
             series: [
 
                 {
 
-                    name:'用户性别分布',
-                    type:'pie',
-                    radius : [20, 110],
+                    name: '用户性别分布',
+                    type: 'pie',
+                    radius: [20, 110],
                     // center : ['25%', '50%'],
-                    roseType : 'area',
-                    data: [
-                        {value: 1110, name: '男'},
-                        {value: 501, name: '女'},
-                        {value: 500, name: '未知'}
-                    ]
+                    roseType: 'area',
+                    data: data
                 }
             ]
         };
@@ -66,7 +105,7 @@ var UserSexCount = React.createClass({
     render: function () {
 
         return (
-            <div ref="chartContainer" style={{width:"100%",height:"300"}}></div>
+            <div ref="chartContainer" style={{width: "100%", height: "300"}}></div>
         );
     }
 });
