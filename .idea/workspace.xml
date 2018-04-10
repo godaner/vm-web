@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/$Recycle.Bin/S-1-5-21-3522740960-120612544-1741124754-500/desktop.ini" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/env/development.js" afterPath="$PROJECT_DIR$/src/vm-backend/env/development.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/env/development.js" afterPath="$PROJECT_DIR$/src/vm-frontend/env/development.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/app/components/user_head_page.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/user_head_page.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/app/scss/img_uploader.scss" afterPath="$PROJECT_DIR$/src/vm-frontend/app/scss/img_uploader.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.css" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,81 +29,41 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="webpack.dll.config.dev.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.dll.config.dev.js">
+      <file leaf-file-name="img_uploader.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="1636">
+              <caret line="351" column="32" lean-forward="true" selection-start-line="351" selection-start-column="32" selection-end-line="351" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.config.prod.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.config.prod.js">
+      <file leaf-file-name="img_uploader.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/scss/img_uploader.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="359">
+              <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.config.dev.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.dev.js">
+      <file leaf-file-name="vm_util.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/vm_util.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="614">
+              <caret line="410" column="6" lean-forward="true" selection-start-line="410" selection-start-column="6" selection-end-line="410" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.config.prod.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.config.prod.js">
+      <file leaf-file-name="img_uploader.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/img_uploader.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="52" column="18" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="development.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/env/development.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="58" lean-forward="false" selection-start-line="0" selection-start-column="58" selection-end-line="0" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="development.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vm-frontend/env/development.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="58" lean-forward="false" selection-start-line="0" selection-start-column="58" selection-end-line="0" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="production.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/env/production.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-1889">
+              <caret line="247" column="6" lean-forward="true" selection-start-line="243" selection-start-column="6" selection-end-line="247" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -111,9 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Inne</find>
-      <find>Inner</find>
-      <find>vm_u</find>
       <find>from 'vm_util';</find>
       <find>from &quot;vm_util&quot;;</find>
       <find>ENV: ENV</find>
@@ -141,6 +100,9 @@
       <find>onUpdateImgStart</find>
       <find>dev</find>
       <find>onUpdateImgEnd</find>
+      <find>upload</find>
+      <find>getObj</find>
+      <find>imgPreview0</find>
     </findStrings>
     <replaceStrings>
       <replace>标签</replace>
@@ -199,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vm-backend/app/components/config/config.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.dev.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/webpack.config.prod.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/dist/js/vm_util.js" />
@@ -213,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/dater.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/director.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/user_page.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/app/components/user_head_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/user_basic_info_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/tail.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/tags_of_movie.jsx" />
@@ -227,7 +187,6 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/loading.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/inner_messager.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/index.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/flex_text.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/filmmaker_info_page.jsx" />
@@ -250,6 +209,9 @@
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/base/img_uploader.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/env/development.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/env/development.js" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/app/components/user_head_page.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/app/scss/img_uploader.scss" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx" />
       </list>
     </option>
   </component>
@@ -342,7 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="env" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -357,6 +319,114 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -898,15 +968,15 @@
       <workItem from="1523176962109" duration="8225000" />
       <workItem from="1523261952864" duration="110000" />
       <workItem from="1523265415128" duration="928000" />
-      <workItem from="1523328013148" duration="50000" />
+      <workItem from="1523328013148" duration="2754000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="536984000" />
+    <option name="totallyTimeSpent" value="539688000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1003,13 +1073,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/movies_player.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/movies_displayer.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/movie_info_page.jsx" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/login_dialog.jsx" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/loading.jsx" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/inner_messager.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/flex_text.jsx" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/filmmaker_info_page.jsx" />
@@ -1061,11 +1127,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/vm_util.jsx" />
     <entry file="file://$PROJECT_DIR$/src/vm-backend/webpack.dll.config.dev.js" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/webpack.config.dev.js" />
     <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/img_uploader_dialog_template.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/img_uploader.jsx" />
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/server.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1133,6 +1197,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="58" lean-forward="false" selection-start-line="0" selection-start-column="58" selection-end-line="0" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="0" column="61914" lean-forward="false" selection-start-line="0" selection-start-column="61914" selection-end-line="0" selection-end-column="61914" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/user_head_page.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/vm_util.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="410" column="6" lean-forward="true" selection-start-line="410" selection-start-column="6" selection-end-line="410" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/img_uploader.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1889">
+          <caret line="247" column="6" lean-forward="true" selection-start-line="243" selection-start-column="6" selection-end-line="247" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/scss/img_uploader.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1636">
+          <caret line="351" column="32" lean-forward="true" selection-start-line="351" selection-start-column="32" selection-end-line="351" selection-end-column="32" />
           <folding />
         </state>
       </provider>

@@ -15,6 +15,7 @@ var UserHeadPage = React.createClass({
             uploadTempImgUrl: "/src/img"
         };
         return {
+            loading:false,
             config: config,
             // userId: this.props.match.params.userId,
             getInfoFailure: "获取信息失败",
@@ -50,21 +51,42 @@ var UserHeadPage = React.createClass({
         }));
         window.EventsDispatcher.updateHeadComponentUser(result.data.user);
     },
+    onUpdateImgStart(){
+
+    },
+    onUpdateImgEnd(){
+
+    },
     onUploadTempImgSuccess(result){
 
         this.getUserHeadUploader().previewImg(commons.generateImgUrl({
             imgUrl: result.data.imgUrl
         }));
     },
+    onUploadTempImgStart(){
+
+    },
+    onUploadTempImgEnd(){
+
+    },
+    updateLoading(loading){
+        this.setState({loading});
+    },
     render: function () {
+        const {loading} = this.state;
         return (
             <div id="user_head_content" className="clearfix">
 
                 <div id="react_img_uploader">
                     <ImgUploader ref="userHeadUploader"
                                  config={this.state.config}
+                                 loading={loading}
                                  onUpdateImgSuccess={this.onUpdateImgSuccess}
-                                 onUploadTempImgSuccess={this.onUploadTempImgSuccess}/>
+                                 onUpdateImgStart={this.onUpdateImgStart}
+                                 onUpdateImgEnd={this.onUpdateImgEnd}
+                                 onUploadTempImgSuccess={this.onUploadTempImgSuccess}
+                                 onUploadTempImgStart={this.onUploadTempImgStart}
+                                 onUploadTempImgEnd={this.onUploadTempImgEnd}/>
                 </div>
 
                 <div id="tip">

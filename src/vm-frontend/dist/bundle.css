@@ -4750,6 +4750,9 @@ body, html {
     flex: 1; }
     #img_uploader #head_preview > * {
       margin-left: 20px; }
+    #img_uploader #head_preview #imgPreview {
+      width: 200px;
+      height: 200px; }
     #img_uploader #head_preview #imgPreview0 {
       width: 80px;
       height: 80px; }

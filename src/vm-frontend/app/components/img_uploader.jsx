@@ -168,7 +168,9 @@ var ImgUpload = React.createClass({
     },
     uploadTempImg(callfun){
 
+        const {onUploadTempImgSuccess, onUploadTempImgStart, onUploadTempImgEnd} = this.props;
 
+        onUploadTempImgStart();
         var imgInput = this.getImgInput();
         var imgFile = this.getImgFile();
         //validateImgFileOnChoice
@@ -178,6 +180,7 @@ var ImgUpload = React.createClass({
             // window.EventsDispatcher.closeLoading();
             window.EventsDispatcher.showMsgDialog(e);
 
+            onUploadTempImgEnd();
             // clear input #file
             // this.clearImgInput();
             //back self original img
@@ -220,9 +223,11 @@ var ImgUpload = React.createClass({
                 if (callfun != undefined) {
                     callfun()
                 }
+                onUploadTempImgEnd();
             }.bind(this),
             onRequestError: function () {
 
+                this.clearSelectFileInfo();
             }.bind(this)
         })
     },
@@ -234,13 +239,20 @@ var ImgUpload = React.createClass({
     clearImgInput(){
         this.getImgInput().val("");
     },
-    saveImg(callfun){
 
+    clearSelectFileInfo(){//清除用户已选择的图片信息
+        this.updateTempFileId(undefined);
+        this.clearImgInput();
+    },
+    saveImg(callfun){
+        const {onUpdateImgSuccess, onUpdateImgStart, onUpdateImgEnd} = this.props;
+        onUpdateImgStart();
         try {
             this.validateImgFileOnSubmit();
         } catch (e) {
             // window.EventsDispatcher.closeLoading();
             window.EventsDispatcher.showMsgDialog(e);
+            onUpdateImgEnd();
             return;
         }
 
@@ -266,9 +278,7 @@ var ImgUpload = React.createClass({
                 window.EventsDispatcher.showMsgDialog(this.state.userImgUpdateSuccess);
 
                 // clear temp filename
-                this.updateTempFileId(undefined);
-
-                this.clearImgInput();
+                this.clearSelectFileInfo();
 
                 this.props.onUpdateImgSuccess(result);
 
@@ -281,6 +291,7 @@ var ImgUpload = React.createClass({
                 if (callfun != undefined) {
                     callfun()
                 }
+                onUpdateImgEnd();
             }.bind(this),
             onRequestError: function () {
 
@@ -290,6 +301,7 @@ var ImgUpload = React.createClass({
 
     },
     render: function () {
+        const {loading} = this.props;
         return (
             <div id="img_uploader" className="clearfix">
 
@@ -316,6 +328,8 @@ var ImgUpload = React.createClass({
                                    className="operateBtn"
                                    id="uploadTempImgBtn"
                                    value="选择图片"
+                                   disabled={loading}
+                                   style={{display:loading?"none":"block"}}
                                    onClick={() => {
                                        this.refs.imgInput.click();
                                    }}/>
@@ -323,6 +337,8 @@ var ImgUpload = React.createClass({
                                    className="operateBtn"
                                    id="imgSaveBtn"
                                    ref="imgSaveBtn"
+                                   disabled={loading}
+                                   style={{display:loading?"none":"block"}}
                                    onClick={() => {
                                        this.saveImg()
                                    }}
@@ -334,18 +350,10 @@ var ImgUpload = React.createClass({
                 </div>
                 <div id="head_preview">
                     <p>预览 : </p>
-                    <div id="imgPreview0">
+                    <div id="imgPreview">
                         <div className="preview"/>
-                        80x
                     </div>
-                    <div id="imgPreview1">
-                        <div className="preview"/>
-                        50x
-                    </div>
-                    <div id="imgPreview2">
-                        <div className="preview"/>
-                        30x
-                    </div>
+
                 </div>
             </div>
         )
