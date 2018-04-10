@@ -9,10 +9,12 @@ import '../../scss/home/home_page.scss';
 import "../base/events_dispatcher";
 import {Switch, BrowserRouter, HashRouter, Route, Link, withRouter} from 'react-router-dom';
 import {ajax, commons} from "../base/vm_util";
-import SexCount from "./sex_count";
+import UserSexCount from "./user_sex_count";
 import MovieClsCount from "./movie_cls_count";
 import UserRegistNumCount from "./user_regist_num_count";
 
+import UserAgeCount from "./user_age_count";
+import UserLoginAreaCount from "./user_login_area_count";
 
 
 var HomePage = React.createClass({
@@ -26,18 +28,29 @@ var HomePage = React.createClass({
         return (
             <div>
                 <Row justify="center" align="middle">
+                    <Col span={6}>
+                        <UserLoginAreaCount/>
+                    </Col>
+                    <Col span={6}>
+
+                        <UserAgeCount/>
+                    </Col>
 
                     <Col span={6}>
-                        <SexCount/>
+                        <UserSexCount/>
                     </Col>
+
                     <Col span={6}>
                         <MovieClsCount/>
                     </Col>
-                    <Col span={12}>
+                </Row>
+                <Row justify="center" align="middle">
+
+                    <Col span={24}>
                         <UserRegistNumCount/>
                     </Col>
-                </Row>
 
+                </Row>
             </div>
         );
     }

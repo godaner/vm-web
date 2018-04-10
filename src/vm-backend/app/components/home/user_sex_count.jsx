@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import  ReactDOM from 'react-dom';
 import React from 'react';
 import {Layout, Menu, Breadcrumb, Icon,Row ,Col} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
@@ -13,7 +13,7 @@ import echarts from 'echarts';
 // import ReactEcharts from 'echarts-for-react';
 
 
-var SexCount = React.createClass({
+var UserSexCount = React.createClass({
     getInitialState: function () {
         return {};
     },
@@ -21,7 +21,6 @@ var SexCount = React.createClass({
     componentDidMount(){
 
 
-        c($(this.refs.chartContainer));
         let myChart = echarts.init($(this.refs.chartContainer).get(0));
 
         myChart.setOption(this.getOption(),true)
@@ -47,11 +46,11 @@ var SexCount = React.createClass({
 
                 {
 
-                    name:'半径模式',
+                    name:'用户性别分布',
                     type:'pie',
                     radius : [20, 110],
                     // center : ['25%', '50%'],
-                    roseType : 'radius',
+                    roseType : 'area',
                     data: [
                         {value: 1110, name: '男'},
                         {value: 501, name: '女'},
@@ -72,4 +71,4 @@ var SexCount = React.createClass({
     }
 });
 
-export default (SexCount);   //将App组件导出
+export default (UserSexCount);   //将App组件导出

@@ -1424,9 +1424,9 @@ var _reactRouterDom = __webpack_require__(4);
 
 var _vm_util = __webpack_require__(3);
 
-var _sex_count = __webpack_require__(25);
+var _user_sex_count = __webpack_require__(112);
 
-var _sex_count2 = _interopRequireDefault(_sex_count);
+var _user_sex_count2 = _interopRequireDefault(_user_sex_count);
 
 var _movie_cls_count = __webpack_require__(26);
 
@@ -1435,6 +1435,14 @@ var _movie_cls_count2 = _interopRequireDefault(_movie_cls_count);
 var _user_regist_num_count = __webpack_require__(27);
 
 var _user_regist_num_count2 = _interopRequireDefault(_user_regist_num_count);
+
+var _user_age_count = __webpack_require__(113);
+
+var _user_age_count2 = _interopRequireDefault(_user_age_count);
+
+var _user_login_area_count = __webpack_require__(114);
+
+var _user_login_area_count2 = _interopRequireDefault(_user_login_area_count);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1466,16 +1474,30 @@ var HomePage = _react2.default.createClass({
                 _react2.default.createElement(
                     _antd.Col,
                     { span: 6 },
-                    _react2.default.createElement(_sex_count2.default, null)
+                    _react2.default.createElement(_user_login_area_count2.default, null)
+                ),
+                _react2.default.createElement(
+                    _antd.Col,
+                    { span: 6 },
+                    _react2.default.createElement(_user_age_count2.default, null)
+                ),
+                _react2.default.createElement(
+                    _antd.Col,
+                    { span: 6 },
+                    _react2.default.createElement(_user_sex_count2.default, null)
                 ),
                 _react2.default.createElement(
                     _antd.Col,
                     { span: 6 },
                     _react2.default.createElement(_movie_cls_count2.default, null)
-                ),
+                )
+            ),
+            _react2.default.createElement(
+                _antd.Row,
+                { justify: 'center', align: 'middle' },
                 _react2.default.createElement(
                     _antd.Col,
-                    { span: 12 },
+                    { span: 24 },
                     _react2.default.createElement(_user_regist_num_count2.default, null)
                 )
             )
@@ -2477,107 +2499,7 @@ exports.default = Index; //将App组件导出
 module.exports = { http_url_prefix: 'http://192.168.11.222:5551' };
 
 /***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _reactDom = __webpack_require__(7);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _antd = __webpack_require__(1);
-
-var _events = __webpack_require__(8);
-
-__webpack_require__(11);
-
-__webpack_require__(2);
-
-var _reactRouterDom = __webpack_require__(4);
-
-var _vm_util = __webpack_require__(3);
-
-var _echarts = __webpack_require__(13);
-
-var _echarts2 = _interopRequireDefault(_echarts);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = _antd.Layout.Header,
-    Content = _antd.Layout.Content,
-    Footer = _antd.Layout.Footer,
-    Sider = _antd.Layout.Sider;
-
-var SubMenu = _antd.Menu.SubMenu;
-//import "antd/dist/antd.css";
-
-// import ReactEcharts from 'echarts-for-react';
-
-
-var SexCount = _react2.default.createClass({
-    displayName: 'SexCount',
-
-    getInitialState: function getInitialState() {
-        return {};
-    },
-
-    componentDidMount: function componentDidMount() {
-
-        c($(this.refs.chartContainer));
-        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
-
-        myChart.setOption(this.getOption(), true);
-    },
-    getOption: function getOption() {
-        var option = {
-            title: {
-                text: '用户性别分布',
-                // subtext: '纯属虚构',
-                x: 'center'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                x: 'center',
-                y: 'bottom',
-                data: ['男', '女', '未知']
-            },
-            calculable: true,
-            series: [{
-
-                name: '半径模式',
-                type: 'pie',
-                radius: [20, 110],
-                // center : ['25%', '50%'],
-                roseType: 'radius',
-                data: [{ value: 1110, name: '男' }, { value: 501, name: '女' }, { value: 500, name: '未知' }]
-            }]
-        };
-
-        return option;
-    },
-
-    render: function render() {
-
-        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
-    }
-});
-
-exports.default = SexCount; //将App组件导出
-
-/***/ }),
+/* 25 */,
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2746,6 +2668,9 @@ var UserRegistNumCount = _react2.default.createClass({
                 // subtext: '纯属虚构',
                 x: 'center'
             },
+            tooltip: {
+                trigger: 'item'
+            },
             xAxis: {
                 type: 'category',
                 data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -2765,7 +2690,7 @@ var UserRegistNumCount = _react2.default.createClass({
 
     render: function render() {
 
-        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "500" } });
     }
 });
 
@@ -13939,6 +13864,335 @@ exports.default = (0, _reactRouterDom.withRouter)(AdminLoginLogsPage); //将App�
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactDom = __webpack_require__(7);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(11);
+
+__webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+var _vm_util = __webpack_require__(3);
+
+var _echarts = __webpack_require__(13);
+
+var _echarts2 = _interopRequireDefault(_echarts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+
+var SubMenu = _antd.Menu.SubMenu;
+//import "antd/dist/antd.css";
+
+// import ReactEcharts from 'echarts-for-react';
+
+
+var UserSexCount = _react2.default.createClass({
+    displayName: 'UserSexCount',
+
+    getInitialState: function getInitialState() {
+        return {};
+    },
+
+    componentDidMount: function componentDidMount() {
+
+        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(this.getOption(), true);
+    },
+    getOption: function getOption() {
+        var option = {
+            title: {
+                text: '用户性别分布',
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: ['男', '女', '未知']
+            },
+            calculable: true,
+            series: [{
+
+                name: '用户性别分布',
+                type: 'pie',
+                radius: [20, 110],
+                // center : ['25%', '50%'],
+                roseType: 'area',
+                data: [{ value: 1110, name: '男' }, { value: 501, name: '女' }, { value: 500, name: '未知' }]
+            }]
+        };
+
+        return option;
+    },
+
+    render: function render() {
+
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
+    }
+});
+
+exports.default = UserSexCount; //将App组件导出
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactDom = __webpack_require__(7);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(11);
+
+__webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+var _vm_util = __webpack_require__(3);
+
+var _echarts = __webpack_require__(13);
+
+var _echarts2 = _interopRequireDefault(_echarts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+
+var SubMenu = _antd.Menu.SubMenu;
+//import "antd/dist/antd.css";
+
+// import ReactEcharts from 'echarts-for-react';
+
+
+var UserAgeCount = _react2.default.createClass({
+    displayName: 'UserAgeCount',
+
+    getInitialState: function getInitialState() {
+        return {};
+    },
+
+    componentDidMount: function componentDidMount() {
+
+        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(this.getOption(), true);
+    },
+    getOption: function getOption() {
+        var option = {
+            title: {
+                text: '用户年龄分布',
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: ['80后', '90后', '00后', '10后']
+            },
+            calculable: true,
+            series: [{
+
+                name: '用户年龄分布',
+                type: 'pie',
+                radius: [20, 110],
+                // center : ['25%', '50%'],
+                roseType: 'area',
+                data: [{ value: 1110, name: '80后' }, { value: 501, name: '90后' }, { value: 501, name: '00后' }, { value: 500, name: '10后' }]
+            }]
+        };
+
+        return option;
+    },
+
+    render: function render() {
+
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
+    }
+});
+
+exports.default = UserAgeCount; //将App组件导出
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactDom = __webpack_require__(7);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(11);
+
+__webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+var _vm_util = __webpack_require__(3);
+
+var _echarts = __webpack_require__(13);
+
+var _echarts2 = _interopRequireDefault(_echarts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+
+var SubMenu = _antd.Menu.SubMenu;
+//import "antd/dist/antd.css";
+
+// import ReactEcharts from 'echarts-for-react';
+
+
+var UserLoginAreaCount = _react2.default.createClass({
+    displayName: 'UserLoginAreaCount',
+
+    getInitialState: function getInitialState() {
+        return {};
+    },
+
+    componentDidMount: function componentDidMount() {
+
+        c($(this.refs.chartContainer));
+        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(this.getOption(), true);
+    },
+    getOption: function getOption() {
+
+        var option = {
+            title: {
+                text: '用户登录地点',
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: ['四川', '眉山', '未知']
+            },
+            calculable: true,
+            series: [{
+
+                name: '用户登录地点',
+                type: 'pie',
+                radius: [20, 110],
+                // center : ['25%', '50%'],
+                roseType: 'area',
+                data: [{ value: 1110, name: '四川' }, { value: 501, name: '眉山' }, { value: 500, name: '未知' }]
+            }]
+        };
+
+        return option;
+    },
+
+    render: function render() {
+
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
+    }
+});
+
+exports.default = UserLoginAreaCount; //将App组件导出
 
 /***/ })
 /******/ ]);
