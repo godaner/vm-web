@@ -28,7 +28,10 @@ window.VmFrontendEventsDispatcher = {
     },
     feelerOnlineUser: function (callfun) {
         this.event.emit('feelerOnlineUser', callfun);
-    }
+    },
+    updateImgUploaderImgUrl: function (imgUrl) {
+        this.event.emit('updateImgUploaderImgUrl', imgUrl);
+    },
 };
 window.EventsDispatcher = window.VmFrontendEventsDispatcher;
 var eventsDispatcher = window.EventsDispatcher;

@@ -62,6 +62,8 @@ var Head = React.createClass({
                 //update user in state
                 window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
 
+
+
                 if (!isOnline) {
                     //clear timer
                     this.stopPollOnlineUserStatus();
@@ -74,6 +76,7 @@ var Head = React.createClass({
 
                 } else {
                     this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
+                    window.VmFrontendEventsDispatcher.updateImgUploaderImgUrl(u.imgUrl);
                 }
                 this.setIsFirstVisitPage(false);
             }.bind(this)

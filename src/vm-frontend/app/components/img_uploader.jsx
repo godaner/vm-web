@@ -31,12 +31,22 @@ var ImgUpload = React.createClass({
     },
     componentDidMount(){
         // this.previewImg(this.state.config.defaultDisplayImg);
+        this.registEvents();
     },
     validateImgFileOnSubmit(){
         //服务器未接收到相关的图片缓存
         if (isUndefined(this.state.willUpdatedImgInfo.fileId)) {
             throw this.state.userImgFileIsEmpty;
         }
+    },
+    registEvents: function () {
+        //注册更新头像事件
+        window.eventEmit.on('updateImgUploaderImgUrl', (imgUrl) => {
+            this.previewImg(commons.generateImgUrl({
+                imgUrl:imgUrl
+            }));
+        });
+
     },
     validateImgFileOnChoice(imgFile){
 
