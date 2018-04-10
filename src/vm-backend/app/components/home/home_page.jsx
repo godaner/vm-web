@@ -15,6 +15,7 @@ import UserRegistNumCount from "./user_regist_num_count";
 
 import UserAgeCount from "./user_age_count";
 import UserLoginAreaCount from "./user_login_area_count";
+import UserLoginSystemCount from "./user_login_system_count";
 
 
 var HomePage = React.createClass({
@@ -41,12 +42,15 @@ var HomePage = React.createClass({
                     </Col>
 
                     <Col span={6}>
-                        <MovieClsCount/>
+                        <UserLoginSystemCount/>
                     </Col>
                 </Row>
                 <Row justify="center" align="middle">
 
-                    <Col span={24}>
+                    <Col span={6}>
+                        <MovieClsCount/>
+                    </Col>
+                    <Col span={18}>
                         <UserRegistNumCount/>
                     </Col>
 

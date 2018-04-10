@@ -1444,6 +1444,10 @@ var _user_login_area_count = __webpack_require__(114);
 
 var _user_login_area_count2 = _interopRequireDefault(_user_login_area_count);
 
+var _user_login_system_count = __webpack_require__(115);
+
+var _user_login_system_count2 = _interopRequireDefault(_user_login_system_count);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Header = _antd.Layout.Header,
@@ -1489,7 +1493,7 @@ var HomePage = _react2.default.createClass({
                 _react2.default.createElement(
                     _antd.Col,
                     { span: 6 },
-                    _react2.default.createElement(_movie_cls_count2.default, null)
+                    _react2.default.createElement(_user_login_system_count2.default, null)
                 )
             ),
             _react2.default.createElement(
@@ -1497,7 +1501,12 @@ var HomePage = _react2.default.createClass({
                 { justify: 'center', align: 'middle' },
                 _react2.default.createElement(
                     _antd.Col,
-                    { span: 24 },
+                    { span: 6 },
+                    _react2.default.createElement(_movie_cls_count2.default, null)
+                ),
+                _react2.default.createElement(
+                    _antd.Col,
+                    { span: 18 },
                     _react2.default.createElement(_user_regist_num_count2.default, null)
                 )
             )
@@ -2673,6 +2682,7 @@ var UserRegistNumCount = _react2.default.createClass({
             },
             xAxis: {
                 type: 'category',
+                boundaryGap: false,
                 data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
             },
             yAxis: {
@@ -2680,7 +2690,8 @@ var UserRegistNumCount = _react2.default.createClass({
             },
             series: [{
                 data: [820, 932, 901, 934, 1290, 1330, 1320],
-                type: 'line'
+                type: 'line',
+                areaStyle: {}
             }]
 
         };
@@ -2690,7 +2701,7 @@ var UserRegistNumCount = _react2.default.createClass({
 
     render: function render() {
 
-        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "500" } });
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "400" } });
     }
 });
 
@@ -14193,6 +14204,108 @@ var UserLoginAreaCount = _react2.default.createClass({
 });
 
 exports.default = UserLoginAreaCount; //将App组件导出
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactDom = __webpack_require__(7);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(11);
+
+__webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+var _vm_util = __webpack_require__(3);
+
+var _echarts = __webpack_require__(13);
+
+var _echarts2 = _interopRequireDefault(_echarts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+
+var SubMenu = _antd.Menu.SubMenu;
+//import "antd/dist/antd.css";
+
+// import ReactEcharts from 'echarts-for-react';
+
+
+var UserLoginSystemCount = _react2.default.createClass({
+    displayName: 'UserLoginSystemCount',
+
+    getInitialState: function getInitialState() {
+        return {};
+    },
+
+    componentDidMount: function componentDidMount() {
+
+        c($(this.refs.chartContainer));
+        var myChart = _echarts2.default.init($(this.refs.chartContainer).get(0));
+
+        myChart.setOption(this.getOption(), true);
+    },
+    getOption: function getOption() {
+
+        var option = {
+            title: {
+                text: '用户登录平台',
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: ['四川', '眉山', '未知']
+            },
+            calculable: true,
+            series: [{
+
+                name: '用户登录平台',
+                type: 'pie',
+                radius: [20, 110],
+                // center : ['25%', '50%'],
+                roseType: 'area',
+                data: [{ value: 1110, name: '四川' }, { value: 501, name: '眉山' }, { value: 500, name: '未知' }]
+            }]
+        };
+
+        return option;
+    },
+
+    render: function render() {
+
+        return _react2.default.createElement('div', { ref: 'chartContainer', style: { width: "100%", height: "300" } });
+    }
+});
+
+exports.default = UserLoginSystemCount; //将App组件导出
 
 /***/ })
 /******/ ]);
