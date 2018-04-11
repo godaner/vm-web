@@ -8,14 +8,14 @@ module.exports = {//只能分离node_moudle下的依赖，无法分离与cdn相�
     entry: {
         vendors:  [
             /** 请十分注意，这里不能依赖externals的选项 **/
-            // 'react',
-            // 'react-dom',
+            'react',
+            'react-dom',
             // 'echarts',
             // 'antd',
-            // "react-router",
-            // "react-router-dom"
+            "react-router",
+            "react-router-dom"
             // "node-sass"
-            "events"
+            // "events"
         ]
     },
 

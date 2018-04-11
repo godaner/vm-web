@@ -35,7 +35,6 @@
     "babel-runtime": "^6.26.0",
     "compression": "^1.7.2",
     "compression-webpack-plugin": "^1.1.11",
-    "cross-env": "^5.1.4",
     "css-loader": "^0.26.1",
     "ejs": "^2.5.7",
     "events": "^1.1.1",

@@ -8,13 +8,13 @@ const env = "development";
 
 module.exports = {
     externals: {
-        'react': "React",
-        'react-dom': 'ReactDOM',
-        'react-router': 'ReactRouter',
-        'react-router-dom': 'ReactRouterDOM',
-        'echarts': 'echarts',
-        'moment': 'moment',
-        'antd': 'antd'
+        // 'react': "React",
+        // 'react-dom': 'ReactDOM',
+        // 'react-router': 'ReactRouter',
+        // 'react-router-dom': 'ReactRouterDOM',
+        // 'echarts': 'echarts',
+        // 'moment': 'moment',
+        // 'antd': 'antd'
     },
     devtool: false,
     entry: {
