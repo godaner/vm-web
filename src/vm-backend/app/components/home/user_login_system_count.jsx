@@ -15,22 +15,56 @@ import echarts from 'echarts';
 
 var UserLoginSystemCount = React.createClass({
     getInitialState: function () {
-        return {};
+        return {
+            url: "/user/count/login_system"
+        };
     },
 
     componentDidMount(){
 
-
-        c($(this.refs.chartContainer));
+        this.loadData();
+    },
+    initEcharts(option){
         let myChart = echarts.init($(this.refs.chartContainer).get(0));
 
-        myChart.setOption(this.getOption(),true)
+        myChart.setOption(option, true)
     },
-    getOption(){
+    loadData(){
+        const {url} = this.state;
+        //ajax
+        ajax.get({
+            url: url,
+            success: function (result) {
+                let option = this.getOption(result);
+                this.initEcharts(option);
 
+            }.bind(this),
+            failure: function (result) {
+            }.bind(this),
+            error: function () {
+            }.bind(this),
+            complete: function () {
+            }.bind(this)
+        });
+    },
+    getOption(result){
+
+        //sexStrs
+        let codes = commons.getFieldListByKey(result.data.list, "area");
+
+
+        //data
+        var data = [];
+        $.each(result.data.list, function (i, item) {
+
+
+            data.push({
+                value: item.number, name: item.system
+            });
+        });
         var option = {
             title: {
-                text: '用户登录平台',
+                text: '用户登录系统分布',
                 // subtext: '纯属虚构',
                 x: 'center'
             },
@@ -41,29 +75,22 @@ var UserLoginSystemCount = React.createClass({
             legend: {
                 x: 'center',
                 y: 'bottom',
-                data: ['四川', '眉山','未知']
+                data: codes
             },
             calculable: true,
             series: [
 
                 {
 
-                    name:'用户登录平台',
-                    type:'pie',
-                    radius : [20, 110],
+                    name: '用户登录系统分布',
+                    type: 'pie',
+                    radius: [20, 110],
                     // center : ['25%', '50%'],
-                    roseType : 'area',
-                    data: [
-                        {value: 1110, name: '四川'},
-                        {value: 501, name: '眉山'},
-                        {value: 500, name: '未知'}
-                    ]
+                    roseType: 'area',
+                    data: data
                 }
             ]
         };
-
-
-
 
 
         return option;
@@ -71,7 +98,7 @@ var UserLoginSystemCount = React.createClass({
     render: function () {
 
         return (
-            <div ref="chartContainer" style={{width:"100%",height:"300"}}></div>
+            <div ref="chartContainer" style={{width: "100%", height: "300"}}></div>
         );
     }
 });
