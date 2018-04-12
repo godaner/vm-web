@@ -33,6 +33,7 @@ var UserSexCount = React.createClass({
         //ajax
         ajax.get({
             url: url,
+            ignoreAjaxError:true,
             success: function (result) {
                 let option = this.getOption(result);
                 this.initEcharts(option);

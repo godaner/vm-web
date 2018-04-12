@@ -6797,7 +6797,8 @@ module.exports = (__webpack_require__(11))(464);
 "use strict";
 
 
-module.exports = { http_url_prefix: 'http://192.168.11.222:5551' };
+module.exports = { http_url_prefix: 'http://192.168.0.189:5551' };
+// module.exports = { http_url_prefix: 'http://192.168.11.222:5551' };
 // module.exports = { http_url_prefix: 'http://47.106.119.0:5551' };
 
 /***/ }),
@@ -6867,6 +6868,7 @@ var UserSexCount = _react2.default.createClass({
 
         _vm_util.ajax.get({
             url: url,
+            ignoreAjaxError: true,
             success: function (result) {
                 var option = this.getOption(result);
                 this.initEcharts(option);
@@ -7308,6 +7310,7 @@ var UserLoginAreaCount = _react2.default.createClass({
 
         _vm_util.ajax.get({
             url: url,
+            ignoreAjaxError: true,
             success: function (result) {
                 var option = this.getOption(result);
                 this.initEcharts(option);
@@ -7438,16 +7441,19 @@ var UserLoginSystemCount = _react2.default.createClass({
         var url = this.state.url;
         //ajax
 
-        _vm_util.ajax.get({
-            url: url,
-            success: function (result) {
-                var option = this.getOption(result);
-                this.initEcharts(option);
-            }.bind(this),
-            failure: function (result) {}.bind(this),
-            error: function () {}.bind(this),
-            complete: function () {}.bind(this)
-        });
+        for (var i = 0; i < 5; i++) {
+            _vm_util.ajax.get({
+                url: url,
+                ignoreAjaxError: true,
+                success: function (result) {
+                    var option = this.getOption(result);
+                    this.initEcharts(option);
+                }.bind(this),
+                failure: function (result) {}.bind(this),
+                error: function () {}.bind(this),
+                complete: function () {}.bind(this)
+            });
+        }
     },
     getOption: function getOption(result) {
 
