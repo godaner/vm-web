@@ -92,7 +92,10 @@ var Head = React.createClass({
 
 
             }.bind(this),
-            failure: function (result) {//出现错误
+            failure: function (result) {
+                window.EventsDispatcher.showLoginDialog();
+            },
+            error:function () {//出现错误
                 window.EventsDispatcher.showLoginDialog();
             },
             complete: function () {
