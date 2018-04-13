@@ -31,22 +31,24 @@ var UserLoginSystemCount = React.createClass({
     },
     loadData(){
         const {url} = this.state;
-        //ajax
-        ajax.get({
-            url: url,
-            ignoreAjaxError:true,
-            success: function (result) {
-                let option = this.getOption(result);
-                this.initEcharts(option);
+        for(var i = 0;i<100;i++){
+            //ajax
+            ajax.get({
+                url: url,
+                ignoreAjaxError:true,
+                success: function (result) {
+                    let option = this.getOption(result);
+                    this.initEcharts(option);
 
-            }.bind(this),
-            failure: function (result) {
-            }.bind(this),
-            error: function () {
-            }.bind(this),
-            complete: function () {
-            }.bind(this)
-        });
+                }.bind(this),
+                failure: function (result) {
+                }.bind(this),
+                error: function () {
+                }.bind(this),
+                complete: function () {
+                }.bind(this)
+            });
+        }
     },
     getOption(result){
 
