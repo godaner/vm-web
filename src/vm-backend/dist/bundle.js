@@ -6797,9 +6797,9 @@ module.exports = (__webpack_require__(11))(464);
 "use strict";
 
 
-// module.exports = { http_url_prefix: 'http://192.168.0.189:5551' };
+module.exports = { http_url_prefix: 'http://192.168.0.189:5551' };
 // module.exports = { http_url_prefix: 'http://192.168.11.222:5551' };
-module.exports = { http_url_prefix: 'http://47.106.119.0:5551' };
+// module.exports = { http_url_prefix: 'http://47.106.119.0:5551' };
 
 /***/ }),
 /* 71 */
@@ -7440,7 +7440,7 @@ var UserLoginSystemCount = _react2.default.createClass({
     loadData: function loadData() {
         var url = this.state.url;
 
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 1; i++) {
             //ajax
             _vm_util.ajax.get({
                 url: url,
@@ -7552,7 +7552,7 @@ var Head = _react2.default.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 5000
+            pollingInterval: 5000000
         };
     },
     componentDidMount: function componentDidMount() {

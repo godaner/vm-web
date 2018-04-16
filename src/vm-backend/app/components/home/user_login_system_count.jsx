@@ -31,7 +31,7 @@ var UserLoginSystemCount = React.createClass({
     },
     loadData(){
         const {url} = this.state;
-        for(var i = 0;i<100;i++){
+        for(var i = 0;i<1;i++){
             //ajax
             ajax.get({
                 url: url,
