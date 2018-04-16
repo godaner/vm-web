@@ -5,6 +5,8 @@ import {Avatar, Dropdown, Form, Layout, Menu, message} from "antd";
 //import "antd/dist/antd.css";
 import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
+
+import Websocket from 'react-websocket';
 import {ajax,commons} from "../base/vm_util";
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
@@ -128,6 +130,10 @@ var Head = React.createClass({
             }.bind(this)
         });
     },
+    handleWSData(data){
+        c(data);
+        a(data);
+    },
     render () {
         const {admin, colorList} = this.state;
         const username = admin.username;
@@ -142,10 +148,14 @@ var Head = React.createClass({
 
             </Menu>
         );
+        let accessToken = localStorage.getItem(vm_config.key_of_access_token);
+        let wSUrl = vm_config.ws_url_prefix +'/admin/online/'+accessToken;
         //set now page's props
         return (
 
             <div id="head">
+                <Websocket url={wSUrl}
+                           onMessage={this.handleWSData}/>
                 <div style={{fontSize: 25, color: '#22B9FF', float: 'left'}}>
                     VM后台管理系统
                 </div>
