@@ -1,5 +1,6 @@
 import React from "react"; //引入react组件
 import {EventEmitter} from "events";
+//如果这里报错，那么可能是env文件夹下的配置出现问题
 window.eventEmitEmitter = new EventEmitter();
 //项目前端事件分发器
 window.EventsDispatcher = {
