@@ -4,14 +4,18 @@
   "description": "vm-frontend-page",
   "main": "main.js",
   "scripts": {
+
     "build": "webpack",
     "server": "nodemon ./server.config.js",
     "complier-dll-dev": "webpack --watch --colors --config ./webpack.dll.config.dev.js",
     "complier-dll-prod": "webpack --watch --colors --config ./webpack.dll.config.prod.js",
+    "complier-dll-local": "webpack --watch --colors --config ./webpack.dll.config.local.js",
     "complier-bundle-dev": "webpack --watch --colors --config ./webpack.config.dev.js",
     "complier-bundle-prod": "webpack --watch --colors --config ./webpack.config.prod.js",
+    "complier-bundle-local": "webpack --watch --colors --config ./webpack.config.local.js",
     "run-dev": "npm run server | npm run complier-dll-dev | npm run complier-bundle-dev",
     "run-prod": "npm run server | npm run complier-dll-prod | npm run complier-bundle-prod",
+    "run-local": "npm run server | npm run complier-dll-local | npm run complier-bundle-local",
     "pack-dll-dev": "webpack --colors --config ./webpack.dll.config.dev.js",
     "pack-dll-prod": "webpack --colors --config ./webpack.dll.config.prod.js",
     "pack-bundle-dev": "webpack --colors --config ./webpack.config.dev.js",
