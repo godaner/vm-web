@@ -19,13 +19,30 @@ var Head = React.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 5000
+            pollingInterval: 50000000
         };
     },
     componentDidMount(){
         // this.checkOnlineAdmin();
         this.startPollingCheckOnlineAdmin();
         this.registEvents();
+
+
+
+        //ws test
+        // var url = vm_config.http_url_prefix+'/gs-guide-websocket';
+        var url = "http://192.168.0.189:2220/gs-guide-websocket";
+        c(url);
+        var socket = new SockJS(url);
+        var stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            // setConnected(true);
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/greetings', function (greeting) {
+                a(JSON.parse(greeting.body).content);
+            });
+        });
+
 
     },
     startPollingCheckOnlineAdmin(){

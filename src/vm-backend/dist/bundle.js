@@ -6798,7 +6798,7 @@ module.exports = (__webpack_require__(11))(464);
 "use strict";
 
 
-module.exports = { http_url_prefix: 'http://192.168.11.222:5550' };
+module.exports = { http_url_prefix: 'http://192.168.0.189:5550' };
 // module.exports = { http_url_prefix: 'http://192.168.11.222:5551' };
 // module.exports = { http_uEventEmitterrl_prefix: 'http://47.106.119.0:5551' };
 
@@ -7551,13 +7551,27 @@ var Head = _react2.default.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 5000
+            pollingInterval: 50000000
         };
     },
     componentDidMount: function componentDidMount() {
         // this.checkOnlineAdmin();
         this.startPollingCheckOnlineAdmin();
         this.registEvents();
+
+        //ws test
+        // var url = vm_config.http_url_prefix+'/gs-guide-websocket';
+        var url = "http://192.168.0.189:2220/gs-guide-websocket";
+        c(url);
+        var socket = new SockJS(url);
+        var stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            // setConnected(true);
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/greetings', function (greeting) {
+                a(JSON.parse(greeting.body).content);
+            });
+        });
     },
     startPollingCheckOnlineAdmin: function startPollingCheckOnlineAdmin() {
         var _state = this.state,
