@@ -30,18 +30,25 @@ var Head = React.createClass({
 
 
         //ws test
-        // var url = vm_config.http_url_prefix+'/gs-guide-websocket';
-        var url = "http://192.168.0.189:2220/gs-guide-websocket";
+        var url = vm_config.http_url_prefix+'/adminWS/gs-guide-websocket';
+        // var url = "http://192.168.0.189:2220/gs-guide-websocket";
         c(url);
         var socket = new SockJS(url);
         var stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             // setConnected(true);
             console.log('Connected: ' + frame);
-            stompClient.subscribe('/topic/greetings', function (greeting) {
-                a(JSON.parse(greeting.body).content);
+            stompClient.subscribe('/topic/greetings', function (msg) {
+                c(JSON.parse(msg.body).content);
+                a(JSON.parse(msg.body).content);
             });
+            var msg = JSON.stringify({
+                name:"zhangke"
+            });
+            stompClient.send("/app/hello", {}, msg);
+
         });
+
 
 
     },
