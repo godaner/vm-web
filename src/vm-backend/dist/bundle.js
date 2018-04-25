@@ -7552,7 +7552,7 @@ var Head = _react2.default.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 600,
+            pollingInterval: 600000, //ms
             connected: false,
             stompClient: undefined
         };
@@ -7579,9 +7579,8 @@ var Head = _react2.default.createClass({
                     code = _JSON$parse.code,
                     msg = _JSON$parse.msg;
 
-                _antd.message.info(msg);
-                this.whenAdminOffline();
-            });
+                this.whenAdminOffline(msg);
+            }.bind(this));
             this.updateStompClient(stompClient);
             this.updateConnected(true);
         }.bind(this));
@@ -7648,7 +7647,7 @@ var Head = _react2.default.createClass({
     updateAdmin: function updateAdmin(admin) {
         this.setState({ admin: admin });
     },
-    whenAdminOffline: function whenAdminOffline() {
+    whenAdminOffline: function whenAdminOffline(msg) {
         window.EventsDispatcher.showLoginDialog();
 
         window.EventsDispatcher.updateLoginAdminInfo(undefined);
@@ -7656,6 +7655,15 @@ var Head = _react2.default.createClass({
         window.EventsDispatcher.stopPollingCheckOnlineAdmin();
 
         this.disConnectOnlineStatusWS();
+
+        if (isUndefined(msg)) {
+            return;
+        }
+        _antd.notification['warning']({
+            message: '登录状态过期',
+            description: msg,
+            duration: null
+        });
     },
     whenAdminOnline: function whenAdminOnline(admin) {
         window.EventsDispatcher.updateLoginAdminInfo(admin);
@@ -7704,9 +7712,9 @@ var Head = _react2.default.createClass({
             url: logoutUrl,
             success: function (result) {
 
-                _antd.message.success(result.msg);
+                // message.success(result.msg);
 
-                this.whenAdminOffline();
+                this.whenAdminOffline(result.msg);
             }.bind(this),
             failure: function failure(result) {
                 _antd.message.error(result.msg);

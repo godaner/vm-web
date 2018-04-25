@@ -1,5 +1,5 @@
 import React from "react";
-import {Avatar, Dropdown, Form, Layout, Menu, message} from "antd";
+import {Avatar, Dropdown, Form, Layout, Menu, message,notification} from "antd";
 //import "antd/dist/antd.css";
 import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
@@ -19,7 +19,7 @@ var Head = React.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 600,
+            pollingInterval: 600000,//ms
             connected: false,
             stompClient: undefined
         };
@@ -42,9 +42,9 @@ var Head = React.createClass({
             c('Connected: ' + frame);
             stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
                 const {code, msg} = JSON.parse(res.body);
-                message.info(msg);
-                this.whenAdminOffline();
-            });
+
+                this.whenAdminOffline(msg);
+            }.bind(this));
             this.updateStompClient(stompClient);
             this.updateConnected(true);
 
@@ -105,7 +105,7 @@ var Head = React.createClass({
     updateAdmin(admin){
         this.setState({admin});
     },
-    whenAdminOffline(){
+    whenAdminOffline(msg){
         window.EventsDispatcher.showLoginDialog();
 
         window.EventsDispatcher.updateLoginAdminInfo(undefined);
@@ -113,6 +113,15 @@ var Head = React.createClass({
         window.EventsDispatcher.stopPollingCheckOnlineAdmin();
 
         this.disConnectOnlineStatusWS();
+
+        if(isUndefined(msg)){
+            return;
+        }
+        notification['warning']({
+            message: '登录状态过期',
+            description: msg,
+            duration:null
+        });
     },
     whenAdminOnline(admin){
         window.EventsDispatcher.updateLoginAdminInfo(admin);
@@ -161,9 +170,9 @@ var Head = React.createClass({
             url: logoutUrl,
             success: function (result) {
 
-                message.success(result.msg);
+                // message.success(result.msg);
 
-                this.whenAdminOffline();
+                this.whenAdminOffline(result.msg);
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
