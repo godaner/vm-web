@@ -1,11 +1,9 @@
 import React from "react";
 import {Avatar, Dropdown, Form, Layout, Menu, message} from "antd";
-
-
 //import "antd/dist/antd.css";
 import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
-import {ajax,commons} from "../base/vm_util";
+import {ajax} from "../base/vm_util";
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
@@ -19,36 +17,54 @@ var Head = React.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 50000000
+            pollingInterval: 50000000,
+            accessToken: undefined,
+            connected: false,
+            stompClient: undefined
         };
     },
-    componentDidMount(){
-        // this.checkOnlineAdmin();
-        this.startPollingCheckOnlineAdmin();
-        this.registEvents();
-
-
-
+    updateAccessToken(accessToken){
+        this.setState({accessToken});
+    },
+    updateConnected(connected){
+        this.setState({connected});
+    },
+    updateStompClient(stompClient){
+        this.setState({stompClient});
+    },
+    connectOnlineStatusWS(accessToken){
+        const {stompClient} = this.state;
+        if (isUndefined(accessToken) || isUndefined(stompClient)) {
+            return;
+        }
         //ws test
-        var url = vm_config.http_url_prefix+'/adminWS/gs-guide-websocket';
+        var url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
         // var url = "http://192.168.0.189:2220/gs-guide-websocket";
-        c(url);
         var socket = new SockJS(url);
         var stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             // setConnected(true);
             console.log('Connected: ' + frame);
-            stompClient.subscribe('/topic/greetings', function (msg) {
-                c(JSON.parse(msg.body).content);
-                a(JSON.parse(msg.body).content);
+            stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (msg) {
+                c(JSON.parse(msg.body));
+                a(JSON.parse(msg.body));
             });
-            var msg = JSON.stringify({
-                name:"zhangke"
-            });
-            stompClient.send("/app/hello", {}, msg);
+            this.updateStompClient(stompClient);
+            this.updateConnected(true);
 
         });
-
+    },
+    disConnectOnlineStatusWS(){
+        const {stompClient} = this.state;
+        if (isUndefined(stompClient)) {
+            reutrn;
+        }
+        stompClient.disconnect();
+    },
+    componentDidMount(){
+        // this.checkOnlineAdmin();
+        this.startPollingCheckOnlineAdmin();
+        this.registEvents();
 
 
     },
@@ -84,9 +100,12 @@ var Head = React.createClass({
 
             if (isUndefined(admin)) {
                 admin = {};
+
             }
             this.updateAdmin(admin);
-
+            let accessToken = admin.token;
+            this.updateAccessToken(accessToken);
+            this.connectOnlineStatusWS(accessToken)
         });
     },
     updateAdmin(admin){
@@ -97,8 +116,8 @@ var Head = React.createClass({
         const {checkUrl} = this.state;
 
         ajax.get({
-            url:checkUrl,
-            ignoreAjaxError:true,
+            url: checkUrl,
+            ignoreAjaxError: true,
             success: function (result) {
                 const {admin} = result.data;
                 if (isUndefined(admin)) {
@@ -119,7 +138,7 @@ var Head = React.createClass({
             failure: function (result) {
                 window.EventsDispatcher.showLoginDialog();
             },
-            error:function () {//出现错误
+            error: function () {//出现错误
                 window.EventsDispatcher.showLoginDialog();
             },
             complete: function () {
