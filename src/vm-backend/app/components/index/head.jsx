@@ -174,7 +174,7 @@ var Head = React.createClass({
         // warning
         tipType = isUndefined(tipType) ? 'open' : tipType;
         tipTitle = isUndefined(tipTitle) ? '信息' : tipTitle;
-        
+
         notification[tipType]({
             message: tipTitle,
             description: tipMsg,
