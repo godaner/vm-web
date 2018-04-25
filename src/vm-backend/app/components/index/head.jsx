@@ -21,7 +21,8 @@ var Head = React.createClass({
             pollingTimer: undefined,
             pollingInterval: 600000,//ms
             connected: false,
-            stompClient: undefined
+            stompClient: undefined,
+            subscriptions: []
         };
     },
     updateConnected(connected){
@@ -30,58 +31,77 @@ var Head = React.createClass({
     updateStompClient(stompClient){
         this.setState({stompClient});
     },
+    updateSubscriptions(subscriptions){
+
+        this.setState({subscriptions});
+    },
     connectOnlineStatusWS(accessToken){
-        let {stompClient, USER_IS_LOGIN_IN_OTHER_AREA, USER_LOGIN_TIMEOUT} = this.state;
-        if (isUndefined(accessToken)) {
+
+        c("disConnectOnlineStatusWS");
+        c(this.state);
+        let {stompClient, connected} = this.state;
+        if (isUndefined(accessToken) || connected) {
             return;
         }
         if (isUndefined(stompClient)) {
             let url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
             let socket = new SockJS(url);
             stompClient = Stomp.over(socket);
-            this.updateStompClient(stompClient);
+            stompClient.heartbeat.outgoing = 1000;  // client will send heartbeats every 20000ms
+            stompClient.heartbeat.incoming = 1000;      // client does not want to receive heartbeats from the server
+            stompClient.connect({}, function (frame) {
+                c('Consocketnected: ' + frame);
+                this.updateStompClient(stompClient);
+                this.subscribe(stompClient, accessToken);
+            }.bind(this));
+        } else {
+
+            this.subscribe(stompClient, accessToken);
         }
 
-        stompClient.connect({}, function (frame) {
-            c('Connected: ' + frame);
-            stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
-                let {code, msg, data} = JSON.parse(res.body);
+    },
+    subscribe(stompClient, accessToken){
+        const {USER_IS_LOGIN_IN_OTHER_AREA, USER_LOGIN_TIMEOUT} = this.state;
+        this.updateConnected(true);
+        let subscription = stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
+            let {code, msg, data} = JSON.parse(res.body);
 
-                let tipTitle;
-                if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
-                    let {loginRecord} = data;
-                    loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
-                    msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
-                    tipTitle = '异地登陆警告';
-                } else if (USER_LOGIN_TIMEOUT == code) {
-                    tipTitle = '登录超时警告';
-                    let {logoutTime} = data;
-                    logoutTime = timeFormatter.formatTime(timeFormatter.int2Long(logoutTime));
-                    msg = " 账户登录超时 , 时间 : " + logoutTime;
+            let tipTitle;
+            if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
+                let {loginRecord} = data;
+                loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
+                msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
+                tipTitle = '异地登陆警告';
+            } else if (USER_LOGIN_TIMEOUT == code) {
+                tipTitle = '登录超时警告';
+                let {logoutTime} = data;
+                logoutTime = timeFormatter.formatTime(timeFormatter.int2Long(logoutTime));
+                msg = " 账户登录超时 , 时间 : " + logoutTime;
 
-                }
-                this.whenAdminOffline({
-                    tipType: 'warning',
-                    tipTitle: tipTitle,
-                    tipMsg: msg,
-                    tipDuration: null
-                });
-            }.bind(this));
-            this.updateConnected(true);
-
+            }
+            this.whenAdminOffline({
+                tipType: 'warning',
+                tipTitle: tipTitle,
+                tipMsg: msg,
+                tipDuration: null
+            });
         }.bind(this));
+        this.updateSubscriptions([subscription]);
     },
     disConnectOnlineStatusWS(){
-        const {stompClient} = this.state;
-        if (isUndefined(stompClient)) {
+        let {subscriptions, connected, stompClient} = this.state;
+        c("disConnectOnlineStatusWS");
+        c(this.state);
+        if (!connected && !isUndefined(stompClient)) {
             return;
         }
-        stompClient.disconnect();
+        for (let i = 0; i < subscriptions.length; i++) {
+            subscriptions[i].unsubscribe();
+        }
         this.updateConnected(false);
-        c('disConnectOnlineStatusWS');
     },
     componentDidMount(){
-        // this.checkOnlineAdmin();
+
         this.startPollingCheckOnlineAdmin();
         this.registEvents();
 
@@ -126,7 +146,7 @@ var Head = React.createClass({
 
             this.connectOnlineStatusWS(token)
         });
-        window.eventEmitEmitter.on('disConnectOnlineStatusWS', (token) => {
+        window.eventEmitEmitter.on('disConnectOnlineStatusWS', () => {
 
             this.disConnectOnlineStatusWS()
         });
@@ -137,21 +157,24 @@ var Head = React.createClass({
     whenAdminOffline(args){
         args = isUndefined(args) ? {} : args;
         let {tipType, tipTitle, tipMsg, tipDuration} = args;
+
+        window.EventsDispatcher.disConnectOnlineStatusWS();
+
         window.EventsDispatcher.showLoginDialog();
 
         window.EventsDispatcher.updateLoginAdminInfo(undefined);
 
         window.EventsDispatcher.stopPollingCheckOnlineAdmin();
 
-        window.EventsDispatcher.disConnectOnlineStatusWS();
-
         if (isUndefined(tipMsg)) {
             return;
         }
+
+
         // warning
         tipType = isUndefined(tipType) ? 'open' : tipType;
         tipTitle = isUndefined(tipTitle) ? '信息' : tipTitle;
-        tipDuration = isUndefined(tipDuration) ? 4.5 : tipDuration;
+        
         notification[tipType]({
             message: tipTitle,
             description: tipMsg,
@@ -159,11 +182,12 @@ var Head = React.createClass({
         });
     },
     whenAdminOnline(admin){
+        window.EventsDispatcher.connectOnlineStatusWS(admin.token);
+
         window.EventsDispatcher.updateLoginAdminInfo(admin);
 
-        window.EventsDispatcher.startPollingCheckOnlineAdmin();
+        // window.EventsDispatcher.startPollingCheckOnlineAdmin();
 
-        window.EventsDispatcher.connectOnlineStatusWS(admin.token);
     },
     checkOnlineAdmin(){
 

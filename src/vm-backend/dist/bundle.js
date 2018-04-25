@@ -7560,7 +7560,8 @@ var Head = _react2.default.createClass({
             pollingTimer: undefined,
             pollingInterval: 600000, //ms
             connected: false,
-            stompClient: undefined
+            stompClient: undefined,
+            subscriptions: []
         };
     },
     updateConnected: function updateConnected(connected) {
@@ -7569,73 +7570,97 @@ var Head = _react2.default.createClass({
     updateStompClient: function updateStompClient(stompClient) {
         this.setState({ stompClient: stompClient });
     },
+    updateSubscriptions: function updateSubscriptions(subscriptions) {
+
+        this.setState({ subscriptions: subscriptions });
+    },
     connectOnlineStatusWS: function connectOnlineStatusWS(accessToken) {
+
+        c("disConnectOnlineStatusWS");
+        c(this.state);
         var _state = this.state,
             stompClient = _state.stompClient,
-            USER_IS_LOGIN_IN_OTHER_AREA = _state.USER_IS_LOGIN_IN_OTHER_AREA,
-            USER_LOGIN_TIMEOUT = _state.USER_LOGIN_TIMEOUT;
+            connected = _state.connected;
 
-        if (isUndefined(accessToken)) {
+        if (isUndefined(accessToken) || connected) {
             return;
         }
         if (isUndefined(stompClient)) {
             var url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
             var socket = new SockJS(url);
             stompClient = Stomp.over(socket);
-            this.updateStompClient(stompClient);
-        }
-
-        stompClient.connect({}, function (frame) {
-            c('Connected: ' + frame);
-            stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
-                var _JSON$parse = JSON.parse(res.body),
-                    code = _JSON$parse.code,
-                    msg = _JSON$parse.msg,
-                    data = _JSON$parse.data;
-
-                var tipTitle = void 0;
-                if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
-                    var loginRecord = data.loginRecord;
-
-                    loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
-                    msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
-                    tipTitle = '异地登陆警告';
-                } else if (USER_LOGIN_TIMEOUT == code) {
-                    tipTitle = '登录超时警告';
-                    var logoutTime = data.logoutTime;
-
-                    logoutTime = timeFormatter.formatTime(timeFormatter.int2Long(logoutTime));
-                    msg = " 账户登录超时 , 时间 : " + logoutTime;
-                }
-                this.whenAdminOffline({
-                    tipType: 'warning',
-                    tipTitle: tipTitle,
-                    tipMsg: msg,
-                    tipDuration: null
-                });
+            stompClient.heartbeat.outgoing = 1000; // client will send heartbeats every 20000ms
+            stompClient.heartbeat.incoming = 1000; // client does not want to receive heartbeats from the server
+            stompClient.connect({}, function (frame) {
+                c('Consocketnected: ' + frame);
+                this.updateStompClient(stompClient);
+                this.subscribe(stompClient, accessToken);
             }.bind(this));
-            this.updateConnected(true);
+        } else {
+
+            this.subscribe(stompClient, accessToken);
+        }
+    },
+    subscribe: function subscribe(stompClient, accessToken) {
+        var _state2 = this.state,
+            USER_IS_LOGIN_IN_OTHER_AREA = _state2.USER_IS_LOGIN_IN_OTHER_AREA,
+            USER_LOGIN_TIMEOUT = _state2.USER_LOGIN_TIMEOUT;
+
+        this.updateConnected(true);
+        var subscription = stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
+            var _JSON$parse = JSON.parse(res.body),
+                code = _JSON$parse.code,
+                msg = _JSON$parse.msg,
+                data = _JSON$parse.data;
+
+            var tipTitle = void 0;
+            if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
+                var loginRecord = data.loginRecord;
+
+                loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
+                msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
+                tipTitle = '异地登陆警告';
+            } else if (USER_LOGIN_TIMEOUT == code) {
+                tipTitle = '登录超时警告';
+                var logoutTime = data.logoutTime;
+
+                logoutTime = timeFormatter.formatTime(timeFormatter.int2Long(logoutTime));
+                msg = " 账户登录超时 , 时间 : " + logoutTime;
+            }
+            this.whenAdminOffline({
+                tipType: 'warning',
+                tipTitle: tipTitle,
+                tipMsg: msg,
+                tipDuration: null
+            });
         }.bind(this));
+        this.updateSubscriptions([subscription]);
     },
     disConnectOnlineStatusWS: function disConnectOnlineStatusWS() {
-        var stompClient = this.state.stompClient;
+        var _state3 = this.state,
+            subscriptions = _state3.subscriptions,
+            connected = _state3.connected,
+            stompClient = _state3.stompClient;
 
-        if (isUndefined(stompClient)) {
+        c("disConnectOnlineStatusWS");
+        c(this.state);
+        if (!connected && !isUndefined(stompClient)) {
             return;
         }
-        stompClient.disconnect();
+        for (var i = 0; i < subscriptions.length; i++) {
+            subscriptions[i].unsubscribe();
+        }
         this.updateConnected(false);
-        c('disConnectOnlineStatusWS');
     },
     componentDidMount: function componentDidMount() {
-        // this.checkOnlineAdmin();
+
         this.startPollingCheckOnlineAdmin();
         this.registEvents();
     },
     startPollingCheckOnlineAdmin: function startPollingCheckOnlineAdmin() {
-        var _state2 = this.state,
-            pollingInterval = _state2.pollingInterval,
-            pollingTimer = _state2.pollingTimer;
+        var _state4 = this.state,
+            pollingInterval = _state4.pollingInterval,
+            pollingTimer = _state4.pollingTimer;
 
         if (!isUndefined(pollingTimer)) {
             return;
@@ -7679,7 +7704,7 @@ var Head = _react2.default.createClass({
 
             _this.connectOnlineStatusWS(token);
         });
-        window.eventEmitEmitter.on('disConnectOnlineStatusWS', function (token) {
+        window.eventEmitEmitter.on('disConnectOnlineStatusWS', function () {
 
             _this.disConnectOnlineStatusWS();
         });
@@ -7695,21 +7720,23 @@ var Head = _react2.default.createClass({
             tipMsg = _args.tipMsg,
             tipDuration = _args.tipDuration;
 
+
+        window.EventsDispatcher.disConnectOnlineStatusWS();
+
         window.EventsDispatcher.showLoginDialog();
 
         window.EventsDispatcher.updateLoginAdminInfo(undefined);
 
         window.EventsDispatcher.stopPollingCheckOnlineAdmin();
 
-        window.EventsDispatcher.disConnectOnlineStatusWS();
-
         if (isUndefined(tipMsg)) {
             return;
         }
+
         // warning
         tipType = isUndefined(tipType) ? 'open' : tipType;
         tipTitle = isUndefined(tipTitle) ? '信息' : tipTitle;
-        tipDuration = isUndefined(tipDuration) ? 4.5 : tipDuration;
+
         _antd.notification[tipType]({
             message: tipTitle,
             description: tipMsg,
@@ -7717,11 +7744,11 @@ var Head = _react2.default.createClass({
         });
     },
     whenAdminOnline: function whenAdminOnline(admin) {
+        window.EventsDispatcher.connectOnlineStatusWS(admin.token);
+
         window.EventsDispatcher.updateLoginAdminInfo(admin);
 
-        window.EventsDispatcher.startPollingCheckOnlineAdmin();
-
-        window.EventsDispatcher.connectOnlineStatusWS(admin.token);
+        // window.EventsDispatcher.startPollingCheckOnlineAdmin();
     },
     checkOnlineAdmin: function checkOnlineAdmin() {
         var checkUrl = this.state.checkUrl;
@@ -7752,9 +7779,9 @@ var Head = _react2.default.createClass({
         });
     },
     logout: function logout() {
-        var _state3 = this.state,
-            logoutUrl = _state3.logoutUrl,
-            tipOfLogouting = _state3.tipOfLogouting;
+        var _state5 = this.state,
+            logoutUrl = _state5.logoutUrl,
+            tipOfLogouting = _state5.tipOfLogouting;
 
 
         var hiddenMessage = _antd.message.loading(tipOfLogouting, 0);
@@ -7778,9 +7805,9 @@ var Head = _react2.default.createClass({
         });
     },
     render: function render() {
-        var _state4 = this.state,
-            admin = _state4.admin,
-            colorList = _state4.colorList;
+        var _state6 = this.state,
+            admin = _state6.admin,
+            colorList = _state6.colorList;
 
         var username = admin.username;
         var color = colorList[0];
@@ -7928,15 +7955,13 @@ var LoginDialog = _react2.default.createClass({
 
                 this.getAdminLoginDialog().closeDialog();
 
-                //callback
-                window.EventsDispatcher.updateLoginAdminInfo(admin);
-
                 //clear form
                 this.getAdminLoginDialog().clearForm();
 
+                //callback
+                // window.EventsDispatcher.updateLoginAdminInfo(admin);
                 window.EventsDispatcher.startPollingCheckOnlineAdmin();
-
-                window.EventsDispatcher.connectOnlineStatusWS(admin.token);
+                // window.EventsDispatcher.connectOnlineStatusWS(admin.token);
             }.bind(this),
             failure: function failure(result) {
                 _antd.message.error(result.msg);

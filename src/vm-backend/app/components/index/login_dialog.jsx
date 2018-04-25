@@ -64,15 +64,14 @@ var LoginDialog = React.createClass({
 
                 this.getAdminLoginDialog().closeDialog();
 
-                //callback
-                window.EventsDispatcher.updateLoginAdminInfo(admin);
 
                 //clear form
                 this.getAdminLoginDialog().clearForm();
 
+                //callback
+                // window.EventsDispatcher.updateLoginAdminInfo(admin);
                 window.EventsDispatcher.startPollingCheckOnlineAdmin();
-
-                window.EventsDispatcher.connectOnlineStatusWS(admin.token);
+                // window.EventsDispatcher.connectOnlineStatusWS(admin.token);
 
             }.bind(this),
             failure: function (result) {
