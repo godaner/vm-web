@@ -7507,13 +7507,273 @@ exports.default = UserLoginSystemCount; //将App组件导出
 
 /***/ }),
 /* 77 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: E:/zk/vm-web/src/vm-backend/app/components/index/head.jsx: Duplicate declaration \"stompClient\"\n\n\u001b[0m \u001b[90m 42 | \u001b[39m        \u001b[90m// var url = \"http://192.168.0.189:2220/gs-guide-websocket\";\u001b[39m\n \u001b[90m 43 | \u001b[39m        \u001b[36mvar\u001b[39m socket \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mSockJS\u001b[39m(url)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 | \u001b[39m        \u001b[36mvar\u001b[39m stompClient \u001b[33m=\u001b[39m \u001b[33mStomp\u001b[39m\u001b[33m.\u001b[39mover(socket)\u001b[33m;\u001b[39m\n \u001b[90m    | \u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 | \u001b[39m        stompClient\u001b[33m.\u001b[39mconnect({}\u001b[33m,\u001b[39m \u001b[36mfunction\u001b[39m (frame) {\n \u001b[90m 46 | \u001b[39m            \u001b[90m// setConnected(true);\u001b[39m\n \u001b[90m 47 | \u001b[39m            console\u001b[33m.\u001b[39mlog(\u001b[32m'Connected: '\u001b[39m \u001b[33m+\u001b[39m frame)\u001b[33m;\u001b[39m\u001b[0m\n");
+/* WEBPACK VAR INJECTION */(function(vm_config) {
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(1);
+
+__webpack_require__(78);
+
+__webpack_require__(2);
+
+var _vm_util = __webpack_require__(3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FormItem = _antd.Form.Item;
+//import "antd/dist/antd.css";
+var Header = _antd.Layout.Header,
+    Content = _antd.Layout.Content,
+    Footer = _antd.Layout.Footer,
+    Sider = _antd.Layout.Sider;
+
+var SubMenu = _antd.Menu.SubMenu;
+
+var Head = _react2.default.createClass({
+    displayName: "Head",
+
+    getInitialState: function getInitialState() {
+        return {
+            USER_IS_LOGIN_IN_OTHER_AREA: -1,
+            USER_LOGIN_TIMEOUT: -2,
+            checkUrl: "/admin/online",
+            logoutUrl: "/admin/logout",
+            tipOfLogouting: "正在登出",
+            admin: {},
+            colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
+            pollingTimer: undefined,
+            pollingInterval: 600,
+            connected: false,
+            stompClient: undefined
+        };
+    },
+    updateConnected: function updateConnected(connected) {
+        this.setState({ connected: connected });
+    },
+    updateStompClient: function updateStompClient(stompClient) {
+        this.setState({ stompClient: stompClient });
+    },
+    connectOnlineStatusWS: function connectOnlineStatusWS(accessToken) {
+        var stompClient = this.state.stompClient;
+
+        if (isUndefined(accessToken) || !isUndefined(stompClient)) {
+            return;
+        }
+        var url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
+        var socket = new SockJS(url);
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            c('Connected: ' + frame);
+            stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
+                var _JSON$parse = JSON.parse(res.body),
+                    code = _JSON$parse.code,
+                    msg = _JSON$parse.msg;
+
+                _antd.message.info(msg);
+                this.whenAdminOffline();
+            });
+            this.updateStompClient(stompClient);
+            this.updateConnected(true);
+        }.bind(this));
+    },
+    disConnectOnlineStatusWS: function disConnectOnlineStatusWS() {
+        var stompClient = this.state.stompClient;
+
+        if (isUndefined(stompClient)) {
+            return;
+        }
+        stompClient.disconnect();
+        this.updateStompClient(undefined);
+        this.updateConnected(false);
+    },
+    componentDidMount: function componentDidMount() {
+        // this.checkOnlineAdmin();
+        this.startPollingCheckOnlineAdmin();
+        this.registEvents();
+    },
+    startPollingCheckOnlineAdmin: function startPollingCheckOnlineAdmin() {
+        var _state = this.state,
+            pollingInterval = _state.pollingInterval,
+            pollingTimer = _state.pollingTimer;
+
+        if (!isUndefined(pollingTimer)) {
+            return;
+        }
+        this.checkOnlineAdmin();
+        pollingTimer = setInterval(function () {
+            this.checkOnlineAdmin();
+        }.bind(this), pollingInterval);
+        this.updatePollingTimer(pollingTimer);
+    },
+    stopPollingCheckOnlineAdmin: function stopPollingCheckOnlineAdmin() {
+        var pollingTimer = this.state.pollingTimer;
+
+        clearInterval(pollingTimer);
+        this.updatePollingTimer(undefined);
+    },
+    updatePollingTimer: function updatePollingTimer(pollingTimer) {
+        this.setState({ pollingTimer: pollingTimer });
+    },
+    registEvents: function registEvents() {
+        var _this = this;
+
+        window.eventEmitEmitter.on('stopPollingCheckOnlineAdmin', function () {
+            //当用户直接在地址栏输入url时，回显nav
+            _this.stopPollingCheckOnlineAdmin();
+        });
+        window.eventEmitEmitter.on('startPollingCheckOnlineAdmin', function () {
+            //当用户直接在地址栏输入url时，回显nav
+            _this.startPollingCheckOnlineAdmin();
+        });
+
+        window.eventEmitEmitter.on('updateLoginAdminInfo', function (admin) {
+            //登录，注销等情况
+
+            if (isUndefined(admin)) {
+                admin = {};
+            }
+            _this.updateAdmin(admin);
+        });
+    },
+    updateAdmin: function updateAdmin(admin) {
+        this.setState({ admin: admin });
+    },
+    whenAdminOffline: function whenAdminOffline() {
+        window.EventsDispatcher.showLoginDialog();
+
+        window.EventsDispatcher.updateLoginAdminInfo(undefined);
+
+        window.EventsDispatcher.stopPollingCheckOnlineAdmin();
+
+        this.disConnectOnlineStatusWS();
+    },
+    whenAdminOnline: function whenAdminOnline(admin) {
+        window.EventsDispatcher.updateLoginAdminInfo(admin);
+
+        window.EventsDispatcher.startPollingCheckOnlineAdmin();
+
+        this.connectOnlineStatusWS(admin.token);
+    },
+    checkOnlineAdmin: function checkOnlineAdmin() {
+        var checkUrl = this.state.checkUrl;
+
+
+        _vm_util.ajax.get({
+            url: checkUrl,
+            ignoreAjaxError: true,
+            success: function (result) {
+                var admin = result.data.admin;
+
+                if (isUndefined(admin)) {
+
+                    this.whenAdminOffline();
+                } else {
+
+                    this.whenAdminOnline(admin);
+                }
+            }.bind(this),
+            failure: function failure(result) {
+                window.EventsDispatcher.showLoginDialog();
+            },
+            error: function error() {
+                //出现错误
+                window.EventsDispatcher.showLoginDialog();
+            },
+            complete: function () {}.bind(this)
+        });
+    },
+    logout: function logout() {
+        var _state2 = this.state,
+            logoutUrl = _state2.logoutUrl,
+            tipOfLogouting = _state2.tipOfLogouting;
+
+
+        var hiddenMessage = _antd.message.loading(tipOfLogouting, 0);
+
+        _vm_util.ajax.put({
+            url: logoutUrl,
+            success: function (result) {
+
+                _antd.message.success(result.msg);
+
+                this.whenAdminOffline();
+            }.bind(this),
+            failure: function failure(result) {
+                _antd.message.error(result.msg);
+            },
+            complete: function () {
+                hiddenMessage();
+            }.bind(this)
+        });
+    },
+    render: function render() {
+        var _state3 = this.state,
+            admin = _state3.admin,
+            colorList = _state3.colorList;
+
+        var username = admin.username;
+        var color = colorList[0];
+
+        var menu = _react2.default.createElement(
+            _antd.Menu,
+            null,
+            _react2.default.createElement(
+                _antd.Menu.Item,
+                null,
+                _react2.default.createElement(
+                    "a",
+                    { onClick: this.logout },
+                    "\u6CE8\u9500"
+                )
+            )
+        );
+        //set now page's props
+        return _react2.default.createElement(
+            "div",
+            { id: "head" },
+            _react2.default.createElement(
+                "div",
+                { style: { fontSize: 25, color: '#22B9FF', float: 'left' } },
+                "VM\u540E\u53F0\u7BA1\u7406\u7CFB\u7EDF"
+            ),
+            _react2.default.createElement(
+                "div",
+                { style: { color: '#22B9FF', float: 'right' } },
+                _react2.default.createElement(
+                    _antd.Dropdown,
+                    { overlay: menu },
+                    _react2.default.createElement(
+                        _antd.Avatar,
+                        { style: { cursor: "pointer", backgroundColor: color, verticalAlign: 'middle' },
+                            size: "large" },
+                        username
+                    )
+                )
+            )
+        );
+    }
+});
+
+exports.default = Head; //将App组件导出
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
 
 /***/ }),
-/* 78 */,
+/* 78 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 

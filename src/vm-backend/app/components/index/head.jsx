@@ -11,20 +11,18 @@ const SubMenu = Menu.SubMenu;
 var Head = React.createClass({
     getInitialState: function () {
         return {
+            USER_IS_LOGIN_IN_OTHER_AREA: -1,
+            USER_LOGIN_TIMEOUT: -2,
             checkUrl: "/admin/online",
             logoutUrl: "/admin/logout",
             tipOfLogouting: "正在登出",
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 50000000,
-            accessToken: undefined,
+            pollingInterval: 600,
             connected: false,
             stompClient: undefined
         };
-    },
-    updateAccessToken(accessToken){
-        this.setState({accessToken});
     },
     updateConnected(connected){
         this.setState({connected});
@@ -33,33 +31,33 @@ var Head = React.createClass({
         this.setState({stompClient});
     },
     connectOnlineStatusWS(accessToken){
-        const {stompClient} = this.state;
-        if (isUndefined(accessToken) || isUndefined(stompClient)) {
+        let {stompClient} = this.state;
+        if (isUndefined(accessToken) || !isUndefined(stompClient)) {
             return;
         }
-        //ws test
-        var url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
-        // var url = "http://192.168.0.189:2220/gs-guide-websocket";
-        var socket = new SockJS(url);
-        var stompClient = Stomp.over(socket);
+        let url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
+        let socket = new SockJS(url);
+        stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
-            // setConnected(true);
-            console.log('Connected: ' + frame);
-            stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (msg) {
-                c(JSON.parse(msg.body));
-                a(JSON.parse(msg.body));
+            c('Connected: ' + frame);
+            stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
+                const {code, msg} = JSON.parse(res.body);
+                message.info(msg);
+                this.whenAdminOffline();
             });
             this.updateStompClient(stompClient);
             this.updateConnected(true);
 
-        });
+        }.bind(this));
     },
     disConnectOnlineStatusWS(){
         const {stompClient} = this.state;
         if (isUndefined(stompClient)) {
-            reutrn;
+            return;
         }
         stompClient.disconnect();
+        this.updateStompClient(undefined);
+        this.updateConnected(false);
     },
     componentDidMount(){
         // this.checkOnlineAdmin();
@@ -100,16 +98,28 @@ var Head = React.createClass({
 
             if (isUndefined(admin)) {
                 admin = {};
-
             }
             this.updateAdmin(admin);
-            let accessToken = admin.token;
-            this.updateAccessToken(accessToken);
-            this.connectOnlineStatusWS(accessToken)
         });
     },
     updateAdmin(admin){
         this.setState({admin});
+    },
+    whenAdminOffline(){
+        window.EventsDispatcher.showLoginDialog();
+
+        window.EventsDispatcher.updateLoginAdminInfo(undefined);
+
+        window.EventsDispatcher.stopPollingCheckOnlineAdmin();
+
+        this.disConnectOnlineStatusWS();
+    },
+    whenAdminOnline(admin){
+        window.EventsDispatcher.updateLoginAdminInfo(admin);
+
+        window.EventsDispatcher.startPollingCheckOnlineAdmin();
+
+        this.connectOnlineStatusWS(admin.token);
     },
     checkOnlineAdmin(){
 
@@ -122,15 +132,11 @@ var Head = React.createClass({
                 const {admin} = result.data;
                 if (isUndefined(admin)) {
 
-                    window.EventsDispatcher.showLoginDialog();
-
-                    window.EventsDispatcher.updateLoginAdminInfo(undefined);
-
-                    window.EventsDispatcher.stopPollingCheckOnlineAdmin();
+                    this.whenAdminOffline();
 
                 } else {
 
-                    window.EventsDispatcher.updateLoginAdminInfo(admin);
+                    this.whenAdminOnline(admin);
                 }
 
 
@@ -157,11 +163,7 @@ var Head = React.createClass({
 
                 message.success(result.msg);
 
-                window.EventsDispatcher.showLoginDialog();
-
-                //callback
-                window.EventsDispatcher.updateLoginAdminInfo(undefined);
-
+                this.whenAdminOffline();
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
