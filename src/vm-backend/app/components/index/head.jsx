@@ -118,7 +118,7 @@ var Head = React.createClass({
             return;
         }
         notification['warning']({
-            message: '登录状态过期',
+            message: '提醒',
             description: msg,
             duration:null
         });
