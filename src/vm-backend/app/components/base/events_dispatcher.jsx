@@ -40,8 +40,15 @@ window.EventsDispatcher = {
     startPollingCheckOnlineAdmin(){
 
         this.event.emit('startPollingCheckOnlineAdmin');
+    },
+    connectOnlineStatusWS(token){
+        this.event.emit('connectOnlineStatusWS',token);
+    },
+    disConnectOnlineStatusWS(){
+        this.event.emit('disConnectOnlineStatusWS');
     }
-};
+}
+;
 const eventsDispatcher = window.EventsDispatcher;
 const EventsDispatcher = eventsDispatcher;
 

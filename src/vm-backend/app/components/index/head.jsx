@@ -31,32 +31,42 @@ var Head = React.createClass({
         this.setState({stompClient});
     },
     connectOnlineStatusWS(accessToken){
-        let {stompClient, USER_IS_LOGIN_IN_OTHER_AREA} = this.state;
-        if (isUndefined(accessToken) || !isUndefined(stompClient)) {
+        let {stompClient, USER_IS_LOGIN_IN_OTHER_AREA, USER_LOGIN_TIMEOUT} = this.state;
+        if (isUndefined(accessToken)) {
             return;
         }
-        let url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
-        let socket = new SockJS(url);
-        stompClient = Stomp.over(socket);
+        if (isUndefined(stompClient)) {
+            let url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
+            let socket = new SockJS(url);
+            stompClient = Stomp.over(socket);
+            this.updateStompClient(stompClient);
+        }
+
         stompClient.connect({}, function (frame) {
             c('Connected: ' + frame);
             stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
                 let {code, msg, data} = JSON.parse(res.body);
 
+                let tipTitle;
                 if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
                     let {loginRecord} = data;
                     loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
                     msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
-                }
+                    tipTitle = '异地登陆警告';
+                } else if (USER_LOGIN_TIMEOUT == code) {
+                    tipTitle = '登录超时警告';
+                    let {logoutTime} = data;
+                    logoutTime = timeFormatter.formatTime(timeFormatter.int2Long(logoutTime));
+                    msg = " 账户登录超时 , 时间 : " + logoutTime;
 
+                }
                 this.whenAdminOffline({
-                  pe: 'warning',
-                    tipTitle: '异地登陆警告',
+                    tipType: 'warning',
+                    tipTitle: tipTitle,
                     tipMsg: msg,
                     tipDuration: null
                 });
             }.bind(this));
-            this.updateStompClient(stompClient);
             this.updateConnected(true);
 
         }.bind(this));
@@ -67,8 +77,8 @@ var Head = React.createClass({
             return;
         }
         stompClient.disconnect();
-        this.updateStompClient(undefined);
         this.updateConnected(false);
+        c('disConnectOnlineStatusWS');
     },
     componentDidMount(){
         // this.checkOnlineAdmin();
@@ -112,6 +122,14 @@ var Head = React.createClass({
             }
             this.updateAdmin(admin);
         });
+        window.eventEmitEmitter.on('connectOnlineStatusWS', (token) => {
+
+            this.connectOnlineStatusWS(token)
+        });
+        window.eventEmitEmitter.on('disConnectOnlineStatusWS', (token) => {
+
+            this.disConnectOnlineStatusWS()
+        });
     },
     updateAdmin(admin){
         this.setState({admin});
@@ -125,7 +143,7 @@ var Head = React.createClass({
 
         window.EventsDispatcher.stopPollingCheckOnlineAdmin();
 
-        this.disConnectOnlineStatusWS();
+        window.EventsDispatcher.disConnectOnlineStatusWS();
 
         if (isUndefined(tipMsg)) {
             return;
@@ -145,7 +163,7 @@ var Head = React.createClass({
 
         window.EventsDispatcher.startPollingCheckOnlineAdmin();
 
-        this.connectOnlineStatusWS(admin.token);
+        window.EventsDispatcher.connectOnlineStatusWS(admin.token);
     },
     checkOnlineAdmin(){
 

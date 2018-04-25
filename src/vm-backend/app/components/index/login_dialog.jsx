@@ -72,6 +72,8 @@ var LoginDialog = React.createClass({
 
                 window.EventsDispatcher.startPollingCheckOnlineAdmin();
 
+                window.EventsDispatcher.connectOnlineStatusWS(admin.token);
+
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
