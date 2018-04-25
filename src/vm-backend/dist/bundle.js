@@ -7564,7 +7564,9 @@ var Head = _react2.default.createClass({
         this.setState({ stompClient: stompClient });
     },
     connectOnlineStatusWS: function connectOnlineStatusWS(accessToken) {
-        var stompClient = this.state.stompClient;
+        var _state = this.state,
+            stompClient = _state.stompClient,
+            USER_IS_LOGIN_IN_OTHER_AREA = _state.USER_IS_LOGIN_IN_OTHER_AREA;
 
         if (isUndefined(accessToken) || !isUndefined(stompClient)) {
             return;
@@ -7577,9 +7579,22 @@ var Head = _react2.default.createClass({
             stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
                 var _JSON$parse = JSON.parse(res.body),
                     code = _JSON$parse.code,
-                    msg = _JSON$parse.msg;
+                    msg = _JSON$parse.msg,
+                    data = _JSON$parse.data;
 
-                this.whenAdminOffline(msg);
+                if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
+                    var loginRecord = data.loginRecord;
+
+                    loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
+                    msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
+                }
+
+                this.whenAdminOffline({
+                    tipType: 'warning',
+                    tipTitle: '异地登陆警告',
+                    tipMsg: msg,
+                    tipDuration: null
+                });
             }.bind(this));
             this.updateStompClient(stompClient);
             this.updateConnected(true);
@@ -7601,9 +7616,9 @@ var Head = _react2.default.createClass({
         this.registEvents();
     },
     startPollingCheckOnlineAdmin: function startPollingCheckOnlineAdmin() {
-        var _state = this.state,
-            pollingInterval = _state.pollingInterval,
-            pollingTimer = _state.pollingTimer;
+        var _state2 = this.state,
+            pollingInterval = _state2.pollingInterval,
+            pollingTimer = _state2.pollingTimer;
 
         if (!isUndefined(pollingTimer)) {
             return;
@@ -7647,7 +7662,14 @@ var Head = _react2.default.createClass({
     updateAdmin: function updateAdmin(admin) {
         this.setState({ admin: admin });
     },
-    whenAdminOffline: function whenAdminOffline(msg) {
+    whenAdminOffline: function whenAdminOffline(args) {
+        args = isUndefined(args) ? {} : args;
+        var _args = args,
+            tipType = _args.tipType,
+            tipTitle = _args.tipTitle,
+            tipMsg = _args.tipMsg,
+            tipDuration = _args.tipDuration;
+
         window.EventsDispatcher.showLoginDialog();
 
         window.EventsDispatcher.updateLoginAdminInfo(undefined);
@@ -7656,13 +7678,17 @@ var Head = _react2.default.createClass({
 
         this.disConnectOnlineStatusWS();
 
-        if (isUndefined(msg)) {
+        if (isUndefined(tipMsg)) {
             return;
         }
-        _antd.notification['warning']({
-            message: '提醒',
-            description: msg,
-            duration: null
+        // warning
+        tipType = isUndefined(tipType) ? 'open' : tipType;
+        tipTitle = isUndefined(tipTitle) ? '信息' : tipTitle;
+        tipDuration = isUndefined(tipDuration) ? 4500 : tipDuration;
+        _antd.notification[tipType]({
+            message: tipTitle,
+            description: tipMsg,
+            duration: tipDuration
         });
     },
     whenAdminOnline: function whenAdminOnline(admin) {
@@ -7701,9 +7727,9 @@ var Head = _react2.default.createClass({
         });
     },
     logout: function logout() {
-        var _state2 = this.state,
-            logoutUrl = _state2.logoutUrl,
-            tipOfLogouting = _state2.tipOfLogouting;
+        var _state3 = this.state,
+            logoutUrl = _state3.logoutUrl,
+            tipOfLogouting = _state3.tipOfLogouting;
 
 
         var hiddenMessage = _antd.message.loading(tipOfLogouting, 0);
@@ -7712,9 +7738,11 @@ var Head = _react2.default.createClass({
             url: logoutUrl,
             success: function (result) {
 
-                // message.success(result.msg);
-
-                this.whenAdminOffline(result.msg);
+                this.whenAdminOffline({
+                    tipType: 'success',
+                    tipTitle: '注销提示',
+                    tipMsg: result.msg
+                });
             }.bind(this),
             failure: function failure(result) {
                 _antd.message.error(result.msg);
@@ -7725,9 +7753,9 @@ var Head = _react2.default.createClass({
         });
     },
     render: function render() {
-        var _state3 = this.state,
-            admin = _state3.admin,
-            colorList = _state3.colorList;
+        var _state4 = this.state,
+            admin = _state4.admin,
+            colorList = _state4.colorList;
 
         var username = admin.username;
         var color = colorList[0];

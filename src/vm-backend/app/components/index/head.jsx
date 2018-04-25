@@ -1,5 +1,5 @@
 import React from "react";
-import {Avatar, Dropdown, Form, Layout, Menu, message,notification} from "antd";
+import {Avatar, Dropdown, Form, Layout, Menu, message, notification} from "antd";
 //import "antd/dist/antd.css";
 import "../../scss/index/head.scss";
 import "../base/events_dispatcher";
@@ -31,7 +31,7 @@ var Head = React.createClass({
         this.setState({stompClient});
     },
     connectOnlineStatusWS(accessToken){
-        let {stompClient} = this.state;
+        let {stompClient, USER_IS_LOGIN_IN_OTHER_AREA} = this.state;
         if (isUndefined(accessToken) || !isUndefined(stompClient)) {
             return;
         }
@@ -41,9 +41,20 @@ var Head = React.createClass({
         stompClient.connect({}, function (frame) {
             c('Connected: ' + frame);
             stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
-                const {code, msg} = JSON.parse(res.body);
+                let {code, msg, data} = JSON.parse(res.body);
 
-                this.whenAdminOffline(msg);
+                if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
+                    let {loginRecord} = data;
+                    loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
+                    msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
+                }
+
+                this.whenAdminOffline({
+                    tipType: 'warning',
+                    tipTitle: '异地登陆警告',
+                    tipMsg: msg,
+                    tipDuration: null
+                });
             }.bind(this));
             this.updateStompClient(stompClient);
             this.updateConnected(true);
@@ -105,7 +116,9 @@ var Head = React.createClass({
     updateAdmin(admin){
         this.setState({admin});
     },
-    whenAdminOffline(msg){
+    whenAdminOffline(args){
+        args = isUndefined(args) ? {} : args;
+        let {tipType, tipTitle, tipMsg, tipDuration} = args;
         window.EventsDispatcher.showLoginDialog();
 
         window.EventsDispatcher.updateLoginAdminInfo(undefined);
@@ -114,13 +127,17 @@ var Head = React.createClass({
 
         this.disConnectOnlineStatusWS();
 
-        if(isUndefined(msg)){
+        if (isUndefined(tipMsg)) {
             return;
         }
-        notification['warning']({
-            message: '提醒',
-            description: msg,
-            duration:null
+        // warning
+        tipType = isUndefined(tipType) ? 'open' : tipType;
+        tipTitle = isUndefined(tipTitle) ? '信息' : tipTitle;
+        tipDuration = isUndefined(tipDuration) ? 4500 : tipDuration;
+        notification[tipType]({
+            message: tipTitle,
+            description: tipMsg,
+            duration: tipDuration
         });
     },
     whenAdminOnline(admin){
@@ -170,9 +187,11 @@ var Head = React.createClass({
             url: logoutUrl,
             success: function (result) {
 
-                // message.success(result.msg);
-
-                this.whenAdminOffline(result.msg);
+                this.whenAdminOffline({
+                    tipType: 'success',
+                    tipTitle: '注销提示',
+                    tipMsg: result.msg
+                });
             }.bind(this),
             failure: function (result) {
                 message.error(result.msg);
