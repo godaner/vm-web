@@ -3773,8 +3773,8 @@ var Index = _react2.default.createClass({
                     Sider,
                     {
                         collapsible: true,
+                        trigger: null,
                         collapsed: collapsed,
-
                         onCollapse: this.onCollapse,
                         width: siderCurrtWidth,
                         collapsedWidth: collapsedWidth,
@@ -7590,7 +7590,7 @@ var Head = _react2.default.createClass({
                 }
 
                 this.whenAdminOffline({
-                    tipType: 'warning',
+                    pe: 'warning',
                     tipTitle: '异地登陆警告',
                     tipMsg: msg,
                     tipDuration: null
@@ -7684,7 +7684,7 @@ var Head = _react2.default.createClass({
         // warning
         tipType = isUndefined(tipType) ? 'open' : tipType;
         tipTitle = isUndefined(tipTitle) ? '信息' : tipTitle;
-        tipDuration = isUndefined(tipDuration) ? 4500 : tipDuration;
+        tipDuration = isUndefined(tipDuration) ? 4.5 : tipDuration;
         _antd.notification[tipType]({
             message: tipTitle,
             description: tipMsg,

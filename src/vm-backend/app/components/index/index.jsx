@@ -54,8 +54,8 @@ var Index = React.createClass({
                     <LoginDialog ref="login_dialog"/>
                     <Sider
                         collapsible
+                        trigger={null}
                         collapsed={collapsed}
-
                         onCollapse={this.onCollapse}
                         width={siderCurrtWidth}
                         collapsedWidth={collapsedWidth}

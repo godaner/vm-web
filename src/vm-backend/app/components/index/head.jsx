@@ -50,7 +50,7 @@ var Head = React.createClass({
                 }
 
                 this.whenAdminOffline({
-                    tipType: 'warning',
+                  pe: 'warning',
                     tipTitle: '异地登陆警告',
                     tipMsg: msg,
                     tipDuration: null
@@ -133,7 +133,7 @@ var Head = React.createClass({
         // warning
         tipType = isUndefined(tipType) ? 'open' : tipType;
         tipTitle = isUndefined(tipTitle) ? '信息' : tipTitle;
-        tipDuration = isUndefined(tipDuration) ? 4500 : tipDuration;
+        tipDuration = isUndefined(tipDuration) ? 4.5 : tipDuration;
         notification[tipType]({
             message: tipTitle,
             description: tipMsg,
