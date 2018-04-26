@@ -7555,6 +7555,7 @@ var Head = _react2.default.createClass({
             UPDATE_MENU_TREE: -3,
             ADMIN_IS_FROZENED: -4,
             ADMIN_IS_DELETED: -5,
+            ADMIN_INFO_IS_UPDATED: -6,
             checkUrl: "/admin/online",
             logoutUrl: "/admin/logout",
             tipOfLogouting: "正在登出",
@@ -7610,17 +7611,20 @@ var Head = _react2.default.createClass({
             USER_LOGIN_TIMEOUT = _state2.USER_LOGIN_TIMEOUT,
             UPDATE_MENU_TREE = _state2.UPDATE_MENU_TREE,
             ADMIN_IS_FROZENED = _state2.ADMIN_IS_FROZENED,
-            ADMIN_IS_DELETED = _state2.ADMIN_IS_DELETED;
+            ADMIN_IS_DELETED = _state2.ADMIN_IS_DELETED,
+            ADMIN_INFO_IS_UPDATED = _state2.ADMIN_INFO_IS_UPDATED;
 
         this.updateConnected(true);
         var subscription = stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
-            var _JSON$parse = JSON.parse(res.body),
-                code = _JSON$parse.code,
-                msg = _JSON$parse.msg,
-                data = _JSON$parse.data;
+            var r = JSON.parse(res.body);
+            c(r);
+
+            var code = r.code,
+                msg = r.msg,
+                data = r.data;
 
             var tipTitle = void 0,
-                tipDuration = void 0;
+                tipDuration = null;
             if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
                 var loginRecord = data.loginRecord;
 
@@ -7647,7 +7651,7 @@ var Head = _react2.default.createClass({
                 });
             } else if (UPDATE_MENU_TREE == code) {
                 tipTitle = '菜单更新';
-                var menuTree = data.menuTree;
+                var newMenuTree = data.newMenuTree;
 
                 msg = " 账户菜单已被更新 !";
                 _antd.notification['warning']({
@@ -7655,7 +7659,7 @@ var Head = _react2.default.createClass({
                     description: msg,
                     duration: tipDuration
                 });
-                window.EventsDispatcher.updateAdminMenuTree(menuTree);
+                window.EventsDispatcher.updateAdminMenuTree(newMenuTree);
             } else if (ADMIN_IS_FROZENED == code) {
                 tipTitle = '冻结警告';
                 var _time = data.time;
@@ -7680,6 +7684,20 @@ var Head = _react2.default.createClass({
                     tipMsg: msg,
                     tipDuration: tipDuration
                 });
+            } else if (ADMIN_INFO_IS_UPDATED == code) {
+                tipTitle = '账户信息更新提示';
+                var newAdmin = data.newAdmin,
+                    _time3 = data.time;
+
+
+                _time3 = timeFormatter.formatTime(timeFormatter.int2Long(_time3));
+                msg = " 账户信息已被远端更新 , 时间 : " + _time3;
+                _antd.notification['warning']({
+                    message: tipTitle,
+                    description: msg,
+                    duration: tipDuration
+                });
+                window.EventsDispatcher.updateLoginAdminInfo(newAdmin);
             }
         }.bind(this));
         this.updateSubscriptions([subscription]);

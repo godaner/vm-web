@@ -16,6 +16,7 @@ var Head = React.createClass({
             UPDATE_MENU_TREE: -3,
             ADMIN_IS_FROZENED: -4,
             ADMIN_IS_DELETED: -5,
+            ADMIN_INFO_IS_UPDATED: -6,
             checkUrl: "/admin/online",
             logoutUrl: "/admin/logout",
             tipOfLogouting: "正在登出",
@@ -69,13 +70,16 @@ var Head = React.createClass({
             USER_LOGIN_TIMEOUT,
             UPDATE_MENU_TREE,
             ADMIN_IS_FROZENED,
-            ADMIN_IS_DELETED
+            ADMIN_IS_DELETED,
+            ADMIN_INFO_IS_UPDATED
         } = this.state;
         this.updateConnected(true);
         let subscription = stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
-            let {code, msg, data} = JSON.parse(res.body);
+            let r = JSON.parse(res.body);
+            c(r);
 
-            let tipTitle, tipDuration;
+            let {code, msg, data} = r;
+            let tipTitle, tipDuration=null;
             if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
                 let {loginRecord} = data;
                 loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
@@ -100,14 +104,14 @@ var Head = React.createClass({
                 });
             } else if (UPDATE_MENU_TREE == code) {
                 tipTitle = '菜单更新';
-                let {menuTree} = data;
+                let {newMenuTree} = data;
                 msg = " 账户菜单已被更新 !";
                 notification['warning']({
                     message: tipTitle,
                     description: msg,
                     duration: tipDuration
                 });
-                window.EventsDispatcher.updateAdminMenuTree(menuTree);
+                window.EventsDispatcher.updateAdminMenuTree(newMenuTree);
             } else if (ADMIN_IS_FROZENED == code) {
                 tipTitle = '冻结警告';
                 let {time} = data;
@@ -130,6 +134,18 @@ var Head = React.createClass({
                     tipMsg: msg,
                     tipDuration: tipDuration
                 });
+            } else if (ADMIN_INFO_IS_UPDATED == code) {
+                tipTitle = '账户信息更新提示';
+                let {newAdmin,time} = data;
+
+                time = timeFormatter.formatTime(timeFormatter.int2Long(time));
+                msg = " 账户信息已被远端更新 , 时间 : " + time;
+                notification['warning']({
+                    message: tipTitle,
+                    description: msg,
+                    duration: tipDuration
+                });
+                window.EventsDispatcher.updateLoginAdminInfo(newAdmin);
             }
 
         }.bind(this));
