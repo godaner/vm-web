@@ -23,7 +23,7 @@ var Head = React.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 600000,//ms
+            pollingInterval: vm_config.online_user_polling_interval,//ms
             connected: false,
             stompClient: undefined,
             subscriptions: []

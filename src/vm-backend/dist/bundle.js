@@ -1311,7 +1311,8 @@ function isUndefined(arg) {
 module.exports = {
     http_url_prefix: ENV.http_url_prefix,
     key_of_access_token: "adminAccessToken",
-    offline_code: -9999
+    offline_code: -9999,
+    online_user_polling_interval: ENV.online_user_polling_interval
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(70)))
 
@@ -6804,7 +6805,10 @@ module.exports = (__webpack_require__(11))(464);
 "use strict";
 
 
-module.exports = { http_url_prefix: 'http://192.168.0.189:5550' };
+module.exports = {
+    http_url_prefix: 'http://192.168.0.189:5550',
+    online_user_polling_interval: 5000
+};
 // module.exports = { http_url_prefix: 'http://192.168.11.222:5551' };
 // module.exports = { http_uEventEmitterrl_prefix: 'http://47.106.119.0:5551' };
 
@@ -7562,7 +7566,7 @@ var Head = _react2.default.createClass({
             admin: {},
             colorList: ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'],
             pollingTimer: undefined,
-            pollingInterval: 600000, //ms
+            pollingInterval: vm_config.online_user_polling_interval, //ms
             connected: false,
             stompClient: undefined,
             subscriptions: []
