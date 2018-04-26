@@ -1310,7 +1310,7 @@ function isUndefined(arg) {
 
 module.exports = {
     http_url_prefix: ENV.http_url_prefix,
-    key_of_access_token: "accessToken",
+    key_of_access_token: "adminAccessToken",
     offline_code: -9999
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(70)))
