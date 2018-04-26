@@ -1,5 +1,5 @@
 import React from "react";
-import {ajax,commons} from './vm_util'; //引入react组件
+import {ajax, commons} from './vm_util'; //引入react组件
 import {Link, withRouter} from "react-router-dom";
 import LoginDialog from "./login_dialog";
 import RegistDialog from "./regist_dialog";
@@ -11,6 +11,11 @@ var Head = React.createClass({
 
     getInitialState: function () {
         return {
+            USER_IS_LOGIN_IN_OTHER_AREA: -1,
+            USER_LOGIN_TIMEOUT: -2,
+            USER_IS_FROZENED: -3,
+            USER_IS_DELETED: -4,
+            USER_INFO_IS_UPDATED: -5,
             logouting: "正在注销...",
             logoutSuccess: "注销成功",
             logoutFailure: "注销失败",
@@ -21,9 +26,124 @@ var Head = React.createClass({
             protectedUserPageLists: ["/user/[0-9/_-a-zA-Z]*"],
             user: {},//默认为空对象
             pollOnlineUserStatusTimer: undefined,
-            pollOnlineUserStatusTimerInterval: 10000,
-            isFirstVisitPage: true//用于辅助轮询
+            pollOnlineUserStatusTimerInterval: vm_config.online_user_polling_interval,
+            isFirstVisitPage: true,//用于辅助轮询
+            connected: false,
+            stompClient: undefined,
+            subscriptions: []
         };
+    },
+    updateConnected(connected){
+        this.setState({connected});
+    },
+    updateStompClient(stompClient){
+        this.setState({stompClient});
+    },
+    updateSubscriptions(subscriptions){
+
+        this.setState({subscriptions});
+    },
+    connectOnlineStatusWS(accessToken){
+
+        c("disConnectOnlineStatusWS");
+        c(this.state);
+        let {stompClient, connected} = this.state;
+        if (isUndefined(accessToken) || connected) {
+            return;
+        }
+        if (isUndefined(stompClient)) {
+            let url = vm_config.http_url_prefix + '/userWS/ep_user_ws';
+            let socket = new SockJS(url);
+            stompClient = Stomp.over(socket);
+            stompClient.heartbeat.outgoing = 10000;  // client will send heartbeats every 20000ms
+            stompClient.heartbeat.incoming = 10000;      // client does not want to receive heartbeats from the server
+            stompClient.connect({}, function (frame) {
+                c('Consocketnected: ' + frame);
+                this.updateStompClient(stompClient);
+                this.subscribe(stompClient, accessToken);
+            }.bind(this));
+        } else {
+
+            this.subscribe(stompClient, accessToken);
+        }
+
+    },
+    subscribe(stompClient, accessToken){
+        const {
+            USER_IS_LOGIN_IN_OTHER_AREA,
+            USER_LOGIN_TIMEOUT,
+            USER_IS_FROZENED,
+            USER_IS_DELETED,
+            USER_INFO_IS_UPDATED
+        } = this.state;
+        this.updateConnected(true);
+        let subscription = stompClient.subscribe('/user/' + accessToken + '/userOnlineStatus', function (res) {
+            let r = JSON.parse(res.body);
+            c(r);
+
+            let {code, msg, data} = r;
+            if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
+                this.whenUserOffline({
+                    msg:"异地登陆"
+                });
+            } else if (USER_LOGIN_TIMEOUT == code) {
+                this.whenUserOffline({
+                    msg:"登录超时"
+                });
+            } else if (USER_IS_FROZENED == code) {
+
+                this.whenUserOffline({
+                    msg:"账户被冻结"
+                });
+            } else if (USER_IS_DELETED == code) {
+
+                this.whenUserOffline({
+                    msg:"账户被删除"
+                });
+            } else if (USER_INFO_IS_UPDATED == code) {
+                this.whenUserOffline({
+                    msg:"账户信息被更新"
+                });
+            }
+
+        }.bind(this));
+        this.updateSubscriptions([subscription]);
+    },
+    whenUserOffline(args){
+        let {msg} = args;
+
+
+        if (!this.state.isFirstVisitPage) {
+            window.VmFrontendEventsDispatcher.showMsgDialog(this.state.msg);
+        }
+        //update user in state
+        this.updateStateUser({});
+
+        //protect page
+        window.VmFrontendEventsDispatcher.protectPage();
+
+        //clear poll timer
+        this.stopPollOnlineUserStatus();
+
+        this.disConnectOnlineStatusWS();
+
+    },
+    whenUserOnline(user){
+        this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
+        window.VmFrontendEventsDispatcher.updateImgUploaderImgUrl(user.imgUrl);
+
+    },
+    disConnectOnlineStatusWS(){
+        let {subscriptions, connected, stompClient} = this.state;
+        c("disConnectOnlineStatusWS");
+        c(this.state);
+        if (!connected && !isUndefined(stompClient)) {
+            return;
+        }
+        for (let i = 0; i < subscriptions.length; i++) {
+            subscriptions[i].unsubscribe();
+        }
+        this.updateConnected(false);
     },
     componentDidMount: function () {
         this.registEvents();
@@ -58,26 +178,35 @@ var Head = React.createClass({
     pollOnlineUserStatus: function () {
         window.VmFrontendEventsDispatcher.feelerOnlineUser({
             onFeelerOnlineUser: function (isOnline, u) {
-
-                //update user in state
-                window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
-
-
-
                 if (!isOnline) {
-                    //clear timer
-                    this.stopPollOnlineUserStatus();
-                    //when user is online,open websocket
-                    window.VmFrontendEventsDispatcher.protectPage();
-                    //tip user
-                    if (!this.state.isFirstVisitPage) {
-                        window.VmFrontendEventsDispatcher.showMsgDialog(this.state.tipOfOffLine);
-                    }
-
+                    this.whenUserOnline(u);
                 } else {
-                    this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
-                    window.VmFrontendEventsDispatcher.updateImgUploaderImgUrl(u.imgUrl);
+                    this.whenUserOffline({
+                        msg: this.state.tipOfOffLine
+                    });
                 }
+
+                //
+                // //update user in state
+                // window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
+                //
+                //
+                //
+                // if (!isOnline) {
+                //     //clear timer
+                //     this.stopPollOnlineUserStatus();
+                //     this.disConnectOnlineStatusWS();
+                //     //when user is online,open websocket
+                //     window.VmFrontendEventsDispatcher.protectPage();
+                //     //tip user
+                //     if (!this.state.isFirstVisitPage) {
+                //         window.VmFrontendEventsDispatcher.showMsgDialog(this.state.tipOfOffLine);
+                //     }
+                //
+                // } else {
+                //     this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
+                //     window.VmFrontendEventsDispatcher.updateImgUploaderImgUrl(u.imgUrl);
+                // }
                 this.setIsFirstVisitPage(false);
             }.bind(this)
         });
@@ -186,6 +315,7 @@ var Head = React.createClass({
         //update and show user info
         this.updateStateUser(user);
         this.startPollOnlineUserStatus();
+        this.connectOnlineStatusWS(user.token);
     },
     showRegistDialog: function () {
         this.refs.regist_dialog.showRegistDialog();
@@ -225,17 +355,20 @@ var Head = React.createClass({
                 window.VmFrontendEventsDispatcher.closeLoading();
             }.bind(this),
             onResponseSuccess: function (result) {
-
-                window.VmFrontendEventsDispatcher.showMsgDialog(this.state.logoutSuccess);
-
-                //update user in state
-                this.updateStateUser({});
-
-                //protect page
-                window.VmFrontendEventsDispatcher.protectPage();
-
-                //clear poll timer
-                this.stopPollOnlineUserStatus();
+                this.whenUserOffline({msg: result.msg});
+                //
+                // window.VmFrontendEventsDispatcher.showMsgDialog(this.state.logoutSuccess);
+                //
+                // //update user in state
+                // this.updateStateUser({});
+                //
+                // //protect page
+                // window.VmFrontendEventsDispatcher.protectPage();
+                //
+                // //clear poll timer
+                // this.stopPollOnlineUserStatus();
+                //
+                // this.disConnectOnlineStatusWS();
 
             }.bind(this),
             onResponseFailure: function (result) {
