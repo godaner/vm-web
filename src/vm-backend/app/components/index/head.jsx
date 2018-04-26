@@ -51,8 +51,8 @@ var Head = React.createClass({
             let url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
             let socket = new SockJS(url);
             stompClient = Stomp.over(socket);
-            stompClient.heartbeat.outgoing = 1000;  // client will send heartbeats every 20000ms
-            stompClient.heartbeat.incoming = 1000;      // client does not want to receive heartbeats from the server
+            stompClient.heartbeat.outgoing = 10000;  // client will send heartbeats every 20000ms
+            stompClient.heartbeat.incoming = 10000;      // client does not want to receive heartbeats from the server
             stompClient.connect({}, function (frame) {
                 c('Consocketnected: ' + frame);
                 this.updateStompClient(stompClient);
