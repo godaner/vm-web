@@ -13,6 +13,9 @@ var Head = React.createClass({
         return {
             USER_IS_LOGIN_IN_OTHER_AREA: -1,
             USER_LOGIN_TIMEOUT: -2,
+            UPDATE_MENU_TREE: -3,
+            ADMIN_IS_FROZENED: -4,
+            ADMIN_IS_DELETED: -5,
             checkUrl: "/admin/online",
             logoutUrl: "/admin/logout",
             tipOfLogouting: "正在登出",
@@ -61,30 +64,74 @@ var Head = React.createClass({
 
     },
     subscribe(stompClient, accessToken){
-        const {USER_IS_LOGIN_IN_OTHER_AREA, USER_LOGIN_TIMEOUT} = this.state;
+        const {
+            USER_IS_LOGIN_IN_OTHER_AREA,
+            USER_LOGIN_TIMEOUT,
+            UPDATE_MENU_TREE,
+            ADMIN_IS_FROZENED,
+            ADMIN_IS_DELETED
+        } = this.state;
         this.updateConnected(true);
         let subscription = stompClient.subscribe('/user/' + accessToken + '/adminOnlineStatus', function (res) {
             let {code, msg, data} = JSON.parse(res.body);
 
-            let tipTitle;
+            let tipTitle, tipDuration;
             if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
                 let {loginRecord} = data;
                 loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
                 msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
                 tipTitle = '异地登陆警告';
+                this.whenAdminOffline({
+                    tipType: 'warning',
+                    tipTitle: tipTitle,
+                    tipMsg: msg,
+                    tipDuration: tipDuration
+                });
             } else if (USER_LOGIN_TIMEOUT == code) {
                 tipTitle = '登录超时警告';
-                let {logoutTime} = data;
-                logoutTime = timeFormatter.formatTime(timeFormatter.int2Long(logoutTime));
-                msg = " 账户登录超时 , 时间 : " + logoutTime;
-
+                let {time} = data;
+                time = timeFormatter.formatTime(timeFormatter.int2Long(time));
+                msg = " 账户登录超时 , 时间 : " + time;
+                this.whenAdminOffline({
+                    tipType: 'warning',
+                    tipTitle: tipTitle,
+                    tipMsg: msg,
+                    tipDuration: tipDuration
+                });
+            } else if (UPDATE_MENU_TREE == code) {
+                tipTitle = '菜单更新';
+                let {menuTree} = data;
+                msg = " 账户菜单已被更新 !";
+                notification['warning']({
+                    message: tipTitle,
+                    description: msg,
+                    duration: tipDuration
+                });
+                window.EventsDispatcher.updateAdminMenuTree(menuTree);
+            } else if (ADMIN_IS_FROZENED == code) {
+                tipTitle = '冻结警告';
+                let {time} = data;
+                time = timeFormatter.formatTime(timeFormatter.int2Long(time));
+                msg = " 账户已被冻结 , 时间 : " + time;
+                this.whenAdminOffline({
+                    tipType: 'warning',
+                    tipTitle: tipTitle,
+                    tipMsg: msg,
+                    tipDuration: tipDuration
+                });
+            } else if (ADMIN_IS_DELETED == code) {
+                tipTitle = '删除警告';
+                let {time} = data;
+                time = timeFormatter.formatTime(timeFormatter.int2Long(time));
+                msg = " 账户已被删除 , 时间 : " + time;
+                this.whenAdminOffline({
+                    tipType: 'warning',
+                    tipTitle: tipTitle,
+                    tipMsg: msg,
+                    tipDuration: tipDuration
+                });
             }
-            this.whenAdminOffline({
-                tipType: 'warning',
-                tipTitle: tipTitle,
-                tipMsg: msg,
-                tipDuration: null
-            });
+
         }.bind(this));
         this.updateSubscriptions([subscription]);
     },
