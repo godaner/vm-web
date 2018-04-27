@@ -130,6 +130,9 @@ var Head = React.createClass({
     },
     whenUserOnline(user){
         this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
+        if(isUndefined(user)){
+            return ;
+        }
         window.VmFrontendEventsDispatcher.updateImgUploaderImgUrl(user.imgUrl);
 
     },

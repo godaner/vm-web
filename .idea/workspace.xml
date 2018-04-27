@@ -4,14 +4,9 @@
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/vendors-manifest.json" afterPath="$PROJECT_DIR$/src/vm-backend/dist/vendors-manifest.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/vendors.dll.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/vendors.dll.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/app/config/vm_config.js" afterPath="$PROJECT_DIR$/src/vm-frontend/app/config/vm_config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/vendors-manifest.json" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/vendors-manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/dist/vendors.dll.js" afterPath="$PROJECT_DIR$/src/vm-frontend/dist/vendors.dll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/env/development.js" afterPath="$PROJECT_DIR$/src/vm-frontend/env/development.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/env/localhost.js" afterPath="$PROJECT_DIR$/src/vm-frontend/env/localhost.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/env/production.js" afterPath="$PROJECT_DIR$/src/vm-frontend/env/production.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +44,8 @@
       <file leaf-file-name="head.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="76" column="32" lean-forward="true" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+            <state relative-caret-position="491">
+              <caret line="133" column="20" lean-forward="false" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#80#130#0" expanded="true" />
@@ -1046,12 +1041,12 @@
       <workItem from="1524470141570" duration="25000" />
       <workItem from="1524472827103" duration="1072000" />
       <workItem from="1524551358828" duration="7533000" />
-      <workItem from="1524620637691" duration="31282000" />
+      <workItem from="1524620637691" duration="31904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="610061000" />
+    <option name="totallyTimeSpent" value="610683000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1534,8 +1529,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="76" column="32" lean-forward="true" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+        <state relative-caret-position="491">
+          <caret line="133" column="20" lean-forward="false" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#80#130#0" expanded="true" />
