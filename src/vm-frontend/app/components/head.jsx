@@ -45,8 +45,8 @@ var Head = React.createClass({
     },
     connectOnlineStatusWS(accessToken){
 
-        c("disConnectOnlineStatusWS");
-        c(this.state);
+
+        // c(this.state);
         let {stompClient, connected} = this.state;
         if (isUndefined(accessToken) || connected) {
             return;
@@ -114,7 +114,7 @@ var Head = React.createClass({
 
 
         if (!this.state.isFirstVisitPage) {
-            window.VmFrontendEventsDispatcher.showMsgDialog(this.state.msg);
+            window.VmFrontendEventsDispatcher.showMsgDialog(msg);
         }
         //update user in state
         this.updateStateUser({});
@@ -129,12 +129,11 @@ var Head = React.createClass({
 
     },
     whenUserOnline(user){
+        this.startPollOnlineUserStatus();
+        this.connectOnlineStatusWS(user.token);
         this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
-        if(isUndefined(user)){
-            return ;
-        }
         window.VmFrontendEventsDispatcher.updateImgUploaderImgUrl(user.imgUrl);
-
+        this.updateStateUser(user);
     },
     disConnectOnlineStatusWS(){
         let {subscriptions, connected, stompClient} = this.state;
@@ -150,9 +149,9 @@ var Head = React.createClass({
     },
     componentDidMount: function () {
         this.registEvents();
-        //刷新页面后轮询获取在线用户，如果用户不在线，那么保护页面
         this.startPollOnlineUserStatus();
-        //set is first visit page flag
+
+
     },
     setIsFirstVisitPage: function (bol) {
         var state = this.state;
@@ -181,35 +180,15 @@ var Head = React.createClass({
     pollOnlineUserStatus: function () {
         window.VmFrontendEventsDispatcher.feelerOnlineUser({
             onFeelerOnlineUser: function (isOnline, u) {
-                if (!isOnline) {
-                    this.whenUserOnline(u);
-                } else {
+                if (!isOnline) {//online ?
                     this.whenUserOffline({
                         msg: this.state.tipOfOffLine
                     });
+                } else {
+                    this.whenUserOnline(u);
+
                 }
 
-                //
-                // //update user in state
-                // window.VmFrontendEventsDispatcher.updateHeadComponentUser(u);
-                //
-                //
-                //
-                // if (!isOnline) {
-                //     //clear timer
-                //     this.stopPollOnlineUserStatus();
-                //     this.disConnectOnlineStatusWS();
-                //     //when user is online,open websocket
-                //     window.VmFrontendEventsDispatcher.protectPage();
-                //     //tip user
-                //     if (!this.state.isFirstVisitPage) {
-                //         window.VmFrontendEventsDispatcher.showMsgDialog(this.state.tipOfOffLine);
-                //     }
-                //
-                // } else {
-                //     this.closeLoginDialog();//!!!防止用户登陆后再次点开登录框!!!
-                //     window.VmFrontendEventsDispatcher.updateImgUploaderImgUrl(u.imgUrl);
-                // }
                 this.setIsFirstVisitPage(false);
             }.bind(this)
         });
@@ -315,10 +294,8 @@ var Head = React.createClass({
         this.refs.login_dialog.closeLoginDialog();
     },
     onLoginSuccess: function (user) {
-        //update and show user info
-        this.updateStateUser(user);
+
         this.startPollOnlineUserStatus();
-        this.connectOnlineStatusWS(user.token);
     },
     showRegistDialog: function () {
         this.refs.regist_dialog.showRegistDialog();
@@ -327,7 +304,6 @@ var Head = React.createClass({
         this.refs.regist_dialog.closeRegistDialog();
     },
     onRegistSuccess: function (user) {
-        this.updateStateUser(user);
         this.startPollOnlineUserStatus();
     },
     updateStateUser(user){

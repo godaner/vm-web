@@ -252,7 +252,7 @@ var Head = React.createClass({
         // window.EventsDispatcher.startPollingCheckOnlineAdmin();
 
     },
-    checkOnlineAdmin(){
+    checkOnlineAdmin(callfun){
 
         const {checkUrl} = this.state;
 
@@ -273,10 +273,10 @@ var Head = React.createClass({
 
             }.bind(this),
             failure: function (result) {
-                window.EventsDispatcher.showLoginDialog();
+                // window.EventsDispatcher.showLoginDialog();
             },
             error: function () {//出现错误
-                window.EventsDispatcher.showLoginDialog();
+                // window.EventsDispatcher.showLoginDialog();
             },
             complete: function () {
 
