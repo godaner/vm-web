@@ -48,7 +48,7 @@ var Head = React.createClass({
             return;
         }
         if (isUndefined(stompClient)) {
-            let url = vm_config.http_url_prefix + '/adminWS/ep_admin_ws';
+            let url = vm_config.http_url_prefix + '/ws/ep';
             let socket = new SockJS(url);
             stompClient = Stomp.over(socket);
             stompClient.heartbeat.outgoing = 10000;  // client will send heartbeats every 20000ms
