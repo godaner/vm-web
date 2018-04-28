@@ -46,6 +46,9 @@ window.EventsDispatcher = {
     },
     disConnectOnlineStatusWS(){
         this.event.emit('disConnectOnlineStatusWS');
+    },
+    globalLoading(loading){
+        this.event.emit('globalLoading',loading);
     }
 }
 ;

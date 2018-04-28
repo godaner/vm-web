@@ -48,6 +48,7 @@ var Head = React.createClass({
             return;
         }
         if (isUndefined(stompClient)) {
+            window.EventsDispatcher.globalLoading(true);
             let url = vm_config.http_url_prefix + '/ws/ep';
             let socket = new SockJS(url);
             stompClient = Stomp.over(socket);
@@ -57,6 +58,12 @@ var Head = React.createClass({
                 c('Consocketnected: ' + frame);
                 this.updateStompClient(stompClient);
                 this.subscribe(stompClient, accessToken);
+                window.EventsDispatcher.globalLoading(false);
+            }.bind(this),function () {
+
+                c("Connect fail !");
+                this.connectOnlineStatusWS(accessToken);
+                window.EventsDispatcher.globalLoading(false);
             }.bind(this));
         } else {
 

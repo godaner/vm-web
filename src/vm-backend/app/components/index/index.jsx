@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Layout, Menu, Breadcrumb, Icon, Affix} from 'antd';
+import {Layout, Menu, Spin,Breadcrumb, Icon, Affix} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 import HomePage from "../home/home_page";
@@ -21,11 +21,28 @@ var Index = React.createClass({
         const collapsedWidth = 80;
         const siderWidth = 200;
         return {
+            loading:false,
             collapsed: collapsed,
             siderWidth: siderWidth,
             collapsedWidth: collapsedWidth,
             siderCurrtWidth: collapsed ? collapsedWidth : siderWidth
         };
+    },
+    componentDidMount(){
+
+        this.registEvents();
+
+    },
+    registEvents(){
+        window.eventEmitEmitter.on('globalLoading', (loading) => {
+            this.globalLoading(loading);
+        });
+    },
+    globalLoading(loading){
+        this.updadateLoading(loading);
+    },
+    updadateLoading(loading){
+        this.setState({loading});
     },
     onCollapse(collapsed, type){
         // console.log(collapsed);
@@ -42,52 +59,54 @@ var Index = React.createClass({
     },
     render: function () {
         //set now page's props
-        const {collapsed, siderCurrtWidth, collapsedWidth} = this.state;
+        const {collapsed, loading,siderCurrtWidth, collapsedWidth} = this.state;
+        const antIcon = <Icon type="loading" style={{fontSize: 24}} spin/>;
 
         return (
 
             <HashRouter>
-                <Layout
-                >
+                <Spin indicator={antIcon}
+                      spinning={loading}>
+                    <Layout>
 
-                    {/*登录框*/}
-                    <LoginDialog ref="login_dialog"/>
-                    <Sider
-                        collapsible
-                        trigger={null}
-                        collapsed={collapsed}
-                        onCollapse={this.onCollapse}
-                        width={siderCurrtWidth}
-                        collapsedWidth={collapsedWidth}
-                        style={{overflow: 'auto', height: '100vh', zIndex:"999",position: 'fixed', left: 0}}
-                    >
+                        {/*登录框*/}
+                        <LoginDialog ref="login_dialog"/>
+                        <Sider
+                            collapsible
+                            trigger={null}
+                            collapsed={collapsed}
+                            onCollapse={this.onCollapse}
+                            width={siderCurrtWidth}
+                            collapsedWidth={collapsedWidth}
+                            style={{overflow: 'auto', height: '100vh', zIndex: "999", position: 'fixed', left: 0}}
+                        >
 
 
-                        {/*nav*/}
-                        <Nav/>
-                    </Sider>
-                    <Layout style={{marginLeft: siderCurrtWidth}}>
-                        <Header style={{background: '#fff', padding: 0}}>
-                            {/*head*/}
-                            <Head/>
-                        </Header>
+                            {/*nav*/}
+                            <Nav/>
+                        </Sider>
+                        <Layout style={{marginLeft: siderCurrtWidth}}>
+                            <Header style={{background: '#fff', padding: 0}}>
+                                {/*head*/}
+                                <Head/>
+                            </Header>
 
-                        <Content style={{margin: '0 16px', overflow: 'initial'}}>
-                            <Breadcrumb style={{margin: '16px 0'}}>
-                                <Breadcrumb.Item>User</Breadcrumb.Item>
-                                <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                            </Breadcrumb>
+                            <Content style={{margin: '0 16px', overflow: 'initial'}}>
+                                <Breadcrumb style={{margin: '16px 0'}}>
+                                    <Breadcrumb.Item>User</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                                </Breadcrumb>
 
-                            <div style={{paddingLeft: 24, paddingRight: 24, background: '#fff'}}>
-                                <Routes/>
-                            </div>
-                        </Content>
-                        <Footer style={{textAlign: 'center'}}>
-                            Vm backend ©2016 Created by Zhangke
-                        </Footer>
+                                <div style={{paddingLeft: 24, paddingRight: 24, background: '#fff'}}>
+                                    <Routes/>
+                                </div>
+                            </Content>
+                            <Footer style={{textAlign: 'center'}}>
+                                Vm backend ©2016 Created by Zhangke
+                            </Footer>
+                        </Layout>
                     </Layout>
-                </Layout>
-
+                </Spin>
             </HashRouter>
 
         )

@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d87557e8-fefe-4649-9f80-e054515fc62c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/app/components/index/head.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/app/components/index/head.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx" afterPath="$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/vendors-manifest.json" afterPath="$PROJECT_DIR$/src/vm-backend/dist/vendors-manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-backend/dist/vendors.dll.js" afterPath="$PROJECT_DIR$/src/vm-backend/dist/vendors.dll.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx" afterPath="$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +33,8 @@
       <file leaf-file-name="head.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/head.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="50" column="57" lean-forward="false" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+            <state relative-caret-position="486">
+              <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#140#176#0" expanded="true" />
@@ -44,8 +46,8 @@
       <file leaf-file-name="head.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1673">
-              <caret line="192" column="24" lean-forward="false" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
+            <state relative-caret-position="359">
+              <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="68" selection-end-column="56" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#80#130#0" expanded="true" />
@@ -54,22 +56,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx">
+      <file leaf-file-name="events_dispatcher.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1890">
-              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="242">
+              <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login_dialog.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1782">
-              <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
-              <folding />
+            <state relative-caret-position="1189">
+              <caret line="62" column="43" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>EventEmitter</find>
       <find>stompClient</find>
       <find>reutrn</find>
       <find>msg</find>
@@ -108,6 +111,7 @@
       <find>onRegis</find>
       <find>comp</find>
       <find>disconnect</find>
+      <find>loading</find>
     </findStrings>
     <replaceStrings>
       <replace>MovieVideoUploadDialog</replace>
@@ -178,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/user_head_page.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/scss/img_uploader.scss" />
         <option value="$PROJECT_DIR$/src/vm-frontend/dist/bundle.js" />
-        <option value="$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/img_uploader.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/sex_count.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/home/user_count.jsx" />
@@ -203,9 +206,6 @@
         <option value="$PROJECT_DIR$/src/vm-backend/webpack.config.local.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/dist/index.html" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/scss/index/head.scss" />
-        <option value="$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx" />
-        <option value="$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/config/vm_config.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/env/production.js" />
         <option value="$PROJECT_DIR$/src/vm-backend/env/development.js" />
@@ -215,6 +215,10 @@
         <option value="$PROJECT_DIR$/src/vm-frontend/env/localhost.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/env/production.js" />
         <option value="$PROJECT_DIR$/src/vm-frontend/dist/index.html" />
+        <option value="$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx" />
+        <option value="$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx" />
         <option value="$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx" />
         <option value="$PROJECT_DIR$/src/vm-backend/app/components/index/head.jsx" />
       </list>
@@ -986,15 +990,16 @@
       <workItem from="1524620637691" duration="38035000" />
       <workItem from="1524822477085" duration="456000" />
       <workItem from="1524823301321" duration="603000" />
-      <workItem from="1524825242806" duration="859000" />
+      <workItem from="1524825242806" duration="1780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="618732000" />
+    <option name="totallyTimeSpent" value="619653000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1391,13 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -1412,33 +1410,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1890">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="458">
+          <caret line="36" column="6" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="36" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/base/events_dispatcher.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+        <state relative-caret-position="323">
+          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/login_dialog.jsx">
+    <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1782">
-          <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
+        <state relative-caret-position="1189">
+          <caret line="62" column="43" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/events_dispatcher.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-frontend/app/components/head.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1673">
-          <caret line="192" column="24" lean-forward="false" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
+        <state relative-caret-position="359">
+          <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="68" selection-end-column="56" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#80#130#0" expanded="true" />
@@ -1448,8 +1457,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vm-backend/app/components/index/head.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="50" column="57" lean-forward="false" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+        <state relative-caret-position="486">
+          <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#140#176#0" expanded="true" />
