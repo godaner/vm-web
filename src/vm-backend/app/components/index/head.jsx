@@ -41,29 +41,24 @@ var Head = React.createClass({
     },
     connectOnlineStatusWS(accessToken){
 
-        c("disConnectOnlineStatusWS");
-        c(this.state);
+        c("connectOnlineStatusWS");
         let {stompClient, connected} = this.state;
         if (isUndefined(accessToken) || connected) {
             return;
         }
         if (isUndefined(stompClient)) {
-            window.EventsDispatcher.globalLoading(true);
             let url = vm_config.http_url_prefix + '/ws/ep';
-            let socket = new SockJS(url);
-            stompClient = Stomp.over(socket);
+            this.socket = new SockJS(url);
+
+
+
+            stompClient = Stomp.over(this.socket);
             stompClient.heartbeat.outgoing = 10000;  // client will send heartbeats every 20000ms
             stompClient.heartbeat.incoming = 10000;      // client does not want to receive heartbeats from the server
             stompClient.connect({}, function (frame) {
                 c('Consocketnected: ' + frame);
                 this.updateStompClient(stompClient);
                 this.subscribe(stompClient, accessToken);
-                window.EventsDispatcher.globalLoading(false);
-            }.bind(this),function () {
-
-                c("Connect fail !");
-                this.connectOnlineStatusWS(accessToken);
-                window.EventsDispatcher.globalLoading(false);
             }.bind(this));
         } else {
 
@@ -168,7 +163,13 @@ var Head = React.createClass({
         for (let i = 0; i < subscriptions.length; i++) {
             subscriptions[i].unsubscribe();
         }
-        this.updateConnected(false);
+        if(stompClient == undefined){
+            return ;
+        }
+        stompClient.disconnect(()=>{
+            this.updateConnected(false);
+            this.updateStompClient(undefined);
+        });
     },
     componentDidMount(){
 

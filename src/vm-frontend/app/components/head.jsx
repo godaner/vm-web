@@ -52,7 +52,6 @@ var Head = React.createClass({
             return;
         }
         if (isUndefined(stompClient)) {
-            window.EventsDispatcher.showLoading();
             let url = vm_config.http_url_prefix + '/userWS/ep_user_ws';
             let socket = new SockJS(url);
             stompClient = Stomp.over(socket);
@@ -63,11 +62,8 @@ var Head = React.createClass({
                 this.updateStompClient(stompClient);
                 this.subscribe(stompClient, accessToken);
 
-                window.EventsDispatcher.closeLoading();
             }.bind(this),function () {
                 c("Connect fail !");
-                this.connectOnlineStatusWS(accessToken);
-                window.EventsDispatcher.showLoading();
             }.bind(this));
         } else {
 
@@ -152,7 +148,14 @@ var Head = React.createClass({
         for (let i = 0; i < subscriptions.length; i++) {
             subscriptions[i].unsubscribe();
         }
-        this.updateConnected(false);
+
+        if(isUndefined(stompClient)){
+            return ;
+        }
+        stompClient.disconnect(()=>{
+            this.updateConnected(false);
+            this.updateStompClient(undefined);
+        });
     },
     componentDidMount: function () {
         this.registEvents();
