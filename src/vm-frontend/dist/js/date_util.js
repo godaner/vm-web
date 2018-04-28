@@ -45,6 +45,13 @@ Date.prototype.getCountOfMonthDay = function () { //author: meizz
  * 时间格式化
  */
 var timeFormatter = {
+    int2Long: function (int) {
+
+        return int * 1000;
+    },
+    long2Int: function (long) {
+        return ( long / 1000).toFixed(0);
+    },
     /**
      * 将long型的date格式化为指定格式
      */
