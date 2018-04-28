@@ -52,7 +52,7 @@ var Head = React.createClass({
             return;
         }
         if (isUndefined(stompClient)) {
-            let url = vm_config.http_url_prefix + '/userWS/ep_user_ws';
+            let url = vm_config.http_url_prefix + '/ws/ep';
             let socket = new SockJS(url);
             stompClient = Stomp.over(socket);
             stompClient.heartbeat.outgoing = 10000;  // client will send heartbeats every 20000ms
@@ -86,12 +86,16 @@ var Head = React.createClass({
 
             let {code, msg, data} = r;
             if (USER_IS_LOGIN_IN_OTHER_AREA == code) {
+                let {loginRecord} = data;
+                loginRecord.createTime = timeFormatter.formatTime(timeFormatter.int2Long(loginRecord.createTime));
+                msg = " 账户在 [ " + loginRecord.country + "-" + loginRecord.province + "-" + loginRecord.city + "] 登陆 , ip 为 :" + loginRecord.loginIp + " , 时间 : " + loginRecord.createTime;
                 this.whenUserOffline({
-                    msg:"异地登陆"
+                    msg:msg
                 });
             } else if (USER_LOGIN_TIMEOUT == code) {
+                msg = " 账户登录超时 , 时间 : " + time;
                 this.whenUserOffline({
-                    msg:"登录超时"
+                    msg:msg
                 });
             } else if (USER_IS_FROZENED == code) {
 
@@ -104,9 +108,10 @@ var Head = React.createClass({
                     msg:"账户被删除"
                 });
             } else if (USER_INFO_IS_UPDATED == code) {
-                this.whenUserOffline({
-                    msg:"账户信息被更新"
-                });
+
+                this.showMsg(msg);
+                this.whenUserOnline(data.newUser);
+
             }
 
         }.bind(this));
@@ -115,10 +120,8 @@ var Head = React.createClass({
     whenUserOffline(args){
         let {msg} = args;
 
+        this.showMsg(msg);
 
-        if (!this.state.isFirstVisitPage) {
-            window.VmFrontendEventsDispatcher.showMsgDialog(msg);
-        }
         //update user in state
         this.updateStateUser({});
 
@@ -130,6 +133,11 @@ var Head = React.createClass({
 
         this.disConnectOnlineStatusWS();
 
+    },
+    showMsg(msg){
+        if (!this.state.isFirstVisitPage) {
+            window.VmFrontendEventsDispatcher.showMsgDialog(msg);
+        }
     },
     whenUserOnline(user){
         this.startPollOnlineUserStatus();

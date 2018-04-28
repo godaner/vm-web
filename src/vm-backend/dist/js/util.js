@@ -32,7 +32,7 @@ function addUrlParam(args) {
         var p = getUrlParam(url, key);
         c(p);
         c(null == p);
-        if (!isUndefined(p) || null == p) {
+        if (isUndefined(p) || null == p) {
             changeUrlParam(url, key, val);
         } else {
             if (url.indexOf("?") > -1) {
