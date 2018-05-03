@@ -3916,6 +3916,7 @@ body, html {
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center; }
   #login_dialog_content #dialog {
+    z-index: 999;
     width: 300px;
     display: inline-block !important;
     display: inline;
