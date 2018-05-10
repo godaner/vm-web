@@ -23,8 +23,8 @@ hs_err_pid*
 *.class
 target
 
-build
+#build
 
 
-.idea
+#.idea
 .sass-cache
